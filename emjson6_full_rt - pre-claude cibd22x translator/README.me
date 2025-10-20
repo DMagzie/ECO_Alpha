@@ -1,0 +1,22 @@
+
+README.md
+# EMJSONv6 <-> CIBD22x Round-Trip (Full)
+
+**Includes:** Geometry, Location, HVAC, DU Types, Window Types, Construction Types, PV, DHW.
+
+## Translate XML → EM v6
+
+
+python translate_xml_cli.py input.xml output.em_v6.json
+
+
+## Write EM v6 → XML
+
+
+python -c "import json; from emjson6_to_cibd22x import write_xml; write_xml(json.load(open('input.em.json')), 'out.xml')"
+
+
+## Round-trip test (EM → XML → EM)
+
+
+python test_roundtrip.py BressiRanchApartments.em.json
