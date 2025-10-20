@@ -1,0 +1,12 @@
+{
+  "project": {
+    "name": "V4 Minimal"
+  },
+  "climate_zone": "CZ01",
+  "zones": [
+    {
+      "name": "Z1",
+      "area": 1000.0
+    }
+  ]
+}

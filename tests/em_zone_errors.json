@@ -1,0 +1,19 @@
+{
+  "project": {
+    "name": "ZoneErrorMix"
+  },
+  "climate_zone": "CZ04",
+  "zones": [
+    {
+      "name": "",
+      "area": 100.0
+    },
+    {
+      "name": "Z2",
+      "area": 0
+    },
+    {
+      "area": 300.0
+    }
+  ]
+}

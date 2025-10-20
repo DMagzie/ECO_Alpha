@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "project_name": "Variant Keys Sample"
+  },
+  "climateZone": "CZ07",
+  "thermal_zones": [
+    {
+      "name": "TZ-01",
+      "area": 800.0
+    },
+    {
+      "name": "TZ-02",
+      "area": 1200.0
+    }
+  ]
+}

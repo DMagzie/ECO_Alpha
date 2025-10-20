@@ -1,0 +1,12 @@
+{
+  "project": {
+    "name": "NumericClimate"
+  },
+  "climate_zone": 3,
+  "zones": [
+    {
+      "name": "Z1",
+      "area": 1000.0
+    }
+  ]
+}

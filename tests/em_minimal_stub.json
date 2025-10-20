@@ -1,0 +1,12 @@
+{
+  "project": {
+    "name": "Stub"
+  },
+  "climate_zone": "CZ01",
+  "zones": [
+    {
+      "name": "Z1",
+      "area": 1.0
+    }
+  ]
+}

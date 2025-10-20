@@ -1,0 +1,22 @@
+# Streamlit for building interactive web applications
+streamlit==1.10.0
+
+# pandas for data manipulation (updated to a version compatible with Python 3.11)
+pandas>=1.4.0
+
+# numpy is a dependency for pandas and required for numerical operations
+numpy>=1.23.0
+
+# xmltodict for working with XML files (helpful for parsing)
+xmltodict==0.12.0
+
+# pytest for testing the functionality
+pytest==7.1.2
+
+# For generating and handling the XML structure
+lxml==4.9.1  # Better support for XML parsing, especially for large files
+
+# Additional dependencies (e.g., for any API calls or networking)
+requests==2.26.0  # If any API calls are required in the future (e.g., for fetching CBECC templates)
+
+altair==4.2.0

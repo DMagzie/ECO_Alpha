@@ -1,0 +1,32 @@
+{
+  "project": {
+    "name": "V4 Typical Small"
+  },
+  "climate_zone": "CZ03",
+  "zones": [
+    {
+      "name": "Office_North",
+      "area": 820.5,
+      "volume": 2461.5,
+      "surfaces": [
+        {
+          "name": "N_Wall",
+          "area": 120.0
+        }
+      ],
+      "system": "IdealLoads"
+    },
+    {
+      "name": "Office_South",
+      "area": 910.2,
+      "volume": 2730.6,
+      "surfaces": [
+        {
+          "name": "S_Wall",
+          "area": 118.0
+        }
+      ],
+      "system": "IdealLoads"
+    }
+  ]
+}

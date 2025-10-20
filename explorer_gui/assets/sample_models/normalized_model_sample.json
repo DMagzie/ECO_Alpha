@@ -1,0 +1,12 @@
+{
+  "project": {
+    "name": "Sample_MF_5Story"
+  },
+  "climate_zone": "CZ01",
+  "zones": [
+    {
+      "name": "Z1",
+      "area": 20000
+    }
+  ]
+}

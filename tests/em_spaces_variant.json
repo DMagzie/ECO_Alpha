@@ -1,0 +1,16 @@
+{
+  "project": {
+    "name": "SpacesVariant"
+  },
+  "climate": "CZ06",
+  "spaces": [
+    {
+      "name": "Space A",
+      "area": 700.0
+    },
+    {
+      "name": "Space B",
+      "area": 900.0
+    }
+  ]
+}
