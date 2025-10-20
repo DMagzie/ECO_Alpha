@@ -1,0 +1,4317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SDDXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RulesetFilename file="T24N_2022.bin"/>
+  <Proj>
+    <Name>Euclid_Building C</Name>
+    <BldgEngyModelVersion>17</BldgEngyModelVersion>
+    <CreateDate>1753741640</CreateDate>
+    <ModDate>1753741640</ModDate>
+    <RunDate>1744970207</RunDate>
+    <GeometryInpType>Simplified</GeometryInpType>
+    <StAddress>2530 South Euclid Avenue</StAddress>
+    <City>Ontario</City>
+    <ZipCode>91762</ZipCode>
+    <DocAuthCompany>VCA Green</DocAuthCompany>
+    <DocAuthAddress>1845 West Orangewood Ave Suite 310</DocAuthAddress>
+    <DocAuthCity>Orange</DocAuthCity>
+    <DocAuthState>CA</DocAuthState>
+    <DocAuthZipCode>92868</DocAuthZipCode>
+    <DocAuthPhone>714-363-4700</DocAuthPhone>
+    <WeatherStation>ONTARIO</WeatherStation>
+    <ExcptCondNoClgSys>No</ExcptCondNoClgSys>
+    <ExcptCondRtdCap>No</ExcptCondRtdCap>
+    <ExcptCondNarrative>No</ExcptCondNarrative>
+    <SolAccessRfArea>0</SolAccessRfArea>
+    <ReducedPVReqExcpt>- select applicable reason for PV reduction -</ReducedPVReqExcpt>
+    <RunTitle>Euclid_Building C</RunTitle>
+    <SoftwareVersion>CBECC 2022.3.2 (1369)</SoftwareVersion>
+    <CompReportPDF>1</CompReportPDF>
+    <CompReportXML>1</CompReportXML>
+    <ResultsCurrentMessage>(not current)</ResultsCurrentMessage>
+    <Bldg>
+      <Name>Building</Name>
+      <BldgAz>270</BldgAz>
+      <ResZnGrp>
+        <Name>L01</Name>
+        <Z>0</Z>
+        <FlrToFlrHgt>9.08333</FlrToFlrHgt>
+        <FlrToCeilingHgt>9.08333</FlrToCeilingHgt>
+        <ResZn>
+          <Name>Res_West Facing_L01</Name>
+          <Type/>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Res_West Facing_L01</Name>
+            <Orientation>Front</Orientation>
+            <Area>16.471</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Res_West Facing_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 2) : Res_West Facing_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 3) : Res_West Facing_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>8.94327</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>195.223</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 1) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+              <Area>20</Area>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 2) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>104.637</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 2) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 3) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>107.301</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 4) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 3) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 5) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 4) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 6) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 5) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 7) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 6) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 8) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 7) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 9) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 8) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 10) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 11) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 9) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 12) : Res_West Facing_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Res_West Facing_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>70.968</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 2) : Res_West Facing_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>152.837</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 1) : Res_West Facing_L01</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 3) : Res_West Facing_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>139.758</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 4) : Res_West Facing_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>8.94327</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 5) : Res_West Facing_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>8.94327</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 6) : Res_West Facing_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Res_West Facing_L01</Name>
+            <Area>5768.88</Area>
+            <Perimeter>3367.89</Perimeter>
+          </ResSlabFlr>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 2</Name>
+            <Area>195.223</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 3</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 4</Name>
+            <Area>195.467</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 5</Name>
+            <Area>46.7488</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 6</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 7</Name>
+            <Area>46.7488</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 8</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 9</Name>
+            <Area>46.7488</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 10</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 11</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 12</Name>
+            <Area>278.785</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 13</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 14</Name>
+            <Area>278.785</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 15</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L01 16</Name>
+            <Area>278.785</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <DwellUnit>
+            <Name>A3_West Facing_L01</Name>
+            <DwellUnitTypeRef>DU_A3</DwellUnitTypeRef>
+            <Count>2</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>A5_West Facing_L01</Name>
+            <DwellUnitTypeRef>DU_A5</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>S1_West Facing_L01</Name>
+            <DwellUnitTypeRef>DU_S1</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+        </ResZn>
+        <ResOtherZn>
+          <Name>Breezeway-1_L01</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>429.88</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Corridor-1_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>42.1624</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-1_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>90.8274</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Corridor-1_L01</Name>
+            <Area>429.88</Area>
+            <Perimeter>362.029</Perimeter>
+          </ResSlabFlr>
+          <ResIntWall>
+            <Name>IntWall : Corridor-1_L01</Name>
+            <Area>137.576</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Breezeway-2_L01</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>429.88</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-2_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>90.8274</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Corridor-2_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>42.1624</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Corridor-2_L01</Name>
+            <Area>429.88</Area>
+            <Perimeter>362.029</Perimeter>
+          </ResSlabFlr>
+          <ResIntWall>
+            <Name>IntWall : Corridor-2_L01</Name>
+            <Area>137.576</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Breezeway-3_L01</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>401.24</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Corridor-3_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>48.4444</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-3_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>90.8304</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Corridor-3_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>42.1624</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Corridor-3_L01</Name>
+            <Area>401.24</Area>
+            <Perimeter>362.031</Perimeter>
+          </ResSlabFlr>
+          <ResIntWall>
+            <Name>IntWall : Corridor-3_L01</Name>
+            <Area>258.926</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Corridor-3_L01 2</Name>
+            <Area>115.053</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Corridor-3_L01 3</Name>
+            <Area>56.1927</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Corridor-3_L01 4</Name>
+            <Area>22.4729</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Electric-Rm__L01</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>234.31</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Electric-Rm__L01</Name>
+            <Orientation>Front</Orientation>
+            <Area>50.3815</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Electric-Rm__L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>63.7025</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Electric-Rm__L01</Name>
+            <Area>234.31</Area>
+            <Perimeter>273.694</Perimeter>
+          </ResSlabFlr>
+          <ResIntWall>
+            <Name>IntWall : Electric-Rm__L01</Name>
+            <Area>315.118</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Electric-Rm__L01 2</Name>
+            <Area>56.1927</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Electric-Rm__L01 3</Name>
+            <Area>13.3747</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Garage 1_L01</Name>
+          <SpcFunc>Parking Garage Area (Parking Zone and Ramps)</SpcFunc>
+          <VentSpcFunc>Exhaust - Parking garages</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>4466.5</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Garage 1_L01</Name>
+            <Orientation>Front</Orientation>
+            <Area>1844.21</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Garage 1_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>199.824</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Garage 1_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>226.955</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Garage 1_L01</Name>
+            <Orientation>Right</Orientation>
+            <Area>199.824</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Garage 1_L01</Name>
+            <Area>4466.5</Area>
+            <Perimeter>1476.58</Perimeter>
+          </ResSlabFlr>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Garage 2_L01</Name>
+          <SpcFunc>Parking Garage Area (Parking Zone and Ramps)</SpcFunc>
+          <VentSpcFunc>Exhaust - Parking garages</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>730.589</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Garage 2_L01</Name>
+            <Orientation>Front</Orientation>
+            <Area>195.223</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Garage 2_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>9.20552</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 2) : Garage 2_L01</Name>
+            <Orientation>Left</Orientation>
+            <Area>305.913</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Garage 2_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>60.5526</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 2) : Garage 2_L01</Name>
+            <Orientation>Back</Orientation>
+            <Area>134.671</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Garage 2_L01</Name>
+            <Area>730.589</Area>
+            <Perimeter>368.664</Perimeter>
+          </ResSlabFlr>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Inverter-Rm_L01</Name>
+          <SpcFunc>Electrical, Mechanical, Telephone Rooms</SpcFunc>
+          <VentSpcFunc>General - Unoccupied</VentSpcFunc>
+          <ozHVACSystem>Inverter-Rm_L01 AirSys</ozHVACSystem>
+          <ozDHWSys>ResidentialDHWSystem 1</ozDHWSys>
+          <Area>24.4146</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>0</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Inverter-Rm_L01</Name>
+            <Orientation>Front</Orientation>
+            <Area>35.8476</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResSlabFlr>
+            <Name>SlabFlr : Inverter-Rm_L01</Name>
+            <Area>24.4146</Area>
+            <Perimeter>66.4887</Perimeter>
+          </ResSlabFlr>
+        </ResOtherZn>
+      </ResZnGrp>
+      <ResZnGrp>
+        <Name>L02</Name>
+        <Z>9.08333</Z>
+        <FlrToFlrHgt>9.08333</FlrToFlrHgt>
+        <FlrToCeilingHgt>9.08333</FlrToCeilingHgt>
+        <ResZn>
+          <Name>Res_West Facing_L02</Name>
+          <Type/>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>9.08333</Bottom>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Res_West Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>16.471</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 2) : Res_West Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>55.9543</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 3) : Res_West Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>60.3112</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 2) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 3) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>8.96115</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 4) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 5) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>9.20552</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 6) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>127.646</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 1) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 3</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 7) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>126.675</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 2) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 8) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>95.676</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 3) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 4</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Left 4) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 9) : Res_West Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>4.35988</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>104.396</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 1) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 2) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>90.8274</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 2) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 3) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 3) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>104.637</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 4) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 4) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>107.301</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 5) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 6) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 5) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 7) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 6) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 8) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 9) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 7) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 10) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 8) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 11) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 12) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 9) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 13) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 10) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 14) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 15) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 11) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>143.873</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 16) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 12) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>124.255</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 17) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 3</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 13) : Res_West Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Res_West Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>70.968</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 2) : Res_West Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>152.837</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 1) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 3) : Res_West Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>139.758</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 2) : Res_West Facing_L02</Name>
+              <WinType>ResidentialWindowType 3</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 4) : Res_West Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>8.96115</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 5) : Res_West Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 6) : Res_West Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>8.96115</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02</Name>
+            <Area>799.388</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 2</Name>
+            <Area>4.5933</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 3</Name>
+            <Area>813.702</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 4</Name>
+            <Area>666.867</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 5</Name>
+            <Area>0.650577</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 6</Name>
+            <Area>0.260072</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 7</Name>
+            <Area>666.867</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 8</Name>
+            <Area>0.787296</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 9</Name>
+            <Area>663.097</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 10</Name>
+            <Area>3.95592</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 11</Name>
+            <Area>225.893</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 12</Name>
+            <Area>674.416</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L02 13</Name>
+            <Area>7.2736</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02</Name>
+            <Area>195.223</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 2</Name>
+            <Area>312.457</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 3</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 4</Name>
+            <Area>195.467</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 5</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 6</Name>
+            <Area>113.84</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 7</Name>
+            <Area>88.8933</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 8</Name>
+            <Area>90.3446</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 9</Name>
+            <Area>222.351</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 10</Name>
+            <Area>9.20552</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 11</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 12</Name>
+            <Area>113.84</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 13</Name>
+            <Area>88.8933</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 14</Name>
+            <Area>90.3446</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 15</Name>
+            <Area>222.351</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 16</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 17</Name>
+            <Area>9.20552</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 18</Name>
+            <Area>113.84</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 19</Name>
+            <Area>88.8933</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 20</Name>
+            <Area>90.3446</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 21</Name>
+            <Area>222.351</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 22</Name>
+            <Area>9.20552</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 23</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 24</Name>
+            <Area>203.004</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L02 25</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <DwellUnit>
+            <Name>A3_West Facing_L02</Name>
+            <DwellUnitTypeRef>DU_A3</DwellUnitTypeRef>
+            <Count>2</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>A5_West Facing_L02</Name>
+            <DwellUnitTypeRef>DU_A5</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>A6_West Facing_L02</Name>
+            <DwellUnitTypeRef>DU_A6</DwellUnitTypeRef>
+          </DwellUnit>
+        </ResZn>
+        <ResZn>
+          <Name>Res_East Facing_L02</Name>
+          <Type/>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>9.08333</Bottom>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>106.336</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 1) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 2) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>226.472</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 2) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 3) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 3) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>71.2034</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 4) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 5) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 4) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 6) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 3</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 5) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 7) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 6) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>225.039</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 8) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 9) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 7) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.026</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 10) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 8) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>70.9472</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 11) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 12) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 9) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>107.322</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 13) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 10) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>217.267</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 14) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 15) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 11) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>71.6713</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 16) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 17) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 12) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 18) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 13) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 19) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 14) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 20) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 15) : Res_East Facing_L02</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 21) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Res_East Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>214.841</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 1) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Left 2) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 2) : Res_East Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 3) : Res_East Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>15.3266</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 4) : Res_East Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 5) : Res_East Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>67.3353</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 6) : Res_East Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 7) : Res_East Facing_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>52.0414</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 3) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Res_East Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 1) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 2) : Res_East Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>9.20254</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 3) : Res_East Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 2) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 4) : Res_East Facing_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 3) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>15.3266</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 2) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 3) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 4) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>52.0414</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 1) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 5) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>214.841</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 2) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Right 3) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 6) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 7) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>15.3266</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 8) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 9) : Res_East Facing_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>52.0414</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 4) : Res_East Facing_L02</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02</Name>
+            <Area>944.402</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 2</Name>
+            <Area>3.26869</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 3</Name>
+            <Area>1.30678</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 4</Name>
+            <Area>24.5757</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 5</Name>
+            <Area>455.901</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 6</Name>
+            <Area>691.819</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 7</Name>
+            <Area>925.157</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 8</Name>
+            <Area>928.355</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 9</Name>
+            <Area>23.6535</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 10</Name>
+            <Area>455.901</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 11</Name>
+            <Area>696.253</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 12</Name>
+            <Area>1.06366</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 13</Name>
+            <Area>0.650525</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 14</Name>
+            <Area>0.260072</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 15</Name>
+            <Area>23.9597</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 16</Name>
+            <Area>455.901</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L02 17</Name>
+            <Area>696.1</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L02</Name>
+            <Area>101.457</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L02 2</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L02 3</Name>
+            <Area>99.7915</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L02 4</Name>
+            <Area>101.487</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L02 5</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L02 6</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <DwellUnit>
+            <Name>B5_East Facing_L02</Name>
+            <DwellUnitTypeRef>DU_B5</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>B6_East Facing_L02</Name>
+            <DwellUnitTypeRef>DU_B6</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+        </ResZn>
+        <ResOtherZn>
+          <Name>Breezeway-1_L02</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>405</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>9.08333</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Corridor-1_L02</Name>
+            <Orientation>Left</Orientation>
+            <Area>42.1445</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-1_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>90.586</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-1_L02</Name>
+            <Area>405</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Breezeway-2_L02</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>412.349</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>9.08333</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-2_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>92.2817</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Corridor-2_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>42.1445</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-2_L02</Name>
+            <Area>5.34458</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-2_L02 2</Name>
+            <Area>0.787296</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-2_L02 3</Name>
+            <Area>406.217</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Breezeway-3_L02</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>397.638</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>9.08333</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-3_L02</Name>
+            <Orientation>Back</Orientation>
+            <Area>92.2846</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Corridor-3_L02</Name>
+            <Orientation>Right</Orientation>
+            <Area>42.1445</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-3_L02</Name>
+            <Area>372.079</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-3_L02 2</Name>
+            <Area>8.41778</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-3_L02 3</Name>
+            <Area>17.141</Area>
+            <FloorZ>9.08333</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+        </ResOtherZn>
+      </ResZnGrp>
+      <ResZnGrp>
+        <Name>L03</Name>
+        <Z>18.1667</Z>
+        <FlrToFlrHgt>9.08333</FlrToFlrHgt>
+        <FlrToCeilingHgt>9.08333</FlrToCeilingHgt>
+        <ResZn>
+          <Name>Res_West Facing_L03</Name>
+          <Type/>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>18.1667</Bottom>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Res_West Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>16.471</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 2) : Res_West Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>55.9543</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 3) : Res_West Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>60.3112</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 2) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 3) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 4) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>8.96115</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 5) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>9.20552</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 6) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>127.646</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 1) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 7) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>126.675</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 2) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 8) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>95.676</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 3) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Left 4) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 9) : Res_West Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>4.35988</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>104.396</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 1) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 2) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>90.8274</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 2) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 3) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 3) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>104.637</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 4) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 4) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>107.301</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 5) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 6) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 5) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 7) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 6) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 8) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 9) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 7) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 10) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 8) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 11) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 12) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 9) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>111.658</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 13) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 10) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>101.732</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 14) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Back 15) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 11) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>143.873</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 16) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 12) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>124.255</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 17) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 13) : Res_West Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Res_West Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>70.968</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 2) : Res_West Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>152.837</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 1) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 3) : Res_West Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>139.758</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 2) : Res_West Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 4) : Res_West Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>8.96115</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 5) : Res_West Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>8.96115</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 6) : Res_West Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L03</Name>
+            <Area>803.982</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L03 2</Name>
+            <Area>813.702</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L03 3</Name>
+            <Area>667.804</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L03 4</Name>
+            <Area>667.804</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L03 5</Name>
+            <Area>667.804</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_West Facing_L03 6</Name>
+            <Area>1080.85</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03</Name>
+            <Area>195.223</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 2</Name>
+            <Area>312.457</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 3</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 4</Name>
+            <Area>195.467</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 5</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 6</Name>
+            <Area>113.84</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 7</Name>
+            <Area>88.8933</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 8</Name>
+            <Area>90.3446</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 9</Name>
+            <Area>222.351</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 10</Name>
+            <Area>9.20552</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 11</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 12</Name>
+            <Area>113.84</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 13</Name>
+            <Area>88.8933</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 14</Name>
+            <Area>90.3446</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 15</Name>
+            <Area>222.351</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 16</Name>
+            <Area>9.20552</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 17</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 18</Name>
+            <Area>113.84</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 19</Name>
+            <Area>88.8933</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 20</Name>
+            <Area>90.3446</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 21</Name>
+            <Area>222.351</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 22</Name>
+            <Area>269.1</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 23</Name>
+            <Area>9.20552</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 24</Name>
+            <Area>203.004</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_West Facing_L03 25</Name>
+            <Area>363.563</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <DwellUnit>
+            <Name>A3_West Facing_L03</Name>
+            <DwellUnitTypeRef>DU_A3</DwellUnitTypeRef>
+            <Count>2</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>A5_West Facing_L03</Name>
+            <DwellUnitTypeRef>DU_A5</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>A6_West Facing_L03</Name>
+            <DwellUnitTypeRef>DU_A6</DwellUnitTypeRef>
+          </DwellUnit>
+          <ResCeilingBelowAttic>
+            <Name>ResidentialCeilingBelowAttic 1</Name>
+            <Area>4805</Area>
+            <Construction>Ceiling Below Attic Cons</Construction>
+          </ResCeilingBelowAttic>
+        </ResZn>
+        <ResZn>
+          <Name>Res_East Facing_L03</Name>
+          <Type/>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>18.1667</Bottom>
+          <ResExtWall>
+            <Name>ExtWall (Front 1) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>106.336</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 1) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 2) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>226.472</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 2) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 3) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 3) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>71.2034</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 4) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 7</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 5) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 7</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 4) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>106.336</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 6) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 7</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 5) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>226.472</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 7) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 8) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 6) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>71.2034</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 9) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 10) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 7) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>107.322</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 11) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 8) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>217.267</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 12) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 13) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 7</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 9) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>71.6713</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 14) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Front 15) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 10) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 16) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 11) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 17) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 12) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 18) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 13) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 19) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 7</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 14) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 20) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Front 15) : Res_East Facing_L03</Name>
+            <Orientation>Front</Orientation>
+            <Area>108.389</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Front 21) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Res_East Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>214.841</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 1) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Left 2) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 5</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 2) : Res_East Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 3) : Res_East Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>15.3266</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 4) : Res_East Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 5) : Res_East Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>67.3353</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 6) : Res_East Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Left 7) : Res_East Facing_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>52.0414</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Left 3) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Res_East Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>9.20254</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 2) : Res_East Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 1) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 3</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 3) : Res_East Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 2) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 4) : Res_East Facing_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>112.144</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Back 3) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>15.3266</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 2) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 3) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>214.841</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 1) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 7</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+            <ResWin>
+              <Name>Window (Right 2) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 1</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 4) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 5) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>15.3266</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 6) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1086</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 7) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>51.1057</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 8) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>52.0414</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 3) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 9) : Res_East Facing_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>52.0414</Area>
+            <Construction>Ext Wall Cons</Construction>
+            <ResWin>
+              <Name>Window (Right 4) : Res_East Facing_L03</Name>
+              <WinType>ResidentialWindowType 2</WinType>
+              <SpecMethod>Overall Window Area</SpecMethod>
+            </ResWin>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L03</Name>
+            <Area>1007.91</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L03 2</Name>
+            <Area>1007.02</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L03 3</Name>
+            <Area>987.432</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L03 4</Name>
+            <Area>1176.87</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L03 5</Name>
+            <Area>1176.87</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntFlr>
+            <Name>IntFloor : Res_East Facing_L03 6</Name>
+            <Area>1176.87</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L03</Name>
+            <Area>101.457</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L03 2</Name>
+            <Area>99.7915</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L03 3</Name>
+            <Area>101.487</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L03 4</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L03 5</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <ResIntWall>
+            <Name>IntWall : Res_East Facing_L03 6</Name>
+            <Area>52.3186</Area>
+            <Construction>Interior Wall Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntWall>
+          <DwellUnit>
+            <Name>B5_East Facing_L03</Name>
+            <DwellUnitTypeRef>DU_B5</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+          <DwellUnit>
+            <Name>B6_East Facing_L03</Name>
+            <DwellUnitTypeRef>DU_B6</DwellUnitTypeRef>
+            <Count>3</Count>
+          </DwellUnit>
+          <ResCeilingBelowAttic>
+            <Name>ResidentialCeilingBelowAttic 2</Name>
+            <Area>6493</Area>
+            <Construction>Ceiling Below Attic Cons</Construction>
+          </ResCeilingBelowAttic>
+        </ResZn>
+        <ResOtherZn>
+          <Name>Breezeway-1_L03</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>405</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>18.1667</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Left 1) : Corridor-1_L03</Name>
+            <Orientation>Left</Orientation>
+            <Area>42.1445</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-1_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>90.586</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-1_L03</Name>
+            <Area>405</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResCeilingBelowAttic>
+            <Name>ResidentialCeilingBelowAttic 3</Name>
+            <Area>405</Area>
+            <Construction>Ceiling Below Attic Cons</Construction>
+          </ResCeilingBelowAttic>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Breezeway-2_L03</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>412.472</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>18.1667</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-2_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>92.2817</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Corridor-2_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>42.1445</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-2_L03</Name>
+            <Area>412.472</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResCeilingBelowAttic>
+            <Name>ResidentialCeilingBelowAttic 4</Name>
+            <Area>412</Area>
+            <Construction>Ceiling Below Attic Cons</Construction>
+          </ResCeilingBelowAttic>
+        </ResOtherZn>
+        <ResOtherZn>
+          <Name>Breezeway-3_L03</Name>
+          <Type>Unconditioned</Type>
+          <SpcFunc>Unoccupied-Include in Gross Floor Area</SpcFunc>
+          <VentSpcFunc>NA</VentSpcFunc>
+          <ozDHWSys>- none -</ozDHWSys>
+          <Area>412.413</Area>
+          <CeilingHeight>9.08333</CeilingHeight>
+          <FloorHeight>9.08333</FloorHeight>
+          <Bottom>18.1667</Bottom>
+          <BattReq_PartOfLargeTenantArea>0</BattReq_PartOfLargeTenantArea>
+          <IAQOption>Individual IAQ Fans</IAQOption>
+          <IAQFanRef index="0">- none -</IAQFanRef>
+          <ResExtWall>
+            <Name>ExtWall (Back 1) : Corridor-3_L03</Name>
+            <Orientation>Back</Orientation>
+            <Area>92.2846</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResExtWall>
+            <Name>ExtWall (Right 1) : Corridor-3_L03</Name>
+            <Orientation>Right</Orientation>
+            <Area>42.1445</Area>
+            <Construction>Ext Wall Cons</Construction>
+          </ResExtWall>
+          <ResIntFlr>
+            <Name>IntFloor : Corridor-3_L03</Name>
+            <Area>412.413</Area>
+            <FloorZ>18.1667</FloorZ>
+            <Construction>Interior Floor Cons</Construction>
+            <IsPartySurface>1</IsPartySurface>
+            <Outside>- none -</Outside>
+          </ResIntFlr>
+          <ResCeilingBelowAttic>
+            <Name>ResidentialCeilingBelowAttic 5</Name>
+            <Area>412</Area>
+            <Construction>Ceiling Below Attic Cons</Construction>
+          </ResCeilingBelowAttic>
+        </ResOtherZn>
+        <ResAttic>
+          <Name>ResidentialAttic</Name>
+          <FloorArea>11298</FloorArea>
+          <RoofRise>0.5</RoofRise>
+          <RoofSolReflect>0.65</RoofSolReflect>
+        </ResAttic>
+      </ResZnGrp>
+      <AirSys>
+        <Name>Inverter-Rm_L01 AirSys</Name>
+        <Type>SZHP</Type>
+        <CtrlZnRef>Inverter-Rm_L01</CtrlZnRef>
+        <OptStart>0</OptStart>
+        <DuctLctn>Ductless</DuctLctn>
+        <AirSeg>
+          <Name>Inverter-Rm_L01 SupAirSeg</Name>
+          <Type>Supply</Type>
+          <CoilClg>
+            <Name>Inverter-Rm_L01 ClgCoil</Name>
+            <Type>DirectExpansion</Type>
+            <CapTotNetRtd>18000</CapTotNetRtd>
+            <DXSEER>21.5</DXSEER>
+          </CoilClg>
+          <CoilHtg>
+            <Name>Inverter-Rm_L01 HtgCoil</Name>
+            <Type>HeatPump</Type>
+            <CapTotNetRtd>18000</CapTotNetRtd>
+            <HtPumpHSPF>13</HtPumpHSPF>
+          </CoilHtg>
+          <Fan>
+            <Name>Inverter-Rm_L01 SupFan</Name>
+            <ModelingMthd>StaticPressure</ModelingMthd>
+            <FlowCap>635</FlowCap>
+            <TotStaticPress>0.1</TotStaticPress>
+            <MtrHP>0.5</MtrHP>
+            <MtrEff>0.9</MtrEff>
+          </Fan>
+        </AirSeg>
+        <AirSeg>
+          <Name>Inverter-Rm_L01 RetAirSeg</Name>
+          <Type>Return</Type>
+        </AirSeg>
+        <TrmlUnit>
+          <Name>Inverter-Rm_L01 TrmlUnit</Name>
+          <Type>Uncontrolled</Type>
+          <ZnServedRef>Inverter-Rm_L01</ZnServedRef>
+        </TrmlUnit>
+        <OACtrl>
+          <Name>Inverter-Rm_L01 OACtrl</Name>
+          <EconoCtrlMthd>NoEconomizer</EconoCtrlMthd>
+          <AirSegSupRef>Inverter-Rm_L01 SupAirSeg</AirSegSupRef>
+          <AirSegRetRef>Inverter-Rm_L01 RetAirSeg</AirSegRetRef>
+        </OACtrl>
+      </AirSys>
+    </Bldg>
+    <ResProj>
+      <Name>Euclid_Building C (res)</Name>
+      <IntSurfModelMthd>latest (remove user surfaces)</IntSurfModelMthd>
+      <StdDesignFuel_Ckg>Proposed</StdDesignFuel_Ckg>
+      <StdDesignFuel_Dry>Proposed</StdDesignFuel_Dry>
+      <StdDesignFuel_HVAC>Electricity</StdDesignFuel_HVAC>
+      <StdDesignFuel_DHW>Proposed</StdDesignFuel_DHW>
+      <StdDesignCompactDistrib>0</StdDesignCompactDistrib>
+      <StdDesignDrnWtrHtRecov>0</StdDesignDrnWtrHtRecov>
+      <StdDesignHPWHLocOverride>0</StdDesignHPWHLocOverride>
+      <StdDesignWinPerfAdjust>0</StdDesignWinPerfAdjust>
+      <StdDesignIAQFanPwr>0.35</StdDesignIAQFanPwr>
+    </ResProj>
+    <SchDay>
+      <Name>CARes2013 InsLighting Hrly</Name>
+      <Type>Fraction</Type>
+      <Hr index="0">0.023</Hr>
+      <Hr index="1">0.019</Hr>
+      <Hr index="2">0.015</Hr>
+      <Hr index="3">0.017</Hr>
+      <Hr index="4">0.021</Hr>
+      <Hr index="5">0.031</Hr>
+      <Hr index="6">0.042</Hr>
+      <Hr index="7">0.041</Hr>
+      <Hr index="8">0.034</Hr>
+      <Hr index="9">0.029</Hr>
+      <Hr index="10">0.027</Hr>
+      <Hr index="11">0.025</Hr>
+      <Hr index="12">0.021</Hr>
+      <Hr index="13">0.021</Hr>
+      <Hr index="14">0.021</Hr>
+      <Hr index="15">0.026</Hr>
+      <Hr index="16">0.031</Hr>
+      <Hr index="17">0.044</Hr>
+      <Hr index="18">0.084</Hr>
+      <Hr index="19">0.118</Hr>
+      <Hr index="20">0.113</Hr>
+      <Hr index="21">0.096</Hr>
+      <Hr index="22">0.063</Hr>
+      <Hr index="23">0.038</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 Occupancy Hrly</Name>
+      <Type>Fraction</Type>
+      <Hr index="0">0.035</Hr>
+      <Hr index="1">0.035</Hr>
+      <Hr index="2">0.035</Hr>
+      <Hr index="3">0.035</Hr>
+      <Hr index="4">0.035</Hr>
+      <Hr index="5">0.059</Hr>
+      <Hr index="6">0.082</Hr>
+      <Hr index="7">0.055</Hr>
+      <Hr index="8">0.027</Hr>
+      <Hr index="9">0.014</Hr>
+      <Hr index="10">0.014</Hr>
+      <Hr index="11">0.014</Hr>
+      <Hr index="12">0.014</Hr>
+      <Hr index="13">0.014</Hr>
+      <Hr index="14">0.019</Hr>
+      <Hr index="15">0.027</Hr>
+      <Hr index="16">0.041</Hr>
+      <Hr index="17">0.055</Hr>
+      <Hr index="18">0.068</Hr>
+      <Hr index="19">0.082</Hr>
+      <Hr index="20">0.082</Hr>
+      <Hr index="21">0.07</Hr>
+      <Hr index="22">0.053</Hr>
+      <Hr index="23">0.035</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 Equipment Hrly</Name>
+      <Type>Fraction</Type>
+      <Hr index="0">0.037</Hr>
+      <Hr index="1">0.035</Hr>
+      <Hr index="2">0.034</Hr>
+      <Hr index="3">0.034</Hr>
+      <Hr index="4">0.032</Hr>
+      <Hr index="5">0.036</Hr>
+      <Hr index="6">0.042</Hr>
+      <Hr index="7">0.044</Hr>
+      <Hr index="8">0.037</Hr>
+      <Hr index="9">0.032</Hr>
+      <Hr index="10">0.033</Hr>
+      <Hr index="11">0.033</Hr>
+      <Hr index="12">0.032</Hr>
+      <Hr index="13">0.033</Hr>
+      <Hr index="14">0.035</Hr>
+      <Hr index="15">0.037</Hr>
+      <Hr index="16">0.044</Hr>
+      <Hr index="17">0.053</Hr>
+      <Hr index="18">0.058</Hr>
+      <Hr index="19">0.06</Hr>
+      <Hr index="20">0.062</Hr>
+      <Hr index="21">0.06</Hr>
+      <Hr index="22">0.052</Hr>
+      <Hr index="23">0.045</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 ExtLighting Hrly</Name>
+      <Type>Fraction</Type>
+      <Hr index="0">0</Hr>
+      <Hr index="1">0</Hr>
+      <Hr index="2">0</Hr>
+      <Hr index="3">0</Hr>
+      <Hr index="4">0</Hr>
+      <Hr index="5">0</Hr>
+      <Hr index="6">0</Hr>
+      <Hr index="7">0</Hr>
+      <Hr index="8">0</Hr>
+      <Hr index="9">0</Hr>
+      <Hr index="10">0</Hr>
+      <Hr index="11">0</Hr>
+      <Hr index="12">0</Hr>
+      <Hr index="13">0</Hr>
+      <Hr index="14">0</Hr>
+      <Hr index="15">0</Hr>
+      <Hr index="16">0</Hr>
+      <Hr index="17">0</Hr>
+      <Hr index="18">0</Hr>
+      <Hr index="19">0</Hr>
+      <Hr index="20">0.25</Hr>
+      <Hr index="21">0.25</Hr>
+      <Hr index="22">0.25</Hr>
+      <Hr index="23">0.25</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 SZ Heat Hrly</Name>
+      <Type>Temperature</Type>
+      <Hr index="0">65</Hr>
+      <Hr index="1">65</Hr>
+      <Hr index="2">65</Hr>
+      <Hr index="3">65</Hr>
+      <Hr index="4">65</Hr>
+      <Hr index="5">65</Hr>
+      <Hr index="6">66.5</Hr>
+      <Hr index="7">68</Hr>
+      <Hr index="8">68</Hr>
+      <Hr index="9">68</Hr>
+      <Hr index="10">68</Hr>
+      <Hr index="11">68</Hr>
+      <Hr index="12">68</Hr>
+      <Hr index="13">68</Hr>
+      <Hr index="14">68</Hr>
+      <Hr index="15">68</Hr>
+      <Hr index="16">68</Hr>
+      <Hr index="17">68</Hr>
+      <Hr index="18">68</Hr>
+      <Hr index="19">68</Hr>
+      <Hr index="20">68</Hr>
+      <Hr index="21">68</Hr>
+      <Hr index="22">68</Hr>
+      <Hr index="23">65</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 Liv Heat Hrly</Name>
+      <Type>Temperature</Type>
+      <Hr index="0">65</Hr>
+      <Hr index="1">65</Hr>
+      <Hr index="2">65</Hr>
+      <Hr index="3">65</Hr>
+      <Hr index="4">65</Hr>
+      <Hr index="5">65</Hr>
+      <Hr index="6">66.5</Hr>
+      <Hr index="7">68</Hr>
+      <Hr index="8">68</Hr>
+      <Hr index="9">68</Hr>
+      <Hr index="10">68</Hr>
+      <Hr index="11">68</Hr>
+      <Hr index="12">68</Hr>
+      <Hr index="13">68</Hr>
+      <Hr index="14">68</Hr>
+      <Hr index="15">68</Hr>
+      <Hr index="16">68</Hr>
+      <Hr index="17">68</Hr>
+      <Hr index="18">68</Hr>
+      <Hr index="19">68</Hr>
+      <Hr index="20">68</Hr>
+      <Hr index="21">68</Hr>
+      <Hr index="22">68</Hr>
+      <Hr index="23">65</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 Slp Heat Hrly</Name>
+      <Type>Temperature</Type>
+      <Hr index="0">65</Hr>
+      <Hr index="1">65</Hr>
+      <Hr index="2">65</Hr>
+      <Hr index="3">65</Hr>
+      <Hr index="4">65</Hr>
+      <Hr index="5">65</Hr>
+      <Hr index="6">66.5</Hr>
+      <Hr index="7">68</Hr>
+      <Hr index="8">68</Hr>
+      <Hr index="9">65</Hr>
+      <Hr index="10">65</Hr>
+      <Hr index="11">65</Hr>
+      <Hr index="12">65</Hr>
+      <Hr index="13">65</Hr>
+      <Hr index="14">65</Hr>
+      <Hr index="15">65</Hr>
+      <Hr index="16">68</Hr>
+      <Hr index="17">68</Hr>
+      <Hr index="18">68</Hr>
+      <Hr index="19">68</Hr>
+      <Hr index="20">68</Hr>
+      <Hr index="21">68</Hr>
+      <Hr index="22">68</Hr>
+      <Hr index="23">65</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 SZ Cool Hrly</Name>
+      <Type>Temperature</Type>
+      <Hr index="0">78</Hr>
+      <Hr index="1">78</Hr>
+      <Hr index="2">78</Hr>
+      <Hr index="3">78</Hr>
+      <Hr index="4">78</Hr>
+      <Hr index="5">78</Hr>
+      <Hr index="6">78</Hr>
+      <Hr index="7">83</Hr>
+      <Hr index="8">83</Hr>
+      <Hr index="9">83</Hr>
+      <Hr index="10">83</Hr>
+      <Hr index="11">83</Hr>
+      <Hr index="12">83</Hr>
+      <Hr index="13">82</Hr>
+      <Hr index="14">81</Hr>
+      <Hr index="15">80</Hr>
+      <Hr index="16">79</Hr>
+      <Hr index="17">78</Hr>
+      <Hr index="18">78</Hr>
+      <Hr index="19">78</Hr>
+      <Hr index="20">78</Hr>
+      <Hr index="21">78</Hr>
+      <Hr index="22">78</Hr>
+      <Hr index="23">78</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 Liv Cool Hrly</Name>
+      <Type>Temperature</Type>
+      <Hr index="0">78</Hr>
+      <Hr index="1">78</Hr>
+      <Hr index="2">78</Hr>
+      <Hr index="3">78</Hr>
+      <Hr index="4">78</Hr>
+      <Hr index="5">78</Hr>
+      <Hr index="6">78</Hr>
+      <Hr index="7">83</Hr>
+      <Hr index="8">83</Hr>
+      <Hr index="9">83</Hr>
+      <Hr index="10">83</Hr>
+      <Hr index="11">83</Hr>
+      <Hr index="12">83</Hr>
+      <Hr index="13">82</Hr>
+      <Hr index="14">81</Hr>
+      <Hr index="15">80</Hr>
+      <Hr index="16">79</Hr>
+      <Hr index="17">78</Hr>
+      <Hr index="18">78</Hr>
+      <Hr index="19">78</Hr>
+      <Hr index="20">78</Hr>
+      <Hr index="21">78</Hr>
+      <Hr index="22">78</Hr>
+      <Hr index="23">78</Hr>
+    </SchDay>
+    <SchDay>
+      <Name>CARes2013 Slp Cool Hrly</Name>
+      <Type>Temperature</Type>
+      <Hr index="0">78</Hr>
+      <Hr index="1">78</Hr>
+      <Hr index="2">78</Hr>
+      <Hr index="3">78</Hr>
+      <Hr index="4">78</Hr>
+      <Hr index="5">78</Hr>
+      <Hr index="6">78</Hr>
+      <Hr index="7">83</Hr>
+      <Hr index="8">83</Hr>
+      <Hr index="9">83</Hr>
+      <Hr index="10">83</Hr>
+      <Hr index="11">83</Hr>
+      <Hr index="12">83</Hr>
+      <Hr index="13">82</Hr>
+      <Hr index="14">81</Hr>
+      <Hr index="15">80</Hr>
+      <Hr index="16">79</Hr>
+      <Hr index="17">78</Hr>
+      <Hr index="18">78</Hr>
+      <Hr index="19">78</Hr>
+      <Hr index="20">78</Hr>
+      <Hr index="21">78</Hr>
+      <Hr index="22">78</Hr>
+      <Hr index="23">78</Hr>
+    </SchDay>
+    <PVArray>
+      <Name>PhotovoltaicArray 1</Name>
+      <DCSysSize>77.6</DCSysSize>
+      <ModuleType>Premium</ModuleType>
+      <CalFlexibleInstallOpt>CFI1</CalFlexibleInstallOpt>
+      <PwrElec>- none -</PwrElec>
+    </PVArray>
+    <EUseSummary>
+      <Name>Pol 15% RetAdd CH4Leak 20yr</Name>
+      <Title1 index="1">Proposed</Title1>
+      <Title1 index="2">Proposed</Title1>
+      <Title1 index="3">Proposed</Title1>
+      <Title1 index="4">Standard</Title1>
+      <Title1 index="5">Standard</Title1>
+      <Title1 index="6">Standard</Title1>
+      <Title1 index="7">Compliance</Title1>
+      <Title1 index="10">Proposed</Title1>
+      <Title1 index="11">Standard</Title1>
+      <Title1 index="12">Compliance</Title1>
+      <Title1 index="16">Prop Design</Title1>
+      <Title1 index="17">Prop Design</Title1>
+      <Title1 index="18">Prop Design</Title1>
+      <Title1 index="19">Std Design</Title1>
+      <Title1 index="20">Std Design</Title1>
+      <Title1 index="21">Std Design</Title1>
+      <Title1 index="22">CO2</Title1>
+      <Title2 index="1">Design</Title2>
+      <Title2 index="2">Design</Title2>
+      <Title2 index="3">Design TDV</Title2>
+      <Title2 index="4">Design</Title2>
+      <Title2 index="5">Design</Title2>
+      <Title2 index="6">Design TDV</Title2>
+      <Title2 index="7">TDV Margin</Title2>
+      <Title2 index="10">Source Energy</Title2>
+      <Title2 index="11">Source Energy</Title2>
+      <Title2 index="12">Src Margin</Title2>
+      <Title2 index="16">Electric CO2</Title2>
+      <Title2 index="17">Fuel CO2</Title2>
+      <Title2 index="18">Total CO2</Title2>
+      <Title2 index="19">Electric CO2</Title2>
+      <Title2 index="20">Fuel CO2</Title2>
+      <Title2 index="21">Total CO2</Title2>
+      <Title2 index="22">Emissions</Title2>
+      <Title3 index="0">End Use</Title3>
+      <Title3 index="1">Site (MWh)</Title3>
+      <Title3 index="2">Site (MBtu)</Title3>
+      <Title3 index="3">(kBtu/ft²-yr)</Title3>
+      <Title3 index="4">Site (MWh)</Title3>
+      <Title3 index="5">Site (MBtu)</Title3>
+      <Title3 index="6">(kBtu/ft²-yr)</Title3>
+      <Title3 index="7">(kBtu/ft²-yr)</Title3>
+      <Title3 index="10">(kBtu/ft²-yr)</Title3>
+      <Title3 index="11">(kBtu/ft²-yr)</Title3>
+      <Title3 index="12">(kBtu/ft²-yr)</Title3>
+      <Title3 index="16">Emis. (tonne)</Title3>
+      <Title3 index="17">Emis. (tonne)</Title3>
+      <Title3 index="18">Emis. (tonne)</Title3>
+      <Title3 index="19">Emis. (tonne)</Title3>
+      <Title3 index="20">Emis. (tonne)</Title3>
+      <Title3 index="21">Emis. (tonne)</Title3>
+      <Title3 index="22">Margin (tonne)</Title3>
+      <Enduse1 index="0">Space Heating</Enduse1>
+      <Enduse1 index="1">2.0</Enduse1>
+      <Enduse1 index="2">--</Enduse1>
+      <Enduse1 index="3">2.07</Enduse1>
+      <Enduse1 index="4">0.7</Enduse1>
+      <Enduse1 index="5">--</Enduse1>
+      <Enduse1 index="6">0.71</Enduse1>
+      <Enduse1 index="7">-1.36</Enduse1>
+      <Enduse1 index="8">0.7</Enduse1>
+      <Enduse1 index="9">0.2</Enduse1>
+      <Enduse1 index="10">0.29</Enduse1>
+      <Enduse1 index="11">0.10</Enduse1>
+      <Enduse1 index="12">-0.19</Enduse1>
+      <Enduse1 index="16">0.50</Enduse1>
+      <Enduse1 index="18">0.50</Enduse1>
+      <Enduse1 index="19">0.18</Enduse1>
+      <Enduse1 index="21">0.18</Enduse1>
+      <Enduse1 index="22">-0.32</Enduse1>
+      <Enduse2 index="0">Space Cooling</Enduse2>
+      <Enduse2 index="1">15.5</Enduse2>
+      <Enduse2 index="2">--</Enduse2>
+      <Enduse2 index="3">23.35</Enduse2>
+      <Enduse2 index="4">19.0</Enduse2>
+      <Enduse2 index="5">--</Enduse2>
+      <Enduse2 index="6">26.09</Enduse2>
+      <Enduse2 index="7">2.74</Enduse2>
+      <Enduse2 index="8">1.5</Enduse2>
+      <Enduse2 index="9">1.6</Enduse2>
+      <Enduse2 index="10">1.04</Enduse2>
+      <Enduse2 index="11">1.22</Enduse2>
+      <Enduse2 index="12">0.18</Enduse2>
+      <Enduse2 index="16">1.78</Enduse2>
+      <Enduse2 index="18">1.78</Enduse2>
+      <Enduse2 index="19">2.09</Enduse2>
+      <Enduse2 index="21">2.09</Enduse2>
+      <Enduse2 index="22">0.31</Enduse2>
+      <Enduse3 index="0">Indoor Fans</Enduse3>
+      <Enduse3 index="1">7.1</Enduse3>
+      <Enduse3 index="2">--</Enduse3>
+      <Enduse3 index="3">8.59</Enduse3>
+      <Enduse3 index="4">9.9</Enduse3>
+      <Enduse3 index="5">--</Enduse3>
+      <Enduse3 index="6">10.96</Enduse3>
+      <Enduse3 index="7">2.37</Enduse3>
+      <Enduse3 index="8">0.8</Enduse3>
+      <Enduse3 index="9">1.0</Enduse3>
+      <Enduse3 index="10">0.59</Enduse3>
+      <Enduse3 index="11">0.80</Enduse3>
+      <Enduse3 index="12">0.21</Enduse3>
+      <Enduse3 index="16">1.01</Enduse3>
+      <Enduse3 index="18">1.01</Enduse3>
+      <Enduse3 index="19">1.37</Enduse3>
+      <Enduse3 index="21">1.37</Enduse3>
+      <Enduse3 index="22">0.36</Enduse3>
+      <Enduse4 index="0">Heat Rejection</Enduse4>
+      <Enduse4 index="1">--</Enduse4>
+      <Enduse4 index="2">--</Enduse4>
+      <Enduse4 index="3">--</Enduse4>
+      <Enduse4 index="4">--</Enduse4>
+      <Enduse4 index="5">--</Enduse4>
+      <Enduse4 index="6">--</Enduse4>
+      <Enduse4 index="7">--</Enduse4>
+      <Enduse4 index="8">--</Enduse4>
+      <Enduse4 index="9">--</Enduse4>
+      <Enduse4 index="10">--</Enduse4>
+      <Enduse4 index="11">--</Enduse4>
+      <Enduse4 index="12">--</Enduse4>
+      <Enduse4 index="22">0.00</Enduse4>
+      <Enduse5 index="0">Pumps &amp; Misc.</Enduse5>
+      <Enduse5 index="1">0.3</Enduse5>
+      <Enduse5 index="2">--</Enduse5>
+      <Enduse5 index="3">0.28</Enduse5>
+      <Enduse5 index="4">0.3</Enduse5>
+      <Enduse5 index="5">--</Enduse5>
+      <Enduse5 index="6">0.29</Enduse5>
+      <Enduse5 index="7">0.01</Enduse5>
+      <Enduse5 index="8">0.1</Enduse5>
+      <Enduse5 index="9">0.1</Enduse5>
+      <Enduse5 index="10">0.04</Enduse5>
+      <Enduse5 index="11">0.04</Enduse5>
+      <Enduse5 index="12">--</Enduse5>
+      <Enduse5 index="16">0.07</Enduse5>
+      <Enduse5 index="18">0.07</Enduse5>
+      <Enduse5 index="19">0.07</Enduse5>
+      <Enduse5 index="21">0.07</Enduse5>
+      <Enduse5 index="22">0.00</Enduse5>
+      <Enduse6 index="0">Domestic Hot Water</Enduse6>
+      <Enduse6 index="1">0.5</Enduse6>
+      <Enduse6 index="2">281.1</Enduse6>
+      <Enduse6 index="3">36.24</Enduse6>
+      <Enduse6 index="4">0.7</Enduse6>
+      <Enduse6 index="5">264.7</Enduse6>
+      <Enduse6 index="6">34.41</Enduse6>
+      <Enduse6 index="7">-1.83</Enduse6>
+      <Enduse6 index="8">0.1</Enduse6>
+      <Enduse6 index="9">0.1</Enduse6>
+      <Enduse6 index="10">8.78</Enduse6>
+      <Enduse6 index="11">8.28</Enduse6>
+      <Enduse6 index="12">-0.50</Enduse6>
+      <Enduse6 index="16">0.08</Enduse6>
+      <Enduse6 index="17">16.44</Enduse6>
+      <Enduse6 index="18">16.52</Enduse6>
+      <Enduse6 index="19">0.09</Enduse6>
+      <Enduse6 index="20">15.48</Enduse6>
+      <Enduse6 index="21">15.57</Enduse6>
+      <Enduse6 index="22">-0.95</Enduse6>
+      <Enduse7 index="0">Indoor Lighting</Enduse7>
+      <Enduse7 index="1">3.5</Enduse7>
+      <Enduse7 index="2">--</Enduse7>
+      <Enduse7 index="3">3.32</Enduse7>
+      <Enduse7 index="4">3.5</Enduse7>
+      <Enduse7 index="5">--</Enduse7>
+      <Enduse7 index="6">3.32</Enduse7>
+      <Enduse7 index="7">--</Enduse7>
+      <Enduse7 index="8">0.4</Enduse7>
+      <Enduse7 index="9">0.4</Enduse7>
+      <Enduse7 index="10">0.29</Enduse7>
+      <Enduse7 index="11">0.29</Enduse7>
+      <Enduse7 index="12">--</Enduse7>
+      <Enduse7 index="16">0.50</Enduse7>
+      <Enduse7 index="18">0.50</Enduse7>
+      <Enduse7 index="19">0.50</Enduse7>
+      <Enduse7 index="21">0.50</Enduse7>
+      <Enduse7 index="22">0.00</Enduse7>
+      <Enduse8 index="0">Total Compliance</Enduse8>
+      <Enduse8 index="1">-103.3</Enduse8>
+      <Enduse8 index="2">281.1</Enduse8>
+      <Enduse8 index="3">-23.85</Enduse8>
+      <Enduse8 index="4">-72.0</Enduse8>
+      <Enduse8 index="5">264.7</Enduse8>
+      <Enduse8 index="6">-2.66</Enduse8>
+      <Enduse8 index="7">21.19</Enduse8>
+      <Enduse8 index="8">3.0</Enduse8>
+      <Enduse8 index="9">2.9</Enduse8>
+      <Enduse8 index="10">7.84</Enduse8>
+      <Enduse8 index="11">8.17</Enduse8>
+      <Enduse8 index="12">0.33</Enduse8>
+      <Enduse8 index="16">-1.52</Enduse8>
+      <Enduse8 index="17">16.44</Enduse8>
+      <Enduse8 index="18">14.92</Enduse8>
+      <Enduse8 index="19">-0.09</Enduse8>
+      <Enduse8 index="20">15.48</Enduse8>
+      <Enduse8 index="21">15.39</Enduse8>
+      <Enduse8 index="22">0.47</Enduse8>
+      <Enduse9 index="0">Receptacle</Enduse9>
+      <Enduse9 index="1">47.0</Enduse9>
+      <Enduse9 index="2">--</Enduse9>
+      <Enduse9 index="3">46.77</Enduse9>
+      <Enduse9 index="4">47.0</Enduse9>
+      <Enduse9 index="5">--</Enduse9>
+      <Enduse9 index="6">46.77</Enduse9>
+      <Enduse9 index="7">--</Enduse9>
+      <Enduse9 index="8">6.3</Enduse9>
+      <Enduse9 index="9">6.3</Enduse9>
+      <Enduse9 index="10">4.57</Enduse9>
+      <Enduse9 index="11">4.57</Enduse9>
+      <Enduse9 index="12">--</Enduse9>
+      <Enduse9 index="16">7.82</Enduse9>
+      <Enduse9 index="18">7.82</Enduse9>
+      <Enduse9 index="19">7.82</Enduse9>
+      <Enduse9 index="21">7.82</Enduse9>
+      <Enduse9 index="22">0.00</Enduse9>
+      <Enduse10 index="0">Process</Enduse10>
+      <Enduse10 index="1">51.4</Enduse10>
+      <Enduse10 index="2">--</Enduse10>
+      <Enduse10 index="3">48.83</Enduse10>
+      <Enduse10 index="4">51.7</Enduse10>
+      <Enduse10 index="5">--</Enduse10>
+      <Enduse10 index="6">49.03</Enduse10>
+      <Enduse10 index="7">0.20</Enduse10>
+      <Enduse10 index="8">4.9</Enduse10>
+      <Enduse10 index="9">4.9</Enduse10>
+      <Enduse10 index="10">4.09</Enduse10>
+      <Enduse10 index="11">4.12</Enduse10>
+      <Enduse10 index="12">0.03</Enduse10>
+      <Enduse10 index="16">7.01</Enduse10>
+      <Enduse10 index="18">7.01</Enduse10>
+      <Enduse10 index="19">7.05</Enduse10>
+      <Enduse10 index="21">7.05</Enduse10>
+      <Enduse10 index="22">0.04</Enduse10>
+      <Enduse11 index="0">Other Ltg</Enduse11>
+      <Enduse11 index="1">8.1</Enduse11>
+      <Enduse11 index="2">--</Enduse11>
+      <Enduse11 index="3">8.75</Enduse11>
+      <Enduse11 index="4">8.1</Enduse11>
+      <Enduse11 index="5">--</Enduse11>
+      <Enduse11 index="6">8.75</Enduse11>
+      <Enduse11 index="7">--</Enduse11>
+      <Enduse11 index="8">1.5</Enduse11>
+      <Enduse11 index="9">1.5</Enduse11>
+      <Enduse11 index="10">0.90</Enduse11>
+      <Enduse11 index="11">0.90</Enduse11>
+      <Enduse11 index="12">--</Enduse11>
+      <Enduse11 index="16">1.55</Enduse11>
+      <Enduse11 index="18">1.55</Enduse11>
+      <Enduse11 index="19">1.55</Enduse11>
+      <Enduse11 index="21">1.55</Enduse11>
+      <Enduse11 index="22">0.00</Enduse11>
+      <Enduse12 index="0">Process Motors</Enduse12>
+      <Enduse12 index="1">12.0</Enduse12>
+      <Enduse12 index="2">--</Enduse12>
+      <Enduse12 index="3">11.43</Enduse12>
+      <Enduse12 index="4">12.0</Enduse12>
+      <Enduse12 index="5">--</Enduse12>
+      <Enduse12 index="6">11.43</Enduse12>
+      <Enduse12 index="7">--</Enduse12>
+      <Enduse12 index="8">1.4</Enduse12>
+      <Enduse12 index="9">1.4</Enduse12>
+      <Enduse12 index="10">1.09</Enduse12>
+      <Enduse12 index="11">1.09</Enduse12>
+      <Enduse12 index="12">--</Enduse12>
+      <Enduse12 index="16">1.87</Enduse12>
+      <Enduse12 index="18">1.87</Enduse12>
+      <Enduse12 index="19">1.87</Enduse12>
+      <Enduse12 index="21">1.87</Enduse12>
+      <Enduse12 index="22">0.00</Enduse12>
+      <Enduse13 index="0">Photovoltaics</Enduse13>
+      <Enduse13 index="1">-132.2</Enduse13>
+      <Enduse13 index="2">--</Enduse13>
+      <Enduse13 index="3">-97.70</Enduse13>
+      <Enduse13 index="4">-106.1</Enduse13>
+      <Enduse13 index="5">--</Enduse13>
+      <Enduse13 index="6">-78.44</Enduse13>
+      <Enduse13 index="7">19.26</Enduse13>
+      <Enduse13 index="8">-0.5</Enduse13>
+      <Enduse13 index="9">-0.4</Enduse13>
+      <Enduse13 index="10">-3.19</Enduse13>
+      <Enduse13 index="11">-2.56</Enduse13>
+      <Enduse13 index="12">0.63</Enduse13>
+      <Enduse13 index="16">-5.46</Enduse13>
+      <Enduse13 index="18">-5.46</Enduse13>
+      <Enduse13 index="19">-4.39</Enduse13>
+      <Enduse13 index="21">-4.39</Enduse13>
+      <Enduse13 index="22">1.07</Enduse13>
+      <Enduse14 index="0">Battery</Enduse14>
+      <Enduse14 index="1">--</Enduse14>
+      <Enduse14 index="2">--</Enduse14>
+      <Enduse14 index="3">--</Enduse14>
+      <Enduse14 index="4">--</Enduse14>
+      <Enduse14 index="5">--</Enduse14>
+      <Enduse14 index="6">--</Enduse14>
+      <Enduse14 index="7">--</Enduse14>
+      <Enduse14 index="8">--</Enduse14>
+      <Enduse14 index="9">--</Enduse14>
+      <Enduse14 index="10">--</Enduse14>
+      <Enduse14 index="11">--</Enduse14>
+      <Enduse14 index="12">--</Enduse14>
+      <Enduse14 index="22">0.00</Enduse14>
+      <Enduse15 index="0">TOTAL</Enduse15>
+      <Enduse15 index="1">15.2</Enduse15>
+      <Enduse15 index="2">281.1</Enduse15>
+      <Enduse15 index="3">91.93</Enduse15>
+      <Enduse15 index="4">46.8</Enduse15>
+      <Enduse15 index="5">264.7</Enduse15>
+      <Enduse15 index="6">113.32</Enduse15>
+      <Enduse15 index="7">21.39</Enduse15>
+      <Enduse15 index="8">17.1</Enduse15>
+      <Enduse15 index="9">17.1</Enduse15>
+      <Enduse15 index="10">18.49</Enduse15>
+      <Enduse15 index="11">18.85</Enduse15>
+      <Enduse15 index="12">0.36</Enduse15>
+      <Enduse15 index="16">16.73</Enduse15>
+      <Enduse15 index="17">16.44</Enduse15>
+      <Enduse15 index="18">33.17</Enduse15>
+      <Enduse15 index="19">18.20</Enduse15>
+      <Enduse15 index="20">15.48</Enduse15>
+      <Enduse15 index="21">33.68</Enduse15>
+      <Enduse15 index="22">0.51</Enduse15>
+      <Enduse16 index="0">Efficiency Compliance</Enduse16>
+      <Enduse16 index="1">28.9</Enduse16>
+      <Enduse16 index="2">281.1</Enduse16>
+      <Enduse16 index="3">73.85</Enduse16>
+      <Enduse16 index="4">34.1</Enduse16>
+      <Enduse16 index="5">264.7</Enduse16>
+      <Enduse16 index="6">75.78</Enduse16>
+      <Enduse16 index="7">1.93</Enduse16>
+      <Enduse16 index="8">3.6</Enduse16>
+      <Enduse16 index="9">3.4</Enduse16>
+      <Enduse16 index="10">11.03</Enduse16>
+      <Enduse16 index="11">10.73</Enduse16>
+      <Enduse16 index="12">-0.30</Enduse16>
+      <Enduse16 index="16">3.94</Enduse16>
+      <Enduse16 index="17">16.44</Enduse16>
+      <Enduse16 index="18">20.38</Enduse16>
+      <Enduse16 index="19">4.30</Enduse16>
+      <Enduse16 index="20">15.48</Enduse16>
+      <Enduse16 index="21">19.78</Enduse16>
+      <Enduse16 index="22">-0.60</Enduse16>
+      <ZoneUMLHsLoaded index="0">0</ZoneUMLHsLoaded>
+      <ZoneUMLHsLoaded index="1">0</ZoneUMLHsLoaded>
+      <SimSummary index="0">CSE Successful</SimSummary>
+      <SimSummary index="2">CSE Successful</SimSummary>
+      <PassFail>PASS</PassFail>
+      <MetricPassFail index="0">Pass</MetricPassFail>
+      <MetricPassFail index="1">Pass</MetricPassFail>
+      <MetricPassFail index="2">Pass</MetricPassFail>
+      <ComplyMessage>COMPLIES</ComplyMessage>
+      <StdPVBatteryMsg>Standard Design PV Capacity: 62.5 kWdc  /  (no battery)</StdPVBatteryMsg>
+      <AnalysisValid>1</AnalysisValid>
+      <HideCompSmrySrc>0</HideCompSmrySrc>
+      <HideCompSmryTot>0</HideCompSmryTot>
+      <PctSavingsTDV>18.8758</PctSavingsTDV>
+      <PctSavingsEffTDV>2.54685</PctSavingsEffTDV>
+      <PctSavingsCmpTDV>0</PctSavingsCmpTDV>
+      <PctSavTDVLbl>18.9</PctSavTDVLbl>
+      <PctSavEffTDVLbl>2.5</PctSavEffTDVLbl>
+      <PctSavCmpTDVLbl>-</PctSavCmpTDVLbl>
+      <PctSavingsSrc>1.90981</PctSavingsSrc>
+      <PctSavingsEffSrc>-2.7959</PctSavingsEffSrc>
+      <PctSavingsCmpSrc>4.03917</PctSavingsCmpSrc>
+      <PctSavSrcLbl>1.9</PctSavSrcLbl>
+      <PctSavEffSrcLbl>-2.8</PctSavEffSrcLbl>
+      <PctSavCmpSrcLbl>4.0</PctSavCmpSrcLbl>
+      <MarginkW>0</MarginkW>
+      <PVBattResultsValid>1</PVBattResultsValid>
+      <StdDHW_SSF>0.351</StdDHW_SSF>
+      <DHW_SSF_Summary index="0">DHW SSF:</DHW_SSF_Summary>
+      <DHW_SSF_Summary index="1">0.35</DHW_SSF_Summary>
+      <PropPV_Total>132197</PropPV_Total>
+      <PropPV_Export>66014.2</PropPV_Export>
+      <PropPV_PctExport>49.936</PropPV_PctExport>
+      <StdPV_Total>106135</StdPV_Total>
+      <StdPV_Export>39995.6</StdPV_Export>
+      <StdPV_PctExport>37.6836</StdPV_PctExport>
+      <NRCCPRFPayldTransID>f1ec6b55-b85e-4309-ba86-4145b409eea8</NRCCPRFPayldTransID>
+      <NRCCPRFPayldProcDate>2025-04-18T03:01:02</NRCCPRFPayldProcDate>
+    </EUseSummary>
+  </Proj>
+  <ResConsAssm>
+    <Name>Ext Wall Cons</Name>
+    <CanAssignTo>Exterior Walls</CanAssignTo>
+    <CavityLayer>R 21</CavityLayer>
+    <FrameLayer>2x6 @ 16 in. O.C.</FrameLayer>
+    <SheathInsulLayer>- no sheathing/insul. -</SheathInsulLayer>
+    <SheathInsulLayerRVal>4</SheathInsulLayerRVal>
+    <WallExtFinishLayer>Synthetic Stucco</WallExtFinishLayer>
+  </ResConsAssm>
+  <ResConsAssm>
+    <Name>Interior Floor Cons</Name>
+    <CanAssignTo>Interior Floors</CanAssignTo>
+    <CavityLayer>R 19</CavityLayer>
+  </ResConsAssm>
+  <ResConsAssm>
+    <Name>Interior Wall Cons</Name>
+    <CanAssignTo>Interior Walls</CanAssignTo>
+    <CavityLayer>R 19</CavityLayer>
+  </ResConsAssm>
+  <ResConsAssm>
+    <Name>Ceiling Below Attic Cons</Name>
+    <CanAssignTo>Ceilings (below attic)</CanAssignTo>
+    <CavityLayer>R 49</CavityLayer>
+  </ResConsAssm>
+  <ResConsAssm>
+    <Name>Attic Roof Cons</Name>
+    <CanAssignTo>Attic Roofs</CanAssignTo>
+    <AbvDeckInsulLayer>R5 Sheathing</AbvDeckInsulLayer>
+    <CavityLayer>- no insulation -</CavityLayer>
+    <FrameLayer>2x4 Top Chord of Roof Truss @ 24 in. O.C.</FrameLayer>
+  </ResConsAssm>
+  <ResConsAssm>
+    <Name>Roof Cons</Name>
+    <CanAssignTo>Cathedral Ceilings</CanAssignTo>
+    <CavityLayer>R 21</CavityLayer>
+    <FrameLayer>2x4 @ 24 in. O.C.</FrameLayer>
+  </ResConsAssm>
+  <ResConsAssm>
+    <Name>Undergrd Wall Cons</Name>
+    <CanAssignTo>Underground Walls</CanAssignTo>
+  </ResConsAssm>
+  <ResConsAssm>
+    <Name>Asphalt Shingle Roof</Name>
+    <CanAssignTo>Attic Roofs</CanAssignTo>
+    <Type>Wood Framed Ceiling</Type>
+    <AtticFloorLayer>- no attic floor -</AtticFloorLayer>
+    <CavityLayer>- no insulation -</CavityLayer>
+    <SheathInsulLayer>- no sheathing/insul. -</SheathInsulLayer>
+    <RaisedHeelTruss>0</RaisedHeelTruss>
+  </ResConsAssm>
+  <ResMat>
+    <Name>SoftWood</Name>
+    <Density>35</Density>
+    <SpecHeat>0.39</SpecHeat>
+    <Conductivity>0.08167</Conductivity>
+    <ConductivityCT>0.0012</ConductivityCT>
+    <RValPerInch>1.0204</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Steel</Name>
+    <Density>489</Density>
+    <SpecHeat>0.12</SpecHeat>
+    <Conductivity>26.2</Conductivity>
+    <RValPerInch>0.00318</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>SIPSskin</Name>
+    <Thickness>0.4375</Thickness>
+    <Density>41</Density>
+    <SpecHeat>0.45</SpecHeat>
+    <Conductivity>0.06127</Conductivity>
+    <ConductivityCT>0.0012</ConductivityCT>
+    <RValPerInch>1.36</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Ceiling Insul</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <ConductivityCT>0.00418</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Other Insul</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <ConductivityCT>0.0032537</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>VertWallCavity</Name>
+    <Thickness>3.5</Thickness>
+    <Density>0.075</Density>
+    <SpecHeat>0.24</SpecHeat>
+    <Conductivity>0.314</Conductivity>
+    <ConductivityCT>0.00397</ConductivityCT>
+    <RValPerInch>1.1333</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Gypsum Board</Name>
+    <Thickness>0.5</Thickness>
+    <Density>40</Density>
+    <SpecHeat>0.27</SpecHeat>
+    <Conductivity>0.09167</Conductivity>
+    <ConductivityCT>0.0001217</ConductivityCT>
+    <RValPerInch>0.9091</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Insul-R4-D1.5-SH0.35-C0.02083</Name>
+    <Thickness>1</Thickness>
+    <Density>1.5</Density>
+    <SpecHeat>0.35</SpecHeat>
+    <Conductivity>0.0208325</Conductivity>
+    <ConductivityQII>0.0208325</ConductivityQII>
+    <ConductivityCT>0.00175</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Synthetic Stucco</Name>
+    <Thickness>0.375</Thickness>
+    <Density>58</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.2</Conductivity>
+    <RValPerInch>0.5333</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Carpet</Name>
+    <Thickness>0.5</Thickness>
+    <Density>12.3</Density>
+    <SpecHeat>0.34</SpecHeat>
+    <Conductivity>0.02</Conductivity>
+    <RValPerInch>4.1667</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Wood layer</Name>
+    <Thickness>0.5</Thickness>
+    <Density>41</Density>
+    <SpecHeat>0.45</SpecHeat>
+    <Conductivity>0.06127</Conductivity>
+    <ConductivityCT>0.0012</ConductivityCT>
+    <RValPerInch>1.36</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Light Roof</Name>
+    <Thickness>0.2</Thickness>
+    <Density>120</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>1</Conductivity>
+    <RValPerInch>0.0833</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Ins-R21-D1.5-SH0.2-C0.02183</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.0218254</Conductivity>
+    <ConductivityQII>0.0311791</ConductivityQII>
+    <ConductivityCT>0.0032537</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Ins-R13-D1.5-SH0.2-C0.02244</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.0224376</Conductivity>
+    <ConductivityQII>0.0320537</ConductivityQII>
+    <ConductivityCT>0.0032537</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>FrameGap</Name>
+    <Density>0</Density>
+    <SpecHeat>0</SpecHeat>
+    <Conductivity>200</Conductivity>
+    <RValPerInch>0.000417</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Ins-R21-D1.5-SH0.2-C0.01389</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.0138889</Conductivity>
+    <ConductivityQII>0.0198413</ConductivityQII>
+    <ConductivityCT>0.00418</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Ins-R22-D1.5-SH0.2-C0.04261</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.0426136</Conductivity>
+    <ConductivityQII>0.0608766</ConductivityQII>
+    <ConductivityCT>0.0032537</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Ins-R19-D1.5-SH0.2-C0.04934</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.0493421</Conductivity>
+    <ConductivityQII>0.0704887</ConductivityQII>
+    <ConductivityCT>0.0032537</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Ins-R19-D1.5-SH0.2-C0.01535</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.0153509</Conductivity>
+    <ConductivityQII>0.0219298</ConductivityQII>
+    <ConductivityCT>0.0032537</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Ins-R9.1-D1.5-SH0.2-C0.03205</Name>
+    <Density>1.5</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>0.0320513</Conductivity>
+    <ConductivityQII>0.0405728</ConductivityQII>
+    <ConductivityCT>0.00418</ConductivityCT>
+  </ResMat>
+  <ResMat>
+    <Name>Concrete</Name>
+    <Density>144</Density>
+    <SpecHeat>0.2</SpecHeat>
+    <Conductivity>1</Conductivity>
+    <RValPerInch>0.0833</RValPerInch>
+  </ResMat>
+  <ResMat>
+    <Name>Insul-R5-D1.5-SH0.35-C0.01667</Name>
+    <Thickness>1</Thickness>
+    <Density>1.5</Density>
+    <SpecHeat>0.35</SpecHeat>
+    <Conductivity>0.016666</Conductivity>
+    <ConductivityQII>0.016666</ConductivityQII>
+    <ConductivityCT>0.00175</ConductivityCT>
+  </ResMat>
+  <ResWinType>
+    <Name>ResidentialWindowType 6</Name>
+    <SpecMethod>Overall Window Area</SpecMethod>
+    <Area>7.53474</Area>
+    <NFRCUfactor>0.29</NFRCUfactor>
+    <NFRCSHGC>0.21</NFRCSHGC>
+  </ResWinType>
+  <ResWinType>
+    <Name>ResidentialWindowType 7</Name>
+    <SpecMethod>Overall Window Area</SpecMethod>
+    <Area>11.8403</Area>
+    <NFRCUfactor>0.29</NFRCUfactor>
+    <NFRCSHGC>0.21</NFRCSHGC>
+  </ResWinType>
+  <ResWinType>
+    <Name>ResidentialWindowType 2</Name>
+    <SpecMethod>Overall Window Area</SpecMethod>
+    <Area>16.1459</Area>
+    <NFRCUfactor>0.29</NFRCUfactor>
+    <NFRCSHGC>0.21</NFRCSHGC>
+  </ResWinType>
+  <ResWinType>
+    <Name>ResidentialWindowType 5</Name>
+    <SpecMethod>Overall Window Area</SpecMethod>
+    <Area>18.2986</Area>
+    <NFRCUfactor>0.29</NFRCUfactor>
+    <NFRCSHGC>0.21</NFRCSHGC>
+  </ResWinType>
+  <ResWinType>
+    <Name>ResidentialWindowType 4</Name>
+    <SpecMethod>Overall Window Area</SpecMethod>
+    <Area>23.6806</Area>
+    <NFRCUfactor>0.29</NFRCUfactor>
+    <NFRCSHGC>0.21</NFRCSHGC>
+  </ResWinType>
+  <ResWinType>
+    <Name>ResidentialWindowType 3</Name>
+    <SpecMethod>Overall Window Area</SpecMethod>
+    <Area>30.1389</Area>
+    <NFRCUfactor>0.29</NFRCUfactor>
+    <NFRCSHGC>0.21</NFRCSHGC>
+  </ResWinType>
+  <ResWinType>
+    <Name>ResidentialWindowType 1</Name>
+    <SpecMethod>Overall Window Area</SpecMethod>
+    <Area>35.5209</Area>
+    <NFRCUfactor>0.29</NFRCUfactor>
+    <NFRCSHGC>0.21</NFRCSHGC>
+  </ResWinType>
+  <DwellUnitType>
+    <Name>DU_S1</Name>
+    <NumBedrooms>1</NumBedrooms>
+    <CondFlrArea>618</CondFlrArea>
+    <DryerFuel>Electricity</DryerFuel>
+    <CookFuel>Electricity</CookFuel>
+    <IAQOption>Individual IAQ Fans</IAQOption>
+    <IAQFanRef index="0">EF-1 (50cfm)</IAQFanRef>
+    <HVACSysType>Heat Pump Heating and Cooling System</HVACSysType>
+    <HVACHtPumpRef index="0">HP/FC1</HVACHtPumpRef>
+    <HVACFanRef>HP/FC-2 Fan</HVACFanRef>
+    <HVACDistRef>ResidentialDistributionSystem 1</HVACDistRef>
+    <DHWSysRef index="0">ResidentialDHWSystem 1</DHWSysRef>
+  </DwellUnitType>
+  <DwellUnitType>
+    <Name>DU_A3</Name>
+    <NumBedrooms>1</NumBedrooms>
+    <CondFlrArea>817</CondFlrArea>
+    <DryerFuel>Electricity</DryerFuel>
+    <CookFuel>Electricity</CookFuel>
+    <IAQOption>Individual IAQ Fans</IAQOption>
+    <IAQFanRef index="0">EF-1 (60cfm)</IAQFanRef>
+    <HVACSysType>Heat Pump Heating and Cooling System</HVACSysType>
+    <HVACHtPumpRef index="0">HP/FC1</HVACHtPumpRef>
+    <HVACFanRef>HP/FC-2 Fan</HVACFanRef>
+    <HVACDistRef>ResidentialDistributionSystem 1</HVACDistRef>
+    <DHWSysRef index="0">ResidentialDHWSystem 1</DHWSysRef>
+  </DwellUnitType>
+  <DwellUnitType>
+    <Name>DU_A5</Name>
+    <NumBedrooms>1</NumBedrooms>
+    <CondFlrArea>668</CondFlrArea>
+    <DryerFuel>Electricity</DryerFuel>
+    <CookFuel>Electricity</CookFuel>
+    <IAQOption>Individual IAQ Fans</IAQOption>
+    <IAQFanRef index="0">EF-1 (50cfm)</IAQFanRef>
+    <HVACSysType>Heat Pump Heating and Cooling System</HVACSysType>
+    <HVACHtPumpRef index="0">HP/FC1</HVACHtPumpRef>
+    <HVACFanRef>HP/FC-2 Fan</HVACFanRef>
+    <HVACDistRef>ResidentialDistributionSystem 1</HVACDistRef>
+    <DHWSysRef index="0">ResidentialDHWSystem 1</DHWSysRef>
+  </DwellUnitType>
+  <DwellUnitType>
+    <Name>DU_A6</Name>
+    <NumBedrooms>1</NumBedrooms>
+    <CondFlrArea>1080</CondFlrArea>
+    <DryerFuel>Electricity</DryerFuel>
+    <CookFuel>Electricity</CookFuel>
+    <IAQOption>Individual IAQ Fans</IAQOption>
+    <IAQFanRef index="0">EF-1 (75cfm)</IAQFanRef>
+    <HVACSysType>Heat Pump Heating and Cooling System</HVACSysType>
+    <HVACHtPumpRef index="0">HP/FC2</HVACHtPumpRef>
+    <HVACFanRef>HP/FC-2 Fan</HVACFanRef>
+    <HVACDistRef>ResidentialDistributionSystem 1</HVACDistRef>
+    <DHWSysRef index="0">ResidentialDHWSystem 1</DHWSysRef>
+  </DwellUnitType>
+  <DwellUnitType>
+    <Name>DU_B6</Name>
+    <NumBedrooms>2</NumBedrooms>
+    <CondFlrArea>1165</CondFlrArea>
+    <DryerFuel>Electricity</DryerFuel>
+    <CookFuel>Electricity</CookFuel>
+    <IAQOption>Individual IAQ Fans</IAQOption>
+    <IAQFanRef index="0">EF-1 (90cfm)</IAQFanRef>
+    <IAQFanCnt index="0">1</IAQFanCnt>
+    <HVACSysType>Heat Pump Heating and Cooling System</HVACSysType>
+    <HVACHtPumpRef index="0">HP/FC3</HVACHtPumpRef>
+    <HVACFanRef>HP/FC-3 Fan</HVACFanRef>
+    <HVACDistRef>ResidentialDistributionSystem 1</HVACDistRef>
+    <DHWSysRef index="0">ResidentialDHWSystem 1</DHWSysRef>
+  </DwellUnitType>
+  <DwellUnitType>
+    <Name>DU_B5</Name>
+    <NumBedrooms>2</NumBedrooms>
+    <CondFlrArea>975</CondFlrArea>
+    <DryerFuel>Electricity</DryerFuel>
+    <CookFuel>Electricity</CookFuel>
+    <IAQOption>Individual IAQ Fans</IAQOption>
+    <IAQFanRef index="0">EF-1 (80cfm)</IAQFanRef>
+    <IAQFanCnt index="0">1</IAQFanCnt>
+    <HVACSysType>Heat Pump Heating and Cooling System</HVACSysType>
+    <HVACHtPumpRef index="0">HP/FC2</HVACHtPumpRef>
+    <HVACFanRef>HP/FC-2 Fan</HVACFanRef>
+    <HVACDistRef>ResidentialDistributionSystem 1</HVACDistRef>
+    <DHWSysRef index="0">ResidentialDHWSystem 1</DHWSysRef>
+  </DwellUnitType>
+  <ResHtgSys>
+    <Name>ResidentialHeatingSystem 1</Name>
+    <Type>Boiler - Gas or oil boiler</Type>
+  </ResHtgSys>
+  <ResHtPumpSys>
+    <Name>HP/FC1</Name>
+    <Type>SplitHeatPump - Central split heat pump</Type>
+    <EffMetric>HSPF2/SEER2/EER2</EffMetric>
+    <HSPF>7.5</HSPF>
+    <HSPF2>8</HSPF2>
+    <Cap47>13230</Cap47>
+    <Cap17>13230</Cap17>
+    <SEER>15.2</SEER>
+    <SEER2>15.2</SEER2>
+    <EER2>12</EER2>
+    <UseEERinAnalysis>1</UseEERinAnalysis>
+  </ResHtPumpSys>
+  <ResHtPumpSys>
+    <Name>HP/FC2</Name>
+    <Type>SplitHeatPump - Central split heat pump</Type>
+    <EffMetric>HSPF2/SEER2/EER2</EffMetric>
+    <HSPF>7.8</HSPF>
+    <HSPF2>8</HSPF2>
+    <Cap47>17370</Cap47>
+    <Cap17>17370</Cap17>
+    <SEER>15.2</SEER>
+    <SEER2>15.5</SEER2>
+    <EER2>12</EER2>
+    <UseEERinAnalysis>1</UseEERinAnalysis>
+  </ResHtPumpSys>
+  <ResHtPumpSys>
+    <Name>HP/FC3</Name>
+    <Type>SplitHeatPump - Central split heat pump</Type>
+    <EffMetric>HSPF2/SEER2/EER2</EffMetric>
+    <HSPF>7.5</HSPF>
+    <HSPF2>7.8</HSPF2>
+    <Cap47>21810</Cap47>
+    <Cap17>21810</Cap17>
+    <SEER>14.3</SEER>
+    <SEER2>15.2</SEER2>
+    <EER2>12</EER2>
+    <UseEERinAnalysis>1</UseEERinAnalysis>
+  </ResHtPumpSys>
+  <ResDistSys>
+    <Name>ResidentialDistributionSystem 1</Name>
+    <Type>Ducts located in attic (Ventilated and Unventilated)</Type>
+  </ResDistSys>
+  <ResFanSys>
+    <Name>HP/FC-1 Fan</Name>
+    <Type>Single Speed Fan</Type>
+  </ResFanSys>
+  <ResFanSys>
+    <Name>HP/FC-2 Fan</Name>
+    <Type>Single Speed Fan</Type>
+  </ResFanSys>
+  <ResFanSys>
+    <Name>HP/FC-3 Fan</Name>
+    <Type>Single Speed Fan</Type>
+  </ResFanSys>
+  <ResIAQFan>
+    <Name>EF-1 (50cfm)</Name>
+    <IAQCFM>50</IAQCFM>
+    <WperCFMIAQ>0.082</WperCFMIAQ>
+    <IAQFanType>Exhaust</IAQFanType>
+    <IncludesRecov>0</IncludesRecov>
+  </ResIAQFan>
+  <ResIAQFan>
+    <Name>EF-1 (60cfm)</Name>
+    <IAQCFM>60</IAQCFM>
+    <WperCFMIAQ>0.076</WperCFMIAQ>
+  </ResIAQFan>
+  <ResIAQFan>
+    <Name>EF-1 (75cfm)</Name>
+    <IAQCFM>75</IAQCFM>
+    <WperCFMIAQ>0.08067</WperCFMIAQ>
+  </ResIAQFan>
+  <ResIAQFan>
+    <Name>EF-1 (80cfm)</Name>
+    <IAQCFM>80</IAQCFM>
+    <WperCFMIAQ>0.0925</WperCFMIAQ>
+  </ResIAQFan>
+  <ResIAQFan>
+    <Name>EF-1 (90cfm)</Name>
+    <IAQCFM>90</IAQCFM>
+    <WperCFMIAQ>0.086</WperCFMIAQ>
+  </ResIAQFan>
+  <ResDHWSys>
+    <Name>ResidentialDHWSystem 1</Name>
+    <CentralRecircType>Central with Recirculation</CentralRecircType>
+    <CHPWHLoopTankConfig>Series (Swing)</CHPWHLoopTankConfig>
+    <DHWHeater index="0">WH-3</DHWHeater>
+    <HeaterMult index="0">2</HeaterMult>
+    <RecircPumpPwr>62</RecircPumpPwr>
+  </ResDHWSys>
+  <ResWtrHtr>
+    <Name>WH-3</Name>
+    <TankType>Commercial Storage (TE &amp; SBL)</TankType>
+    <InputRating>199000</InputRating>
+    <EnergyFactor>0.97</EnergyFactor>
+    <TankVolume>100</TankVolume>
+    <StandbyLossFrac>0.001</StandbyLossFrac>
+    <RecovEff>97</RecovEff>
+  </ResWtrHtr>
+</SDDXML>
