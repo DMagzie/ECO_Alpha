@@ -1,0 +1,1306 @@
+{
+  "emjson_version": "6.0",
+  "project": {
+    "name": "Geometry Builder Model",
+    "created": "2025-10-21T22:23:09.863864",
+    "source_format": "ECO_GeometryBuilder"
+  },
+  "geometry": {
+    "zones": [
+      {
+        "id": "zone_0",
+        "name": "Zone zone_0",
+        "floor_area_m2": 20.0,
+        "volume_m3": 54.0,
+        "zone_type": "conditioned",
+        "multiplier": 1
+      },
+      {
+        "id": "l_shaped",
+        "name": "Zone l_shaped",
+        "floor_area_m2": 24.0,
+        "volume_m3": 64.8,
+        "zone_type": "conditioned",
+        "multiplier": 1
+      },
+      {
+        "id": "zone_0_copy_2",
+        "name": "Zone zone_0 (Copy)",
+        "floor_area_m2": 20.0,
+        "volume_m3": 54.0,
+        "zone_type": "conditioned",
+        "multiplier": 1
+      },
+      {
+        "id": "zone_0_copy_3",
+        "name": "Zone zone_0 (Copy)",
+        "floor_area_m2": 20.0,
+        "volume_m3": 54.0,
+        "zone_type": "conditioned",
+        "multiplier": 1
+      },
+      {
+        "id": "zone_0_copy_4",
+        "name": "Zone zone_0 (Copy)",
+        "floor_area_m2": 20.0,
+        "volume_m3": 54.0,
+        "zone_type": "conditioned",
+        "multiplier": 1
+      },
+      {
+        "id": "zone_0_copy_5",
+        "name": "Zone zone_0 (Copy)",
+        "floor_area_m2": 20.0,
+        "volume_m3": 54.0,
+        "zone_type": "conditioned",
+        "multiplier": 1
+      }
+    ],
+    "surfaces": {
+      "walls": [
+        {
+          "id": "zone_0_wall_0",
+          "zone_id": "zone_0",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              0,
+              0.0
+            ],
+            [
+              5,
+              0,
+              0.0
+            ],
+            [
+              5,
+              0,
+              2.7
+            ],
+            [
+              0,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 180.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_wall_1",
+          "zone_id": "zone_0",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              5,
+              0,
+              0.0
+            ],
+            [
+              5,
+              4,
+              0.0
+            ],
+            [
+              5,
+              4,
+              2.7
+            ],
+            [
+              5,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 90.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_wall_2",
+          "zone_id": "zone_0",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              5,
+              4,
+              0.0
+            ],
+            [
+              0,
+              4,
+              0.0
+            ],
+            [
+              0,
+              4,
+              2.7
+            ],
+            [
+              5,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_wall_3",
+          "zone_id": "zone_0",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              4,
+              0.0
+            ],
+            [
+              0,
+              0,
+              0.0
+            ],
+            [
+              0,
+              0,
+              2.7
+            ],
+            [
+              0,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 270.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_wall_0",
+          "zone_id": "l_shaped",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              0,
+              0.0
+            ],
+            [
+              6,
+              0,
+              0.0
+            ],
+            [
+              6,
+              0,
+              2.7
+            ],
+            [
+              0,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 16.2,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 180.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_wall_1",
+          "zone_id": "l_shaped",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              6,
+              0,
+              0.0
+            ],
+            [
+              6,
+              3,
+              0.0
+            ],
+            [
+              6,
+              3,
+              2.7
+            ],
+            [
+              6,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 8.1,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 90.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_wall_2",
+          "zone_id": "l_shaped",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              6,
+              3,
+              0.0
+            ],
+            [
+              3,
+              3,
+              0.0
+            ],
+            [
+              3,
+              3,
+              2.7
+            ],
+            [
+              6,
+              3,
+              2.7
+            ]
+          ],
+          "area_m2": 8.1,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_wall_3",
+          "zone_id": "l_shaped",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              3,
+              3,
+              0.0
+            ],
+            [
+              3,
+              5,
+              0.0
+            ],
+            [
+              3,
+              5,
+              2.7
+            ],
+            [
+              3,
+              3,
+              2.7
+            ]
+          ],
+          "area_m2": 5.4,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 90.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_wall_4",
+          "zone_id": "l_shaped",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              3,
+              5,
+              0.0
+            ],
+            [
+              0,
+              5,
+              0.0
+            ],
+            [
+              0,
+              5,
+              2.7
+            ],
+            [
+              3,
+              5,
+              2.7
+            ]
+          ],
+          "area_m2": 8.1,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_wall_5",
+          "zone_id": "l_shaped",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              5,
+              0.0
+            ],
+            [
+              0,
+              0,
+              0.0
+            ],
+            [
+              0,
+              0,
+              2.7
+            ],
+            [
+              0,
+              5,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 270.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_2_0_wall_0",
+          "zone_id": "zone_0_copy_2",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              6,
+              0,
+              0.0
+            ],
+            [
+              11,
+              0,
+              0.0
+            ],
+            [
+              11,
+              0,
+              2.7
+            ],
+            [
+              6,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 180.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_2_0_wall_1",
+          "zone_id": "zone_0_copy_2",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              11,
+              0,
+              0.0
+            ],
+            [
+              11,
+              4,
+              0.0
+            ],
+            [
+              11,
+              4,
+              2.7
+            ],
+            [
+              11,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 90.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_2_0_wall_2",
+          "zone_id": "zone_0_copy_2",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              11,
+              4,
+              0.0
+            ],
+            [
+              6,
+              4,
+              0.0
+            ],
+            [
+              6,
+              4,
+              2.7
+            ],
+            [
+              11,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_2_0_wall_3",
+          "zone_id": "zone_0_copy_2",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              6,
+              4,
+              0.0
+            ],
+            [
+              6,
+              0,
+              0.0
+            ],
+            [
+              6,
+              0,
+              2.7
+            ],
+            [
+              6,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 270.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_3_0_wall_0",
+          "zone_id": "zone_0_copy_3",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              7,
+              0,
+              0.0
+            ],
+            [
+              12,
+              0,
+              0.0
+            ],
+            [
+              12,
+              0,
+              2.7
+            ],
+            [
+              7,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 180.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_3_0_wall_1",
+          "zone_id": "zone_0_copy_3",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              12,
+              0,
+              0.0
+            ],
+            [
+              12,
+              4,
+              0.0
+            ],
+            [
+              12,
+              4,
+              2.7
+            ],
+            [
+              12,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 90.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_3_0_wall_2",
+          "zone_id": "zone_0_copy_3",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              12,
+              4,
+              0.0
+            ],
+            [
+              7,
+              4,
+              0.0
+            ],
+            [
+              7,
+              4,
+              2.7
+            ],
+            [
+              12,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_3_0_wall_3",
+          "zone_id": "zone_0_copy_3",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              7,
+              4,
+              0.0
+            ],
+            [
+              7,
+              0,
+              0.0
+            ],
+            [
+              7,
+              0,
+              2.7
+            ],
+            [
+              7,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 270.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_4_0_wall_0",
+          "zone_id": "zone_0_copy_4",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              14,
+              0,
+              0.0
+            ],
+            [
+              19,
+              0,
+              0.0
+            ],
+            [
+              19,
+              0,
+              2.7
+            ],
+            [
+              14,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 180.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_4_0_wall_1",
+          "zone_id": "zone_0_copy_4",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              19,
+              0,
+              0.0
+            ],
+            [
+              19,
+              4,
+              0.0
+            ],
+            [
+              19,
+              4,
+              2.7
+            ],
+            [
+              19,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 90.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_4_0_wall_2",
+          "zone_id": "zone_0_copy_4",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              19,
+              4,
+              0.0
+            ],
+            [
+              14,
+              4,
+              0.0
+            ],
+            [
+              14,
+              4,
+              2.7
+            ],
+            [
+              19,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_4_0_wall_3",
+          "zone_id": "zone_0_copy_4",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              14,
+              4,
+              0.0
+            ],
+            [
+              14,
+              0,
+              0.0
+            ],
+            [
+              14,
+              0,
+              2.7
+            ],
+            [
+              14,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 270.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_5_0_wall_0",
+          "zone_id": "zone_0_copy_5",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              21,
+              0,
+              0.0
+            ],
+            [
+              26,
+              0,
+              0.0
+            ],
+            [
+              26,
+              0,
+              2.7
+            ],
+            [
+              21,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 180.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_5_0_wall_1",
+          "zone_id": "zone_0_copy_5",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              26,
+              0,
+              0.0
+            ],
+            [
+              26,
+              4,
+              0.0
+            ],
+            [
+              26,
+              4,
+              2.7
+            ],
+            [
+              26,
+              0,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 90.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_5_0_wall_2",
+          "zone_id": "zone_0_copy_5",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              26,
+              4,
+              0.0
+            ],
+            [
+              21,
+              4,
+              0.0
+            ],
+            [
+              21,
+              4,
+              2.7
+            ],
+            [
+              26,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 13.5,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_5_0_wall_3",
+          "zone_id": "zone_0_copy_5",
+          "type": "exterior_wall",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              21,
+              4,
+              0.0
+            ],
+            [
+              21,
+              0,
+              0.0
+            ],
+            [
+              21,
+              0,
+              2.7
+            ],
+            [
+              21,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 10.8,
+          "tilt_deg": 90.0,
+          "azimuth_deg": 270.0,
+          "construction_id": "default"
+        }
+      ],
+      "roofs": [
+        {
+          "id": "zone_0_roof",
+          "zone_id": "zone_0",
+          "type": "roof",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              0,
+              2.7
+            ],
+            [
+              5,
+              0,
+              2.7
+            ],
+            [
+              5,
+              4,
+              2.7
+            ],
+            [
+              0,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_roof",
+          "zone_id": "l_shaped",
+          "type": "roof",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              0,
+              2.7
+            ],
+            [
+              6,
+              0,
+              2.7
+            ],
+            [
+              6,
+              3,
+              2.7
+            ],
+            [
+              3,
+              3,
+              2.7
+            ],
+            [
+              3,
+              5,
+              2.7
+            ],
+            [
+              0,
+              5,
+              2.7
+            ]
+          ],
+          "area_m2": 24.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_2_0_roof",
+          "zone_id": "zone_0_copy_2",
+          "type": "roof",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              6,
+              0,
+              2.7
+            ],
+            [
+              11,
+              0,
+              2.7
+            ],
+            [
+              11,
+              4,
+              2.7
+            ],
+            [
+              6,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_3_0_roof",
+          "zone_id": "zone_0_copy_3",
+          "type": "roof",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              7,
+              0,
+              2.7
+            ],
+            [
+              12,
+              0,
+              2.7
+            ],
+            [
+              12,
+              4,
+              2.7
+            ],
+            [
+              7,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_4_0_roof",
+          "zone_id": "zone_0_copy_4",
+          "type": "roof",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              14,
+              0,
+              2.7
+            ],
+            [
+              19,
+              0,
+              2.7
+            ],
+            [
+              19,
+              4,
+              2.7
+            ],
+            [
+              14,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_5_0_roof",
+          "zone_id": "zone_0_copy_5",
+          "type": "roof",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              21,
+              0,
+              2.7
+            ],
+            [
+              26,
+              0,
+              2.7
+            ],
+            [
+              26,
+              4,
+              2.7
+            ],
+            [
+              21,
+              4,
+              2.7
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        }
+      ],
+      "floors": [
+        {
+          "id": "zone_0_floor",
+          "zone_id": "zone_0",
+          "type": "floor",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              0,
+              0.0
+            ],
+            [
+              5,
+              0,
+              0.0
+            ],
+            [
+              5,
+              4,
+              0.0
+            ],
+            [
+              0,
+              4,
+              0.0
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "l_shaped_floor",
+          "zone_id": "l_shaped",
+          "type": "floor",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              0,
+              0,
+              0.0
+            ],
+            [
+              6,
+              0,
+              0.0
+            ],
+            [
+              6,
+              3,
+              0.0
+            ],
+            [
+              3,
+              3,
+              0.0
+            ],
+            [
+              3,
+              5,
+              0.0
+            ],
+            [
+              0,
+              5,
+              0.0
+            ]
+          ],
+          "area_m2": 24.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_2_0_floor",
+          "zone_id": "zone_0_copy_2",
+          "type": "floor",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              6,
+              0,
+              0.0
+            ],
+            [
+              11,
+              0,
+              0.0
+            ],
+            [
+              11,
+              4,
+              0.0
+            ],
+            [
+              6,
+              4,
+              0.0
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_3_0_floor",
+          "zone_id": "zone_0_copy_3",
+          "type": "floor",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              7,
+              0,
+              0.0
+            ],
+            [
+              12,
+              0,
+              0.0
+            ],
+            [
+              12,
+              4,
+              0.0
+            ],
+            [
+              7,
+              4,
+              0.0
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_4_0_floor",
+          "zone_id": "zone_0_copy_4",
+          "type": "floor",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              14,
+              0,
+              0.0
+            ],
+            [
+              19,
+              0,
+              0.0
+            ],
+            [
+              19,
+              4,
+              0.0
+            ],
+            [
+              14,
+              4,
+              0.0
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        },
+        {
+          "id": "zone_0_copy_5_0_floor",
+          "zone_id": "zone_0_copy_5",
+          "type": "floor",
+          "geometry_mode": "explicit",
+          "vertices_m": [
+            [
+              21,
+              0,
+              0.0
+            ],
+            [
+              26,
+              0,
+              0.0
+            ],
+            [
+              26,
+              4,
+              0.0
+            ],
+            [
+              21,
+              4,
+              0.0
+            ]
+          ],
+          "area_m2": 20.0,
+          "tilt_deg": 0.0,
+          "azimuth_deg": 0.0,
+          "construction_id": "default"
+        }
+      ],
+      "windows": [],
+      "doors": []
+    }
+  }
+}

@@ -9,11 +9,17 @@ import os
 import tempfile
 
 # Import from local translators module
-from .translators import (
+from explorer_gui.translators import (
     list_importers,
-    translate_cibd22_to_v6 as _translate_cibd22_to_v6,
     translate_cibd22x_to_v6 as _translate_cibd22x_to_v6,
+    translate_cibd22x_uni_to_v6 as _translate_cibd22x_uni_to_v6,
     emjson6_to_cibd22x as _emjson6_to_cibd22x,
+    emjson6_to_cibd22x_uni as _emjson6_to_cibd22x_uni,
+    # Legacy translators disabled for now
+    # translate_cibd22_to_v6 as _translate_cibd22_to_v6,
+    # translate_cibd25_to_v6 as _translate_cibd25_to_v6,
+    # translate_hbjson_to_v6 as _translate_hbjson_to_v6,
+    # emjson6_to_hbjson as _emjson6_to_hbjson,
 )
 
 
@@ -93,10 +99,10 @@ def import_file(importer_id: str, file_path: str) -> Dict[str, Any]:
 
         imp = importer_id.strip().lower()
 
-        if imp == "cibd22":
-            result = _translate_cibd22_to_v6(actual_path)
-        elif imp == "cibd22x":
+        if imp == "cibd22x":
             result = _translate_cibd22x_to_v6(actual_path)
+        elif imp == "cibd22x_uni":
+            result = _translate_cibd22x_uni_to_v6(actual_path)
         else:
             result = {
                 "schema_version": "6.0",
@@ -107,7 +113,7 @@ def import_file(importer_id: str, file_path: str) -> Dict[str, Any]:
                     "stage": "import",
                     "ts": "",
                     "path": "",
-                    "context": f"Available: cibd22, cibd22x",
+                    "context": f"Supported importers: cibd22x (em-tools), cibd22x_uni (Universal Translator). Legacy formats (CIBD22, CIBD25, HBJSON) have been disabled.",
                     "source": "import_export"
                 }]
             }
@@ -125,31 +131,61 @@ def import_file(importer_id: str, file_path: str) -> Dict[str, Any]:
 
 # ---- Legacy wrappers (kept for compatibility) ----
 
-def translate_cibd22_to_v6(xml_file: str) -> Dict[str, Any]:
-    """Legacy entrypoint for cibd22 (XML)."""
-    return import_file("cibd22", xml_file)
-
-
 def translate_cibd22x_to_v6(xml_file: str) -> Dict[str, Any]:
     """Legacy entrypoint for cibd22x."""
     return import_file("cibd22x", xml_file)
 
+def emjson6_to_cibd22x(em_json: Dict[str, Any]) -> str:
+    """
+    Convert EMJSON v6 dictionary to CIBD22X XML string.
+    
+    Args:
+        em_json: EMJSON v6 dictionary
+        
+    Returns:
+        CIBD22X XML as string
+    """
+    return _emjson6_to_cibd22x(em_json)
+
+# Legacy translators disabled - only CIBD22X currently supported
+# def translate_cibd22_to_v6(xml_file: str) -> Dict[str, Any]:
+#     """Legacy entrypoint for cibd22 (text format)."""
+#     return import_file("cibd22", xml_file)
+
 
 # ---- Export helper ----
 
-def export_emjson6_to_cibd22x(em_json: Dict[str, Any], out_path: str) -> Dict[str, Any]:
+def export_emjson6_to_cibd22x(em_json: Dict[str, Any], out_path: str, exporter_id: str = "cibd22x") -> Dict[str, Any]:
     """
     Export EMJSON v6 -> CIBD22x XML and write to file.
 
     Args:
         em_json: EMJSON v6 dictionary
         out_path: Output file path
+        exporter_id: Exporter to use ("cibd22x" for em-tools, "cibd22x_uni" for Universal Translator)
 
     Returns:
         Diagnostics dict with success/error info
     """
     try:
-        xml_text = _emjson6_to_cibd22x(em_json)
+        # Select exporter based on ID
+        if exporter_id == "cibd22x":
+            xml_text = _emjson6_to_cibd22x(em_json)
+        elif exporter_id == "cibd22x_uni":
+            xml_text = _emjson6_to_cibd22x_uni(em_json)
+        else:
+            return {
+                "diagnostics": [{
+                    "level": "error",
+                    "code": "E-EXPORTER",
+                    "message": f"Unknown exporter: {exporter_id}",
+                    "stage": "export",
+                    "ts": "",
+                    "path": out_path,
+                    "context": "Supported exporters: cibd22x (em-tools), cibd22x_uni (Universal Translator)",
+                    "source": "import_export"
+                }]
+            }
     except Exception as e:
         import traceback
         return {
@@ -177,7 +213,7 @@ def export_emjson6_to_cibd22x(em_json: Dict[str, Any], out_path: str) -> Dict[st
             "diagnostics": [{
                 "level": "info",
                 "code": "I-EXPORT-SUCCESS",
-                "message": f"Successfully exported to {out_path}",
+                "message": f"Successfully exported to {out_path} using {exporter_id}",
                 "stage": "export",
                 "ts": "",
                 "path": out_path,
@@ -199,3 +235,17 @@ def export_emjson6_to_cibd22x(em_json: Dict[str, Any], out_path: str) -> Dict[st
                 "source": "import_export"
             }]
         }
+
+
+def export_emjson6_to_cibd22x_uni(em_json: Dict[str, Any], out_path: str) -> Dict[str, Any]:
+    """
+    Export EMJSON v6 -> CIBD22x XML using Universal Translator and write to file.
+
+    Args:
+        em_json: EMJSON v6 dictionary
+        out_path: Output file path
+
+    Returns:
+        Diagnostics dict with success/error info
+    """
+    return export_emjson6_to_cibd22x(em_json, out_path, exporter_id="cibd22x_uni")

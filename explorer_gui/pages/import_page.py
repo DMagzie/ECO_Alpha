@@ -41,7 +41,7 @@ def handle_import():
         uploaded_file = st.file_uploader(
             "Choose a file",
             type=["xml", "cibd22x", "json"],
-            help="Upload CIBD22X XML or EMJSON v6 JSON file",
+            help="Upload CIBD22X XML (.xml, .cibd22x) or EMJSON v6 JSON file",
             key="model_file_uploader"
         )
 
@@ -50,20 +50,43 @@ def handle_import():
 
             # Determine importer
             if file_extension in ["xml", "cibd22x"]:
-                importer_id = st.selectbox(
-                    "Select Translator",
-                    options=[imp["id"] for imp in importers if file_extension in imp.get("extensions", [])],
-                    format_func=lambda x: next((imp["label"] for imp in importers if imp["id"] == x), x),
-                    key="importer_select"
-                )
+                # CIBD22X XML format - let user choose translator
+                st.markdown("### Select Translator")
+                
+                # Create translator options from available importers
+                cibd_importers = [imp for imp in importers if imp["id"].startswith("cibd22x")]
+                
+                if len(cibd_importers) > 1:
+                    # Multiple translators available - show selection
+                    translator_labels = {
+                        "cibd22x": "em-tools (Modular Parser)",
+                        "cibd22x_uni": "Universal Translator (Adapter-based)"
+                    }
+                    
+                    selected_label = st.radio(
+                        "Choose translator:",
+                        options=[translator_labels.get(imp["id"], imp["label"]) for imp in cibd_importers],
+                        help="Select which translator to use for importing CIBD22X XML",
+                        horizontal=True
+                    )
+                    
+                    # Find selected importer ID
+                    importer_id = next(
+                        (imp["id"] for imp in cibd_importers 
+                         if translator_labels.get(imp["id"], imp["label"]) == selected_label),
+                        "cibd22x"
+                    )
+                else:
+                    # Only one translator available
+                    importer_id = cibd_importers[0]["id"] if cibd_importers else "cibd22x"
 
                 # Show importer description
                 selected_importer = next((imp for imp in importers if imp["id"] == importer_id), None)
                 if selected_importer:
                     st.info(f"ℹ️ {selected_importer['description']}")
 
-                if st.button("Import XML", type="primary"):
-                    with st.spinner("Importing..."):
+                if st.button("Import CIBD22X XML", type="primary"):
+                    with st.spinner(f"Importing CIBD22X XML using {importer_id}..."):
                         _process_import(uploaded_file, importer_id)
 
             elif file_extension == "json":
@@ -93,22 +116,19 @@ def handle_import():
                 st.error(f"❌ Unsupported file type: {file_extension}")
 
     with tab2:
-        st.subheader("Paste XML Content")
+        st.subheader("Paste Content")
 
         xml_text = st.text_area(
-            "Paste CIBD22X XML here",
+            "Paste CIBD22X XML content here",
             height=200,
             help="Paste the contents of a CIBD22X XML file",
             key="xml_paste_area"
         )
 
         if xml_text.strip():
-            importer_id = st.selectbox(
-                "Select Translator",
-                options=[imp["id"] for imp in importers],
-                format_func=lambda x: next((imp["label"] for imp in importers if imp["id"] == x), x),
-                key="importer_select_paste"
-            )
+            # Only CIBD22X supported
+            importer_id = "cibd22x"
+            st.info("ℹ️ Will import as CIBD22X XML format")
 
             if st.button("Import Pasted XML", type="primary"):
                 with st.spinner("Importing..."):

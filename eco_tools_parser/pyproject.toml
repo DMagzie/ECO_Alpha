@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eco-tools"
+version = "1.0.0"
+description = "Universal parser and translator for CBECC file formats"
+requires-python = ">=3.8"
+dependencies = [
+    "openpyxl>=3.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+]
+
+[project.scripts]
+eco-translate = "eco_tools.cli.translate:main"
+eco-validate = "eco_tools.cli.validate:main"
+eco-info = "eco_tools.cli.info:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

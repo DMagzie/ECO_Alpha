@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="streamlit" />
+          <option value="pydantic" />
+          <option value="lxml" />
+          <option value="openpyxl" />
+          <option value="python-docx" />
+          <option value="python-pptx" />
+          <option value="pypandoc" />
+          <option value="odfpy" />
+          <option value="pandas" />
+          <option value="numpy" />
+          <option value="matplotlib" />
+          <option value="plotly" />
+          <option value="xmlschema" />
+          <option value="jsonschema" />
+          <option value="honeybee-schema" />
+          <option value="honeybee-energy" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

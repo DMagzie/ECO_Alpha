@@ -16,6 +16,144 @@ if str(EXPLORER_GUI) not in sys.path:
 from import_export import emjson6_to_cibd22x
 
 
+def render_tree_node(label: str, data: any, level: int = 0, expanded: bool = False):
+    """Render a tree node with collapsible children."""
+    indent = "    " * level
+    
+    if isinstance(data, dict):
+        with st.expander(f"{indent}📁 {label} ({len(data)} items)", expanded=expanded):
+            for key, value in data.items():
+                render_tree_node(key, value, level + 1)
+    elif isinstance(data, list):
+        with st.expander(f"{indent}📋 {label} ({len(data)} items)", expanded=expanded):
+            for i, item in enumerate(data):
+                if isinstance(item, dict):
+                    item_name = item.get("name", item.get("id", f"Item {i+1}"))
+                    render_tree_node(item_name, item, level + 1)
+                else:
+                    st.write(f"{indent}    • {item}")
+    else:
+        st.write(f"{indent}    🔹 **{label}:** {data}")
+
+
+def show_tree_navigator(model: dict):
+    """Display a tree-style navigator for the EMJSON model."""
+    st.subheader("🌲 Model Tree Navigator")
+    
+    # Project level
+    if "project" in model:
+        with st.expander("📦 Project", expanded=True):
+            project = model["project"]
+            for key, value in project.items():
+                if key == "location":
+                    with st.expander("📍 Location", expanded=False):
+                        st.json(value)
+                else:
+                    render_tree_node(key, value, level=1)
+    
+    # Geometry level
+    if "geometry" in model:
+        with st.expander("🏗️ Geometry", expanded=True):
+            geom = model["geometry"]
+            
+            # Zones
+            zones = geom.get("zones", [])
+            if zones:
+                with st.expander(f"🏢 Zones ({len(zones)})", expanded=True):
+                    for zone in zones:
+                        zone_name = zone.get("name", zone.get("id", "Unknown"))
+                        zone_type = zone.get("type", "")
+                        area = zone.get("floor_area_m2", zone.get("area"))
+                        area_str = f"{area:.1f} m²" if area is not None else "N/A"
+                        
+                        with st.expander(f"🏠 {zone_name} ({zone_type}) - {area_str}", expanded=False):
+                            # Show zone details
+                            for key, value in zone.items():
+                                if key not in ["name", "id", "surfaces", "openings"]:
+                                    if isinstance(value, (dict, list)):
+                                        render_tree_node(key, value, level=3)
+                                    else:
+                                        st.write(f"        🔹 **{key}:** {value}")
+                            
+                            # Show surfaces under this zone
+                            zone_surfaces = zone.get("surfaces", [])
+                            if zone_surfaces:
+                                with st.expander(f"    🧱 Surfaces ({len(zone_surfaces)})", expanded=False):
+                                    for surf in zone_surfaces:
+                                        surf_name = surf.get("name", surf.get("id", "Unknown"))
+                                        surf_type = surf.get("type", "")
+                                        st.write(f"        • {surf_name} ({surf_type})")
+            
+            # Surfaces (if not nested under zones)
+            surfaces = geom.get("surfaces", {})
+            if surfaces and not zones:
+                if isinstance(surfaces, dict):
+                    total = sum(len(v) for v in surfaces.values() if isinstance(v, list))
+                    with st.expander(f"🧱 Surfaces ({total})", expanded=False):
+                        for category, surf_list in surfaces.items():
+                            if isinstance(surf_list, list):
+                                render_tree_node(category, surf_list, level=2)
+                elif isinstance(surfaces, list):
+                    with st.expander(f"🧱 Surfaces ({len(surfaces)})", expanded=False):
+                        for surf in surfaces:
+                            surf_name = surf.get("name", surf.get("id", "Unknown"))
+                            st.write(f"    • {surf_name}")
+            
+            # Openings
+            openings = geom.get("openings", {})
+            if openings:
+                if isinstance(openings, dict):
+                    total = sum(len(v) for v in openings.values() if isinstance(v, list))
+                    with st.expander(f"🪟 Openings ({total})", expanded=False):
+                        for category, open_list in openings.items():
+                            if isinstance(open_list, list):
+                                render_tree_node(category, open_list, level=2)
+    
+    # Catalogs level
+    if "catalogs" in model:
+        with st.expander("📚 Catalogs", expanded=False):
+            catalogs = model["catalogs"]
+            for cat_name, cat_items in catalogs.items():
+                if isinstance(cat_items, list):
+                    with st.expander(f"📖 {cat_name.replace('_', ' ').title()} ({len(cat_items)})", expanded=False):
+                        for item in cat_items:
+                            if isinstance(item, dict):
+                                item_name = item.get("name", item.get("id", "Unknown"))
+                                with st.expander(f"    • {item_name}", expanded=False):
+                                    st.json(item)
+                            else:
+                                st.write(f"    • {item}")
+    
+    # Systems level
+    if "systems" in model:
+        with st.expander("🔧 Systems", expanded=False):
+            systems = model["systems"]
+            
+            hvac = systems.get("hvac", [])
+            if hvac:
+                with st.expander(f"❄️ HVAC Systems ({len(hvac)})", expanded=False):
+                    for sys in hvac:
+                        sys_name = sys.get("name", sys.get("id", "Unknown"))
+                        st.write(f"    • {sys_name}")
+                        st.json(sys)
+            
+            dhw = systems.get("dhw", [])
+            if dhw:
+                with st.expander(f"🚿 DHW Systems ({len(dhw)})", expanded=False):
+                    for sys in dhw:
+                        sys_name = sys.get("name", sys.get("id", "Unknown"))
+                        st.write(f"    • {sys_name}")
+                        st.json(sys)
+            
+            pv = systems.get("pv", [])
+            if pv:
+                with st.expander(f"☀️ PV Arrays ({len(pv)})", expanded=False):
+                    for sys in pv:
+                        sys_name = sys.get("name", sys.get("id", "Unknown"))
+                        st.write(f"    • {sys_name}")
+                        st.json(sys)
+
+
 def show_active_model():
     st.subheader("Active Model")
 
@@ -44,74 +182,9 @@ def show_active_model():
             }
         }
 
-    # Lazy loading for Location
-    with st.expander("📍 Location"):
-        loc = active_model.get("project", {}).get("location", {}) or active_model.get("location", {})
-        if loc:
-            st.json(loc)
-        else:
-            st.write("No location data available")
-
-    # Lazy loading for Geometry
-    with st.expander("🏗️ Geometry"):
-        geom = active_model.get("geometry", {})
-
-        zones = geom.get("zones", [])
-        st.write(f"**Zones:** {len(zones)}")
-        if zones:
-            for zone in zones[:5]:  # Show first 5
-                name = zone.get("name", "Unknown")
-                area = zone.get("floor_area_m2", zone.get("area", 0))
-                st.write(f"  - {name}: {area:.1f} m²")
-            if len(zones) > 5:
-                st.caption(f"... and {len(zones) - 5} more zones")
-
-        surfaces = geom.get("surfaces", {})
-        if isinstance(surfaces, dict):
-            total_surfaces = sum(len(v) for v in surfaces.values() if isinstance(v, list))
-            st.write(f"**Surfaces:** {total_surfaces}")
-            for category, surf_list in surfaces.items():
-                if isinstance(surf_list, list) and surf_list:
-                    st.write(f"  - {category}: {len(surf_list)}")
-        elif isinstance(surfaces, list):
-            st.write(f"**Surfaces:** {len(surfaces)}")
-
-        openings = geom.get("openings", {})
-        if isinstance(openings, dict):
-            total_openings = sum(len(v) for v in openings.values() if isinstance(v, list))
-            st.write(f"**Openings:** {total_openings}")
-            for category, open_list in openings.items():
-                if isinstance(open_list, list) and open_list:
-                    st.write(f"  - {category}: {len(open_list)}")
-
-    # Lazy loading for Catalogs
-    with st.expander("📚 Catalogs"):
-        catalogs = active_model.get("catalogs", {})
-
-        for cat_name, cat_items in catalogs.items():
-            if isinstance(cat_items, list) and cat_items:
-                st.write(f"**{cat_name.replace('_', ' ').title()}:** {len(cat_items)}")
-                for item in cat_items[:3]:  # Show first 3
-                    if isinstance(item, dict):
-                        name = item.get("name", item.get("id", "Unknown"))
-                        st.write(f"  - {name}")
-                    else:
-                        st.write(f"  - {item}")
-                if len(cat_items) > 3:
-                    st.caption(f"... and {len(cat_items) - 3} more")
-
-    # Lazy loading for Systems
-    with st.expander("🔧 Systems"):
-        systems = active_model.get("systems", {})
-
-        hvac = systems.get("hvac", [])
-        st.write(f"**HVAC Systems:** {len(hvac)}")
-
-        dhw = systems.get("dhw", [])
-        st.write(f"**DHW Systems:** {len(dhw)}")
-
-        pv = systems.get("pv", [])
-        st.write(f"**PV Arrays:** {len(pv)}")
+    # Display tree-style navigator
+    st.divider()
+    show_tree_navigator(active_model)
 
     # Provide export options for the active model
     st.divider()

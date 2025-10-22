@@ -1,0 +1,7 @@
+# Junie will ignore these
+__pycache__/
+*.pyc
+.git/
+.idea/
+venv/
+test_data/large_files/

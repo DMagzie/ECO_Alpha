@@ -8,8 +8,6 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from explorer_gui.import_export import emjson6_to_cibd22x
-
 # ... rest of your existing code ...from diagnostics import show_diagnostics
 
 def show_diagnostics():

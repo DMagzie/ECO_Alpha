@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SDDXML>
+  <RulesetFilename file="CA Title 24 2022 Multifamily.bin"/>
+  <ResProj>
+    <n>Test Project</n>
+  </ResProj>
+  <ResZn id="Z001">
+    <n>Living Room</n>
+    <FloorArea>1000</FloorArea>
+    <ZnMult>1</ZnMult>
+  </ResZn>
+  <ResExtWall>
+    <n>North Wall</n>
+    <Area>120</Area>
+    <Az>0</Az>
+  </ResExtWall>
+</SDDXML>

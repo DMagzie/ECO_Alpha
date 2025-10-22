@@ -1,5 +1,5 @@
 # Streamlit for building interactive web applications
-streamlit==1.10.0
+streamlit>=1.11.0
 
 # pandas for data manipulation (updated to a version compatible with Python 3.11)
 pandas>=1.4.0

@@ -13,7 +13,7 @@ EXPLORER_GUI = ROOT / "explorer_gui"
 if str(EXPLORER_GUI) not in sys.path:
     sys.path.insert(0, str(EXPLORER_GUI))
 
-from import_export import emjson6_to_cibd22x
+from explorer_gui.translators import emjson6_to_cibd22x, emjson6_to_cibd22x_uni
 
 
 def handle_export():
@@ -58,6 +58,7 @@ def handle_export():
     # Provide export options for the active model
     st.subheader("Download Active Model")
 
+    # EMJSON v6 export (left column)
     col1, col2 = st.columns(2)
 
     with col1:
@@ -72,18 +73,38 @@ def handle_export():
         )
 
     with col2:
-        # Export the model as CIBD22x XML
-        try:
+        st.write("")  # Spacing
+
+    # CIBD22x XML export with translator selection
+    st.markdown("---")
+    st.subheader("Export to CIBD22x XML")
+    
+    # Translator selection
+    translator_option = st.radio(
+        "Select Translator:",
+        options=["em-tools", "Universal Translator"],
+        help="Choose which translator to use for exporting to CIBD22x XML format",
+        horizontal=True
+    )
+    
+    # Export button
+    try:
+        if translator_option == "em-tools":
             xml_data = emjson6_to_cibd22x(active_model)
-            st.download_button(
-                label="📥 Download as CIBD22x XML",
-                data=xml_data.encode("utf-8") if isinstance(xml_data, str) else xml_data,
-                file_name=f"{filename.rsplit('.', 1)[0]}_export.xml",
-                mime="application/xml",
-                help="Download as CIBD22x XML format"
-            )
-        except Exception as e:
-            st.error(f"❌ Export to XML failed: {str(e)}")
-            with st.expander("Error Details"):
-                import traceback
-                st.code(traceback.format_exc())
+            exporter_label = "em-tools"
+        else:  # Universal Translator
+            xml_data = emjson6_to_cibd22x_uni(active_model)
+            exporter_label = "Universal Translator"
+        
+        st.download_button(
+            label=f"📥 Download as CIBD22x XML ({exporter_label})",
+            data=xml_data.encode("utf-8") if isinstance(xml_data, str) else xml_data,
+            file_name=f"{filename.rsplit('.', 1)[0]}_export_{translator_option.replace(' ', '_').lower()}.xml",
+            mime="application/xml",
+            help=f"Download as CIBD22x XML format using {exporter_label}"
+        )
+    except Exception as e:
+        st.error(f"❌ Export to XML failed: {str(e)}")
+        with st.expander("Error Details"):
+            import traceback
+            st.code(traceback.format_exc())
