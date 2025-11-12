@@ -23,35 +23,44 @@ def translate_cibd22x_to_v6(xml_file: str):
         importer = CIBD22XImporter()
         internal = importer.import_file(xml_file)
 
-        # Convert InternalRepresentation to EMJSON v6
-        # Using simple dataclass conversion until proper converter is built
+        # Convert InternalRepresentation to EMJSON v6 with nested structure
         emjson = {
             "schema_version": "6.0",
-            "zones": [asdict(z) for z in internal.zones],
-            "zone_groups": [asdict(zg) for zg in internal.zone_groups],
-            "surfaces": [asdict(s) for s in internal.surfaces],
-            "openings": [asdict(o) for o in internal.openings],
-            "hvac_systems": [asdict(h) for h in internal.hvac_systems],
-            "zone_terminals": [asdict(t) for t in internal.zone_terminals],
-            "iaq_fans": [asdict(f) for f in internal.iaq_fans],
-            "dhw_systems": [asdict(d) for d in internal.dhw_systems],
-            "water_heaters": [asdict(wh) for wh in internal.water_heaters],
-            "recirculation_loops": [asdict(r) for r in internal.recirculation_loops],
-            "materials": [asdict(m) for m in internal.materials],
-            "constructions": [asdict(c) for c in internal.constructions],
-            "window_types": [asdict(w) for w in internal.window_types],
-            "pv_arrays": [asdict(p) for p in internal.pv_arrays],
-            "battery_systems": [asdict(b) for b in internal.battery_systems],
-            "lighting_systems": [asdict(ls) for ls in internal.lighting_systems],
-            "luminaires": [asdict(l) for l in internal.luminaires],
-            "schedules": [asdict(s) for s in internal.schedules],
-            "fan_systems": [asdict(fs) for fs in internal.fan_systems],
-            "heat_pumps": [asdict(hp) for hp in internal.heat_pumps],
-            "distribution_systems": [asdict(ds) for ds in internal.distribution_systems],
-            "control_systems": [asdict(cs) for cs in internal.control_systems],
-            "du_types": internal.du_types,
+            "project": {
+                "name": internal.metadata.get("name", internal.proj_metadata.get("name", "Unnamed Project")),
+                "description": internal.metadata.get("description", ""),
+                "location": internal.metadata.get("location", {}),
+            },
+            "geometry": {
+                "zones": [asdict(z) for z in internal.zones],
+                "zone_groups": [asdict(zg) for zg in internal.zone_groups],
+                "surfaces": [asdict(s) for s in internal.surfaces],
+                "openings": [asdict(o) for o in internal.openings],
+            },
+            "catalogs": {
+                "materials": [asdict(m) for m in internal.materials],
+                "constructions": [asdict(c) for c in internal.constructions],
+                "window_types": [asdict(w) for w in internal.window_types],
+                "schedules": [asdict(s) for s in internal.schedules],
+                "du_types": internal.du_types,
+            },
+            "systems": {
+                "hvac": [asdict(h) for h in internal.hvac_systems],
+                "zone_terminals": [asdict(t) for t in internal.zone_terminals],
+                "dhw": [asdict(d) for d in internal.dhw_systems],
+                "water_heaters": [asdict(wh) for wh in internal.water_heaters],
+                "recirculation_loops": [asdict(r) for r in internal.recirculation_loops],
+                "iaq_fans": [asdict(f) for f in internal.iaq_fans],
+                "pv_arrays": [asdict(p) for p in internal.pv_arrays],
+                "battery_systems": [asdict(b) for b in internal.battery_systems],
+                "lighting_systems": [asdict(ls) for ls in internal.lighting_systems],
+                "luminaires": [asdict(l) for l in internal.luminaires],
+                "fan_systems": [asdict(fs) for fs in internal.fan_systems],
+                "heat_pumps": [asdict(hp) for hp in internal.heat_pumps],
+                "distribution_systems": [asdict(ds) for ds in internal.distribution_systems],
+                "control_systems": [asdict(cs) for cs in internal.control_systems],
+            },
             "proj_metadata": internal.proj_metadata,
-            "metadata": internal.metadata,
             "diagnostics": internal.diagnostics
         }
 
