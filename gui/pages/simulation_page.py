@@ -30,6 +30,7 @@ if str(ROOT) not in sys.path:
 # Import simulation modules
 try:
     from eco_tools.simulation.cbecc_bridge import CBECCBridge
+    from eco_tools.simulation.cbecc_results_parser import CBECCResultsParser
     CBECC_AVAILABLE = True
 except ImportError:
     CBECC_AVAILABLE = False
@@ -193,6 +194,80 @@ def show_cbecc_simulation(model: Dict[str, Any]):
         st.subheader("📊 Latest Results")
 
         result = st.session_state.cbecc_result
+
+        # Parse AnalysisResults.xml if available
+        if result.get("xml_file") and Path(result["xml_file"]).exists():
+            with st.expander("📊 Parsed Results", expanded=True):
+                try:
+                    parser = CBECCResultsParser(result["xml_file"])
+                    parsed = parser.parse()
+
+                    if parsed["status"] == "success":
+                        # Project info
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            st.metric("Project", parsed.get("project_name", "N/A"))
+                        with col2:
+                            st.metric("Climate Zone", parsed.get("climate_zone", "N/A"))
+                        with col3:
+                            area = parsed.get("building_area")
+                            if area:
+                                st.metric("Building Area", f"{area:,.0f} ft²")
+                            else:
+                                st.metric("Building Area", "N/A")
+
+                        st.divider()
+
+                        # Compliance results
+                        st.markdown("**Title 24 Compliance**")
+                        comp_status = parsed.get("compliance_status", "Unknown")
+                        if comp_status == "Pass":
+                            st.success(f"✅ Compliance: {comp_status}")
+                        elif comp_status == "Fail":
+                            st.error(f"❌ Compliance: {comp_status}")
+                        else:
+                            st.info(f"ℹ️ Compliance: {comp_status}")
+
+                        # Show TDV metrics if available
+                        if "proposed_tdv" in parsed or "standard_tdv" in parsed:
+                            col1, col2, col3 = st.columns(3)
+                            with col1:
+                                if "proposed_tdv" in parsed:
+                                    st.metric("Proposed TDV", f"{parsed['proposed_tdv']:.1f} kBtu/ft²/yr")
+                            with col2:
+                                if "standard_tdv" in parsed:
+                                    st.metric("Standard TDV", f"{parsed['standard_tdv']:.1f} kBtu/ft²/yr")
+                            with col3:
+                                if "compliance_margin" in parsed:
+                                    margin = parsed["compliance_margin"]
+                                    st.metric("Margin", f"{margin:.1f}%",
+                                            delta=f"{margin:.1f}%" if margin > 0 else None)
+
+                        # Show end uses if available
+                        if parsed.get("end_uses"):
+                            st.divider()
+                            st.markdown("**Energy End Uses**")
+                            for use, value in parsed["end_uses"].items():
+                                st.markdown(f"- {use.replace('_', ' ').title()}: {value:.2f} kBtu/ft²/yr")
+
+                        # Show end use categories (even if no values yet)
+                        elif parsed.get("end_use_categories"):
+                            st.divider()
+                            st.markdown("**Available End Use Categories**")
+                            st.markdown(f"*({len(parsed['end_use_categories'])} categories found)*")
+                            categories_text = ", ".join(parsed['end_use_categories'][:10])
+                            if len(parsed['end_use_categories']) > 10:
+                                categories_text += f", ... ({len(parsed['end_use_categories']) - 10} more)"
+                            st.caption(categories_text)
+
+                        # Store parsed results for comparison
+                        st.session_state.cbecc_parsed = parsed
+
+                    else:
+                        st.error(f"Parse error: {parsed.get('message', 'Unknown error')}")
+
+                except Exception as e:
+                    st.error(f"Error parsing results: {e}")
 
         # Show log file
         if result.get("log_file") and Path(result["log_file"]).exists():
@@ -361,10 +436,10 @@ def show_comparison(model: Dict[str, Any]):
     """Show comparison between CBECC and EnergyPlus results."""
     st.header("📊 Results Comparison")
 
-    cbecc_result = st.session_state.get("cbecc_result")
+    cbecc_parsed = st.session_state.get("cbecc_parsed")
     energyplus_result = st.session_state.get("energyplus_result")
 
-    if not cbecc_result and not energyplus_result:
+    if not cbecc_parsed and not energyplus_result:
         st.info("💡 Run simulations in the CBECC-Com and EnergyPlus tabs to see comparison")
         return
 
@@ -372,16 +447,37 @@ def show_comparison(model: Dict[str, Any]):
     col1, col2 = st.columns(2)
 
     with col1:
-        st.subheader("🏛️ CBECC-Com")
-        if cbecc_result:
-            st.success(f"Status: {cbecc_result.get('status', 'Unknown')}")
-            st.info(f"Exit Code: {cbecc_result.get('exit_code', 'N/A')}")
-            # TODO: Parse CBECC results for energy metrics
+        st.subheader("🏛️ CBECC-Com (Title 24)")
+        if cbecc_parsed:
+            st.success(f"Status: {cbecc_parsed.get('status', 'Unknown')}")
+
+            # Show compliance
+            comp_status = cbecc_parsed.get("compliance_status", "Unknown")
+            if comp_status == "Pass":
+                st.success(f"✅ Compliance: {comp_status}")
+            elif comp_status == "Fail":
+                st.error(f"❌ Compliance: {comp_status}")
+            else:
+                st.info(f"ℹ️ Compliance: {comp_status}")
+
+            # Show TDV metrics
+            if "proposed_tdv" in cbecc_parsed:
+                st.metric("Proposed TDV", f"{cbecc_parsed['proposed_tdv']:.1f} kBtu/ft²/yr")
+            if "standard_tdv" in cbecc_parsed:
+                st.metric("Standard TDV", f"{cbecc_parsed['standard_tdv']:.1f} kBtu/ft²/yr")
+            if "compliance_margin" in cbecc_parsed:
+                margin = cbecc_parsed["compliance_margin"]
+                st.metric("Margin", f"{margin:.1f}%")
+
+            # Show building area
+            if "building_area" in cbecc_parsed:
+                st.metric("Building Area", f"{cbecc_parsed['building_area']:,.0f} ft²")
+
         else:
             st.warning("No CBECC results yet")
 
     with col2:
-        st.subheader("⚡ EnergyPlus")
+        st.subheader("⚡ EnergyPlus (Detailed Energy)")
         if energyplus_result:
             st.success(f"Status: {energyplus_result.get('status', 'Unknown')}")
 
@@ -392,14 +488,90 @@ def show_comparison(model: Dict[str, Any]):
             energy = energyplus_result.get("total_site_energy_kwh")
             if energy:
                 st.metric("Total Energy", f"{energy:,.0f} kWh")
+
+            # Show end uses summary
+            if energyplus_result.get("end_uses"):
+                end_uses = energyplus_result["end_uses"]
+                heating = end_uses.get("heating", 0)
+                cooling = end_uses.get("cooling", 0)
+                lighting = end_uses.get("lighting", 0)
+                st.markdown(f"""
+                **Top End Uses:**
+                - Heating: {heating:.1f}
+                - Cooling: {cooling:.1f}
+                - Lighting: {lighting:.1f}
+                """)
         else:
             st.warning("No EnergyPlus results yet")
 
-    st.divider()
+    # Calculate comparison metrics if both available
+    if cbecc_parsed and energyplus_result:
+        st.divider()
+        st.subheader("🔍 Comparison Analysis")
 
-    # Future: Add charts comparing end uses, monthly energy, etc.
-    if cbecc_result and energyplus_result:
-        st.info("📊 Detailed comparison charts coming soon!")
+        # Compare building areas if both have them
+        cbecc_area = cbecc_parsed.get("building_area")
+        ep_eui = energyplus_result.get("eui_kbtu_per_sqft_yr")
+
+        if cbecc_area and ep_eui:
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                st.metric("CBECC Area", f"{cbecc_area:,.0f} ft²")
+
+            with col2:
+                st.metric("EnergyPlus EUI", f"{ep_eui:.1f} kBtu/ft²/yr")
+
+            with col3:
+                # Calculate total energy from EnergyPlus
+                total_ep = energyplus_result.get("total_site_energy_kwh", 0)
+                # Convert to kBtu
+                total_ep_kbtu = total_ep * 3.412
+                # Calculate EUI
+                if cbecc_area > 0:
+                    ep_eui_calc = total_ep_kbtu / cbecc_area
+                    st.metric("Calculated EUI", f"{ep_eui_calc:.1f} kBtu/ft²/yr")
+
+        # Compare end uses if both have them
+        cbecc_end_uses = cbecc_parsed.get("end_uses", {})
+        ep_end_uses = energyplus_result.get("end_uses", {})
+
+        if cbecc_end_uses and ep_end_uses:
+            st.markdown("**End Use Comparison**")
+
+            # Create comparison table
+            comparison_data = []
+            for use in set(list(cbecc_end_uses.keys()) + list(ep_end_uses.keys())):
+                cbecc_val = cbecc_end_uses.get(use, 0)
+                ep_val = ep_end_uses.get(use, 0)
+
+                if cbecc_val > 0 or ep_val > 0:
+                    delta = ep_val - cbecc_val
+                    if cbecc_val > 0:
+                        pct_diff = (delta / cbecc_val) * 100
+                    else:
+                        pct_diff = None
+
+                    comparison_data.append({
+                        "End Use": use.replace("_", " ").title(),
+                        "CBECC": f"{cbecc_val:.2f}",
+                        "EnergyPlus": f"{ep_val:.2f}",
+                        "Delta": f"{delta:+.2f}",
+                        "% Diff": f"{pct_diff:+.1f}%" if pct_diff is not None else "N/A"
+                    })
+
+            if comparison_data:
+                st.table(comparison_data)
+            else:
+                st.info("No comparable end uses found yet")
+
+        elif not cbecc_end_uses:
+            st.info("💡 CBECC end use data not available yet (simulation may still be running or results not parsed)")
+        elif not ep_end_uses:
+            st.info("💡 EnergyPlus end use data not available yet")
+
+    elif cbecc_parsed or energyplus_result:
+        st.info("💡 Run both CBECC-Com and EnergyPlus simulations to see detailed comparison")
 
 
 if __name__ == "__main__":
