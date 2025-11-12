@@ -1,0 +1,79 @@
+PROJECT "Simple Box Test"
+
+SPACE "Room 1"
+  FLOOR-PLAN-COORDS
+    POINT 0.0 0.0 0.0
+    POINT 10.0 0.0 0.0
+    POINT 10.0 8.0 0.0
+    POINT 0.0 8.0 0.0
+  END-FLOOR-PLAN-COORDS
+
+  SURFACE "South Wall"
+    TYPE = ExteriorWall
+    COORDS
+      POINT 0.0 0.0 0.0
+      POINT 10.0 0.0 0.0
+      POINT 10.0 0.0 3.0
+      POINT 0.0 0.0 3.0
+    END-COORDS
+
+    WINDOW "Window 1"
+      WINDOW-COORDS
+        POINT 2.0 1.0
+        POINT 5.0 1.0
+        POINT 5.0 2.5
+        POINT 2.0 2.5
+      END-WINDOW-COORDS
+    END-WINDOW
+  END-SURFACE
+
+  SURFACE "North Wall"
+    TYPE = ExteriorWall
+    COORDS
+      POINT 0.0 8.0 0.0
+      POINT 10.0 8.0 0.0
+      POINT 10.0 8.0 3.0
+      POINT 0.0 8.0 3.0
+    END-COORDS
+  END-SURFACE
+
+  SURFACE "East Wall"
+    TYPE = ExteriorWall
+    COORDS
+      POINT 10.0 0.0 0.0
+      POINT 10.0 8.0 0.0
+      POINT 10.0 8.0 3.0
+      POINT 10.0 0.0 3.0
+    END-COORDS
+  END-SURFACE
+
+  SURFACE "West Wall"
+    TYPE = ExteriorWall
+    COORDS
+      POINT 0.0 0.0 0.0
+      POINT 0.0 8.0 0.0
+      POINT 0.0 8.0 3.0
+      POINT 0.0 0.0 3.0
+    END-COORDS
+  END-SURFACE
+
+  SURFACE "Floor"
+    TYPE = Floor
+    COORDS
+      POINT 0.0 0.0 0.0
+      POINT 10.0 0.0 0.0
+      POINT 10.0 8.0 0.0
+      POINT 0.0 8.0 0.0
+    END-COORDS
+  END-SURFACE
+
+  SURFACE "Roof"
+    TYPE = Roof
+    COORDS
+      POINT 0.0 0.0 3.0
+      POINT 10.0 0.0 3.0
+      POINT 10.0 8.0 3.0
+      POINT 0.0 8.0 3.0
+    END-COORDS
+  END-SURFACE
+END-SPACE

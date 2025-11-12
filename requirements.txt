@@ -17,12 +17,12 @@ pandas>=2.0.0
 lxml>=4.9.0
 xmltodict>=0.13.0
 
-# Future: Ladybug Tools Integration (Phase 4)
-# ladybug-core>=0.41.0
-# ladybug-geometry>=1.26.0
-# honeybee-core>=1.56.0
-# honeybee-energy>=1.106.0
-# honeybee-radiance>=1.66.0
+# Ladybug Tools Integration (Phase 2 - Optional)
+# Uncomment to enable GEM import and HBJSON round-trip
+# pip install ladybug-geometry honeybee-core honeybee-energy
+ladybug-geometry>=1.26.0
+honeybee-core>=1.56.0
+honeybee-energy>=1.106.0
 
 # Development Dependencies (Optional)
 # pytest>=7.4.0
