@@ -1,0 +1,41 @@
+# Catalog handler: build window_types by name, store U/SHGC/VT.
+object: WindowType
+source_paths:
+  cib22:
+    - "/CBECCProject/Catalogs/WindowTypes/WindowType"
+  cibd22x:
+    - "/CBECCProject/Catalogs/WindowTypes/WindowType"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]        # generator: de-dupe by Name
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath: "Name/text()" }]
+      cibd22x: [{ xpath: "Name/text()" }]
+  - name: u
+    type: float
+    units: "Btu/h·ft2·°F"
+    required: true
+    source:
+      cib22: [{ xpath: "UFactor/text()" }]
+      cibd22x: [{ xpath: "UFactor/text()" }]
+  - name: shgc
+    type: float
+    required: true
+    source:
+      cib22: [{ xpath: "SolarHeatGainCoeff/text()" }]
+      cibd22x: [{ xpath: "SolarHeatGainCoeff/text()" }]
+  - name: vt
+    type: float
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath: "VisibleTrans/text()" }]
+      cibd22x: [{ xpath: "VisibleTrans/text()" }]
+diagnostics:
+  on_missing_required: { action: "error", code: "E-CAT-WINTYPE-MISSING" }

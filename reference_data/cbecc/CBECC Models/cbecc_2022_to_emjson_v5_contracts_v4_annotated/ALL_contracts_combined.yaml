@@ -1,0 +1,968 @@
+# Coverage matrix guides generator scaffolding for 2022 imports:
+# - Iterate objects in this order for deterministic creation.
+# - "status: included" means a handler must exist.
+# - Fields listed define the EMJSON v5 struct schemas to scaffold.
+kind: coverage_matrix
+version: "CBECC 2022 → EMJSON v5"
+objects:
+  - object: Project
+    status: included
+    fields: [name, description]
+  - object: Location
+    status: included
+    fields: [city, state, postal_code, climate_zone, address_line1, address_line2]
+  - object: WindowType
+    status: included
+    fields: [name, u, shgc, vt]
+  - object: ConstructionType
+    status: included
+    fields: [name, u]
+  - object: DUType
+    status: included
+    fields: [name, floor_area]
+  - object: ResZone
+    status: included
+    fields: [id, name, type, floor_area, volume, du_type_ref, multiplier]
+  - object: ResExtWallInstance
+    status: included
+    fields: [name, azimuth_deg, tilt_deg, area_ft2, construction_type_ref, parent_zone_ref]
+  - object: ResRoofInstance
+    status: included
+    fields: [name, azimuth_deg, tilt_deg, area_ft2, construction_type_ref, parent_zone_ref]
+  - object: ResFloorInstance
+    status: included
+    fields: [name, azimuth_deg, tilt_deg, area_ft2, construction_type_ref, parent_zone_ref]
+  - object: ResWindowInstance
+    status: included
+    fields: [name, window_type_ref, width_ft, height_ft, area_ft2, parent_surface_ref]
+  - object: DoorInstance
+    status: included
+    fields: [name, width_ft, height_ft, area_ft2, construction_type_ref, parent_surface_ref]
+  - object: SkylightInstance
+    status: included
+    fields: [name, window_type_ref, width_ft, height_ft, area_ft2, parent_surface_ref]
+  - object: ResHVACSystem
+    status: included
+    fields: [name, system_type, fuel, heating_eff, cooling_eff, served_zones]
+
+---
+# Deterministic diagnostics for 2022:
+# - Generators should raise these codes exactly when specified.
+# - Messages accept tokens in {braces} for context.
+kind: diagnostics
+codes:
+  - code: E-PROJ-NAME-MISSING
+    severity: error
+    message: "Project: missing Name at {xpath}"
+  - code: E-LOC-CLIMATEZONE-MISSING
+    severity: error
+    message: "Location: missing ClimateZone at {xpath}"
+  - code: E-ZONE-NO-AREA
+    severity: error
+    message: "Zone {id_or_name}: missing FloorArea at {xpath}"
+  - code: E-ZONE-DUTYPE-REF
+    severity: error
+    message: "Zone {id_or_name}: missing or unresolved DUTypeRef '{value}'"
+  - code: E-SURF-NO-CTYPE
+    severity: error
+    message: "Surface {name}: missing ConstructionTypeRef at {xpath}"
+  - code: E-WIN-NO-TYPE
+    severity: error
+    message: "Window {name}: missing WindowTypeRef at {xpath}"
+  - code: E-REF-UNRESOLVED
+    severity: error
+    message: "Reference {field}='{value}' not found in {target}"
+  - code: E-ENUM-BADTOKEN
+    severity: error
+    message: "Field {field}: illegal token '{value}' at {xpath}"
+  - code: W-ALT-USED
+    severity: warning
+    message: "Used alternate path {path} for {object}"
+  - code: W-NORMALIZED-AREA
+    severity: warning
+    message: "Computed area from width*height for {object} at {xpath}"
+
+---
+# Conventions inform codegen helpers (angles, units, derivations).
+# Generators: include helpers
+#   - deg_from(source_text)
+#   - area_from(explicit, width, height) with precedence below.
+kind: conventions
+geometry:
+  azimuth:
+    reference: "0° = North"   # clockwise positive
+    direction: "clockwise positive"
+    units: "deg"
+  tilt:
+    reference: "0° = horizontal up, 90° = vertical"  # floors ≈ 0, walls ≈ 90
+    units: "deg"
+units:
+  length: ft
+  area: ft2
+  temperature: degF
+  power: W
+  heat_transfer_coeff: "Btu/h·ft2·°F"
+area_derivation_precedence:
+  - explicit_area_element       # prefer <Area>
+  - width_times_height          # else Width * Height
+  - null                        # else null (no heuristics)
+
+---
+# Handler hint: Create exactly one Project record; name is required.
+object: Project
+source_paths:
+  cib22:
+    - "/CBECCProject/Project"   # exact element path
+  cibd22x:
+    - "/CBECCProject/Project"
+precedence: first                # first and only
+cardinality: { min: 1, max: "inf" }  # allow multiple project blocks but use identity to dedupe
+identity:
+  key: ["Name"]                 # use Name as global key
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath: "Name/text()" }]
+      cibd22x: [{ xpath: "Name/text()" }]
+    diagnostics:
+      on_missing: { action: "error", code: "E-PROJ-NAME-MISSING", xpath: "/CBECCProject/Project/Name" }
+  - name: description
+    type: string
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath: "Description/text()" }]
+      cibd22x: [{ xpath: "Description/text()" }]
+
+---
+# Handler hint: read Location; fallback to Address for city/state/postal.
+# Field precedence is the listed order under each variant.
+object: Location
+source_paths:
+  cib22:
+    - "/CBECCProject/Project/Location"
+  cibd22x:
+    - "/CBECCProject/Project/Location"
+precedence: first
+cardinality: { min: 1, max: 1 }
+identity:
+  key: ["City","State","PostalCode"]
+  scope: "global"
+fields:
+  - name: city
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/City/text()" }
+        - { xpath:"/CBECCProject/Project/Address/City/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/City/text()" }
+        - { xpath:"/CBECCProject/Project/Address/City/text()" }
+  - name: state
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/State/text()" }
+        - { xpath:"/CBECCProject/Project/Address/State/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/State/text()" }
+        - { xpath:"/CBECCProject/Project/Address/State/text()" }
+  - name: postal_code
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/PostalCode/text()" }
+        - { xpath:"/CBECCProject/Project/Address/PostalCode/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/PostalCode/text()" }
+        - { xpath:"/CBECCProject/Project/Address/PostalCode/text()" }
+  - name: address_line1
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine1/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine1/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine1/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine1/text()" }
+  - name: address_line2
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine2/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine2/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine2/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine2/text()" }
+  - name: climate_zone
+    type: enum
+    required: true
+    source:
+      cib22: [{ xpath:"/CBECCProject/Project/Location/ClimateZone/text()" }]
+      cibd22x: [{ xpath:"/CBECCProject/Project/Location/ClimateZone/text()" }]
+    enum_map:                  # CLOSED set; unknown → E-ENUM-BADTOKEN
+      "1": "1"
+      "2": "2"
+      "3": "3"
+      "4": "4"
+      "5": "5"
+      "6": "6"
+      "7": "7"
+      "8": "8"
+      "9": "9"
+      "10": "10"
+      "11": "11"
+      "12": "12"
+      "13": "13"
+      "14": "14"
+      "15": "15"
+      "16": "16"
+    diagnostics:
+      on_missing: { action:"error", code:"E-LOC-CLIMATEZONE-MISSING", xpath:"/CBECCProject/Project/Location/ClimateZone" }
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"climate_zone", xpath:"/CBECCProject/Project/Location/ClimateZone" }
+
+---
+# Catalog handler: build window_types by name, store U/SHGC/VT.
+object: WindowType
+source_paths:
+  cib22:
+    - "/CBECCProject/Catalogs/WindowTypes/WindowType"
+  cibd22x:
+    - "/CBECCProject/Catalogs/WindowTypes/WindowType"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]        # generator: de-dupe by Name
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath: "Name/text()" }]
+      cibd22x: [{ xpath: "Name/text()" }]
+  - name: u
+    type: float
+    units: "Btu/h·ft2·°F"
+    required: true
+    source:
+      cib22: [{ xpath: "UFactor/text()" }]
+      cibd22x: [{ xpath: "UFactor/text()" }]
+  - name: shgc
+    type: float
+    required: true
+    source:
+      cib22: [{ xpath: "SolarHeatGainCoeff/text()" }]
+      cibd22x: [{ xpath: "SolarHeatGainCoeff/text()" }]
+  - name: vt
+    type: float
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath: "VisibleTrans/text()" }]
+      cibd22x: [{ xpath: "VisibleTrans/text()" }]
+diagnostics:
+  on_missing_required: { action: "error", code: "E-CAT-WINTYPE-MISSING" }
+
+---
+# Catalog handler: construction_types by Name with U-factor.
+object: ConstructionType
+source_paths:
+  cib22:
+    - "/CBECCProject/Catalogs/ConstructionTypes/ConstructionType"
+  cibd22x:
+    - "/CBECCProject/Catalogs/ConstructionTypes/ConstructionType"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: u
+    type: float
+    units: "Btu/h·ft2·°F"
+    required: true
+    source:
+      cib22: [{xpath:"UFactor/text()"}]
+      cibd22x: [{xpath:"UFactor/text()"}]
+
+---
+# Catalog handler: du_types by Name; optional default floor area.
+object: DUType
+source_paths:
+  cib22:
+    - "/CBECCProject/Catalogs/DUTypes/DUType"
+  cibd22x:
+    - "/CBECCProject/Catalogs/DUTypes/DUType"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: floor_area
+    type: float
+    units: "ft2"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"FloorArea/text()"}]
+      cibd22x: [{xpath:"FloorArea/text()"}]
+
+---
+# Handler hint: zones are created before surfaces and systems.
+# Identity: prefer @id; fallback to Name for lookups.
+object: ResZone
+source_paths:
+  cib22:
+    - "/CBECCProject/Geometry//ResZn"
+  cibd22x:
+    - "/CBECCProject/Geometry//ResZn"
+precedence: first
+cardinality: { min: 1, max: "inf" }
+identity:
+  key: ["@id","Name"]
+  scope: "global"
+references:
+  - field: du_type_ref              # generator: resolve against du_types
+    target_catalog: "du_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-ZONE-DUTYPE-REF" }
+fields:
+  - name: id
+    type: string
+    required: false
+    source:
+      cib22: [{xpath:"@id"}]
+      cibd22x: [{xpath:"@id"}]
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: type
+    type: enum
+    required: true
+    source:
+      cib22: [{ xpath:"ZoneType/text()" }]
+      cibd22x: [{ xpath:"ZoneType/text()" }]
+    enum_map:                      # CLOSED; update only via spec change
+      "Conditioned": "conditioned"
+      "Unconditioned": "unconditioned"
+      "Garage": "garage"
+      "Crawlspace": "crawlspace"
+      "Attic": "attic"
+      "Other": "other"
+    diagnostics:
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"type", xpath:"//ResZn/ZoneType" }
+  - name: floor_area
+    type: float
+    units: "ft2"
+    required: true
+    source:
+      cib22: [{xpath:"FloorArea/text()"}]
+      cibd22x: [{xpath:"FloorArea/text()"}]
+    diagnostics:
+      on_missing: {action:"error", code:"E-ZONE-NO-AREA", xpath:"//ResZn/FloorArea" }
+  - name: volume
+    type: float
+    units: "ft3"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"Volume/text()"}]
+      cibd22x: [{xpath:"Volume/text()"}]
+  - name: du_type_ref
+    type: string
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"DUTypeRef/text()"}]
+      cibd22x: [{xpath:"DUTypeRef/text()"}]
+  - name: multiplier
+    type: float
+    required: false
+    default: 1.0
+    source:
+      cib22: [{xpath:"Multiplier/text()"}]
+      cibd22x: [{xpath:"Multiplier/text()"}]
+
+---
+# Surfaces: specialized element (preferred) vs flat Surface encoding (alternate).
+# parent_zone_ref is resolved via ancestor ResZn.
+object: ResExtWallInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResExtWall"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Exterior Wall']"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResExtWall"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Exterior Wall']"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]         # de-dupe within parent zone
+  scope: "within_parent"
+references:
+  - field: construction_type_ref
+    target_catalog: "construction_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_zone_ref
+    target_collection: "zones"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}, {xpath:"@name"}]
+      cibd22x: [{xpath:"Name/text()"}, {xpath:"@name"}]
+  - name: azimuth_deg
+    type: float
+    units: "deg"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"Azimuth/text()"}]
+      cibd22x: [{xpath:"Azimuth/text()"}]
+  - name: tilt_deg
+    type: float
+    units: "deg"
+    required: false
+    default: 90
+    source:
+      cib22: [{xpath:"Tilt/text()"}]
+      cibd22x: [{xpath:"Tilt/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath:"Area/text()"}]
+      cibd22x: [{ xpath:"Area/text()"}]
+  - name: construction_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath:"ConstructionTypeRef/text()"}]
+      cibd22x: [{ xpath:"ConstructionTypeRef/text()"}]
+  - name: parent_zone_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_zone_ref","name"]
+  provenance_field: "_source"   # generator: store source of encoding for traceability
+  provenance_values:
+    preferred: "specialized_wall"
+    alternate: "flat_wall"
+
+---
+# Roofs (specialized vs flat). Tilt default is null (must read or be provided).
+object: ResRoofInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResRoof"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Roof']"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResRoof"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Roof']"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "within_parent"
+references:
+  - field: construction_type_ref
+    target_catalog: "construction_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_zone_ref
+    target_collection: "zones"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}, {xpath:"@name"}]
+      cibd22x: [{xpath:"Name/text()"}, {xpath:"@name"}]
+  - name: azimuth_deg
+    type: float
+    units: "deg"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"Azimuth/text()"}]
+      cibd22x: [{xpath:"Azimuth/text()"}]
+  - name: tilt_deg
+    type: float
+    units: "deg"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"Tilt/text()"}]
+      cibd22x: [{xpath:"Tilt/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath:"Area/text()"}]
+      cibd22x: [{ xpath:"Area/text()"}]
+  - name: construction_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath:"ConstructionTypeRef/text()"}]
+      cibd22x: [{ xpath:"ConstructionTypeRef/text()"}]
+  - name: parent_zone_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_zone_ref","name"]
+  provenance_field: "_source"
+  provenance_values:
+    preferred: "specialized_roof"
+    alternate: "flat_roof"
+
+---
+# Floors (specialized vs flat). Tilt default is 0 per convention.
+object: ResFloorInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResFloor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Floor']"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResFloor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Floor']"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "within_parent"
+references:
+  - field: construction_type_ref
+    target_catalog: "construction_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_zone_ref
+    target_collection: "zones"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}, {xpath:"@name"}]
+      cibd22x: [{xpath:"Name/text()"}, {xpath:"@name"}]
+  - name: azimuth_deg
+    type: float
+    units: "deg"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"Azimuth/text()"}]
+      cibd22x: [{xpath:"Azimuth/text()"}]
+  - name: tilt_deg
+    type: float
+    units: "deg"
+    required: false
+    default: 0
+    source:
+      cib22: [{xpath:"Tilt/text()"}]
+      cibd22x: [{xpath:"Tilt/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath:"Area/text()"}]
+      cibd22x: [{ xpath:"Area/text()"}]
+  - name: construction_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath:"ConstructionTypeRef/text()"}]
+      cibd22x: [{ xpath:"ConstructionTypeRef/text()"}]
+  - name: parent_zone_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_zone_ref","name"]
+  provenance_field: "_source"
+  provenance_values:
+    preferred: "specialized_floor"
+    alternate: "flat_floor"
+
+---
+# Windows: dual encoding. parent_surface_ref must resolve to surfaces collection.
+# Area derivation follows conventions; emit W-NORMALIZED-AREA when computed.
+object: ResWindowInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResExtWall/Windows/ResWindow"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Window']/ResWindow"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResExtWall/Windows/ResWindow"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Window']/ResWindow"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "within_parent_surface"
+references:
+  - field: window_type_ref
+    target_catalog: "window_types"
+    lookup_order: ["@id","Name","name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_surface_ref
+    target_collection: "surfaces"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: window_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"WindowTypeRef/text()"}]
+      cibd22x: [{xpath:"WindowTypeRef/text()"}]
+  - name: width_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Width/text()"}]
+      cibd22x: [{xpath:"Width/text()"}]
+  - name: height_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Height/text()"}]
+      cibd22x: [{xpath:"Height/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    source:
+      cib22: [{xpath:"Area/text()"}]
+      cibd22x: [{xpath:"Area/text()"}]
+    normalize:
+      compute_if_missing: "width_ft * height_ft"
+      on_compute: { action:"warn", code:"W-NORMALIZED-AREA" }
+  - name: parent_surface_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResExtWall[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResExtWall[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_surface_ref","name"]
+  provenance_field: "_source"
+  provenance_values:
+    preferred: "nested_windows"
+    alternate: "flat_windows"
+diagnostics:
+  on_missing_required:
+    - { field:"window_type_ref", action:"error", code:"E-WIN-NO-TYPE" }
+
+---
+# Doors: same parenting/reference semantics as windows.
+object: DoorInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResExtWall/Doors/ResDoor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Door']/ResDoor"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResExtWall/Doors/ResDoor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Door']/ResDoor"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "within_parent_surface"
+references:
+  - field: construction_type_ref
+    target_catalog: "construction_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_surface_ref
+    target_collection: "surfaces"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: width_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Width/text()"}]
+      cibd22x: [{xpath:"Width/text()"}]
+  - name: height_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Height/text()"}]
+      cibd22x: [{xpath:"Height/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    source:
+      cib22: [{xpath:"Area/text()"}]
+      cibd22x: [{xpath:"Area/text()"}]
+    normalize:
+      compute_if_missing: "width_ft * height_ft"
+      on_compute: { action:"warn", code:"W-NORMALIZED-AREA" }
+  - name: construction_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath:"ConstructionTypeRef/text()"}]
+      cibd22x: [{ xpath:"ConstructionTypeRef/text()"}]
+  - name: parent_surface_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResExtWall[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResExtWall[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_surface_ref","name"]
+  provenance_field: "_source"
+  provenance_values:
+    preferred: "nested_doors"
+    alternate: "flat_doors"
+
+---
+# Skylights: window_type_ref points to window_types catalog.
+object: SkylightInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResRoof/Skylights/ResSkylight"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Skylight']/ResSkylight"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResRoof/Skylights/ResSkylight"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Skylight']/ResSkylight"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "within_parent_surface"
+references:
+  - field: window_type_ref
+    target_catalog: "window_types"
+    lookup_order: ["@id","Name","name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_surface_ref
+    target_collection: "surfaces"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: window_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"WindowTypeRef/text()"}]
+      cibd22x: [{xpath:"WindowTypeRef/text()"}]
+  - name: width_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Width/text()"}]
+      cibd22x: [{xpath:"Width/text()"}]
+  - name: height_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Height/text()"}]
+      cibd22x: [{xpath:"Height/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    source:
+      cib22: [{xpath:"Area/text()"}]
+      cibd22x: [{xpath:"Area/text()"}]
+    normalize:
+      compute_if_missing: "width_ft * height_ft"
+      on_compute: { action:"warn", code:"W-NORMALIZED-AREA" }
+  - name: parent_surface_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResRoof[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResRoof[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_surface_ref","name"]
+  provenance_field: "_source"
+  provenance_values:
+    preferred: "nested_skylights"
+    alternate: "flat_skylights"
+
+---
+# Systems: closed enums for system_type/fuel. Zone serving list must resolve.
+object: ResHVACSystem
+source_paths:
+  cib22:
+    - "/CBECCProject/Systems/ResHVACSystem"
+  cibd22x:
+    - "/CBECCProject/Systems/ResHVACSystem"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "global"
+references:
+  - field: served_zones
+    target_collection: "zones"
+    collection: true              # generator: treat as array of refs
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: system_type
+    type: enum
+    required: true
+    source:
+      cib22: [{ xpath:"SystemType/text()" }]
+      cibd22x: [{ xpath:"SystemType/text()" }]
+    enum_map:                      # CLOSED; expand only with spec
+      "SplitHeatPump": "heat_pump_split"
+      "PackagedHP": "packaged_hp"
+      "DuctlessMiniSplit": "mini_split_ductless"
+      "DuctedMiniSplit": "mini_split_ducted"
+      "FurnaceAC": "furnace_ac"
+      "BoilerFanCoil": "boiler_fan_coil"
+      "RadiantBoiler": "radiant_boiler"
+      "PackagedDX": "packaged_dx"
+      "ElectricResistance": "electric_resistance"
+      "Other": "other"
+    diagnostics:
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"system_type", xpath:"//ResHVACSystem/SystemType" }
+  - name: fuel
+    type: enum
+    required: false
+    default: "electricity"
+    source:
+      cib22: [{ xpath:"Fuel/text()" }]
+      cibd22x: [{ xpath:"Fuel/text()" }]
+    enum_map:
+      "Electricity": "electricity"
+      "NaturalGas": "natural_gas"
+      "Propane": "propane"
+      "FuelOil": "fuel_oil"
+      "Other": "other"
+    diagnostics:
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"fuel", xpath:"//ResHVACSystem/Fuel" }
+  - name: heating_eff
+    type: float
+    required: false
+    source:
+      cib22: [{xpath:"HeatingEff/text()"}]
+      cibd22x: [{xpath:"HeatingEff/text()"}]
+  - name: cooling_eff
+    type: float
+    required: false
+    source:
+      cib22: [{xpath:"CoolingEff/text()"}]
+      cibd22x: [{xpath:"CoolingEff/text()"}]
+  - name: served_zones
+    type: string
+    required: false
+    default: []
+    source:
+      cib22:
+        - { xpath:"ServedZones/ZoneRef/@ref" }   # prefer attribute ref
+        - { xpath:"ServedZones/ZoneRef/text()" } # fallback to text content
+      cibd22x:
+        - { xpath:"ServedZones/ZoneRef/@ref" }
+        - { xpath:"ServedZones/ZoneRef/text()" }
+    normalize:
+      as_array: true

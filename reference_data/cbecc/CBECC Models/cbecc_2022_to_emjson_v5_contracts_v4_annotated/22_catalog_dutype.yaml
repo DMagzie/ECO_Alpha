@@ -1,0 +1,27 @@
+# Catalog handler: du_types by Name; optional default floor area.
+object: DUType
+source_paths:
+  cib22:
+    - "/CBECCProject/Catalogs/DUTypes/DUType"
+  cibd22x:
+    - "/CBECCProject/Catalogs/DUTypes/DUType"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: floor_area
+    type: float
+    units: "ft2"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"FloorArea/text()"}]
+      cibd22x: [{xpath:"FloorArea/text()"}]

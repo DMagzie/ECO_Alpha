@@ -1,0 +1,90 @@
+# Handler hint: read Location; fallback to Address for city/state/postal.
+# Field precedence is the listed order under each variant.
+object: Location
+source_paths:
+  cib22:
+    - "/CBECCProject/Project/Location"
+  cibd22x:
+    - "/CBECCProject/Project/Location"
+precedence: first
+cardinality: { min: 1, max: 1 }
+identity:
+  key: ["City","State","PostalCode"]
+  scope: "global"
+fields:
+  - name: city
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/City/text()" }
+        - { xpath:"/CBECCProject/Project/Address/City/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/City/text()" }
+        - { xpath:"/CBECCProject/Project/Address/City/text()" }
+  - name: state
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/State/text()" }
+        - { xpath:"/CBECCProject/Project/Address/State/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/State/text()" }
+        - { xpath:"/CBECCProject/Project/Address/State/text()" }
+  - name: postal_code
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/PostalCode/text()" }
+        - { xpath:"/CBECCProject/Project/Address/PostalCode/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/PostalCode/text()" }
+        - { xpath:"/CBECCProject/Project/Address/PostalCode/text()" }
+  - name: address_line1
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine1/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine1/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine1/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine1/text()" }
+  - name: address_line2
+    type: string
+    required: false
+    source:
+      cib22:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine2/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine2/text()" }
+      cibd22x:
+        - { xpath:"/CBECCProject/Project/Location/AddressLine2/text()" }
+        - { xpath:"/CBECCProject/Project/Address/AddressLine2/text()" }
+  - name: climate_zone
+    type: enum
+    required: true
+    source:
+      cib22: [{ xpath:"/CBECCProject/Project/Location/ClimateZone/text()" }]
+      cibd22x: [{ xpath:"/CBECCProject/Project/Location/ClimateZone/text()" }]
+    enum_map:                  # CLOSED set; unknown → E-ENUM-BADTOKEN
+      "1": "1"
+      "2": "2"
+      "3": "3"
+      "4": "4"
+      "5": "5"
+      "6": "6"
+      "7": "7"
+      "8": "8"
+      "9": "9"
+      "10": "10"
+      "11": "11"
+      "12": "12"
+      "13": "13"
+      "14": "14"
+      "15": "15"
+      "16": "16"
+    diagnostics:
+      on_missing: { action:"error", code:"E-LOC-CLIMATEZONE-MISSING", xpath:"/CBECCProject/Project/Location/ClimateZone" }
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"climate_zone", xpath:"/CBECCProject/Project/Location/ClimateZone" }

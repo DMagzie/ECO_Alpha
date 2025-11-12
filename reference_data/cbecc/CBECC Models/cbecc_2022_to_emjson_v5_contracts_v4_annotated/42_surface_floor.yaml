@@ -1,0 +1,76 @@
+# Floors (specialized vs flat). Tilt default is 0 per convention.
+object: ResFloorInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResFloor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Floor']"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResFloor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Floor']"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "within_parent"
+references:
+  - field: construction_type_ref
+    target_catalog: "construction_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_zone_ref
+    target_collection: "zones"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}, {xpath:"@name"}]
+      cibd22x: [{xpath:"Name/text()"}, {xpath:"@name"}]
+  - name: azimuth_deg
+    type: float
+    units: "deg"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"Azimuth/text()"}]
+      cibd22x: [{xpath:"Azimuth/text()"}]
+  - name: tilt_deg
+    type: float
+    units: "deg"
+    required: false
+    default: 0
+    source:
+      cib22: [{xpath:"Tilt/text()"}]
+      cibd22x: [{xpath:"Tilt/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath:"Area/text()"}]
+      cibd22x: [{ xpath:"Area/text()"}]
+  - name: construction_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath:"ConstructionTypeRef/text()"}]
+      cibd22x: [{ xpath:"ConstructionTypeRef/text()"}]
+  - name: parent_zone_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResZn[1]/@id" }
+        - { xpath:"ancestor::ResZn[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_zone_ref","name"]
+  provenance_field: "_source"
+  provenance_values:
+    preferred: "specialized_floor"
+    alternate: "flat_floor"

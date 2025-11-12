@@ -1,0 +1,21 @@
+FluidSystems
+,,,,,Controls,,,,,,Supply Side Components,,,Demand Side Components,,,
+Name,Type,Status,Design SupplyT,Design DelT,TempCtrl,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,Num Comps,Total Capacity,Flow Rate,Num Comps,Total Capacity,Sensible Capacity,Flow Rate,
+,,,(degF),(degF),,(degF),(degF),(degF),(degF),(degF),,(Btu/hr),(gpm),,(Btu/hr),(Btu/hr),( gpm),
+"SHW","ServiceHotWater","New",135,80,"Fixed",135,-99996,-99996,-99996,-99996,0,0,0,0,0,0,0
+
+
+Water Heater
+,System,,,Water Heater
+Name,System Name,System Type,System Count,Status,Type,Fuel,Count,Thermal Efficiency,StandbyLoss Fraction,Storage Capacity,Rated Capacity,Energy Factor
+,,,,,,,,,,(gal),(Btu/h),
+"AO SMITH DEL-30","SHW","ServiceHotWater",-99996,"New","Conventional","- specify -",-99996,-99996,-99996.000,-99996,-99996,-99996.000
+"AO SMITH DEL-20","SHW","ServiceHotWater",-99996,"New","Conventional","- specify -",-99996,-99996,-99996.000,-99996,-99996,-99996.000
+"Chronomite 20L/208","SHW","ServiceHotWater",-99996,"New","Conventional","- specify -",-99996,-99996,-99996.000,-99996,-99996,-99996.000
+"Chronomite 40L/208","SHW","ServiceHotWater",-99996,"New","Conventional","- specify -",-99996,-99996,-99996.000,-99996,-99996,-99996.000
+
+
+Residential Water Heater
+,System,,,,Water Heater
+Name,System Name,System Type,System Count,Distribution Type,Status,Type,Fuel,Count,Thermal Efficiency,StandbyLoss Fraction,Storage Capacity,Rated Capacity,Energy Factor,Tank Exterior Insulation Rval,Tank Interior Insulation Rval
+,,,,,,,,,,,(gal),(Btu/h),,(?F-ft2-h/Btu),(?F-ft2-h/Btu)
