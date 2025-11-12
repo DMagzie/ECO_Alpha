@@ -89,6 +89,15 @@ def handle_import():
                     with st.spinner(f"Importing CIBD22X XML using {importer_id}..."):
                         _process_import(uploaded_file, importer_id)
 
+            elif file_extension == "cibd22":
+                # CIBD22 text format
+                st.markdown("### CIBD22 Text Format Import")
+                st.info("ℹ️ CIBD22 text format will be parsed and converted using the modular CIBD22X parser architecture")
+
+                if st.button("Import CIBD22 Text File", type="primary"):
+                    with st.spinner("Importing CIBD22 text file..."):
+                        _process_import(uploaded_file, "cibd22")
+
             elif file_extension == "gem":
                 # IES GEM format
                 st.markdown("### IES GEM Import")
