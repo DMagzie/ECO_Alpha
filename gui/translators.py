@@ -128,7 +128,7 @@ def translate_cibd22_to_v6(file_path: str) -> Dict[str, Any]:
         EMJSON v6 dict with diagnostics
     """
     try:
-        from eco_tools.translators.cibd22_importer import translate_cibd22_to_v6 as _impl
+        from eco_tools.translators.cibd22 import translate_cibd22_to_v6 as _impl
     except ImportError as e:
         return {
             "schema_version": "6.0",
@@ -417,7 +417,7 @@ def translate_gem_to_v6(gem_file: str) -> Dict[str, Any]:
         EMJSON v6 dict with diagnostics
     """
     try:
-        from eco_tools import translate_gem_to_v6 as _impl
+        from eco_tools.translators.gem import translate_gem_to_v6 as _impl
     except ImportError as e:
         return {
             "schema_version": "6.0",
@@ -1144,22 +1144,21 @@ def list_importers() -> List[Dict[str, Any]]:
             "fn": translate_cibd22x_uni_to_v6,
             "extensions": [".xml", ".cibd22x"],
         },
-        # GEM translator disabled - importer not yet migrated to v7
-        # {
-        #     "id": "gem",
-        #     "label": "GEM (IES Virtual Environment)",
-        #     "description": "Import GEM (Geometry Exchange Model) from IES VE: full 3D geometry, explicit vertices, construction library, stable IDs.",
-        #     "fn": translate_gem_to_v6,
-        #     "extensions": [".gem", ".xml"],
-        # },
+        {
+            "id": "cibd22",
+            "label": "CIBD22 (Text Format - Modular)",
+            "description": "Import CIBD22 text format using text parser + CIBD22X modular parsers: reuses all 22 parser modules for consistency.",
+            "fn": translate_cibd22_to_v6,
+            "extensions": [".cibd22"],
+        },
+        {
+            "id": "gem",
+            "label": "GEM (IES Virtual Environment)",
+            "description": "Import GEM (Geometry Exchange Model) from IES VE: full 3D geometry, explicit vertices, construction library via GEM→HBJSON→EMJSON pipeline.",
+            "fn": translate_gem_to_v6,
+            "extensions": [".gem", ".xml"],
+        },
         # Legacy translators disabled for now
-        # {
-        #     "id": "cibd22",
-        #     "label": "CIBD22 (Text Format)",
-        #     "description": "Import CIBD22 text-based format (.cibd22 files) with enhanced heuristic resolution, materials library, and interior surface support.",
-        #     "fn": translate_cibd22_to_v6,
-        #     "extensions": [".cibd22"],
-        # },
         # {
         #     "id": "cibd25",
         #     "label": "CIBD25 (Text Format - 2025)",

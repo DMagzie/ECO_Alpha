@@ -188,6 +188,21 @@ class CIBD22XImporter:
         self.waterheater_parser = WaterHeaterParser(self.id_registry)  # → Water Heater Catalog (ResWtrHtr)
         self.pvarray_parser = PVArrayParser(self.id_registry)     # → PVArrays + BatterySystems
 
+    def import_from_xml_root(self, root: ET.Element) -> InternalRepresentation:
+        """
+        Import from a pre-parsed XML root element.
+
+        This method is used by CIBD22 importer to reuse CIBD22X parsers
+        with XML generated from text format.
+
+        Args:
+            root: Parsed XML root element (ET.Element)
+
+        Returns:
+            InternalRepresentation with all parsed data
+        """
+        return self._import_from_root(root)
+
     def import_file(self, file_path: str) -> InternalRepresentation:
         """
         Import a CIBD22X file using all 22 specialized parsers.
@@ -231,6 +246,20 @@ class CIBD22XImporter:
         # ================================================================
         tree = ET.parse(file_path)
         root = tree.getroot()
+
+        # Delegate to shared import logic
+        return self._import_from_root(root)
+
+    def _import_from_root(self, root: ET.Element) -> InternalRepresentation:
+        """
+        Shared import logic for both file and XML root imports.
+
+        Args:
+            root: XML root element
+
+        Returns:
+            InternalRepresentation with all parsed data
+        """
 
         # ================================================================
         # STEP 1.5: Parse Project Metadata (REQUIRED for CBECC Simulation)

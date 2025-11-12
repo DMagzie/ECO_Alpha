@@ -40,8 +40,8 @@ def handle_import():
         # File uploader
         uploaded_file = st.file_uploader(
             "Choose a file",
-            type=["xml", "cibd22x", "json"],
-            help="Upload CIBD22X XML (.xml, .cibd22x) or EMJSON v6 JSON file",
+            type=["xml", "cibd22x", "cibd22", "json", "gem"],
+            help="Upload CIBD22X XML (.xml, .cibd22x), CIBD22 text (.cibd22), EMJSON v6 JSON, or IES GEM (.gem) file",
             key="model_file_uploader"
         )
 
