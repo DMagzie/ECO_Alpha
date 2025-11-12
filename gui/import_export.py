@@ -13,11 +13,11 @@ from translators import (
     list_importers,
     translate_cibd22x_to_v6 as _translate_cibd22x_to_v6,
     translate_cibd22x_uni_to_v6 as _translate_cibd22x_uni_to_v6,
+    translate_cibd22_to_v6 as _translate_cibd22_to_v6,
     translate_gem_to_v6 as _translate_gem_to_v6,
     emjson6_to_cibd22x as _emjson6_to_cibd22x,
     emjson6_to_cibd22x_uni as _emjson6_to_cibd22x_uni,
     # Legacy translators disabled for now
-    # translate_cibd22_to_v6 as _translate_cibd22_to_v6,
     # translate_cibd25_to_v6 as _translate_cibd25_to_v6,
     # translate_hbjson_to_v6 as _translate_hbjson_to_v6,
     # emjson6_to_hbjson as _emjson6_to_hbjson,
@@ -111,6 +111,8 @@ def import_file(importer_id: str, file_path: str) -> Dict[str, Any]:
             result = _translate_cibd22x_to_v6(actual_path)
         elif imp == "cibd22x_uni":
             result = _translate_cibd22x_uni_to_v6(actual_path)
+        elif imp == "cibd22":
+            result = _translate_cibd22_to_v6(actual_path)
         elif imp == "gem":
             result = _translate_gem_to_v6(actual_path)
         else:
@@ -123,7 +125,7 @@ def import_file(importer_id: str, file_path: str) -> Dict[str, Any]:
                     "stage": "import",
                     "ts": "",
                     "path": "",
-                    "context": f"Supported importers: cibd22x (eco_tools v7), cibd22x_uni (Universal Translator), gem (IES GEM). Legacy formats (CIBD22, CIBD25, HBJSON) have been disabled.",
+                    "context": f"Supported importers: cibd22x (XML), cibd22 (text), cibd22x_uni (Universal Translator), gem (IES GEM)",
                     "source": "import_export"
                 }]
             }
