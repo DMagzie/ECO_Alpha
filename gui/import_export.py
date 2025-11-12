@@ -8,8 +8,8 @@ from typing import Dict, Any, List
 import os
 import tempfile
 
-# Import from local translators module
-from explorer_gui.translators import (
+# Import from local translators module (in same directory)
+from translators import (
     list_importers,
     translate_cibd22x_to_v6 as _translate_cibd22x_to_v6,
     translate_cibd22x_uni_to_v6 as _translate_cibd22x_uni_to_v6,
