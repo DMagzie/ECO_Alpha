@@ -12,6 +12,7 @@ from gui.pages.import_page import handle_import
 from gui.pages.wizard_page import handle_wizard
 from gui.pages.template_browser_page import handle_template_browser
 from gui.pages.export_page import handle_export
+from gui.pages.simulation_page import handle_simulation
 from gui.pages.diagnostics_page import show_diagnostics
 from gui.pages.round_trip_page import handle_round_trip
 from gui.pages.active_model_page import show_active_model
@@ -45,6 +46,7 @@ def main():
         "Active Model",
         "Edit Model",
         "Export",
+        "⚡ Simulate",
         "Diagnostics",
         "Round-Trip Check"
     ]
@@ -81,6 +83,8 @@ def main():
         handle_editing()
     elif page == "Export":
         handle_export()
+    elif page == "⚡ Simulate":
+        handle_simulation()
     elif page == "Diagnostics":
         show_diagnostics()
     elif page == "Round-Trip Check":
