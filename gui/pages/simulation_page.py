@@ -45,6 +45,29 @@ except ImportError:
 from eco_tools.translators.cibd22x.exporter import CIBD22XExporter
 from eco_tools.translators.hbjson.exporter import HBJSONExporter
 
+# Import visualization
+try:
+    from eco_tools.visualization.charts import (
+        create_end_use_comparison_chart,
+        create_delta_chart,
+        create_compliance_gauge,
+        create_total_energy_pie
+    )
+    VISUALIZATION_AVAILABLE = True
+except ImportError:
+    VISUALIZATION_AVAILABLE = False
+
+# Import CSV export
+try:
+    from eco_tools.reporting.csv_exporter import (
+        export_cbecc_results_to_csv,
+        export_energyplus_results_to_csv,
+        export_comparison_to_csv
+    )
+    CSV_EXPORT_AVAILABLE = True
+except ImportError:
+    CSV_EXPORT_AVAILABLE = False
+
 
 def handle_simulation():
     """Main simulation page handler."""
@@ -570,8 +593,149 @@ def show_comparison(model: Dict[str, Any]):
         elif not ep_end_uses:
             st.info("💡 EnergyPlus end use data not available yet")
 
+        # CSV Export section
+        if CSV_EXPORT_AVAILABLE:
+            st.divider()
+            st.subheader("📥 Export Results")
+
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                if st.button("📄 Export CBECC to CSV", use_container_width=True):
+                    try:
+                        from datetime import datetime
+                        filename = f"cbecc_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+                        filepath = ROOT / "test_output" / filename
+                        filepath.parent.mkdir(parents=True, exist_ok=True)
+
+                        export_cbecc_results_to_csv(cbecc_parsed, str(filepath))
+                        st.success(f"✅ Exported to: {filepath.name}")
+
+                        # Offer download
+                        with open(filepath, 'r') as f:
+                            st.download_button(
+                                label="⬇️ Download CSV",
+                                data=f.read(),
+                                file_name=filename,
+                                mime="text/csv"
+                            )
+                    except Exception as e:
+                        st.error(f"Export failed: {e}")
+
+            with col2:
+                if st.button("📄 Export EnergyPlus to CSV", use_container_width=True):
+                    try:
+                        from datetime import datetime
+                        filename = f"energyplus_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+                        filepath = ROOT / "test_output" / filename
+                        filepath.parent.mkdir(parents=True, exist_ok=True)
+
+                        export_energyplus_results_to_csv(energyplus_result, str(filepath))
+                        st.success(f"✅ Exported to: {filepath.name}")
+
+                        # Offer download
+                        with open(filepath, 'r') as f:
+                            st.download_button(
+                                label="⬇️ Download CSV",
+                                data=f.read(),
+                                file_name=filename,
+                                mime="text/csv"
+                            )
+                    except Exception as e:
+                        st.error(f"Export failed: {e}")
+
+            with col3:
+                if st.button("📄 Export Comparison to CSV", use_container_width=True):
+                    try:
+                        from datetime import datetime
+                        filename = f"comparison_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+                        filepath = ROOT / "test_output" / filename
+                        filepath.parent.mkdir(parents=True, exist_ok=True)
+
+                        export_comparison_to_csv(cbecc_parsed, energyplus_result, str(filepath))
+                        st.success(f"✅ Exported to: {filepath.name}")
+
+                        # Offer download
+                        with open(filepath, 'r') as f:
+                            st.download_button(
+                                label="⬇️ Download CSV",
+                                data=f.read(),
+                                file_name=filename,
+                                mime="text/csv"
+                            )
+                    except Exception as e:
+                        st.error(f"Export failed: {e}")
+
     elif cbecc_parsed or energyplus_result:
         st.info("💡 Run both CBECC-Com and EnergyPlus simulations to see detailed comparison")
+
+    # Visualization section
+    if VISUALIZATION_AVAILABLE and cbecc_parsed and energyplus_result:
+        cbecc_end_uses = cbecc_parsed.get("end_uses", {})
+        ep_end_uses = energyplus_result.get("end_uses", {})
+
+        if cbecc_end_uses and ep_end_uses:
+            st.divider()
+            st.subheader("📊 Visual Analysis")
+
+            # Tabs for different chart types
+            chart_tabs = st.tabs(["📊 End Use Comparison", "📈 Delta Analysis", "🎯 Compliance Gauge", "🥧 Energy Breakdown"])
+
+            with chart_tabs[0]:
+                # End use comparison chart
+                st.markdown("**Side-by-Side End Use Comparison**")
+                try:
+                    fig = create_end_use_comparison_chart(cbecc_end_uses, ep_end_uses)
+                    st.plotly_chart(fig, use_container_width=True)
+                except Exception as e:
+                    st.error(f"Error creating chart: {e}")
+
+            with chart_tabs[1]:
+                # Delta chart
+                st.markdown("**End Use Differences (EnergyPlus - CBECC)**")
+                st.caption("Positive values (red) indicate EnergyPlus predicts higher consumption")
+                try:
+                    fig = create_delta_chart(cbecc_end_uses, ep_end_uses)
+                    st.plotly_chart(fig, use_container_width=True)
+                except Exception as e:
+                    st.error(f"Error creating chart: {e}")
+
+            with chart_tabs[2]:
+                # Compliance gauge (if data available)
+                if "compliance_margin" in cbecc_parsed:
+                    st.markdown("**Title 24 Compliance Status**")
+                    try:
+                        fig = create_compliance_gauge(
+                            cbecc_parsed["compliance_margin"],
+                            cbecc_parsed.get("proposed_tdv"),
+                            cbecc_parsed.get("standard_tdv")
+                        )
+                        st.plotly_chart(fig, use_container_width=True)
+                    except Exception as e:
+                        st.error(f"Error creating chart: {e}")
+                else:
+                    st.info("Compliance data not available yet")
+
+            with chart_tabs[3]:
+                # Pie charts
+                st.markdown("**Energy End Use Breakdown**")
+                col1, col2 = st.columns(2)
+
+                with col1:
+                    st.markdown("**CBECC-Com**")
+                    try:
+                        fig = create_total_energy_pie(cbecc_end_uses, "CBECC End Uses")
+                        st.plotly_chart(fig, use_container_width=True)
+                    except Exception as e:
+                        st.error(f"Error creating chart: {e}")
+
+                with col2:
+                    st.markdown("**EnergyPlus**")
+                    try:
+                        fig = create_total_energy_pie(ep_end_uses, "EnergyPlus End Uses")
+                        st.plotly_chart(fig, use_container_width=True)
+                    except Exception as e:
+                        st.error(f"Error creating chart: {e}")
 
 
 if __name__ == "__main__":
