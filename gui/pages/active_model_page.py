@@ -330,16 +330,18 @@ def show_3d_visualization(model: dict):
             st.caption("⚠️ Install `streamlit-plotly-events` for interactive selection")
 
         # Settings controls (shown before visualization)
-        with st.expander("🎨 Visualization Settings", expanded=False):
-            col1, col2 = st.columns(2)
+        st.markdown("### 🎨 Visualization Settings")
+        col1, col2 = st.columns(2)
 
-            with col1:
-                show_edges = st.checkbox("Show Edges", value=True, key="viz_edges")
-                show_grid = st.checkbox("Show Grid", value=True, key="viz_grid")
+        with col1:
+            show_edges = st.checkbox("Show Edges", value=True, key="viz_edges")
+            show_grid = st.checkbox("Show Grid", value=True, key="viz_grid")
 
-            with col2:
-                opacity = st.slider("Opacity", 0.0, 1.0, 0.7, 0.1, key="viz_opacity")
-                height = st.slider("Height (px)", 400, 1000, 700, 50, key="viz_height")
+        with col2:
+            opacity = st.slider("Opacity", 0.0, 1.0, 0.7, 0.1, key="viz_opacity")
+            height = st.slider("Height (px)", 400, 1000, 700, 50, key="viz_height")
+
+        st.markdown("---")
 
         try:
             # This code only runs when expander is opened
