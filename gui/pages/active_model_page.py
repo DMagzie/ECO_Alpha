@@ -414,17 +414,17 @@ def show_3d_visualization(model: dict):
                     key="download_3d_viz"
                 )
 
-                # Show selected element properties in expander
+                # Show selected element properties
                 if PLOTLY_EVENTS_AVAILABLE:
                     st.divider()
-                    with st.expander("🔍 Selected Element Properties", expanded=True):
-                        show_selected_element_properties(model)
+                    st.markdown("### 🔍 Selected Element Properties")
+                    show_selected_element_properties(model)
 
         except Exception as e:
             st.error(f"❌ Visualization error: {str(e)}")
-            with st.expander("Show error details"):
-                import traceback
-                st.code(traceback.format_exc())
+            st.markdown("**Error details:**")
+            import traceback
+            st.code(traceback.format_exc())
 
 
 def show_geometry_statistics(model: dict):
