@@ -1144,13 +1144,14 @@ def list_importers() -> List[Dict[str, Any]]:
             "fn": translate_cibd22x_uni_to_v6,
             "extensions": [".xml", ".cibd22x"],
         },
-        {
-            "id": "gem",
-            "label": "GEM (IES Virtual Environment)",
-            "description": "Import GEM (Geometry Exchange Model) from IES VE: full 3D geometry, explicit vertices, construction library, stable IDs.",
-            "fn": translate_gem_to_v6,
-            "extensions": [".gem", ".xml"],
-        },
+        # GEM translator disabled - importer not yet migrated to v7
+        # {
+        #     "id": "gem",
+        #     "label": "GEM (IES Virtual Environment)",
+        #     "description": "Import GEM (Geometry Exchange Model) from IES VE: full 3D geometry, explicit vertices, construction library, stable IDs.",
+        #     "fn": translate_gem_to_v6,
+        #     "extensions": [".gem", ".xml"],
+        # },
         # Legacy translators disabled for now
         # {
         #     "id": "cibd22",
