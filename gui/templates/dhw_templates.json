@@ -1,0 +1,436 @@
+{
+  "_metadata": {
+    "version": "1.0",
+    "source": "CBECC Sample Files (Bressi Ranch, Del Amo, Freedom Circle)",
+    "compliance": "California Title 24 2022/2025",
+    "date": "2025-10-23",
+    "notes": "DHW = Domestic Hot Water, SHW = Service Hot Water (commercial)"
+  },
+
+  "multifamily_residential": {
+    "central_dhw_with_recirculation": {
+      "name": "Central DHW with Recirculation",
+      "description": "Multi-heater central system with recirculation for multifamily buildings",
+      "system_type": "central_with_recirculation",
+      "central_dhw_type": "other",
+      "tank_configuration": "series_swing",
+      "pipe_insulation": "all_lines_hers_required",
+      "recirculation": {
+        "type": "central_with_recirculation",
+        "num_loops": 1,
+        "control": "timer_or_demand"
+      },
+      "water_heater_configurations": {
+        "large_building": {
+          "description": "Large multifamily (100+ units)",
+          "heaters": [
+            {
+              "name": "Primary High-Capacity Heater",
+              "type": "commercial_storage_te_sbl",
+              "fuel": "gas",
+              "input_rating_btu": 499000,
+              "energy_factor": 0.94,
+              "tank_volume_gal": 119,
+              "recovery_efficiency": 0.94,
+              "quantity": 4
+            },
+            {
+              "name": "Secondary High-Capacity Heater",
+              "type": "commercial_storage_te_sbl",
+              "fuel": "gas",
+              "input_rating_btu": 399000,
+              "energy_factor": 0.94,
+              "tank_volume_gal": 119,
+              "recovery_efficiency": 0.94,
+              "quantity": 3
+            },
+            {
+              "name": "Tertiary Medium-Capacity Heater",
+              "type": "commercial_storage_te_sbl",
+              "fuel": "gas",
+              "input_rating_btu": 250000,
+              "energy_factor": 0.96,
+              "tank_volume_gal": 100,
+              "recovery_efficiency": 0.96,
+              "quantity": 2
+            }
+          ],
+          "total_heaters": 9,
+          "total_capacity_btu": 4482000,
+          "total_storage_gal": 952
+        },
+        "medium_building": {
+          "description": "Medium multifamily (50-100 units)",
+          "heaters": [
+            {
+              "name": "Primary Heater",
+              "type": "commercial_storage_te_sbl",
+              "fuel": "gas",
+              "input_rating_btu": 399000,
+              "energy_factor": 0.94,
+              "tank_volume_gal": 119,
+              "recovery_efficiency": 0.94,
+              "quantity": 3
+            },
+            {
+              "name": "Secondary Heater",
+              "type": "commercial_storage_te_sbl",
+              "fuel": "gas",
+              "input_rating_btu": 250000,
+              "energy_factor": 0.96,
+              "tank_volume_gal": 100,
+              "recovery_efficiency": 0.96,
+              "quantity": 2
+            }
+          ],
+          "total_heaters": 5,
+          "total_capacity_btu": 1697000,
+          "total_storage_gal": 557
+        },
+        "small_building": {
+          "description": "Small multifamily (20-50 units)",
+          "heaters": [
+            {
+              "name": "Primary Heater",
+              "type": "commercial_storage_te_sbl",
+              "fuel": "gas",
+              "input_rating_btu": 250000,
+              "energy_factor": 0.96,
+              "tank_volume_gal": 100,
+              "recovery_efficiency": 0.96,
+              "quantity": 3
+            }
+          ],
+          "total_heaters": 3,
+          "total_capacity_btu": 750000,
+          "total_storage_gal": 300
+        }
+      },
+      "california_compliance": {
+        "pipe_insulation_required": true,
+        "recirculation_controls_required": true,
+        "efficiency_minimum": "EF 0.80 or better",
+        "hers_verification": "required_for_pipe_insulation"
+      }
+    },
+
+    "central_dhw_instantaneous": {
+      "name": "Central DHW with Instantaneous Heaters",
+      "description": "Central system with tankless/instantaneous water heaters",
+      "system_type": "central_with_recirculation",
+      "central_dhw_type": "other",
+      "tank_configuration": "series_swing",
+      "recirculation": {
+        "type": "central_with_recirculation",
+        "num_loops": 1
+      },
+      "water_heater": {
+        "name": "Commercial Instantaneous Heater",
+        "type": "commercial_instantaneous_te",
+        "fuel": "gas",
+        "energy_factor": 0.95,
+        "tank_volume_gal": 119,
+        "recovery_efficiency": 0.95,
+        "quantity": 3,
+        "notes": "Tank volume represents buffer/storage capacity"
+      },
+      "advantages": [
+        "Higher efficiency (EF 0.95+)",
+        "Reduced standby losses",
+        "Compact installation",
+        "Unlimited hot water capacity"
+      ],
+      "considerations": [
+        "Higher initial cost",
+        "Gas line sizing requirements",
+        "May need larger electrical service"
+      ]
+    },
+
+    "heat_pump_water_heater": {
+      "name": "Heat Pump Water Heater (HPWH)",
+      "description": "Electric heat pump water heater - T24 2022 compliant for new multifamily",
+      "system_type": "central_with_recirculation",
+      "central_dhw_type": "heat_pump",
+      "tank_configuration": "single_tank",
+      "water_heater": {
+        "name": "Heat Pump Water Heater",
+        "type": "heat_pump",
+        "fuel": "electric",
+        "energy_factor": 3.5,
+        "uniform_energy_factor": 3.5,
+        "tank_volume_gal": 80,
+        "input_rating_btu": 17060,
+        "recovery_efficiency": 3.5,
+        "quantity": 1,
+        "notes": "UEF 3.5 meets T24 2022 prescriptive for new MF"
+      },
+      "california_compliance": {
+        "complies_with": "Title 24 2022/2025",
+        "prescriptive_requirement": "Required for new multifamily construction",
+        "efficiency_minimum": "UEF 3.5 or greater",
+        "notes": "Meets prescriptive path for new MF buildings"
+      },
+      "advantages": [
+        "Very high efficiency (UEF 3.5+)",
+        "Low operating cost",
+        "T24 2022 prescriptive compliant",
+        "No gas connection needed",
+        "Reduces GHG emissions"
+      ],
+      "considerations": [
+        "Higher initial cost",
+        "Requires adequate space",
+        "Ambient temperature affects performance",
+        "May require electrical service upgrade"
+      ]
+    }
+  },
+
+  "commercial_office": {
+    "service_hot_water_central": {
+      "name": "Service Hot Water (SHW) - Central System",
+      "description": "Central service hot water for commercial office buildings",
+      "system_type": "central_no_recirculation",
+      "central_dhw_type": "commercial",
+      "tank_configuration": "series_swing",
+      "recirculation": {
+        "type": "central_no_recirculation",
+        "notes": "No recirculation for typical office - short runs to fixtures"
+      },
+      "water_heater_options": {
+        "instantaneous": {
+          "name": "Commercial Instantaneous Water Heater",
+          "type": "commercial_instantaneous_te",
+          "fuel": "gas",
+          "energy_factor": 0.95,
+          "tank_volume_gal": 119,
+          "recovery_efficiency": 0.95,
+          "quantity": 1,
+          "best_for": ["Low water usage", "Modern office", "LEED projects"]
+        },
+        "storage": {
+          "name": "Commercial Storage Water Heater",
+          "type": "commercial_storage_te_sbl",
+          "fuel": "gas",
+          "input_rating_btu": 499900,
+          "energy_factor": 0.95,
+          "tank_volume_gal": 119,
+          "recovery_efficiency": 0.95,
+          "quantity": 1,
+          "best_for": ["Higher peak demand", "Break rooms with dishwashers"]
+        }
+      },
+      "sizing_guidelines": {
+        "low_usage": {
+          "description": "Restrooms only, minimal break room",
+          "capacity_btu": 100000,
+          "storage_gal": 40,
+          "employees_served": "Up to 50"
+        },
+        "medium_usage": {
+          "description": "Restrooms + break room with sink",
+          "capacity_btu": 250000,
+          "storage_gal": 80,
+          "employees_served": "50-150"
+        },
+        "high_usage": {
+          "description": "Restrooms + full break room with dishwasher",
+          "capacity_btu": 500000,
+          "storage_gal": 119,
+          "employees_served": "150-300"
+        }
+      },
+      "california_compliance": {
+        "efficiency_minimum": "EF 0.80 or TE 0.90",
+        "insulation_required": true,
+        "low_flow_fixtures": "required"
+      }
+    },
+
+    "point_of_use_electric": {
+      "name": "Point-of-Use Electric Water Heaters",
+      "description": "Small electric heaters at individual sinks/break rooms",
+      "system_type": "individual",
+      "water_heater": {
+        "type": "electric_storage",
+        "sizes": {
+          "under_sink": {
+            "capacity_gal": 2.5,
+            "power_w": 1500,
+            "voltage": 120,
+            "best_for": ["Single restroom sink", "Wet bar"]
+          },
+          "small_break_room": {
+            "capacity_gal": 6,
+            "power_w": 2000,
+            "voltage": 120,
+            "best_for": ["Small break room", "Single kitchen sink"]
+          },
+          "large_break_room": {
+            "capacity_gal": 20,
+            "power_w": 4500,
+            "voltage": 240,
+            "best_for": ["Full break room", "Multiple sinks"]
+          }
+        }
+      },
+      "advantages": [
+        "No gas lines needed",
+        "Minimal heat loss (short piping)",
+        "Easy installation",
+        "Lower first cost"
+      ],
+      "considerations": [
+        "Electrical capacity requirements",
+        "Limited flow rate",
+        "Multiple units needed for large buildings"
+      ]
+    }
+  },
+
+  "warehouse_industrial": {
+    "heat_pump_water_heater": {
+      "name": "Heat Pump Water Heater (HPWH)",
+      "description": "Electric heat pump water heater for warehouse restrooms and break rooms",
+      "system_type": "central_no_recirculation",
+      "water_heater": {
+        "type": "heat_pump",
+        "fuel": "electric",
+        "energy_factor": 3.5,
+        "uniform_energy_factor": 3.5,
+        "tank_volume_gal": 40,
+        "input_rating_btu": 40000,
+        "recovery_efficiency": 3.5,
+        "quantity": 1,
+        "notes": "High efficiency HPWH for minimal warehouse DHW needs"
+      },
+      "typical_fixtures": [
+        "Restroom sinks",
+        "Break room sink",
+        "Janitor sink"
+      ],
+      "advantages": [
+        "Very high efficiency (UEF 3.5+)",
+        "Low operating cost",
+        "Reduces GHG emissions",
+        "No gas connection needed"
+      ],
+      "notes": "Ideal for warehouses with electric service and minimal DHW needs"
+    },
+
+    "service_hot_water_minimal": {
+      "name": "Minimal Service Hot Water",
+      "description": "Basic hot water for warehouse restrooms and break room",
+      "system_type": "central_no_recirculation",
+      "water_heater": {
+        "type": "commercial_storage",
+        "fuel": "gas_or_electric",
+        "sizing": {
+          "small_warehouse": {
+            "description": "< 50,000 SF, < 20 employees",
+            "capacity_btu": 75000,
+            "storage_gal": 50,
+            "input_rating_btu": 75000,
+            "energy_factor": 0.80
+          },
+          "medium_warehouse": {
+            "description": "50,000-150,000 SF, 20-50 employees",
+            "capacity_btu": 150000,
+            "storage_gal": 80,
+            "input_rating_btu": 150000,
+            "energy_factor": 0.85
+          },
+          "large_warehouse": {
+            "description": "> 150,000 SF, > 50 employees",
+            "capacity_btu": 250000,
+            "storage_gal": 100,
+            "input_rating_btu": 250000,
+            "energy_factor": 0.90
+          }
+        }
+      },
+      "typical_fixtures": [
+        "Restroom sinks",
+        "Break room sink",
+        "Janitor sink",
+        "Emergency eyewash (if required)"
+      ],
+      "notes": "Warehouses typically have minimal DHW needs compared to other building types"
+    },
+
+    "process_hot_water": {
+      "name": "Process Hot Water (if applicable)",
+      "description": "Separate system for industrial processes requiring hot water",
+      "system_type": "process_specific",
+      "notes": "Highly variable by industry - consult with process engineers",
+      "examples": [
+        "Parts washing",
+        "Food processing",
+        "Chemical mixing",
+        "Cleaning operations"
+      ],
+      "sizing": "Based on process requirements, not building code",
+      "separate_from_dhw": true
+    }
+  },
+
+  "sizing_rules_of_thumb": {
+    "multifamily": {
+      "gallons_per_unit": {
+        "studio": 30,
+        "1_bedroom": 40,
+        "2_bedroom": 50,
+        "3_bedroom": 60
+      },
+      "recovery_capacity": {
+        "units": "btu_per_hour_per_unit",
+        "studio": 3000,
+        "1_bedroom": 4000,
+        "2_bedroom": 5000,
+        "3_bedroom": 6000
+      },
+      "design_criteria": "Size for morning peak (70% of units, 15-minute duration)"
+    },
+    "commercial_office": {
+      "gallons_per_employee": 2,
+      "peak_factor": 0.3,
+      "design_criteria": "30% of employees use hot water within 1-hour peak period"
+    },
+    "warehouse": {
+      "gallons_per_employee": 1,
+      "peak_factor": 0.25,
+      "design_criteria": "Minimal usage, primarily restrooms during breaks"
+    }
+  },
+
+  "california_title_24_requirements": {
+    "efficiency_standards": {
+      "residential_storage": {
+        "gas": "EF >= 0.67 or UEF >= 0.64",
+        "electric": "EF >= 0.95 or UEF >= 0.92"
+      },
+      "commercial_storage": {
+        "gas": "TE >= 0.90",
+        "electric": "Efficiency varies by size"
+      },
+      "instantaneous": {
+        "gas": "EF >= 0.82 or UEF >= 0.87",
+        "electric": "EF >= 0.95"
+      }
+    },
+    "pipe_insulation": {
+      "multifamily": "All distribution piping must be insulated (HERS verified)",
+      "commercial": "All piping > 3/4\" must be insulated to R-3 minimum"
+    },
+    "recirculation_controls": {
+      "requirement": "Automatic time clock or demand control",
+      "temperature_setpoint": "120°F maximum at fixtures"
+    },
+    "low_flow_fixtures": {
+      "showerheads": "2.0 GPM maximum",
+      "lavatory_faucets": "1.2 GPM maximum",
+      "kitchen_faucets": "1.8 GPM maximum"
+    }
+  }
+}

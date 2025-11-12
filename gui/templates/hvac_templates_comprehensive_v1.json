@@ -1,0 +1,854 @@
+{
+  "_metadata": {
+    "version": "1.0",
+    "schema_version": "cross_tool_compatible",
+    "source": "CBECC Standard Model Tests + Gibraltar Project + Industry Standards",
+    "compliance": "California Title 24 2022/2025",
+    "date": "2025-10-25",
+    "notes": "Comprehensive HVAC template library covering all major commercial building types",
+    "cross_tool_mapping_reference": "See HVAC_CROSS_TOOL_MAPPING.md",
+    "building_types_covered": [
+      "Small Office",
+      "Medium Office",
+      "Large Office",
+      "Schools",
+      "Retail",
+      "Restaurants",
+      "Hotels",
+      "Warehouses"
+    ]
+  },
+
+  "small_office_school": {
+    "szhp_standard": {
+      "_comment": "Single Zone Heat Pump - Standard configuration for small offices and classrooms WITHOUT economizer",
+
+      "identification": {
+        "identifier": "SZHP_Standard_NoEcon",
+        "name": "Single Zone Heat Pump - Standard (No Economizer)",
+        "description": "Simple single-zone packaged heat pump for small offices, classrooms, and similar spaces where economizer is not required",
+        "display_name": "SZHP Standard"
+      },
+
+      "system_classification": {
+        "system_type": "heat_pump",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "electric",
+        "serves_zones": "single_zone",
+        "typical_applications": ["Small office", "Classroom", "Break room", "Small retail"]
+      },
+
+      "capacity": {
+        "nominal_tons": 5,
+        "total_cooling_capacity_btu": 60000,
+        "sensible_cooling_capacity_btu": 45000,
+        "total_heating_capacity_btu": 55000,
+        "heating_capacity_supplemental_btu": 15000,
+        "airflow_total_cfm": 2000,
+        "airflow_minimum_oa_cfm": 200,
+        "airflow_maximum_oa_cfm": 2000
+      },
+
+      "efficiency": {
+        "cooling_eer": 11.0,
+        "cooling_ieer": 16.0,
+        "cooling_seer2": 14.5,
+        "heating_cop_47f": 3.4,
+        "heating_cop_17f": 2.7,
+        "heating_hspf2": 7.8,
+        "fan_w_per_cfm": 0.45,
+        "use_eer_in_analysis": true
+      },
+
+      "fan_system": {
+        "fan_type": "centrifugal",
+        "fan_configuration": "blow_through",
+        "fan_quantity": 1,
+        "fan_control": "constant_volume",
+        "motor_hp_total": 1.0,
+        "esp_in_wc": 1.2
+      },
+
+      "refrigerant": {
+        "type": "R-410A",
+        "charge_verified": true
+      },
+
+      "economizer": {
+        "type": "none",
+        "economizer_type": "NoEconomizer",
+        "has_economizer": false,
+        "has_fdd": false
+      },
+
+      "heat_recovery": {
+        "sensible_heat_recovery_effectiveness": 0.0,
+        "latent_heat_recovery_effectiveness": 0.0,
+        "has_heat_recovery": false
+      },
+
+      "controls": {
+        "demand_controlled_ventilation": false,
+        "optimal_start": false,
+        "night_cycle_control": "stay_off",
+        "setback_control": true
+      },
+
+      "setpoints": {
+        "occupied_cooling_f": 75,
+        "occupied_heating_f": 70,
+        "unoccupied_cooling_f": 85,
+        "unoccupied_heating_f": 60
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PSZ",
+        "honeybee_equipment_type": "PSZHP",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "NoEconomizer",
+        "honeybee_sensible_heat_recovery": 0.0,
+        "honeybee_latent_heat_recovery": 0.0,
+        "honeybee_demand_controlled_ventilation": false
+      },
+
+      "energyplus_compatibility": {
+        "energyplus_object_type": "AirLoopHVAC:UnitaryHeatPump:AirToAir",
+        "cooling_coil_type": "Coil:Cooling:DX:SingleSpeed",
+        "heating_coil_type": "Coil:Heating:DX:SingleSpeed",
+        "supplemental_coil_type": "Coil:Heating:Electric",
+        "fan_type": "Fan:ConstantVolume",
+        "supply_fan_placement": "BlowThrough"
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZHP",
+        "cbecc_cooling_source": "DirectExpansion",
+        "cbecc_heating_source": "HeatPump",
+        "cbecc_backup_heating": "Resistance",
+        "cbecc_condenser_type": "Air",
+        "cbecc_staging": "Single",
+        "cbecc_ctrl_type": "NoEcon"
+      },
+
+      "sizing": {
+        "autosizing_enabled": true,
+        "autosizing_factor_cooling": 1.10,
+        "autosizing_factor_heating": 1.15
+      }
+    },
+
+    "szhp_with_economizer": {
+      "_comment": "Single Zone Heat Pump WITH Fixed Dry-Bulb Economizer - For high-occupancy spaces",
+
+      "identification": {
+        "identifier": "SZHP_Economizer_FixedDB",
+        "name": "Single Zone Heat Pump - With Economizer",
+        "description": "Single-zone packaged heat pump with fixed dry-bulb economizer for high-occupancy spaces like cafeterias, lobbies, corridors",
+        "display_name": "SZHP w/Economizer"
+      },
+
+      "system_classification": {
+        "system_type": "heat_pump",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "electric",
+        "serves_zones": "single_zone",
+        "typical_applications": ["Cafeteria", "Lobby", "Corridor", "Large classroom"]
+      },
+
+      "capacity": {
+        "nominal_tons": 7.5,
+        "total_cooling_capacity_btu": 90000,
+        "sensible_cooling_capacity_btu": 67500,
+        "total_heating_capacity_btu": 82500,
+        "heating_capacity_supplemental_btu": 20000,
+        "airflow_total_cfm": 3000,
+        "airflow_minimum_oa_cfm": 800,
+        "airflow_maximum_oa_cfm": 3000
+      },
+
+      "efficiency": {
+        "cooling_eer": 11.0,
+        "cooling_ieer": 16.0,
+        "heating_cop_47f": 3.4,
+        "fan_w_per_cfm": 0.45
+      },
+
+      "economizer": {
+        "type": "fixed_dry_bulb",
+        "economizer_type": "FixedDryBulb",
+        "has_economizer": true,
+        "has_fdd": false,
+        "high_limit_shutoff_temp_f": 75,
+        "control_signal": "modulating",
+        "integration_type": "integrated"
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PSZ",
+        "honeybee_equipment_type": "PSZHP",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "FixedDryBulb",
+        "honeybee_sensible_heat_recovery": 0.0,
+        "honeybee_latent_heat_recovery": 0.0,
+        "honeybee_demand_controlled_ventilation": false
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZHP",
+        "cbecc_ctrl_type": "FixedDryBulb"
+      }
+    },
+
+    "szvavhp_cafeteria": {
+      "_comment": "Single Zone VAV Heat Pump - 2-stage for high ventilation spaces",
+
+      "identification": {
+        "identifier": "SZVAVHP_2Stage_HighVent",
+        "name": "Single Zone VAV Heat Pump - 2-Stage",
+        "description": "Variable airflow packaged heat pump with 2-stage cooling for cafeterias and other high-ventilation spaces",
+        "display_name": "SZVAVHP 2-Stage"
+      },
+
+      "system_classification": {
+        "system_type": "heat_pump",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "electric",
+        "serves_zones": "single_zone",
+        "fan_control": "variable_speed",
+        "typical_applications": ["Cafeteria", "Gymnasium", "Assembly space"]
+      },
+
+      "capacity": {
+        "nominal_tons": 10,
+        "total_cooling_capacity_btu": 120000,
+        "sensible_cooling_capacity_btu": 90000,
+        "total_heating_capacity_btu": 110000,
+        "heating_capacity_supplemental_btu": 25000,
+        "airflow_total_cfm": 4000,
+        "airflow_minimum_oa_cfm": 1200,
+        "airflow_maximum_oa_cfm": 4000
+      },
+
+      "efficiency": {
+        "cooling_eer": 11.0,
+        "cooling_ieer": 17.0,
+        "heating_cop_47f": 3.5,
+        "fan_w_per_cfm": 0.40
+      },
+
+      "fan_system": {
+        "fan_control": "variable_speed_drive",
+        "minimum_speed_percent": 40
+      },
+
+      "cooling_stages": {
+        "number_of_stages": 2,
+        "stage_1_capacity_percent": 50,
+        "stage_2_capacity_percent": 100
+      },
+
+      "economizer": {
+        "type": "fixed_dry_bulb",
+        "economizer_type": "FixedDryBulb",
+        "has_economizer": true,
+        "high_limit_shutoff_temp_f": 75,
+        "integration_type": "integrated"
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PSZ",
+        "honeybee_equipment_type": "PSZHP",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "FixedDryBulb"
+      },
+
+      "energyplus_compatibility": {
+        "energyplus_object_type": "AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed",
+        "cooling_coil_type": "Coil:Cooling:DX:MultiSpeed",
+        "heating_coil_type": "Coil:Heating:DX:MultiSpeed",
+        "fan_type": "Fan:VariableVolume"
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZVAVHP",
+        "cbecc_staging": "2Stage",
+        "cbecc_ctrl_type": "FixedDryBulb"
+      }
+    }
+  },
+
+  "medium_office": {
+    "pvav_standard": {
+      "_comment": "Packaged Variable Air Volume with Hot Water Heating - Multi-zone medium office system",
+
+      "identification": {
+        "identifier": "PVAV_HotWater_MultiZone",
+        "name": "Packaged VAV with Hot Water Heating",
+        "description": "Multi-zone packaged rooftop VAV system with DX cooling and hot water heating/reheat, typical for 3-10 story office buildings",
+        "display_name": "PVAV - Hot Water"
+      },
+
+      "system_classification": {
+        "system_type": "vav_packaged",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "electric_cooling_gas_heating",
+        "serves_zones": "multi_zone",
+        "typical_applications": ["Medium office building", "Multi-tenant office", "Medical office"]
+      },
+
+      "capacity": {
+        "nominal_tons": 15,
+        "total_cooling_capacity_btu": 180000,
+        "sensible_cooling_capacity_btu": 135000,
+        "total_heating_capacity_btu": 0,
+        "heating_source": "hot_water_coil",
+        "airflow_total_cfm": 6000,
+        "airflow_minimum_oa_cfm": 1000,
+        "airflow_maximum_oa_cfm": 6000
+      },
+
+      "efficiency": {
+        "cooling_eer": 10.5,
+        "cooling_ieer": 16.5,
+        "fan_w_per_cfm": 0.35
+      },
+
+      "fan_system": {
+        "fan_type": "centrifugal",
+        "fan_configuration": "draw_through",
+        "fan_control": "variable_speed_drive",
+        "minimum_speed_percent": 30,
+        "static_pressure_setpoint_in_wc": 2.5
+      },
+
+      "cooling_stages": {
+        "number_of_stages": 2,
+        "stage_1_capacity_percent": 50,
+        "stage_2_capacity_percent": 100
+      },
+
+      "heating_system": {
+        "heating_coil_type": "hot_water",
+        "heating_source": "central_boiler",
+        "boiler_fuel": "natural_gas",
+        "design_supply_temp_f": 180,
+        "design_return_temp_f": 160
+      },
+
+      "terminal_units": {
+        "terminal_type": "VAV_reheat",
+        "reheat_coil_type": "hot_water",
+        "minimum_airflow_ratio": 0.30,
+        "damper_action": "normal",
+        "typical_count_per_system": 8
+      },
+
+      "economizer": {
+        "type": "fixed_dry_bulb",
+        "economizer_type": "FixedDryBulb",
+        "has_economizer": true,
+        "high_limit_shutoff_temp_f": 75,
+        "control_signal": "modulating",
+        "integration_type": "integrated"
+      },
+
+      "controls": {
+        "demand_controlled_ventilation": false,
+        "optimal_start": true,
+        "night_cycle_control": "cycle_on_any",
+        "static_pressure_reset": true,
+        "supply_air_temp_reset": true
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PVAV",
+        "honeybee_equipment_type": "PVAV_Boiler",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "FixedDryBulb"
+      },
+
+      "energyplus_compatibility": {
+        "energyplus_object_type": "AirLoopHVAC:UnitarySystem",
+        "cooling_coil_type": "Coil:Cooling:DX:TwoStageWithHumidityControlMode",
+        "heating_coil_type": "Coil:Heating:Water",
+        "fan_type": "Fan:VariableVolume",
+        "terminal_type": "AirTerminal:SingleDuct:VAV:Reheat"
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "PVAVHP",
+        "cbecc_cooling_source": "DirectExpansion",
+        "cbecc_heating_source": "HotWater",
+        "cbecc_reheat_source": "HotWater",
+        "cbecc_staging": "2Stage",
+        "cbecc_ctrl_type": "FixedDryBulb"
+      }
+    }
+  },
+
+  "large_office": {
+    "vav_chiller_boiler": {
+      "_comment": "Central Plant VAV - Chilled Water Cooling + Hot Water Heating",
+
+      "identification": {
+        "identifier": "VAV_ChW_HW_CentralPlant",
+        "name": "VAV with Chilled Water and Hot Water",
+        "description": "Central plant VAV system with water-cooled chiller and hot water boiler, typical for large office buildings",
+        "display_name": "VAV - Central Plant"
+      },
+
+      "system_classification": {
+        "system_type": "vav_central_plant",
+        "equipment_type": "air_handler_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "central_plant",
+        "serves_zones": "multi_zone",
+        "typical_applications": ["Large office", "Hospital", "University building", "High-rise"]
+      },
+
+      "capacity": {
+        "nominal_tons": 100,
+        "total_cooling_capacity_btu": 1200000,
+        "total_heating_capacity_btu": 0,
+        "cooling_source": "chilled_water_coil",
+        "heating_source": "hot_water_coil",
+        "airflow_total_cfm": 40000,
+        "airflow_minimum_oa_cfm": 8000,
+        "airflow_maximum_oa_cfm": 40000
+      },
+
+      "efficiency": {
+        "fan_w_per_cfm": 0.30,
+        "chilled_water_supply_temp_f": 44,
+        "chilled_water_return_temp_f": 54,
+        "hot_water_supply_temp_f": 180,
+        "hot_water_return_temp_f": 160
+      },
+
+      "fan_system": {
+        "fan_type": "centrifugal_plenum",
+        "fan_configuration": "draw_through",
+        "fan_control": "variable_speed_drive",
+        "minimum_speed_percent": 25,
+        "static_pressure_setpoint_in_wc": 4.0,
+        "motor_hp_total": 40
+      },
+
+      "cooling_system": {
+        "cooling_coil_type": "chilled_water",
+        "chiller_type": "water_cooled_centrifugal",
+        "condenser_type": "cooling_tower",
+        "chiller_cop": 5.5,
+        "design_chw_flow_gpm": 240
+      },
+
+      "heating_system": {
+        "heating_coil_type": "hot_water",
+        "heating_source": "central_boiler",
+        "boiler_fuel": "natural_gas",
+        "boiler_efficiency": 0.85,
+        "design_hw_flow_gpm": 200
+      },
+
+      "terminal_units": {
+        "terminal_type": "VAV_reheat",
+        "reheat_coil_type": "hot_water",
+        "minimum_airflow_ratio": 0.30,
+        "damper_action": "normal",
+        "typical_count_per_system": 20
+      },
+
+      "economizer": {
+        "type": "fixed_dry_bulb",
+        "economizer_type": "FixedDryBulb",
+        "has_economizer": true,
+        "high_limit_shutoff_temp_f": 70,
+        "control_signal": "modulating",
+        "integration_type": "integrated"
+      },
+
+      "controls": {
+        "demand_controlled_ventilation": true,
+        "optimal_start": true,
+        "night_cycle_control": "cycle_on_any",
+        "static_pressure_reset": true,
+        "supply_air_temp_reset": true,
+        "chilled_water_temp_reset": true,
+        "condenser_water_temp_reset": true
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "VAV",
+        "honeybee_equipment_type": "VAV_Chiller_Boiler",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "FixedDryBulb",
+        "honeybee_demand_controlled_ventilation": true
+      },
+
+      "energyplus_compatibility": {
+        "energyplus_object_type": "AirLoopHVAC",
+        "cooling_coil_type": "Coil:Cooling:Water",
+        "heating_coil_type": "Coil:Heating:Water",
+        "fan_type": "Fan:VariableVolume",
+        "terminal_type": "AirTerminal:SingleDuct:VAV:Reheat",
+        "chiller_type": "Chiller:Electric:EIR",
+        "boiler_type": "Boiler:HotWater",
+        "cooling_tower_type": "CoolingTower:TwoSpeed"
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "VAV",
+        "cbecc_cooling_source": "ChilledWater",
+        "cbecc_heating_source": "HotWater",
+        "cbecc_reheat_source": "HotWater",
+        "cbecc_condenser_type": "Fluid",
+        "cbecc_ctrl_type": "FixedDryBulb"
+      }
+    }
+  },
+
+  "retail_restaurant": {
+    "szac_gas_furnace": {
+      "_comment": "Single Zone AC with Gas Furnace - Restaurant and retail",
+
+      "identification": {
+        "identifier": "SZAC_GasFurnace",
+        "name": "Single Zone AC with Gas Furnace",
+        "description": "Packaged rooftop unit with DX cooling and gas-fired furnace heating, typical for restaurants and retail",
+        "display_name": "SZAC - Gas Heat"
+      },
+
+      "system_classification": {
+        "system_type": "air_conditioner_with_furnace",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "electric_cooling_gas_heating",
+        "serves_zones": "single_zone",
+        "typical_applications": ["Restaurant dining", "Retail sales floor", "Small grocery"]
+      },
+
+      "capacity": {
+        "nominal_tons": 5,
+        "total_cooling_capacity_btu": 60000,
+        "sensible_cooling_capacity_btu": 45000,
+        "total_heating_capacity_btu": 80000,
+        "heating_capacity_supplemental_btu": 0,
+        "airflow_total_cfm": 2000,
+        "airflow_minimum_oa_cfm": 300,
+        "airflow_maximum_oa_cfm": 2000
+      },
+
+      "efficiency": {
+        "cooling_eer": 11.0,
+        "cooling_ieer": 16.0,
+        "heating_efficiency_afue": 0.80,
+        "fan_w_per_cfm": 0.45
+      },
+
+      "cooling_system": {
+        "cooling_coil_type": "direct_expansion",
+        "condenser_type": "air_cooled",
+        "number_of_stages": 1,
+        "refrigerant_type": "R-410A"
+      },
+
+      "heating_system": {
+        "heating_coil_type": "furnace",
+        "fuel_type": "natural_gas",
+        "furnace_efficiency": 0.80,
+        "modulation": "single_stage"
+      },
+
+      "economizer": {
+        "type": "fixed_dry_bulb",
+        "economizer_type": "FixedDryBulb",
+        "has_economizer": true,
+        "high_limit_shutoff_temp_f": 75,
+        "integration_type": "integrated"
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PSZ",
+        "honeybee_equipment_type": "PSZAC_GasCoil",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "FixedDryBulb"
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZAC",
+        "cbecc_cooling_source": "DirectExpansion",
+        "cbecc_heating_source": "Furnace",
+        "cbecc_fuel": "Gas",
+        "cbecc_ctrl_type": "FixedDryBulb"
+      }
+    },
+
+    "szvavac_kitchen": {
+      "_comment": "Single Zone VAV AC for commercial kitchen with makeup air",
+
+      "identification": {
+        "identifier": "SZVAVAC_Kitchen_MUA",
+        "name": "Kitchen SZVAVAC with Makeup Air",
+        "description": "Variable airflow packaged unit with gas furnace and makeup air capability for commercial kitchens",
+        "display_name": "Kitchen HVAC"
+      },
+
+      "system_classification": {
+        "system_type": "air_conditioner_with_furnace",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "electric_cooling_gas_heating",
+        "serves_zones": "single_zone",
+        "special_features": ["makeup_air_capable", "grease_rated_filters"],
+        "typical_applications": ["Commercial kitchen", "Restaurant kitchen", "Food prep area"]
+      },
+
+      "capacity": {
+        "nominal_tons": 7.5,
+        "total_cooling_capacity_btu": 90000,
+        "total_heating_capacity_btu": 120000,
+        "airflow_total_cfm": 3000,
+        "airflow_minimum_oa_cfm": 1500,
+        "airflow_maximum_oa_cfm": 3000,
+        "makeup_air_cfm": 2000
+      },
+
+      "efficiency": {
+        "cooling_eer": 10.5,
+        "cooling_ieer": 16.0,
+        "heating_efficiency_afue": 0.80,
+        "fan_w_per_cfm": 0.40
+      },
+
+      "cooling_stages": {
+        "number_of_stages": 2,
+        "stage_1_capacity_percent": 50,
+        "stage_2_capacity_percent": 100
+      },
+
+      "economizer": {
+        "type": "fixed_dry_bulb",
+        "has_economizer": true,
+        "high_limit_shutoff_temp_f": 75,
+        "integration_type": "integrated"
+      },
+
+      "makeup_air": {
+        "has_makeup_air": true,
+        "makeup_air_cfm": 2000,
+        "makeup_air_damper_type": "motorized",
+        "coordinates_with_exhaust": true,
+        "static_pressure_control": true
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZVAVAC",
+        "cbecc_cooling_source": "DirectExpansion",
+        "cbecc_heating_source": "Furnace",
+        "cbecc_staging": "2Stage",
+        "cbecc_ctrl_type": "FixedDryBulb",
+        "cbecc_makeup_air": true
+      }
+    }
+  },
+
+  "warehouse_storage": {
+    "hv_gas_furnace": {
+      "_comment": "Heating and Ventilation only - No cooling for warehouse storage",
+
+      "identification": {
+        "identifier": "HV_GasFurnace_Storage",
+        "name": "Heating/Ventilation Only - Gas Furnace",
+        "description": "Unit heater or rooftop unit providing heating and ventilation only, no cooling, for warehouse storage areas",
+        "display_name": "H/V Only - Storage"
+      },
+
+      "system_classification": {
+        "system_type": "heating_ventilation_only",
+        "equipment_type": "unit_heater_or_rtu",
+        "distribution": "ducted_unconditioned_space",
+        "fuel_type": "gas",
+        "serves_zones": "single_zone",
+        "typical_applications": ["Warehouse storage", "Loading dock", "Unconditioned shop"]
+      },
+
+      "capacity": {
+        "nominal_tons": 0,
+        "total_cooling_capacity_btu": 0,
+        "total_heating_capacity_btu": 250000,
+        "airflow_total_cfm": 8000,
+        "airflow_minimum_oa_cfm": 800,
+        "airflow_maximum_oa_cfm": 8000
+      },
+
+      "efficiency": {
+        "heating_efficiency_afue": 0.80,
+        "fan_w_per_cfm": 0.50
+      },
+
+      "heating_system": {
+        "heating_coil_type": "furnace",
+        "fuel_type": "natural_gas",
+        "furnace_efficiency": 0.80,
+        "modulation": "single_stage"
+      },
+
+      "economizer": {
+        "type": "none",
+        "has_economizer": false
+      },
+
+      "controls": {
+        "demand_controlled_ventilation": false,
+        "optimal_start": false,
+        "night_cycle_control": "stay_off",
+        "setback_control": true
+      },
+
+      "setpoints": {
+        "occupied_heating_f": 60,
+        "unoccupied_heating_f": 50
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "HV",
+        "cbecc_cooling_source": "None",
+        "cbecc_heating_source": "Furnace",
+        "cbecc_fuel": "Gas"
+      }
+    }
+  },
+
+  "hotel": {
+    "ptac_guest_room": {
+      "_comment": "Packaged Terminal Air Conditioner for hotel guest rooms",
+
+      "identification": {
+        "identifier": "PTAC_GuestRoom",
+        "name": "PTAC Guest Room Unit",
+        "description": "Self-contained packaged terminal air conditioner with electric resistance heat for individual guest room control",
+        "display_name": "PTAC Guest Room"
+      },
+
+      "system_classification": {
+        "system_type": "ptac",
+        "equipment_type": "packaged_terminal_unit",
+        "distribution": "ductless",
+        "fuel_type": "electric",
+        "serves_zones": "single_room",
+        "typical_applications": ["Hotel guest room", "Motel room", "Dorm room"]
+      },
+
+      "capacity": {
+        "nominal_tons": 1.0,
+        "total_cooling_capacity_btu": 12000,
+        "sensible_cooling_capacity_btu": 9000,
+        "total_heating_capacity_btu": 10000,
+        "airflow_total_cfm": 400
+      },
+
+      "efficiency": {
+        "cooling_eer": 9.5,
+        "heating_cop": 1.0,
+        "fan_w_per_cfm": 0.50
+      },
+
+      "controls": {
+        "individual_room_control": true,
+        "thermostat_type": "wall_mounted_analog"
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PTAC",
+        "honeybee_equipment_type": "PTAC",
+        "honeybee_vintage": "ASHRAE_2019"
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZAC",
+        "cbecc_cooling_source": "DirectExpansion",
+        "cbecc_heating_source": "Resistance"
+      }
+    }
+  },
+
+  "exhaust_systems": {
+    "commercial_kitchen_exhaust": {
+      "_comment": "Commercial kitchen exhaust hood system",
+
+      "identification": {
+        "identifier": "Kitchen_Exhaust_Hood",
+        "name": "Commercial Kitchen Exhaust",
+        "description": "Type I or Type II commercial kitchen exhaust hood with variable speed fan",
+        "display_name": "Kitchen Exhaust"
+      },
+
+      "system_classification": {
+        "system_type": "exhaust_only",
+        "equipment_type": "exhaust_hood",
+        "fuel_type": "electric",
+        "typical_applications": ["Commercial kitchen", "Restaurant kitchen", "Cooking areas"]
+      },
+
+      "capacity": {
+        "exhaust_airflow_cfm": 2000,
+        "hood_type": "Type_I_grease",
+        "fan_control": "variable_speed"
+      },
+
+      "efficiency": {
+        "fan_w_per_cfm": 0.60
+      },
+
+      "controls": {
+        "exhaust_control_type": "variable_speed_based_on_cooking",
+        "static_pressure_control": true,
+        "coordinates_with_makeup_air": true
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_exhaust_type": "CommercialKitchen",
+        "cbecc_flow_ctrl": "VariableFlow"
+      }
+    },
+
+    "bathroom_exhaust": {
+      "_comment": "General bathroom/restroom exhaust fan",
+
+      "identification": {
+        "identifier": "Bathroom_Exhaust_Fan",
+        "name": "Bathroom Exhaust Fan",
+        "description": "Continuous or intermittent exhaust fan for restrooms and bathrooms",
+        "display_name": "Bathroom Exhaust"
+      },
+
+      "system_classification": {
+        "system_type": "exhaust_only",
+        "equipment_type": "exhaust_fan",
+        "fuel_type": "electric",
+        "typical_applications": ["Restrooms", "Locker rooms", "Bathrooms"]
+      },
+
+      "capacity": {
+        "exhaust_airflow_cfm": 150,
+        "fan_control": "constant_volume"
+      },
+
+      "efficiency": {
+        "fan_w_per_cfm": 0.30
+      },
+
+      "controls": {
+        "exhaust_control_type": "continuous_or_occupancy"
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_exhaust_type": "Bathroom"
+      }
+    }
+  }
+}

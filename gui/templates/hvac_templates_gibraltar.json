@@ -1,0 +1,798 @@
+{
+  "_metadata": {
+    "version": "2.0",
+    "source": "Gibraltar Distribution Center Project - Milpitas, CA (Stantec 2025)",
+    "basis_of_design": "Trane WHK Series Heat Pump Rooftop Units",
+    "compliance": "California Title 24 2022",
+    "climate_zone": "4 - Bay Area",
+    "date": "2025-10-24",
+    "notes": "Templates based on actual mechanical schedule from Gibraltar project plans"
+  },
+
+  "warehouse_distribution": {
+    "large_warehouse_rtu_standard": {
+      "name": "Large Warehouse Heat Pump RTU - Standard (Trane WHK240)",
+      "description": "High-capacity packaged heat pump rooftop unit for large warehouse spaces with economizer and variable speed control",
+      "manufacturer": "Trane",
+      "model_series": "WHK240",
+      "system_type": "heat_pump",
+      "equipment_type": "packaged_rooftop_unit",
+      "distribution": "ducted_unconditioned_space",
+
+      "capacity": {
+        "nominal_tons": 20,
+        "total_cooling_capacity_mbh": 210.3,
+        "sensible_cooling_capacity_mbh": 210.3,
+        "total_heating_capacity_47f_mbh": 193.05,
+        "airflow_total_cfm": 6500,
+        "airflow_minimum_oa_cfm": 2480,
+        "airflow_maximum_oa_cfm": 6500
+      },
+
+      "operating_conditions": {
+        "cooling": {
+          "entering_air_db_f": 87.4,
+          "entering_air_wb_f": 66.1,
+          "leaving_air_db_f": 59.0,
+          "leaving_air_wb_f": 56.0,
+          "outdoor_air_db_f": 85,
+          "outdoor_air_wb_f": 65
+        },
+        "heating": {
+          "outdoor_air_temp_f": 36,
+          "entering_air_temp_f": 53.9,
+          "leaving_air_temp_f": 85.9,
+          "cop_at_47f": 3.5
+        }
+      },
+
+      "efficiency": {
+        "cooling_eer": 10.9,
+        "cooling_ieer": 16.9,
+        "heating_cop_47f": 3.5,
+        "fan_w_per_cfm": 0.38
+      },
+
+      "fan_system": {
+        "fan_type": "BC_PLENUM",
+        "fan_quantity": 2,
+        "motor_hp_each": 2.9,
+        "esp_in_wc": 1.4,
+        "variable_speed_type": "INTEGRAL_VFD"
+      },
+
+      "refrigerant": {
+        "type": "R-454B",
+        "charge_lbs": 38
+      },
+
+      "filter": {
+        "merv_rating": 13,
+        "initial_pressure_drop_in_wc": 0.08
+      },
+
+      "features": {
+        "economizer": "differential_enthalpy_with_fdd",
+        "economizer_type": "factory_differential_enthalpy",
+        "economizer_fdd": true,
+        "building_pressure_control": "factory_integral_variable_speed_exhaust",
+        "relief_type": "powered_exhaust",
+        "optimal_start": true,
+        "smoke_detector_on_supply": true,
+        "coil_hail_guard": true,
+        "bird_screens": true,
+        "outside_air_hood": "with_rain_trap",
+        "discharge_air_temp_sensor": true,
+        "return_air_temp_sensor": true,
+        "outside_air_temp_sensor": true,
+        "bacnet_communication": true,
+        "filter_rack": "two_sets_merv13",
+        "powered_convenience_outlet": true,
+        "integral_disconnect": true,
+        "clogged_filter_switch": true,
+        "condensate_drain_pan": "stainless_steel_with_overflow_switch",
+        "compressor_warranty_years": 5
+      },
+
+      "electrical": {
+        "voltage": 460,
+        "phase": 3,
+        "mca_amps": 58,
+        "mocp_amps": 80,
+        "sccr_kaic": 65
+      },
+
+      "physical": {
+        "operating_weight_lbs": 2470,
+        "roof_curb_height_in": 24,
+        "roof_curb_type": "insulated_slope_matched"
+      },
+
+      "controls": {
+        "setpoints_warehouse": {
+          "occupied_cooling_f": 77,
+          "occupied_heating_f": 67,
+          "unoccupied_cooling_f": 85,
+          "unoccupied_heating_f": 55
+        },
+        "building_static_pressure_in_wc": 0.05,
+        "minimum_oa_damper_control": "modulating_to_maintain_cfm",
+        "supply_fan_control": "variable_speed_based_on_load",
+        "economizer_lockout_temp_f": 75
+      },
+
+      "dropbox_diffuser": {
+        "model": "AES_ADB-1",
+        "description": "4-way drum louver distribution plenum",
+        "mounting_height_aff": "3_ft_below_structure",
+        "register_angle_deg": 22.5,
+        "register_spread_deg": 45
+      },
+
+      "typical_applications": [
+        "Large warehouse floors",
+        "Distribution centers",
+        "Logistics facilities",
+        "Cold storage receiving areas",
+        "Manufacturing areas"
+      ],
+
+      "project_usage": {
+        "gibraltar_inbound_qty": 12,
+        "gibraltar_outbound_qty": 7,
+        "gibraltar_ar_field_qty": 16,
+        "total_units": 35
+      }
+    },
+
+    "warehouse_hvls_fan": {
+      "name": "High Volume Low Speed (HVLS) Fan",
+      "description": "Large diameter ceiling fan for air destratification in warehouse",
+      "manufacturer": "Greenheck",
+      "model_series": "DS-6-16-70HV",
+      "system_type": "ventilation",
+      "equipment_type": "hvls_fan",
+
+      "performance": {
+        "airflow_cfm": 110000,
+        "fan_rpm": 81,
+        "diameter_ft": 16,
+        "blade_count": 6
+      },
+
+      "motor": {
+        "horsepower": 1.5,
+        "voltage": 460,
+        "phase": 3,
+        "fla_amps": 2.5,
+        "power_watts": 734
+      },
+
+      "physical": {
+        "weight_lbs": 200,
+        "minimum_mounting_height_ft": 7,
+        "minimum_clearance_to_sprinkler_ft": 3,
+        "recommended_spacing_sf": 36667
+      },
+
+      "features": {
+        "wall_mounted_vfd": true,
+        "bacnet_compatible": true,
+        "amca_certified": true,
+        "ul_listed": true
+      },
+
+      "installation_notes": [
+        "Center between sprinkler heads",
+        "Minimum 23ft clearance from elevated platforms",
+        "Center between light fixtures with 3ft minimum clearance",
+        "One fan diameter from adjacent diffusers",
+        "Column-mounted power switch at 48in AFF"
+      ]
+    },
+
+    "warehouse_unit_heater": {
+      "name": "Electric Unit Heater - Warehouse",
+      "description": "Suspended electric unit heater for supplemental warehouse heating",
+      "manufacturer": "Qmark / Raywall",
+      "system_type": "heating_only",
+      "equipment_type": "electric_unit_heater",
+
+      "models": {
+        "standard_warehouse": {
+          "model": "MUH-15-4 / RCH",
+          "airflow_cfm": 910,
+          "heating_capacity_watts": 1530,
+          "motor_hp": 0.05,
+          "temperature_rise_f": 15.0,
+          "sones": 53
+        },
+        "small_room": {
+          "model": "RCH",
+          "airflow_cfm": 600,
+          "heating_capacity_watts": 1000,
+          "motor_hp": 0.25,
+          "temperature_rise_f": 2.0,
+          "sones": 50
+        }
+      },
+
+      "electrical": {
+        "voltage": 480,
+        "phase": 3
+      },
+
+      "features": {
+        "mounting": "suspended_or_ceiling_recessed",
+        "controls": "wall_mounted_thermostat_with_lock",
+        "thermostat_setpoint_f": 60,
+        "disconnect_switch": true,
+        "thermal_overload": "auto_reset"
+      },
+
+      "installation": {
+        "mounting_height_warehouse_aff": 11,
+        "thermostat_mounting_aff": 4,
+        "thermostat_type": "24V_locking_cover"
+      }
+    }
+  },
+
+  "office_commercial_small": {
+    "small_office_rtu_3ton": {
+      "name": "Small Office Heat Pump RTU - 3 Ton (Trane WHK036)",
+      "description": "Packaged heat pump rooftop unit for small offices and conference rooms",
+      "manufacturer": "Trane",
+      "model_series": "WHK036",
+      "system_type": "heat_pump",
+      "equipment_type": "packaged_rooftop_unit",
+      "distribution": "ducted_conditioned_space",
+
+      "capacity": {
+        "nominal_tons": 3,
+        "total_cooling_capacity_mbh": 28.4,
+        "sensible_cooling_capacity_mbh": 27.8,
+        "total_heating_capacity_47f_mbh": 30.46,
+        "airflow_total_cfm": 1120,
+        "airflow_minimum_oa_cfm": 270,
+        "airflow_maximum_oa_cfm": 1120
+      },
+
+      "operating_conditions": {
+        "cooling": {
+          "entering_air_db_f": 81.2,
+          "entering_air_wb_f": 64.5,
+          "leaving_air_db_f": 58.6,
+          "leaving_air_wb_f": 56.2,
+          "outdoor_air_db_f": 85,
+          "outdoor_air_wb_f": 65
+        },
+        "heating": {
+          "outdoor_air_temp_f": 36,
+          "entering_air_temp_f": 46.7,
+          "leaving_air_temp_f": 76.1,
+          "cop_at_47f": 3.8
+        }
+      },
+
+      "efficiency": {
+        "cooling_eer": 13.5,
+        "cooling_ieer": 16.8,
+        "heating_cop_47f": 3.8,
+        "fan_w_per_cfm": 0.35
+      },
+
+      "fan_system": {
+        "fan_type": "CENTRIFUGAL",
+        "fan_quantity": 1,
+        "motor_hp": 0.33,
+        "esp_in_wc": 1.25,
+        "variable_speed_type": "MULTI_SPEED_DIRECT_DRIVE"
+      },
+
+      "refrigerant": {
+        "type": "R-454B",
+        "charge_lbs": 12
+      },
+
+      "filter": {
+        "merv_rating": 13,
+        "size_in": "2in_pleated"
+      },
+
+      "features": {
+        "economizer": "differential_enthalpy_with_fdd",
+        "relief_type": "barometric",
+        "smoke_detector_required": false,
+        "coil_hail_guard": true,
+        "bird_screens": true,
+        "outside_air_hood": "with_rain_trap",
+        "bacnet_communication": true,
+        "filter_rack": "two_sets_merv13",
+        "powered_convenience_outlet": true,
+        "condensate_pump": "factory_installed",
+        "compressor_warranty_years": 5
+      },
+
+      "electrical": {
+        "voltage": 460,
+        "phase": 3,
+        "mca_amps": 16,
+        "mocp_amps": 20
+      },
+
+      "physical": {
+        "operating_weight_lbs": 987
+      },
+
+      "controls": {
+        "setpoints_office": {
+          "occupied_cooling_f": 75,
+          "occupied_heating_f": 70,
+          "unoccupied_cooling_f": 85,
+          "unoccupied_heating_f": 55
+        },
+        "zone_sensor": "digital_display_with_adjustment"
+      },
+
+      "typical_applications": [
+        "Office core areas",
+        "Small conference rooms",
+        "Break rooms",
+        "Reception areas"
+      ]
+    },
+
+    "medium_office_rtu_7_5ton": {
+      "name": "Medium Office Heat Pump RTU - 7.5 Ton (Trane WHK090)",
+      "description": "Packaged heat pump rooftop unit for medium offices and meeting spaces",
+      "manufacturer": "Trane",
+      "model_series": "WHK090",
+      "system_type": "heat_pump",
+      "equipment_type": "packaged_rooftop_unit",
+      "distribution": "ducted_conditioned_space",
+
+      "capacity": {
+        "nominal_tons": 7.5,
+        "total_cooling_capacity_mbh": 74.6,
+        "sensible_cooling_capacity_mbh": 74.6,
+        "total_heating_capacity_47f_mbh": 73.63,
+        "airflow_total_cfm": 2800,
+        "airflow_minimum_oa_cfm": 960,
+        "airflow_maximum_oa_cfm": 2800
+      },
+
+      "operating_conditions": {
+        "cooling": {
+          "entering_air_db_f": 83.9,
+          "entering_air_wb_f": 64.2,
+          "leaving_air_db_f": 59.6,
+          "leaving_air_wb_f": 55.3,
+          "outdoor_air_db_f": 85,
+          "outdoor_air_wb_f": 65
+        },
+        "heating": {
+          "outdoor_air_temp_f": 36,
+          "entering_air_temp_f": 58.3,
+          "leaving_air_temp_f": 86.7,
+          "cop_at_47f": 3.71
+        }
+      },
+
+      "efficiency": {
+        "cooling_eer": 12.0,
+        "cooling_ieer": 16.0,
+        "heating_cop_47f": 3.71,
+        "fan_w_per_cfm": 0.37
+      },
+
+      "fan_system": {
+        "fan_quantity": 1,
+        "motor_hp": 1.0,
+        "esp_in_wc": 1.4,
+        "variable_speed_type": "MULTI_SPEED_DIRECT_DRIVE"
+      },
+
+      "refrigerant": {
+        "type": "R-454B",
+        "charge_lbs": 15.5
+      },
+
+      "filter": {
+        "merv_rating": 13
+      },
+
+      "electrical": {
+        "voltage": 460,
+        "phase": 3,
+        "mca_amps": 22,
+        "mocp_amps": 25
+      },
+
+      "physical": {
+        "operating_weight_lbs": 1040
+      },
+
+      "typical_applications": [
+        "Entry vestibules",
+        "Main lobbies",
+        "Medium conference rooms"
+      ]
+    },
+
+    "large_office_rtu_15ton": {
+      "name": "Large Office Heat Pump RTU - 15 Ton (Trane WHK180)",
+      "description": "Packaged heat pump rooftop unit for large breakrooms and assembly spaces",
+      "manufacturer": "Trane",
+      "model_series": "WHK180",
+      "system_type": "heat_pump",
+      "equipment_type": "packaged_rooftop_unit",
+      "distribution": "ducted_conditioned_space",
+
+      "capacity": {
+        "nominal_tons": 15,
+        "total_cooling_capacity_mbh": 147.1,
+        "sensible_cooling_capacity_mbh": 147.1,
+        "total_heating_capacity_47f_mbh": 144.30,
+        "airflow_total_cfm": 4500,
+        "airflow_minimum_oa_cfm": 3000,
+        "airflow_maximum_oa_cfm": 4500
+      },
+
+      "operating_conditions": {
+        "cooling": {
+          "entering_air_db_f": 86.9,
+          "entering_air_wb_f": 62.5,
+          "leaving_air_db_f": 57.4,
+          "leaving_air_wb_f": 51.1,
+          "outdoor_air_db_f": 85,
+          "outdoor_air_wb_f": 65
+        },
+        "heating": {
+          "outdoor_air_temp_f": 36,
+          "entering_air_temp_f": 47.3,
+          "leaving_air_temp_f": 81.9,
+          "cop_at_47f": 3.6
+        }
+      },
+
+      "efficiency": {
+        "cooling_eer": 11.7,
+        "cooling_ieer": 17.3,
+        "heating_cop_47f": 3.6,
+        "fan_w_per_cfm": 0.42
+      },
+
+      "fan_system": {
+        "fan_quantity": 2,
+        "motor_hp_each": 2.9,
+        "esp_in_wc": 1.2,
+        "variable_speed_type": "MULTI_SPEED_DIRECT_DRIVE"
+      },
+
+      "refrigerant": {
+        "type": "R-454B",
+        "charge_lbs": 32
+      },
+
+      "filter": {
+        "merv_rating": 13
+      },
+
+      "electrical": {
+        "voltage": 460,
+        "phase": 3,
+        "mca_amps": 45,
+        "mocp_amps": 60
+      },
+
+      "physical": {
+        "operating_weight_lbs": 2310
+      },
+
+      "features": {
+        "demand_control_ventilation": true,
+        "co2_sensors": true
+      },
+
+      "typical_applications": [
+        "Main breakrooms",
+        "Large conference rooms",
+        "Multi-use assembly spaces",
+        "Training rooms"
+      ]
+    },
+
+    "electric_air_curtain": {
+      "name": "Electric Heated Air Curtain",
+      "description": "Electrically heated air curtain for door vestibules",
+      "manufacturer": "Mars",
+      "system_type": "air_curtain",
+      "equipment_type": "electric_heated",
+
+      "models": {
+        "36in_single_module": {
+          "model": "STD236-1E",
+          "airflow_cfm": 1040,
+          "fan_qty": 1,
+          "fan_hp_each": 0.083,
+          "heating_temp_rise_f": 36,
+          "heating_kw": 12,
+          "heating_stages": 3,
+          "length_in": 36,
+          "width_in": 17.5,
+          "height_in": 11,
+          "weight_lbs": 90,
+          "mounting": "wall",
+          "voltage": 460,
+          "phase": 3,
+          "fla_amps": 12
+        },
+        "72in_dual_module": {
+          "model": "STD272-2E",
+          "airflow_cfm": 2080,
+          "fan_qty": 2,
+          "fan_hp_each": 0.083,
+          "heating_temp_rise_f": 36,
+          "heating_kw": 24,
+          "heating_stages": 3,
+          "length_in": 72,
+          "width_in": 17.5,
+          "height_in": 11,
+          "weight_lbs": 180,
+          "mounting": "wall",
+          "voltage": 460,
+          "phase": 3,
+          "fla_amps": 24
+        },
+        "108in_triple_module": {
+          "model": "STD2108-3E",
+          "airflow_cfm": 3120,
+          "fan_qty": 3,
+          "fan_hp_each": 0.083,
+          "heating_temp_rise_f": 36,
+          "heating_kw": 36,
+          "heating_stages": 3,
+          "length_in": 108,
+          "width_in": 17.5,
+          "height_in": 11,
+          "weight_lbs": 270,
+          "mounting": "wall",
+          "voltage": 460,
+          "phase": 3,
+          "fla_amps": 36
+        }
+      },
+
+      "features": {
+        "door_switch_with_time_delay": true,
+        "bms_monitoring": true,
+        "filters_included": true,
+        "finish": "pearl_white",
+        "disconnect_switch": true,
+        "thermal_overload": "auto_reset",
+        "thermostat": "wall_mounted_24v",
+        "thermostat_setpoint_f": 60,
+        "etl_certified": "UL2021",
+        "amca_certified": "AMCA_211"
+      }
+    }
+  },
+
+  "specialized_hvac": {
+    "hazmat_makeup_air_unit": {
+      "name": "Hazmat Makeup Air Unit with Heat Pump",
+      "description": "100% outside air makeup air unit with heat pump for hazmat storage rooms",
+      "manufacturer": "Trane",
+      "model_series": "OADG / OANE",
+      "system_type": "makeup_air_heat_pump",
+      "equipment_type": "packaged_outdoor_air_unit",
+
+      "models": {
+        "small_hazmat": {
+          "model": "OADG010A3",
+          "service": "Oxidizer Storage",
+          "airflow_total_cfm": 1350,
+          "exhaust_cfm": 1650,
+          "makeup_cfm": 1350,
+          "cooling_capacity_mbh": 33.2,
+          "heating_capacity_mbh": 36.0,
+          "refrigerant_lbs": 12.7,
+          "electric_heater_kw": 20,
+          "voltage": 460,
+          "phase": 3,
+          "mca_amps": 51.7,
+          "mocp_amps": 60,
+          "weight_lbs": 3174
+        },
+        "medium_hazmat": {
+          "model": "OADG012A3",
+          "service": "Flammable/Aerosol Storage",
+          "airflow_total_cfm": 4120,
+          "exhaust_cfm": 4400,
+          "makeup_cfm": 4120,
+          "cooling_capacity_mbh": 32.6,
+          "heating_capacity_mbh": 40.0,
+          "refrigerant_lbs": 12.3,
+          "electric_heater_kw": 40,
+          "voltage": 460,
+          "phase": 3,
+          "mca_amps": 88.8,
+          "mocp_amps": 90,
+          "weight_lbs": 3386
+        },
+        "large_hazmat": {
+          "model": "OANE360E4",
+          "service": "Large Flammable Storage",
+          "airflow_total_cfm": 8400,
+          "exhaust_cfm": 8700,
+          "makeup_cfm": 8400,
+          "cooling_capacity_mbh": 334.5,
+          "heating_capacity_mbh": 334.1,
+          "refrigerant_lbs": 45.2,
+          "electric_heater_kw": 99,
+          "voltage": 460,
+          "phase": 3,
+          "mca_amps": 185.5,
+          "mocp_amps": 200,
+          "weight_lbs": 5756
+        }
+      },
+
+      "features": {
+        "outdoor_air_percentage": 100,
+        "factory_vfd": true,
+        "integral_disconnect": true,
+        "low_ambient_kit": true,
+        "hail_guard": true,
+        "stainless_steel_drain_pan": true,
+        "bacnet_controller": true,
+        "duct_smoke_detector": true,
+        "merv_13_filters": true,
+        "interlock_with_exhaust_fan": true,
+        "space_pressure_control": "negative_0.01_in_wc"
+      },
+
+      "ventilation_rates": {
+        "high_hazard_aerosol": {
+          "room_area_sf": 2943,
+          "ceiling_height_ft": 12,
+          "min_cmc_cfm_1_5_per_sf": 4415,
+          "min_osha_6_ach": 3532,
+          "exhaust_design_cfm": 4440,
+          "makeup_design_cfm": 4140
+        },
+        "high_hazard_flammable": {
+          "room_area_sf": 5783,
+          "ceiling_height_ft": 12,
+          "min_cmc_cfm_1_5_per_sf": 8675,
+          "min_osha_6_ach": 6940,
+          "exhaust_design_cfm": 8700,
+          "makeup_design_cfm": 8400
+        },
+        "high_hazard_oxidizer": {
+          "room_area_sf": 1097,
+          "ceiling_height_ft": 12,
+          "min_cmc_cfm_1_5_per_sf": 1645,
+          "min_osha_6_ach": 1316,
+          "exhaust_design_cfm": 1650,
+          "makeup_design_cfm": 1350
+        }
+      },
+
+      "exhaust_fan": {
+        "manufacturer": "Greenheck",
+        "model_series": "FJI-BI-X",
+        "fan_type": "upblast_centrifugal",
+        "construction": "AMCA_Spark_B",
+        "fire_character": "Class_0",
+        "coating": "Permatector",
+        "seismic_restraint": true,
+        "vibration_isolation": true
+      }
+    },
+
+    "pharmacy_hvac_system": {
+      "name": "Pharmacy HVAC with Hot Gas Reheat",
+      "description": "Specialized rooftop unit with modulating hot gas reheat for precise temperature and humidity control",
+      "manufacturer": "Trane",
+      "model": "WSK036A4S0G",
+      "system_type": "heat_pump_with_hgrh",
+      "equipment_type": "packaged_rooftop_unit",
+
+      "capacity": {
+        "nominal_tons": 3,
+        "airflow_total_cfm": 1200,
+        "minimum_oa_cfm": 480,
+        "total_cooling_capacity_mbh": 36.29,
+        "sensible_cooling_capacity_mbh": 27.43,
+        "total_heating_capacity_47f_mbh": 30.46,
+        "hgrh_capacity_mbh": 20.45,
+        "moisture_removal_gph": 0.87
+      },
+
+      "efficiency": {
+        "cooling_eer": 13.5,
+        "cooling_seer": 14.3,
+        "heating_cop_47f": 3.8,
+        "heating_hspf": 11.9
+      },
+
+      "features": {
+        "hot_gas_reheat": "modulating_integrated",
+        "low_ambient_kit": true,
+        "hail_guard": true,
+        "merv_13_filter": "2in_pleated",
+        "bacnet_controller": true,
+        "supply_air_temp_sensor": true,
+        "condensate_overflow_switch": true,
+        "compressor_delay": "5_minutes",
+        "roof_curb_height_in": 24
+      },
+
+      "dehumidifier": {
+        "manufacturer": "Condair",
+        "model": "DA-800N",
+        "type": "desiccant",
+        "process_airflow_cfm": 800,
+        "drying_capacity_lbs_hr": 22.0,
+        "regenerator_heater_kw": 13.0,
+        "ec_motor_fan": true,
+        "ul_listed": true
+      },
+
+      "humidifier": {
+        "manufacturer": "Condair",
+        "model": "EL_RM_005",
+        "type": "electrode_steam",
+        "capacity_lbs_hr": 5.5,
+        "water_type": "potable_filtered_5_micron",
+        "water_pressure_min_psig": 30,
+        "water_pressure_max_psig": 80,
+        "voltage": 120,
+        "phase": 1,
+        "mca_amps": 16.8,
+        "mocp_amps": 25,
+        "foam_detection_kit": true,
+        "air_proving_switch": true,
+        "wall_mounting": true,
+        "bacnet_interface": true,
+        "remote_blower_pack": true
+      },
+
+      "air_handler": {
+        "manufacturer": "Mitsubishi",
+        "model": "PEAD-A30AA7",
+        "type": "ducted_fan_coil",
+        "nominal_tons": 2.5,
+        "airflow_cfm": 800,
+        "esp_in_wc": 1.0,
+        "capacity_btu": 26310,
+        "eer": 12.5,
+        "seer": 15.0,
+        "cop": 3.42,
+        "condensate_pump": "factory_provided",
+        "filter_box": "merv_13",
+        "remote_controller": "deluxe_wired"
+      },
+
+      "condensing_unit": {
+        "manufacturer": "Mitsubishi",
+        "model": "SOZ-KA30NAHZ",
+        "nominal_tons": 2.5,
+        "low_ambient_temp_f": -20,
+        "compressor_delay": "5_minutes",
+        "windscreen": true,
+        "snow_guard": true,
+        "electric_heater_kw": 5
+      },
+
+      "ventilation": {
+        "gravity_vent_model": "Greenheck_GRSR-8",
+        "capacity_cfm": 150,
+        "space_pressure_in_wc": 0.01,
+        "type": "gravity_barometric"
+      }
+    }
+  }
+}

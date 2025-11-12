@@ -7,20 +7,20 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-# Now use absolute imports
-from explorer_gui.pages.import_page import handle_import
-from explorer_gui.pages.wizard_page import handle_wizard
-from explorer_gui.pages.template_browser_page import handle_template_browser
-from explorer_gui.pages.export_page import handle_export
-from explorer_gui.pages.diagnostics_page import show_diagnostics
-from explorer_gui.pages.round_trip_page import handle_round_trip
-from explorer_gui.pages.active_model_page import show_active_model
-from explorer_gui.pages.editing_page import handle_editing
+# Now use absolute imports (gui instead of explorer_gui in v7)
+from gui.pages.import_page import handle_import
+from gui.pages.wizard_page import handle_wizard
+from gui.pages.template_browser_page import handle_template_browser
+from gui.pages.export_page import handle_export
+from gui.pages.diagnostics_page import show_diagnostics
+from gui.pages.round_trip_page import handle_round_trip
+from gui.pages.active_model_page import show_active_model
+from gui.pages.editing_page import handle_editing
 
 # Optional features - imported with error handling
 try:
-    from explorer_gui.config import should_show_in_nav
-    from explorer_gui.pages.geometry_builder_page import geometry_builder_page
+    from gui.config import should_show_in_nav
+    from gui.pages.geometry_builder_page import geometry_builder_page
     GEOMETRY_BUILDER_AVAILABLE = True
 except ImportError:
     GEOMETRY_BUILDER_AVAILABLE = False

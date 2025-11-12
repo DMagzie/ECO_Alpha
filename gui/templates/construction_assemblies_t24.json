@@ -1,0 +1,364 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "standard": "California Title 24-2022",
+    "description": "Prescriptive construction assemblies with complete layer definitions and material properties for CBECC compliance",
+    "created": "2025-10-25"
+  },
+  "materials": {
+    "insulation": {
+      "fiberglass_batt_r13": {
+        "name": "Fiberglass Batt Insulation R-13",
+        "conductivity_w_mk": 0.040,
+        "density_kg_m3": 12.0,
+        "specific_heat_j_kgk": 840.0,
+        "thickness_m": 0.089,
+        "r_value_m2k_w": 2.29
+      },
+      "fiberglass_batt_r19": {
+        "name": "Fiberglass Batt Insulation R-19",
+        "conductivity_w_mk": 0.040,
+        "density_kg_m3": 12.0,
+        "specific_heat_j_kgk": 840.0,
+        "thickness_m": 0.133,
+        "r_value_m2k_w": 3.35
+      },
+      "fiberglass_batt_r30": {
+        "name": "Fiberglass Batt Insulation R-30",
+        "conductivity_w_mk": 0.040,
+        "density_kg_m3": 12.0,
+        "specific_heat_j_kgk": 840.0,
+        "thickness_m": 0.216,
+        "r_value_m2k_w": 5.28
+      },
+      "rigid_foam_r5": {
+        "name": "Rigid Foam Insulation R-5 (Polyiso)",
+        "conductivity_w_mk": 0.029,
+        "density_kg_m3": 28.0,
+        "specific_heat_j_kgk": 1400.0,
+        "thickness_m": 0.025,
+        "r_value_m2k_w": 0.88
+      },
+      "rigid_foam_r10": {
+        "name": "Rigid Foam Insulation R-10 (Polyiso)",
+        "conductivity_w_mk": 0.029,
+        "density_kg_m3": 28.0,
+        "specific_heat_j_kgk": 1400.0,
+        "thickness_m": 0.051,
+        "r_value_m2k_w": 1.76
+      },
+      "spray_foam_r20": {
+        "name": "Spray Polyurethane Foam R-20",
+        "conductivity_w_mk": 0.026,
+        "density_kg_m3": 32.0,
+        "specific_heat_j_kgk": 1400.0,
+        "thickness_m": 0.089,
+        "r_value_m2k_w": 3.52
+      }
+    },
+    "structural": {
+      "wood_stud_2x4": {
+        "name": "Wood Stud 2x4 (38mm x 89mm)",
+        "conductivity_w_mk": 0.12,
+        "density_kg_m3": 560.0,
+        "specific_heat_j_kgk": 1630.0,
+        "thickness_m": 0.089
+      },
+      "wood_stud_2x6": {
+        "name": "Wood Stud 2x6 (38mm x 140mm)",
+        "conductivity_w_mk": 0.12,
+        "density_kg_m3": 560.0,
+        "specific_heat_j_kgk": 1630.0,
+        "thickness_m": 0.140
+      },
+      "metal_stud_3_5in": {
+        "name": "Metal Stud 3.5 inch (89mm)",
+        "conductivity_w_mk": 45.0,
+        "density_kg_m3": 7850.0,
+        "specific_heat_j_kgk": 450.0,
+        "thickness_m": 0.089
+      },
+      "metal_stud_6in": {
+        "name": "Metal Stud 6 inch (152mm)",
+        "conductivity_w_mk": 45.0,
+        "density_kg_m3": 7850.0,
+        "specific_heat_j_kgk": 450.0,
+        "thickness_m": 0.152
+      },
+      "concrete_8in": {
+        "name": "Concrete 8 inch (203mm)",
+        "conductivity_w_mk": 1.4,
+        "density_kg_m3": 2240.0,
+        "specific_heat_j_kgk": 900.0,
+        "thickness_m": 0.203
+      },
+      "concrete_6in": {
+        "name": "Concrete 6 inch (152mm)",
+        "conductivity_w_mk": 1.4,
+        "density_kg_m3": 2240.0,
+        "specific_heat_j_kgk": 900.0,
+        "thickness_m": 0.152
+      },
+      "cmu_8in": {
+        "name": "Concrete Masonry Unit 8 inch (203mm)",
+        "conductivity_w_mk": 0.79,
+        "density_kg_m3": 1920.0,
+        "specific_heat_j_kgk": 920.0,
+        "thickness_m": 0.203
+      }
+    },
+    "finish": {
+      "gypsum_board_5_8in": {
+        "name": "Gypsum Board 5/8 inch (16mm)",
+        "conductivity_w_mk": 0.17,
+        "density_kg_m3": 800.0,
+        "specific_heat_j_kgk": 1090.0,
+        "thickness_m": 0.016
+      },
+      "gypsum_board_1_2in": {
+        "name": "Gypsum Board 1/2 inch (13mm)",
+        "conductivity_w_mk": 0.17,
+        "density_kg_m3": 800.0,
+        "specific_heat_j_kgk": 1090.0,
+        "thickness_m": 0.013
+      },
+      "stucco_1in": {
+        "name": "Stucco 1 inch (25mm)",
+        "conductivity_w_mk": 0.69,
+        "density_kg_m3": 1858.0,
+        "specific_heat_j_kgk": 840.0,
+        "thickness_m": 0.025
+      },
+      "brick_veneer_4in": {
+        "name": "Brick Veneer 4 inch (102mm)",
+        "conductivity_w_mk": 0.72,
+        "density_kg_m3": 1920.0,
+        "specific_heat_j_kgk": 790.0,
+        "thickness_m": 0.102
+      },
+      "metal_panel": {
+        "name": "Metal Panel (26 gauge)",
+        "conductivity_w_mk": 45.0,
+        "density_kg_m3": 7850.0,
+        "specific_heat_j_kgk": 450.0,
+        "thickness_m": 0.001
+      }
+    },
+    "roofing": {
+      "asphalt_shingles": {
+        "name": "Asphalt Shingles",
+        "conductivity_w_mk": 0.52,
+        "density_kg_m3": 1120.0,
+        "specific_heat_j_kgk": 1260.0,
+        "thickness_m": 0.010
+      },
+      "built_up_roofing": {
+        "name": "Built-Up Roofing (BUR)",
+        "conductivity_w_mk": 0.16,
+        "density_kg_m3": 1120.0,
+        "specific_heat_j_kgk": 1460.0,
+        "thickness_m": 0.010
+      },
+      "metal_deck": {
+        "name": "Metal Roof Deck",
+        "conductivity_w_mk": 45.0,
+        "density_kg_m3": 7850.0,
+        "specific_heat_j_kgk": 450.0,
+        "thickness_m": 0.001
+      },
+      "roof_membrane": {
+        "name": "Single-Ply Membrane (TPO/EPDM)",
+        "conductivity_w_mk": 0.16,
+        "density_kg_m3": 1120.0,
+        "specific_heat_j_kgk": 1460.0,
+        "thickness_m": 0.002
+      }
+    },
+    "air_films": {
+      "exterior_surface": {
+        "name": "Exterior Air Film",
+        "r_value_m2k_w": 0.044
+      },
+      "interior_surface": {
+        "name": "Interior Air Film",
+        "r_value_m2k_w": 0.121
+      },
+      "air_space_vertical": {
+        "name": "Air Space (Vertical, 90mm)",
+        "r_value_m2k_w": 0.18
+      }
+    }
+  },
+  "assemblies": {
+    "exterior_walls": {
+      "wood_framed_r13_cz1_2": {
+        "name": "Wood Frame Wall R-13 (CZ1-2)",
+        "climate_zones": ["1", "2"],
+        "structure_type": "Wood Framed",
+        "u_value_w_m2k": 0.510,
+        "description": "2x4 wood frame wall with R-13 batt insulation - Title 24 minimum for CZ1-2",
+        "layers": [
+          {"material": "stucco_1in", "thickness_m": 0.025},
+          {"material": "wood_stud_2x4", "thickness_m": 0.089},
+          {"material": "fiberglass_batt_r13", "thickness_m": 0.089},
+          {"material": "gypsum_board_1_2in", "thickness_m": 0.013}
+        ]
+      },
+      "wood_framed_r13_cz3_15": {
+        "name": "Wood Frame Wall R-13 (CZ3-15)",
+        "climate_zones": ["3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"],
+        "structure_type": "Wood Framed",
+        "u_value_w_m2k": 0.510,
+        "description": "2x4 wood frame wall with R-13 batt insulation - Title 24 minimum for most zones",
+        "layers": [
+          {"material": "stucco_1in", "thickness_m": 0.025},
+          {"material": "wood_stud_2x4", "thickness_m": 0.089},
+          {"material": "fiberglass_batt_r13", "thickness_m": 0.089},
+          {"material": "gypsum_board_1_2in", "thickness_m": 0.013}
+        ]
+      },
+      "metal_framed_r13_ci_r5": {
+        "name": "Metal Frame Wall R-13 + CI R-5",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Metal Framed",
+        "u_value_w_m2k": 0.397,
+        "description": "Metal stud wall with R-13 cavity + R-5 continuous insulation",
+        "layers": [
+          {"material": "stucco_1in", "thickness_m": 0.025},
+          {"material": "rigid_foam_r5", "thickness_m": 0.025},
+          {"material": "metal_stud_3_5in", "thickness_m": 0.089},
+          {"material": "fiberglass_batt_r13", "thickness_m": 0.089},
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016}
+        ]
+      },
+      "concrete_r10_ci": {
+        "name": "Concrete Wall R-10 CI",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Concrete/Masonry",
+        "u_value_w_m2k": 0.365,
+        "description": "8-inch concrete wall with R-10 continuous insulation exterior",
+        "layers": [
+          {"material": "stucco_1in", "thickness_m": 0.025},
+          {"material": "rigid_foam_r10", "thickness_m": 0.051},
+          {"material": "concrete_8in", "thickness_m": 0.203},
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016}
+        ]
+      },
+      "cmu_r10_ci": {
+        "name": "CMU Wall R-10 CI",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Concrete/Masonry",
+        "u_value_w_m2k": 0.378,
+        "description": "8-inch CMU wall with R-10 continuous insulation",
+        "layers": [
+          {"material": "stucco_1in", "thickness_m": 0.025},
+          {"material": "rigid_foam_r10", "thickness_m": 0.051},
+          {"material": "cmu_8in", "thickness_m": 0.203},
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016}
+        ]
+      }
+    },
+    "roofs": {
+      "wood_framed_r30_cz1_10": {
+        "name": "Wood Frame Roof R-30 (CZ1-10)",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+        "structure_type": "Wood Framed",
+        "u_value_w_m2k": 0.190,
+        "description": "Wood truss roof with R-30 batt insulation - T24 minimum for warm climates",
+        "layers": [
+          {"material": "asphalt_shingles", "thickness_m": 0.010},
+          {"material": "air_space_vertical", "r_value_only": true},
+          {"material": "fiberglass_batt_r30", "thickness_m": 0.216},
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016}
+        ]
+      },
+      "wood_framed_r30_cz11_16": {
+        "name": "Wood Frame Roof R-30 (CZ11-16)",
+        "climate_zones": ["11", "12", "13", "14", "15", "16"],
+        "structure_type": "Wood Framed",
+        "u_value_w_m2k": 0.190,
+        "description": "Wood truss roof with R-30 batt insulation",
+        "layers": [
+          {"material": "asphalt_shingles", "thickness_m": 0.010},
+          {"material": "air_space_vertical", "r_value_only": true},
+          {"material": "fiberglass_batt_r30", "thickness_m": 0.216},
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016}
+        ]
+      },
+      "metal_framed_r30_ci": {
+        "name": "Metal Frame Roof R-30 + CI",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Metal Framed",
+        "u_value_w_m2k": 0.190,
+        "description": "Metal deck roof with R-30 insulation above deck",
+        "layers": [
+          {"material": "roof_membrane", "thickness_m": 0.002},
+          {"material": "rigid_foam_r10", "thickness_m": 0.051},
+          {"material": "fiberglass_batt_r19", "thickness_m": 0.133},
+          {"material": "metal_deck", "thickness_m": 0.001}
+        ]
+      }
+    },
+    "floors": {
+      "wood_framed_r19": {
+        "name": "Wood Frame Floor R-19",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Wood Framed",
+        "u_value_w_m2k": 0.295,
+        "description": "Wood joist floor with R-19 batt insulation",
+        "layers": [
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016},
+          {"material": "fiberglass_batt_r19", "thickness_m": 0.133},
+          {"material": "wood_stud_2x6", "thickness_m": 0.140}
+        ]
+      },
+      "concrete_slab_uninsulated": {
+        "name": "Concrete Slab Uninsulated",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Concrete/Masonry",
+        "u_value_w_m2k": 3.500,
+        "description": "6-inch concrete slab on grade (uninsulated)",
+        "layers": [
+          {"material": "concrete_6in", "thickness_m": 0.152}
+        ]
+      },
+      "concrete_slab_r10_edge": {
+        "name": "Concrete Slab R-10 Edge Insulation",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Concrete/Masonry",
+        "u_value_w_m2k": 0.500,
+        "description": "6-inch concrete slab with R-10 perimeter insulation",
+        "layers": [
+          {"material": "concrete_6in", "thickness_m": 0.152},
+          {"material": "rigid_foam_r10", "thickness_m": 0.051, "edge_only": true}
+        ]
+      }
+    },
+    "interior_walls": {
+      "wood_framed_partition": {
+        "name": "Wood Frame Interior Partition",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Wood Framed",
+        "u_value_w_m2k": 1.982,
+        "description": "2x4 wood stud partition wall (no insulation required)",
+        "layers": [
+          {"material": "gypsum_board_1_2in", "thickness_m": 0.013},
+          {"material": "air_space_vertical", "r_value_only": true},
+          {"material": "gypsum_board_1_2in", "thickness_m": 0.013}
+        ]
+      },
+      "metal_framed_partition": {
+        "name": "Metal Frame Interior Partition",
+        "climate_zones": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+        "structure_type": "Metal Framed",
+        "u_value_w_m2k": 2.156,
+        "description": "Metal stud partition wall (no insulation required)",
+        "layers": [
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016},
+          {"material": "air_space_vertical", "r_value_only": true},
+          {"material": "gypsum_board_5_8in", "thickness_m": 0.016}
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "_metadata": {
+    "version": "1.0",
+    "source": "CBECC Sample Files (Bressi Ranch, Del Amo, Freedom Circle)",
+    "compliance": "California Title 24 2022/2025",
+    "date": "2025-10-23"
+  },
+
+  "multifamily_residential": {
+    "common_area_heat_pump": {
+      "name": "Common Area Split Heat Pump",
+      "description": "Single-zone heat pump for common areas (leasing, mail room, fitness, etc.)",
+      "system_type": "heat_pump",
+      "equipment_type": "split_system",
+      "distribution": "ducted_conditioned_space",
+      "sizes": {
+        "small": {
+          "cooling_capacity_btu": 17200,
+          "heating_capacity_btu": 17400,
+          "airflow_cfm": 600,
+          "fan_power_hp": 0.33
+        },
+        "medium": {
+          "cooling_capacity_btu": 40600,
+          "heating_capacity_btu": 42600,
+          "airflow_cfm": 1400,
+          "fan_power_hp": 0.5
+        },
+        "large": {
+          "cooling_capacity_btu": 57900,
+          "heating_capacity_btu": 57700,
+          "airflow_cfm": 2000,
+          "fan_power_hp": 0.75
+        }
+      },
+      "efficiency": {
+        "cooling_seer2": 14.3,
+        "heating_hspf2": 7.5,
+        "fan_w_per_cfm": 0.45
+      },
+      "features": {
+        "refrigerant_charge": "verified",
+        "duct_location": "conditioned_space",
+        "economizer": "none",
+        "optimal_start": false
+      }
+    },
+
+    "dwelling_unit_heat_pump": {
+      "name": "Dwelling Unit Split Heat Pump",
+      "description": "Central split heat pump for residential units, sized by bedroom count",
+      "system_type": "heat_pump",
+      "equipment_type": "split_system",
+      "distribution": "ducted_conditioned_space",
+      "unit_types": {
+        "1_bedroom": {
+          "cooling_capacity_47f_btu": 17670,
+          "cooling_capacity_17f_btu": 17220,
+          "conditioned_floor_area_sf": 600
+        },
+        "2_bedroom": {
+          "cooling_capacity_47f_btu": 23190,
+          "cooling_capacity_17f_btu": 22940,
+          "conditioned_floor_area_sf": 900
+        },
+        "3_bedroom": {
+          "cooling_capacity_47f_btu": 29050,
+          "cooling_capacity_17f_btu": 28720,
+          "conditioned_floor_area_sf": 1200
+        }
+      },
+      "efficiency": {
+        "cooling_seer2": 14.3,
+        "heating_hspf2": 7.5,
+        "fan_w_per_cfm": 0.45,
+        "use_eer_in_analysis": true
+      },
+      "features": {
+        "refrigerant_charge": "verified",
+        "duct_location": "conditioned_space"
+      }
+    },
+
+    "dwelling_unit_mini_split": {
+      "name": "Dwelling Unit Ductless Mini-Split Heat Pump",
+      "description": "High-efficiency ductless mini-split for dwelling units",
+      "system_type": "heat_pump",
+      "equipment_type": "ductless_mini_split",
+      "distribution": "ductless",
+      "capacity": {
+        "cooling_capacity_47f_btu": 14000,
+        "cooling_capacity_17f_btu": 12000
+      },
+      "efficiency": {
+        "cooling_seer2": 25.0,
+        "heating_hspf2": 11.1,
+        "fan_w_per_cfm": 0.1
+      },
+      "features": {
+        "refrigerant_charge": "verified",
+        "high_efficiency": true
+      },
+      "notes": "Premium option for high-performance buildings"
+    },
+
+    "iaq_ventilation": {
+      "name": "Individual IAQ Exhaust Fans",
+      "description": "Individual exhaust fans for indoor air quality (ASHRAE 62.2)",
+      "system_type": "ventilation",
+      "equipment_type": "exhaust_fan",
+      "sizes": {
+        "small_unit": {
+          "airflow_cfm": 50,
+          "fan_power_w_per_cfm": 0.092
+        },
+        "medium_unit": {
+          "airflow_cfm": 60,
+          "fan_power_w_per_cfm": 0.077
+        },
+        "large_unit": {
+          "airflow_cfm": 70,
+          "fan_power_w_per_cfm": 0.07
+        }
+      },
+      "features": {
+        "fan_type": "exhaust",
+        "includes_recovery": false
+      }
+    }
+  },
+
+  "commercial_office": {
+    "mini_split_small_zone": {
+      "name": "Ductless Mini-Split for Small Zones",
+      "description": "High-efficiency mini-split for small offices, conference rooms, etc.",
+      "system_type": "heat_pump",
+      "equipment_type": "ductless_mini_split",
+      "distribution": "ductless",
+      "models": {
+        "standard": {
+          "cooling_capacity_btu": 18000,
+          "heating_capacity_btu": 18000,
+          "cooling_seer2": 18.7,
+          "cooling_eer2": 11.0,
+          "heating_hspf2": 8.0,
+          "fan_w_per_cfm": 0.1
+        },
+        "high_efficiency": {
+          "cooling_capacity_btu": 18000,
+          "heating_capacity_btu": 18000,
+          "cooling_seer2": 20.1,
+          "cooling_eer2": 12.0,
+          "heating_hspf2": 10.0,
+          "fan_w_per_cfm": 0.1
+        }
+      },
+      "features": {
+        "refrigerant_charge": "verified",
+        "use_eer_in_analysis": true
+      },
+      "typical_zones": ["Small office", "Conference room", "IT room", "Storage"]
+    },
+
+    "ducted_heat_pump_large_zone": {
+      "name": "Ducted Split Heat Pump for Large Zones",
+      "description": "Ducted heat pump for open offices, lobbies, co-working spaces",
+      "system_type": "heat_pump",
+      "equipment_type": "split_system",
+      "distribution": "ducted_conditioned_space",
+      "capacity": {
+        "per_unit_cooling_capacity_btu": 32000,
+        "per_unit_heating_capacity_btu": 30000
+      },
+      "efficiency": {
+        "cooling_seer2": 18.2,
+        "cooling_eer2": 10.3,
+        "heating_hspf2": 8.2,
+        "fan_w_per_cfm": 0.45
+      },
+      "multi_unit_configurations": {
+        "medium_zone": {
+          "units": 2,
+          "total_cooling_btu": 64000,
+          "zones": ["Medium office", "Training room"]
+        },
+        "large_zone": {
+          "units": 3,
+          "total_cooling_btu": 96000,
+          "zones": ["Co-working space", "Lobby", "Large conference"]
+        },
+        "extra_large_zone": {
+          "units": 4,
+          "total_cooling_btu": 128000,
+          "zones": ["Fitness center", "Cafeteria", "Open office"]
+        }
+      },
+      "features": {
+        "refrigerant_charge": "verified",
+        "duct_location": "conditioned_space",
+        "use_eer_in_analysis": true
+      }
+    }
+  },
+
+  "warehouse_industrial": {
+    "packaged_rooftop_unit": {
+      "name": "Packaged Rooftop Unit (RTU)",
+      "description": "Single-zone packaged unit for warehouse/industrial spaces",
+      "system_type": "heat_pump",
+      "equipment_type": "packaged_unit",
+      "distribution": "ducted_unconditioned_space",
+      "sizes": {
+        "small": {
+          "cooling_capacity_tons": 3,
+          "cooling_capacity_btu": 36000,
+          "heating_capacity_btu": 40000,
+          "airflow_cfm": 1200
+        },
+        "medium": {
+          "cooling_capacity_tons": 5,
+          "cooling_capacity_btu": 60000,
+          "heating_capacity_btu": 65000,
+          "airflow_cfm": 2000
+        },
+        "large": {
+          "cooling_capacity_tons": 10,
+          "cooling_capacity_btu": 120000,
+          "heating_capacity_btu": 130000,
+          "airflow_cfm": 4000
+        }
+      },
+      "efficiency": {
+        "cooling_seer2": 14.0,
+        "cooling_eer2": 11.5,
+        "heating_hspf2": 7.5,
+        "fan_w_per_cfm": 0.5
+      },
+      "features": {
+        "economizer": "differential_dry_bulb",
+        "duct_location": "unconditioned_space",
+        "optimal_start": true
+      },
+      "typical_zones": ["Warehouse floor", "Loading dock", "Storage area"]
+    },
+
+    "destratification_fans": {
+      "name": "Ceiling Destratification Fans",
+      "description": "Large ceiling fans for air mixing in high-bay warehouses",
+      "system_type": "ventilation",
+      "equipment_type": "destratification_fan",
+      "sizes": {
+        "standard": {
+          "diameter_ft": 24,
+          "airflow_cfm": 200000,
+          "power_w": 500,
+          "spacing_recommendation_sf": 10000
+        }
+      },
+      "notes": "Not HVAC but important for warehouse temperature uniformity"
+    },
+
+    "split_system_office_area": {
+      "name": "Split System for Warehouse Office",
+      "description": "Separate conditioned office area within warehouse",
+      "system_type": "heat_pump",
+      "equipment_type": "split_system",
+      "distribution": "ducted_conditioned_space",
+      "capacity": {
+        "cooling_capacity_btu": 36000,
+        "heating_capacity_btu": 40000
+      },
+      "efficiency": {
+        "cooling_seer2": 15.0,
+        "heating_hspf2": 8.0,
+        "fan_w_per_cfm": 0.45
+      },
+      "features": {
+        "separate_zone": true,
+        "duct_location": "conditioned_space"
+      }
+    }
+  }
+}

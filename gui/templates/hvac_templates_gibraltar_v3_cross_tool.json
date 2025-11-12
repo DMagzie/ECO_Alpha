@@ -1,0 +1,581 @@
+{
+  "_metadata": {
+    "version": "3.0",
+    "schema_version": "cross_tool_compatible",
+    "source": "Gibraltar Distribution Center Project - Milpitas, CA (Stantec 2025)",
+    "basis_of_design": "Trane WHK Series Heat Pump Rooftop Units",
+    "compliance": "California Title 24 2022",
+    "climate_zone": "4 - Bay Area",
+    "date": "2025-10-25",
+    "notes": "Templates with full cross-tool compatibility for EMJSON, HBJSON, IDF, OSM, CIBD22X",
+    "cross_tool_mapping_reference": "See HVAC_CROSS_TOOL_MAPPING.md"
+  },
+
+  "warehouse_distribution": {
+    "large_warehouse_rtu_standard": {
+      "_comment": "Trane WHK240 - 20-ton packaged heat pump RTU for large warehouse spaces",
+
+      "identification": {
+        "identifier": "Gibraltar_WHK240_RTU_Standard",
+        "name": "Large Warehouse Heat Pump RTU - Standard (Trane WHK240)",
+        "description": "High-capacity packaged heat pump rooftop unit for large warehouse spaces with economizer and variable speed control",
+        "display_name": "Warehouse RTU 20-ton Heat Pump"
+      },
+
+      "system_classification": {
+        "system_type": "heat_pump",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_unconditioned_space",
+        "fuel_type": "electric",
+        "serves_zones": "single_zone"
+      },
+
+      "manufacturer_info": {
+        "manufacturer": "Trane",
+        "model_series": "WHK240",
+        "model_number": "WHK240F400AB",
+        "basis_of_design": true
+      },
+
+      "capacity": {
+        "nominal_tons": 20,
+        "total_cooling_capacity_btu": 210300,
+        "total_cooling_capacity_mbh": 210.3,
+        "sensible_cooling_capacity_btu": 210300,
+        "sensible_cooling_capacity_mbh": 210.3,
+        "total_heating_capacity_btu": 193050,
+        "total_heating_capacity_mbh": 193.05,
+        "heating_capacity_supplemental_btu": 0,
+        "airflow_total_cfm": 6500,
+        "airflow_minimum_oa_cfm": 2480,
+        "airflow_maximum_oa_cfm": 6500,
+        "airflow_heating_cfm": 6500
+      },
+
+      "operating_conditions": {
+        "cooling": {
+          "ahri_rating_condition": "A",
+          "entering_air_db_f": 87.4,
+          "entering_air_wb_f": 66.1,
+          "leaving_air_db_f": 59.0,
+          "leaving_air_wb_f": 56.0,
+          "outdoor_air_db_f": 85,
+          "outdoor_air_wb_f": 65
+        },
+        "heating": {
+          "outdoor_air_temp_f": 36,
+          "entering_air_temp_f": 53.9,
+          "leaving_air_temp_f": 85.9,
+          "cop_at_47f": 3.5,
+          "cop_at_17f": 2.8
+        },
+        "capacity_at_conditions": [
+          {
+            "mode": "cooling",
+            "outdoor_db_f": 95,
+            "capacity_btu": 210300,
+            "eer": 10.9
+          },
+          {
+            "mode": "cooling",
+            "outdoor_db_f": 82,
+            "capacity_btu": 224000,
+            "eer": 13.5
+          },
+          {
+            "mode": "heating",
+            "outdoor_db_f": 47,
+            "capacity_btu": 193050,
+            "cop": 3.5
+          },
+          {
+            "mode": "heating",
+            "outdoor_db_f": 17,
+            "capacity_btu": 158000,
+            "cop": 2.8
+          },
+          {
+            "mode": "heating",
+            "outdoor_db_f": 5,
+            "capacity_btu": 140000,
+            "cop": 2.3
+          }
+        ]
+      },
+
+      "efficiency": {
+        "cooling_eer": 10.9,
+        "cooling_eer2": 10.5,
+        "cooling_ieer": 16.9,
+        "cooling_seer2": 15.2,
+        "heating_cop_47f": 3.5,
+        "heating_cop_17f": 2.8,
+        "heating_hspf2": 8.2,
+        "fan_w_per_cfm": 0.38,
+        "fan_total_efficiency": 0.6,
+        "motor_efficiency": 0.93,
+        "use_eer_in_analysis": true
+      },
+
+      "fan_system": {
+        "fan_type": "BC_PLENUM",
+        "fan_configuration": "blow_through",
+        "fan_quantity": 2,
+        "fan_control": "variable_speed_drive",
+        "motor_hp_each": 2.9,
+        "motor_hp_total": 5.8,
+        "esp_in_wc": 1.4,
+        "esp_pa": 348,
+        "variable_speed_type": "INTEGRAL_VFD",
+        "minimum_speed_percent": 40
+      },
+
+      "refrigerant": {
+        "type": "R-454B",
+        "charge_lbs": 38,
+        "charge_verified": true,
+        "gwp": 466
+      },
+
+      "economizer": {
+        "type": "differential_enthalpy_with_fdd",
+        "economizer_type": "DifferentialEnthalpy",
+        "manufacturer_type": "factory_differential_enthalpy",
+        "has_economizer": true,
+        "has_fdd": true,
+        "high_limit_shutoff_temp_f": 75,
+        "high_limit_shutoff_enthalpy_btu_lb": 28,
+        "control_signal": "modulating",
+        "damper_type": "opposed_blade",
+        "damper_actuator": "modulating_electronic"
+      },
+
+      "heat_recovery": {
+        "sensible_heat_recovery_effectiveness": 0.0,
+        "latent_heat_recovery_effectiveness": 0.0,
+        "has_heat_recovery": false
+      },
+
+      "controls": {
+        "demand_controlled_ventilation": false,
+        "optimal_start": true,
+        "night_cycle_control": "cycle_on_any",
+        "setback_control": true,
+        "morning_warmup": true,
+        "bacnet_communication": true,
+        "bacnet_protocol": "MS/TP",
+        "building_pressure_control": true,
+        "pressure_control_type": "factory_integral_variable_speed_exhaust",
+        "smoke_detector_on_supply": true,
+        "clogged_filter_switch": true,
+        "freeze_protection": true,
+        "high_temp_limit": true,
+        "low_temp_limit": true
+      },
+
+      "setpoints": {
+        "occupied_cooling_f": 77,
+        "occupied_heating_f": 67,
+        "unoccupied_cooling_f": 85,
+        "unoccupied_heating_f": 55,
+        "supply_air_temp_cooling_f": 59,
+        "supply_air_temp_heating_f": 86,
+        "building_static_pressure_in_wc": 0.05,
+        "economizer_lockout_temp_f": 75
+      },
+
+      "filters": {
+        "merv_rating": 13,
+        "filter_type": "pleated",
+        "filter_configuration": "two_sets",
+        "initial_pressure_drop_in_wc": 0.08,
+        "final_pressure_drop_in_wc": 0.5
+      },
+
+      "electrical": {
+        "voltage": 460,
+        "phase": 3,
+        "frequency": 60,
+        "mca_amps": 58,
+        "mocp_amps": 80,
+        "sccr_kaic": 65,
+        "power_factor": 0.95
+      },
+
+      "physical": {
+        "operating_weight_lbs": 2470,
+        "shipping_weight_lbs": 2350,
+        "roof_curb_height_in": 24,
+        "roof_curb_type": "insulated_slope_matched",
+        "sound_rating_db": 78
+      },
+
+      "duct_system": {
+        "duct_location": "unconditioned",
+        "supply_duct_insulation_r_value": 6.0,
+        "return_duct_insulation_r_value": 4.0,
+        "duct_leakage_rate": 0.05,
+        "duct_sealing": "mastic_and_screws"
+      },
+
+      "sizing": {
+        "autosizing_enabled": true,
+        "autosizing_factor_cooling": 1.15,
+        "autosizing_factor_heating": 1.25,
+        "design_day_cooling": "CZ04_Summer",
+        "design_day_heating": "CZ04_Winter"
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PSZ",
+        "honeybee_equipment_type": "PSZHP",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "DifferentialEnthalpy",
+        "honeybee_sensible_heat_recovery": 0.0,
+        "honeybee_latent_heat_recovery": 0.0,
+        "honeybee_demand_controlled_ventilation": false
+      },
+
+      "energyplus_compatibility": {
+        "energyplus_object_type": "AirLoopHVAC:UnitaryHeatPump:AirToAir",
+        "energyplus_template_type": "HVACTemplate:System:UnitaryHeatPump:AirToAir",
+        "cooling_coil_type": "Coil:Cooling:DX:SingleSpeed",
+        "heating_coil_type": "Coil:Heating:DX:SingleSpeed",
+        "supplemental_coil_type": "Coil:Heating:Electric",
+        "fan_type": "Fan:OnOff",
+        "supply_fan_placement": "BlowThrough",
+        "night_cycle_control": "CycleOnAny",
+        "heat_pump_defrost_strategy": "ReverseCycle",
+        "heat_pump_defrost_control": "Timed",
+        "defrost_time_period_fraction": 0.058333
+      },
+
+      "openstudio_compatibility": {
+        "openstudio_template": "Packaged Rooftop Heat Pump",
+        "openstudio_system_type": "OS:AirLoopHVAC:UnitaryHeatPump:AirToAir",
+        "uses_template_system": true
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZHP",
+        "cbecc_znsys_type": "SZHP",
+        "cbecc_cap_sim": 210300,
+        "cbecc_flow_sim": 6500,
+        "cbecc_dx_eer": 10.9,
+        "cbecc_dx_ieer": 16.9,
+        "cbecc_dx_cop": 3.5,
+        "cbecc_fan_pwr_tot": 2470,
+        "cbecc_ctrl_type": "DiffEnth",
+        "cbecc_oa_min_flow": 2480
+      },
+
+      "features": {
+        "relief_type": "powered_exhaust",
+        "coil_hail_guard": true,
+        "bird_screens": true,
+        "outside_air_hood": "with_rain_trap",
+        "discharge_air_temp_sensor": true,
+        "return_air_temp_sensor": true,
+        "outside_air_temp_sensor": true,
+        "mixed_air_temp_sensor": true,
+        "filter_rack": "two_sets_merv13",
+        "powered_convenience_outlet": true,
+        "integral_disconnect": true,
+        "condensate_drain_pan": "stainless_steel_with_overflow_switch",
+        "condensate_overflow_switch": true,
+        "compressor_warranty_years": 5
+      },
+
+      "dropbox_diffuser": {
+        "model": "AES_ADB-1",
+        "description": "4-way drum louver distribution plenum",
+        "mounting_height_aff": "3_ft_below_structure",
+        "register_angle_deg": 22.5,
+        "register_spread_deg": 45,
+        "throw_ft": 30,
+        "sound_nc": 35
+      },
+
+      "typical_applications": [
+        "Large warehouse floors",
+        "Distribution centers",
+        "Logistics facilities",
+        "Cold storage receiving areas",
+        "Manufacturing areas"
+      ],
+
+      "compliance": {
+        "title_24_2022": true,
+        "ashrae_90_1_2019": true,
+        "energy_star_certified": false,
+        "california_appliance_efficiency": true,
+        "federal_efficiency_standard": true
+      },
+
+      "project_usage": {
+        "gibraltar_inbound_qty": 12,
+        "gibraltar_outbound_qty": 7,
+        "gibraltar_ar_field_qty": 16,
+        "total_units": 35,
+        "project_name": "Gibraltar Distribution Center",
+        "project_location": "Milpitas, CA"
+      },
+
+      "performance_curves": {
+        "_comment": "EnergyPlus performance curve names for detailed simulation",
+        "cool_cap_ftemp": "Trane_WHK_Cool_Cap_fTemp",
+        "cool_cap_fflow": "Trane_WHK_Cool_Cap_fFlow",
+        "cool_eir_ftemp": "Trane_WHK_Cool_EIR_fTemp",
+        "cool_eir_fflow": "Trane_WHK_Cool_EIR_fFlow",
+        "cool_plf_fplr": "Trane_WHK_Cool_PLF_fPLR",
+        "heat_cap_ftemp": "Trane_WHK_Heat_Cap_fTemp",
+        "heat_cap_fflow": "Trane_WHK_Heat_Cap_fFlow",
+        "heat_eir_ftemp": "Trane_WHK_Heat_EIR_fTemp",
+        "heat_eir_fflow": "Trane_WHK_Heat_EIR_fFlow",
+        "heat_plf_fplr": "Trane_WHK_Heat_PLF_fPLR"
+      }
+    },
+
+    "office_rtu_small": {
+      "_comment": "Trane WHK036 - 3-ton packaged heat pump RTU for small office areas",
+
+      "identification": {
+        "identifier": "Gibraltar_WHK036_RTU_Office",
+        "name": "Small Office Heat Pump RTU (Trane WHK036)",
+        "description": "Small packaged heat pump rooftop unit for office spaces, break rooms, and support areas",
+        "display_name": "Office RTU 3-ton Heat Pump"
+      },
+
+      "system_classification": {
+        "system_type": "heat_pump",
+        "equipment_type": "packaged_rooftop_unit",
+        "distribution": "ducted_conditioned_space",
+        "fuel_type": "electric",
+        "serves_zones": "single_zone"
+      },
+
+      "manufacturer_info": {
+        "manufacturer": "Trane",
+        "model_series": "WHK036",
+        "model_number": "WHK036F400AB",
+        "basis_of_design": true
+      },
+
+      "capacity": {
+        "nominal_tons": 3,
+        "total_cooling_capacity_btu": 36000,
+        "total_cooling_capacity_mbh": 36.0,
+        "sensible_cooling_capacity_btu": 27000,
+        "sensible_cooling_capacity_mbh": 27.0,
+        "total_heating_capacity_btu": 40000,
+        "total_heating_capacity_mbh": 40.0,
+        "heating_capacity_supplemental_btu": 10000,
+        "airflow_total_cfm": 1200,
+        "airflow_minimum_oa_cfm": 300,
+        "airflow_maximum_oa_cfm": 1200,
+        "airflow_heating_cfm": 1200
+      },
+
+      "efficiency": {
+        "cooling_eer": 11.5,
+        "cooling_eer2": 11.0,
+        "cooling_ieer": 17.5,
+        "cooling_seer2": 15.5,
+        "heating_cop_47f": 3.7,
+        "heating_cop_17f": 3.0,
+        "heating_hspf2": 8.5,
+        "fan_w_per_cfm": 0.45,
+        "fan_total_efficiency": 0.55,
+        "motor_efficiency": 0.85,
+        "use_eer_in_analysis": true
+      },
+
+      "fan_system": {
+        "fan_type": "centrifugal",
+        "fan_configuration": "blow_through",
+        "fan_quantity": 1,
+        "fan_control": "constant_volume",
+        "motor_hp_each": 0.5,
+        "motor_hp_total": 0.5,
+        "esp_in_wc": 1.0,
+        "esp_pa": 249
+      },
+
+      "refrigerant": {
+        "type": "R-454B",
+        "charge_lbs": 8,
+        "charge_verified": true,
+        "gwp": 466
+      },
+
+      "economizer": {
+        "type": "differential_dry_bulb",
+        "economizer_type": "DifferentialDryBulb",
+        "manufacturer_type": "integrated_air_side",
+        "has_economizer": true,
+        "has_fdd": false,
+        "high_limit_shutoff_temp_f": 70,
+        "control_signal": "modulating",
+        "damper_type": "opposed_blade",
+        "damper_actuator": "modulating_electronic"
+      },
+
+      "heat_recovery": {
+        "sensible_heat_recovery_effectiveness": 0.0,
+        "latent_heat_recovery_effectiveness": 0.0,
+        "has_heat_recovery": false
+      },
+
+      "controls": {
+        "demand_controlled_ventilation": false,
+        "optimal_start": false,
+        "night_cycle_control": "stay_off",
+        "setback_control": true,
+        "morning_warmup": false,
+        "bacnet_communication": true,
+        "bacnet_protocol": "MS/TP",
+        "building_pressure_control": false,
+        "smoke_detector_on_supply": false,
+        "clogged_filter_switch": true,
+        "freeze_protection": true,
+        "high_temp_limit": true,
+        "low_temp_limit": true
+      },
+
+      "setpoints": {
+        "occupied_cooling_f": 74,
+        "occupied_heating_f": 70,
+        "unoccupied_cooling_f": 80,
+        "unoccupied_heating_f": 60,
+        "supply_air_temp_cooling_f": 55,
+        "supply_air_temp_heating_f": 90,
+        "economizer_lockout_temp_f": 70
+      },
+
+      "filters": {
+        "merv_rating": 8,
+        "filter_type": "pleated",
+        "filter_configuration": "single_set",
+        "initial_pressure_drop_in_wc": 0.05,
+        "final_pressure_drop_in_wc": 0.4
+      },
+
+      "electrical": {
+        "voltage": 460,
+        "phase": 3,
+        "frequency": 60,
+        "mca_amps": 12,
+        "mocp_amps": 20,
+        "sccr_kaic": 10,
+        "power_factor": 0.92
+      },
+
+      "physical": {
+        "operating_weight_lbs": 520,
+        "shipping_weight_lbs": 480,
+        "roof_curb_height_in": 14,
+        "roof_curb_type": "insulated_standard",
+        "sound_rating_db": 68
+      },
+
+      "duct_system": {
+        "duct_location": "conditioned",
+        "supply_duct_insulation_r_value": 6.0,
+        "return_duct_insulation_r_value": 4.0,
+        "duct_leakage_rate": 0.03,
+        "duct_sealing": "mastic_and_tape"
+      },
+
+      "sizing": {
+        "autosizing_enabled": true,
+        "autosizing_factor_cooling": 1.10,
+        "autosizing_factor_heating": 1.15,
+        "design_day_cooling": "CZ04_Summer",
+        "design_day_heating": "CZ04_Winter"
+      },
+
+      "honeybee_compatibility": {
+        "honeybee_system_type": "PSZ",
+        "honeybee_equipment_type": "PSZHP",
+        "honeybee_vintage": "ASHRAE_2019",
+        "honeybee_economizer_type": "DifferentialDryBulb",
+        "honeybee_sensible_heat_recovery": 0.0,
+        "honeybee_latent_heat_recovery": 0.0,
+        "honeybee_demand_controlled_ventilation": false
+      },
+
+      "energyplus_compatibility": {
+        "energyplus_object_type": "AirLoopHVAC:UnitaryHeatPump:AirToAir",
+        "energyplus_template_type": "HVACTemplate:System:UnitaryHeatPump:AirToAir",
+        "cooling_coil_type": "Coil:Cooling:DX:SingleSpeed",
+        "heating_coil_type": "Coil:Heating:DX:SingleSpeed",
+        "supplemental_coil_type": "Coil:Heating:Electric",
+        "fan_type": "Fan:ConstantVolume",
+        "supply_fan_placement": "BlowThrough",
+        "night_cycle_control": "StayOff"
+      },
+
+      "openstudio_compatibility": {
+        "openstudio_template": "Packaged Rooftop Heat Pump",
+        "openstudio_system_type": "OS:AirLoopHVAC:UnitaryHeatPump:AirToAir",
+        "uses_template_system": true
+      },
+
+      "cbecc_compatibility": {
+        "cbecc_system_type": "SZHP",
+        "cbecc_znsys_type": "SZHP",
+        "cbecc_cap_sim": 36000,
+        "cbecc_flow_sim": 1200,
+        "cbecc_dx_eer": 11.5,
+        "cbecc_dx_ieer": 17.5,
+        "cbecc_dx_cop": 3.7,
+        "cbecc_fan_pwr_tot": 540,
+        "cbecc_ctrl_type": "DiffDryBulb",
+        "cbecc_oa_min_flow": 300
+      },
+
+      "typical_applications": [
+        "Small offices",
+        "Break rooms",
+        "Conference rooms",
+        "Support spaces"
+      ],
+
+      "compliance": {
+        "title_24_2022": true,
+        "ashrae_90_1_2019": true,
+        "energy_star_certified": true,
+        "california_appliance_efficiency": true,
+        "federal_efficiency_standard": true
+      },
+
+      "project_usage": {
+        "gibraltar_office_qty": 3,
+        "gibraltar_breakroom_qty": 2,
+        "total_units": 5,
+        "project_name": "Gibraltar Distribution Center",
+        "project_location": "Milpitas, CA"
+      }
+    }
+  },
+
+  "conversion_notes": {
+    "unit_conversions": {
+      "temperature_f_to_c": "(F - 32) * 5/9",
+      "btu_hr_to_watts": "BTU/hr * 0.293071",
+      "mbh_to_watts": "MBH * 293.071",
+      "tons_to_watts": "Tons * 3516.85",
+      "cfm_to_m3_s": "CFM * 0.000471947",
+      "eer_to_cop": "EER * 0.293071",
+      "in_h2o_to_pa": "inH2O * 248.84"
+    },
+    "mapping_reference": "See HVAC_CROSS_TOOL_MAPPING.md for complete field mappings",
+    "validation_required": [
+      "Verify all capacity values before simulation",
+      "Confirm efficiency ratings match AHRI directory",
+      "Check economizer settings for climate zone",
+      "Validate refrigerant type and charge",
+      "Ensure duct location matches building model"
+    ]
+  }
+}
