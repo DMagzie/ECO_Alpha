@@ -1,0 +1,30 @@
+# ECO Alpha v7 - Minimal Dependencies
+# Production-ready building energy modeling tool
+
+# Core Data Handling
+dataclasses-json>=0.6.0
+pydantic>=2.0.0
+
+# Geometry & Visualization
+numpy>=1.24.0
+plotly>=5.17.0
+
+# GUI Framework
+streamlit>=1.28.0
+pandas>=2.0.0
+
+# XML Processing
+lxml>=4.9.0
+xmltodict>=0.13.0
+
+# Future: Ladybug Tools Integration (Phase 4)
+# ladybug-core>=0.41.0
+# ladybug-geometry>=1.26.0
+# honeybee-core>=1.56.0
+# honeybee-energy>=1.106.0
+# honeybee-radiance>=1.66.0
+
+# Development Dependencies (Optional)
+# pytest>=7.4.0
+# black>=23.7.0
+# mypy>=1.5.0
