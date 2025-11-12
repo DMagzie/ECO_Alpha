@@ -12,8 +12,8 @@ def translate_gem_to_v6(gem_file: str):
     Translate GEM file to EMJSON v6 format.
 
     Uses two-stage conversion:
-    1. GEM ’ HBJSON (using GEM parser)
-    2. HBJSON ’ EMJSON v6 (using HBJSON importer)
+    1. GEM -> HBJSON (using GEM parser)
+    2. HBJSON -> EMJSON v6 (using HBJSON importer)
 
     Args:
         gem_file: Path to GEM file
@@ -41,7 +41,7 @@ def translate_gem_to_v6(gem_file: str):
         }
 
     try:
-        # Stage 1: GEM ’ HBJSON
+        # Stage 1: GEM ï¿½ HBJSON
         parser = GEMParser(gem_file)
         gem_data = parser.parse()
 
@@ -64,7 +64,7 @@ def translate_gem_to_v6(gem_file: str):
             json.dump(hbjson, f)
             temp_hbjson = f.name
 
-        # Stage 2: HBJSON ’ EMJSON v6
+        # Stage 2: HBJSON ï¿½ EMJSON v6
         importer = HBJSONImporter()
         internal = importer.import_file(temp_hbjson)
 
@@ -94,7 +94,7 @@ def translate_gem_to_v6(gem_file: str):
             "diagnostics": internal.diagnostics + [{
                 "level": "info",
                 "code": "I-GEM-IMPORT",
-                "message": f"Imported GEM file via GEM’HBJSON’EMJSON pipeline",
+                "message": f"Imported GEM file via GEM->HBJSON->EMJSON pipeline",
                 "stage": "import",
                 "source": "gem_translator"
             }]
