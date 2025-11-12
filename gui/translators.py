@@ -58,7 +58,7 @@ def translate_cibd22x_to_v6(xml_file: str) -> Dict[str, Any]:
         EMJSON v6 dict with diagnostics
     """
     try:
-        from eco_tools.translators.cibd22x_importer import translate_cibd22x_to_v6 as _impl
+        from eco_tools.translators.cibd22x import translate_cibd22x_to_v6 as _impl
     except ImportError as e:
         return {
             "schema_version": "6.0",
