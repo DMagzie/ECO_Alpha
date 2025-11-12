@@ -489,11 +489,15 @@ def show_geometry_statistics(model: dict):
             # Create a table of zone information
             zone_data = []
             for zone in zones:
+                # Handle None values safely
+                area = zone.get('floor_area_m2') or zone.get('area') or 0
+                volume = zone.get('volume_m3') or zone.get('volume') or 0
+
                 zone_info = {
                     'Name': zone.get('name', 'Unknown'),
                     'Type': zone.get('type', zone.get('zone_type', 'N/A')),
-                    'Floor Area (m²)': round(zone.get('floor_area_m2', zone.get('area', 0)), 2),
-                    'Volume (m³)': round(zone.get('volume_m3', zone.get('volume', 0)), 2),
+                    'Floor Area (m²)': round(area, 2),
+                    'Volume (m³)': round(volume, 2),
                     'Surfaces': len(zone.get('surfaces', []))
                 }
                 zone_data.append(zone_info)
