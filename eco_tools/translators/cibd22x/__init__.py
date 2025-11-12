@@ -17,6 +17,27 @@ def translate_cibd22x_to_v6(xml_file: str):
     Returns:
         dict: EMJSON v6 dictionary with diagnostics
     """
-    importer = CIBD22XImporter()
-    result = importer.import_file(xml_file)
-    return result
+    try:
+        importer = CIBD22XImporter()
+        internal = importer.import_file(xml_file)
+
+        # Convert InternalRepresentation to EMJSON v6
+        from eco_tools.translators.adapter_translators import internal_to_emjson_v6
+        emjson = internal_to_emjson_v6(internal)
+
+        return emjson
+    except Exception as e:
+        # Return error in EMJSON format
+        return {
+            "schema_version": "6.0",
+            "diagnostics": [{
+                "level": "error",
+                "code": "E-IMPORT-FAILED",
+                "message": f"Import failed: {str(e)}",
+                "stage": "import",
+                "ts": "",
+                "path": xml_file,
+                "context": str(type(e).__name__),
+                "source": "cibd22x_importer"
+            }]
+        }
