@@ -357,8 +357,8 @@ class GeometryVisualizer:
 
         # Calculate totals from zones
         for zone in zones:
-            area = zone.get('floor_area_m2', zone.get('area', 0))
-            volume = zone.get('volume_m3', zone.get('volume', 0))
+            area = zone.get('floor_area_m2') or zone.get('area') or 0
+            volume = zone.get('volume_m3') or zone.get('volume') or 0
             stats['total_floor_area_m2'] += area
             stats['total_volume_m3'] += volume
 
