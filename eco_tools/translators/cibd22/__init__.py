@@ -39,7 +39,7 @@ def translate_cibd22_to_v6(text_file: str):
             "geometry": {
                 "zones": [asdict(z) for z in internal.zones],
                 "zone_groups": [asdict(zg) for zg in internal.zone_groups],
-                "surfaces": [asdict(s) for z in internal.surfaces],
+                "surfaces": [asdict(s) for s in internal.surfaces],
                 "openings": [asdict(o) for o in internal.openings],
             },
             "catalogs": {

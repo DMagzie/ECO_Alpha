@@ -152,6 +152,9 @@ class CIBD22TextParser:
         for obj in self.objects:
             self._obj_to_xml(obj, root)
 
+        # Post-process: Move surfaces from root level to parent zones
+        self._reorganize_surfaces(root)
+
         return root
 
     def _obj_to_xml(self, obj: Dict[str, Any], parent: ET.Element) -> ET.Element:
@@ -191,6 +194,61 @@ class CIBD22TextParser:
             self._obj_to_xml(child, elem)
 
         return elem
+
+    def _reorganize_surfaces(self, root: ET.Element):
+        """
+        Post-process XML to move surfaces from root level to parent zones.
+
+        In CIBD22 text format, surfaces are siblings of zones (same indentation).
+        But in CIBD22X XML format, surfaces must be children of zones.
+
+        This method reorganizes the tree by:
+        1. Finding all zone elements and creating a zone name → element mapping
+        2. Finding all surface elements at root level
+        3. Extracting parent zone name from surface name
+        4. Moving surface to be child of parent zone
+
+        Example: "ExtWall_Front_ResZn_A1_Corner_L01" contains "ResZn_A1_Corner_L01"
+        """
+        # Surface tags to reorganize
+        surface_tags = {'ExtWall', 'IntWall', 'Win', 'Roof', 'FlrOnGrade', 'Ceiling',
+                       'ResSlabFlr', 'ResExtWall', 'ResIntWall', 'ResWin', 'ResCathedralCeiling',
+                       'ResAtticRoof', 'ResOtherFlr', 'ResIntFlr', 'ResUndgrWall', 'ResUndgrFlr'}
+
+        # Zone tags
+        zone_tags = {'ThrmlZn', 'ResZn', 'ComZn', 'Spc', 'ResOtherZn'}
+
+        # Build zone name → element mapping
+        zone_map = {}
+        for zone_elem in root.iter():
+            if zone_elem.tag in zone_tags:
+                name_elem = zone_elem.find('n')
+                if name_elem is not None and name_elem.text:
+                    zone_map[name_elem.text] = zone_elem
+
+        # Find surfaces at root level that need to be moved
+        surfaces_to_move = []
+        for elem in list(root):  # list() to avoid modifying during iteration
+            if elem.tag in surface_tags:
+                name_elem = elem.find('n')
+                if name_elem is not None and name_elem.text:
+                    surface_name = name_elem.text
+
+                    # Try to find parent zone name in surface name
+                    # Surface names typically contain the zone name
+                    parent_zone = None
+                    for zone_name in zone_map:
+                        if zone_name in surface_name:
+                            parent_zone = zone_name
+                            break
+
+                    if parent_zone and parent_zone in zone_map:
+                        surfaces_to_move.append((elem, zone_map[parent_zone]))
+
+        # Move surfaces under parent zones
+        for surf_elem, parent_zone_elem in surfaces_to_move:
+            root.remove(surf_elem)
+            parent_zone_elem.append(surf_elem)
 
 
 def parse_cibd22_file(file_path: str) -> ET.Element:
