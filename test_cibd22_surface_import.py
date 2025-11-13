@@ -47,7 +47,7 @@ if __name__ == "__main__":
     if surfaces:
         surface_types = {}
         for surf in surfaces:
-            surf_type = surf.get("type", "unknown")
+            surf_type = surf.get("surface_type", "unknown")
             surface_types[surf_type] = surface_types.get(surf_type, 0) + 1
 
         print(f"\nSurface breakdown:")
@@ -85,6 +85,6 @@ if __name__ == "__main__":
             if zone_surfaces:
                 for surf in zone_surfaces[:3]:  # First 3 surfaces
                     surf_name = surf.get("name", "unknown")
-                    surf_type = surf.get("type", "unknown")
-                    surf_area = surf.get("area", 0)
-                    print(f"    - {surf_type}: {surf_name} ({surf_area} m²)")
+                    surf_type = surf.get("surface_type", "unknown")
+                    surf_area = surf.get("area_m2", 0)
+                    print(f"    - {surf_type}: {surf_name} ({surf_area:.2f} m²)")
