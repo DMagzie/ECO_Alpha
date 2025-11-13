@@ -168,9 +168,10 @@ class CIBD22TextParser:
         # Create element
         elem = ET.SubElement(parent, obj["_type"])
 
-        # Add Name attribute if present
+        # Add name as <n> child element (CIBD22X format expects this)
         if obj["_name"]:
-            elem.set("Name", obj["_name"])
+            name_elem = ET.SubElement(elem, "n")
+            name_elem.text = obj["_name"]
 
         # Add properties as child elements or attributes
         for key, value in obj["_properties"].items():
@@ -202,8 +203,18 @@ def parse_cibd22_file(file_path: str) -> ET.Element:
     Returns:
         XML Element root compatible with CIBD22X parsers
     """
-    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-        text = f.read()
+    # CBECC files use latin-1 encoding (contain special chars like superscript 2)
+    # Try latin-1 first, fall back to utf-8 with replacement for other files
+    for encoding in ['latin-1', 'windows-1252', 'utf-8']:
+        try:
+            with open(file_path, 'r', encoding=encoding) as f:
+                text = f.read()
+            break
+        except (UnicodeDecodeError, LookupError):
+            if encoding == 'utf-8':
+                # Last resort - replace invalid chars
+                with open(file_path, 'r', encoding='utf-8', errors='replace') as f:
+                    text = f.read()
 
     parser = CIBD22TextParser()
     return parser.parse(text)
