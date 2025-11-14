@@ -123,6 +123,13 @@ class GeometryVisualizer:
         surfaces = zone.get('surfaces', [])
         zone_name = zone.get('name', 'Unknown Zone')
 
+        # Check if surfaces are nested dicts or just IDs
+        # If they're IDs (strings), skip - surfaces will be visualized from geometry.surfaces
+        if surfaces and isinstance(surfaces[0], str):
+            # Surface IDs - main surface loop will handle visualization
+            return traces
+
+        # Process nested surface dictionaries (old EMJSON format)
         for surf in surfaces:
             trace = self._surface_to_trace(surf, surf.get('type', 'default'), zone_name, selected_surface)
             if trace:
@@ -294,10 +301,12 @@ class GeometryVisualizer:
                 camera=dict(
                     eye=dict(x=1.5, y=1.5, z=1.2),
                     center=dict(x=0, y=0, z=0)
-                )
+                ),
+                dragmode='orbit'  # Enable orbit rotation by default
             ),
             margin=dict(l=0, r=0, b=0, t=40),
-            height=700
+            height=700,
+            hovermode='closest'  # Better hover behavior
         )
 
         return fig

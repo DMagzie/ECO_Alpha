@@ -115,6 +115,69 @@ def translate_cibd22x_to_v6(xml_file: str) -> Dict[str, Any]:
         }
 
 
+def translate_cibd25_to_v6(file_path: str) -> Dict[str, Any]:
+    """
+    CIBD25 text format → EMJSON v6 using eco_tools translator.
+
+    CIBD25 is a text-based format (same as CIBD22) for Title 24 2025.
+
+    Args:
+        file_path: Path to CIBD25 text file (.cibd25)
+
+    Returns:
+        EMJSON v6 dict with diagnostics
+    """
+    try:
+        from eco_tools.translators.cibd25 import translate_cibd25_to_v6 as _impl
+    except ImportError as e:
+        return {
+            "schema_version": "6.0",
+            "diagnostics": [{
+                "level": "error",
+                "code": "E-TRANSLATOR-MISSING",
+                "message": f"Cannot import CIBD25 translator from eco_tools: {e}",
+                "stage": "import",
+                "ts": "",
+                "path": "",
+                "context": "Ensure eco_tools package is installed and on Python path",
+                "source": "explorer_gui"
+            }]
+        }
+
+    try:
+        result = _impl(file_path)
+        if not isinstance(result, dict):
+            return {
+                "schema_version": "6.0",
+                "diagnostics": [{
+                    "level": "error",
+                    "code": "E-INVALID-RESULT",
+                    "message": f"CIBD25 translator returned invalid result type: {type(result)}",
+                    "stage": "import",
+                    "ts": "",
+                    "path": file_path,
+                    "context": "Expected dict",
+                    "source": "cibd25_importer"
+                }]
+            }
+        return result
+    except Exception as e:
+        import traceback
+        return {
+            "schema_version": "6.0",
+            "diagnostics": [{
+                "level": "error",
+                "code": "E-CIBD25-IMPORT",
+                "message": f"CIBD25 import failed: {str(e)}",
+                "stage": "import",
+                "ts": "",
+                "path": file_path,
+                "context": traceback.format_exc(),
+                "source": "cibd25_importer"
+            }]
+        }
+
+
 def translate_cibd22_to_v6(file_path: str) -> Dict[str, Any]:
     """
     CIBD22 text format → EMJSON v6 using eco_tools translator.
@@ -136,76 +199,6 @@ def translate_cibd22_to_v6(file_path: str) -> Dict[str, Any]:
                 "level": "error",
                 "code": "E-TRANSLATOR-MISSING",
                 "message": f"Cannot import CIBD22 translator from eco_tools: {e}",
-                "stage": "import",
-                "ts": "",
-                "path": "",
-                "context": "Ensure eco_tools package is installed and on Python path",
-                "source": "explorer_gui"
-            }]
-        }
-
-    try:
-        result = _impl(file_path)
-
-        # Ensure result has proper structure
-        if not isinstance(result, dict):
-            return {
-                "schema_version": "6.0",
-                "diagnostics": [{
-                    "level": "error",
-                    "code": "E-INVALID-RESULT",
-                    "message": "Translator returned non-dict result",
-                    "stage": "import",
-                    "ts": "",
-                    "path": "",
-                    "context": str(type(result)),
-                    "source": "explorer_gui"
-                }]
-            }
-
-        # Add GUI-friendly metadata if missing
-        result.setdefault("diagnostics", [])
-
-        return result
-
-    except Exception as e:
-        import traceback
-        return {
-            "schema_version": "6.0",
-            "diagnostics": [{
-                "level": "error",
-                "code": "E-TRANSLATION-FAILED",
-                "message": str(e),
-                "stage": "import",
-                "ts": "",
-                "path": file_path,
-                "context": traceback.format_exc(),
-                "source": "explorer_gui"
-            }]
-        }
-
-
-def translate_cibd25_to_v6(file_path: str) -> Dict[str, Any]:
-    """
-    CIBD25 text format → EMJSON v6 using eco_tools translator.
-
-    CIBD25 is the 2025 version of the text-based CIBD format (same structure as CIBD22).
-
-    Args:
-        file_path: Path to CIBD25 text file (.cibd25)
-
-    Returns:
-        EMJSON v6 dict with diagnostics
-    """
-    try:
-        from eco_tools.translators.cibd25_importer import translate_cibd25_to_v6 as _impl
-    except ImportError as e:
-        return {
-            "schema_version": "6.0",
-            "diagnostics": [{
-                "level": "error",
-                "code": "E-TRANSLATOR-MISSING",
-                "message": f"Cannot import CIBD25 translator from eco_tools: {e}",
                 "stage": "import",
                 "ts": "",
                 "path": "",
@@ -401,6 +394,96 @@ def emjson6_to_hbjson(em_json: Dict[str, Any]) -> str:
             "error": f"Export failed: {str(e)}",
             "traceback": traceback.format_exc()
         }, indent=4)
+
+
+def emjson6_to_cibd25(em_json: Dict[str, Any]) -> str:
+    """
+    Export EMJSON v6 → CIBD25 text format string for Title 24 2025 simulation.
+
+    CIBD25 uses same structure as CIBD22X but with 2025 rulesets:
+    - RulesetFilename: "T24_2025.bin"
+    - SoftwareVersion: "CBECC 2025.2.0 (1390)"
+
+    This uses the full export pipeline: EMJSON → CIBD22X → Text conversion
+
+    Args:
+        em_json: EMJSON v6 dictionary
+
+    Returns:
+        CIBD25 text format string ready for CBECC 2025
+    """
+    try:
+        from eco_tools.translators.cibd_xml_to_text import convert_xml_to_text
+        import tempfile
+        import os
+
+        # Step 1: Export EMJSON to CIBD22X XML using the universal translator
+        # (This already handles full building data)
+        cibd22x_xml = emjson6_to_cibd22x_uni(em_json)
+
+        # Create temp XML file
+        with tempfile.NamedTemporaryFile(mode='w', suffix='_temp.xml', delete=False) as tmp_xml:
+            tmp_xml_path = tmp_xml.name
+            tmp_xml.write(cibd22x_xml)
+            tmp_xml.flush()
+
+        # Step 2: Update metadata for CIBD25
+        import xml.etree.ElementTree as ET
+        tree = ET.parse(tmp_xml_path)
+        root = tree.getroot()
+
+        # Detect namespace
+        namespace = ''
+        if '}' in root.tag:
+            namespace = root.tag.split('}')[0] + '}'
+
+        # Set root attribute for 2025
+        root.set('RulesetFilename', 'T24_2025.bin')
+
+        # Update Proj metadata
+        proj = root.find(f".//{namespace}Proj") if namespace else root.find(".//Proj")
+        if proj is not None:
+            for child in proj:
+                tag = child.tag.replace(namespace, '') if namespace else child.tag
+
+                if tag == 'SoftwareVersion':
+                    child.text = 'CBECC 2025.2.0 (1390)'
+                elif tag == 'RulesetFilename':
+                    child.text = 'T24_2025.bin'
+                elif tag == 'BldgEngyModelVersion':
+                    if child.text != '17':
+                        child.text = '17'
+
+        # Write updated XML
+        ET.indent(tree, space="  ", level=0)
+        tree.write(tmp_xml_path, encoding='utf-8', xml_declaration=True)
+
+        # Step 3: Convert XML to text format
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.cibd25', delete=False) as tmp_text:
+            tmp_text_path = tmp_text.name
+
+        convert_xml_to_text(tmp_xml_path, tmp_text_path)
+
+        # Step 4: Read text content
+        with open(tmp_text_path, 'r', encoding='utf-8') as f:
+            text_content = f.read()
+
+        # Clean up temp files
+        os.unlink(tmp_xml_path)
+        os.unlink(tmp_text_path)
+
+        return text_content
+
+    except ImportError as e:
+        return f"""# Export failed: Cannot import CIBD25 exporter from eco_tools: {e}
+# Ensure eco_tools package is installed and on Python path
+"""
+    except Exception as e:
+        import traceback
+        return f"""# Export failed: {str(e)}
+# Traceback:
+# {traceback.format_exc()}
+"""
 
 
 def translate_gem_to_v6(gem_file: str) -> Dict[str, Any]:
@@ -1158,14 +1241,14 @@ def list_importers() -> List[Dict[str, Any]]:
             "fn": translate_gem_to_v6,
             "extensions": [".gem", ".xml"],
         },
+        {
+            "id": "cibd25",
+            "label": "CIBD25 (Text Format - 2025)",
+            "description": "Import CIBD25 text-based format (.cibd25 files) for Title 24 2025 compliance modeling. Same structure as CIBD22 with 2025 rulesets.",
+            "fn": lambda file_path: translate_cibd25_to_v6(file_path),
+            "extensions": [".cibd25"],
+        },
         # Legacy translators disabled for now
-        # {
-        #     "id": "cibd25",
-        #     "label": "CIBD25 (Text Format - 2025)",
-        #     "description": "Import CIBD25 text-based format (.cibd25 files) for Title 24 2025 compliance modeling. Same structure as CIBD22 with 2025 rulesets.",
-        #     "fn": translate_cibd25_to_v6,
-        #     "extensions": [".cibd25"],
-        # },
         # {
         #     "id": "hbjson",
         #     "label": "HBJSON (Honeybee JSON)",

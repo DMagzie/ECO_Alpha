@@ -65,9 +65,19 @@ class GEMParser:
         with open(self.gem_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
 
+        # Detect which format we have
+        is_native_ies = self._is_native_ies_format(content)
+
         # Parse main sections
         self._parse_project_info(content)
-        self._parse_spaces(content)
+
+        if is_native_ies:
+            # Use native IES parser (vertex/face mesh format)
+            self._parse_native_ies_spaces(content)
+        else:
+            # Use simplified keyword-based parser
+            self._parse_spaces(content)
+
         self._parse_constructions(content)
         self._parse_hvac(content)
 
@@ -77,6 +87,28 @@ class GEMParser:
             'constructions': self.constructions,
             'hvac_systems': self.hvac_systems
         }
+
+    def _is_native_ies_format(self, content: str) -> bool:
+        """
+        Detect if this is native IES MODELIT format or simplified format.
+
+        Native format has: "COM GEM data file" header and space names like "IES name [ID]"
+        Simplified format has: PROJECT/SPACE keywords
+        """
+        # Check for native format markers
+        has_com_header = 'COM GEM data file' in content[:500]
+        has_modelit = 'MODELIT' in content[:500]
+        has_ies_space = re.search(r'IES\s+\w+.*\[\w+\]', content[:2000])
+
+        # Check for simplified format markers
+        has_project_keyword = re.search(r'PROJECT\s+"', content[:2000], re.IGNORECASE)
+        has_space_keyword = re.search(r'SPACE\s+"', content[:2000], re.IGNORECASE)
+
+        # Native format if has IES markers and no PROJECT/SPACE keywords
+        if (has_com_header or has_modelit or has_ies_space) and not (has_project_keyword or has_space_keyword):
+            return True
+
+        return False
 
     def _parse_project_info(self, content: str):
         """Extract project metadata"""
@@ -115,11 +147,45 @@ class GEMParser:
             space_name = space_match.group(1)
             space_content = space_match.group(2)
 
+            # Parse surfaces first
+            surfaces = self._parse_surfaces(space_content)
+
+            # Parse explicit properties from file
+            properties = self._parse_space_properties(space_content)
+
+            # Calculate zone properties from surfaces if not explicitly provided
+            if not properties.get('floor_area') or not properties.get('volume'):
+                floor_area = 0.0
+                all_z = []
+
+                for surface in surfaces:
+                    if surface.get('type', '').lower() == 'floor':
+                        verts = surface.get('vertices', [])
+                        if verts:
+                            floor_area += self._calculate_surface_area(verts)
+                            all_z.extend([v[2] for v in verts])
+                    else:
+                        # Collect all Z coordinates for height calculation
+                        for vert in surface.get('vertices', []):
+                            all_z.append(vert[2])
+
+                # Estimate volume if not provided
+                volume = 0.0
+                if all_z and floor_area > 0:
+                    height = max(all_z) - min(all_z)
+                    volume = floor_area * height
+
+                # Update properties with calculated values
+                if not properties.get('floor_area'):
+                    properties['floor_area'] = floor_area if floor_area > 0 else None
+                if not properties.get('volume'):
+                    properties['volume'] = volume if volume > 0 else None
+
             space_data = {
                 'name': space_name,
                 'floor_plan': self._parse_floor_plan(space_content),
-                'surfaces': self._parse_surfaces(space_content),
-                'properties': self._parse_space_properties(space_content)
+                'surfaces': surfaces,
+                'properties': properties
             }
 
             self.spaces.append(space_data)
@@ -313,6 +379,363 @@ class GEMParser:
             props['space_type'] = type_match.group(1)
 
         return props
+
+    def _parse_native_ies_spaces(self, content: str):
+        """
+        Parse native IES MODELIT GEM format.
+
+        Format structure:
+            IES Space Name [SPACEID]
+            num_vertices num_faces
+            x y z  (for each vertex)
+            ...
+            vert_count v1_idx v2_idx v3_idx v4_idx  (face definition)
+            opening_flag
+            (if opening_flag > 0: opening definitions follow)
+        """
+        lines = content.split('\n')
+        i = 0
+
+        while i < len(lines):
+            line = lines[i].strip()
+
+            # Look for space definition: "IES name [ID]"
+            space_match = re.match(r'IES\s+(.*?)\s*\[(\w+)\]', line)
+            if space_match:
+                space_name = space_match.group(1).strip()
+                space_id = space_match.group(2)
+
+                i += 1
+                if i >= len(lines):
+                    break
+
+                # Next line should be vertex_count face_count
+                counts_line = lines[i].strip()
+                counts_match = re.match(r'(\d+)\s+(\d+)', counts_line)
+
+                if not counts_match:
+                    i += 1
+                    continue
+
+                num_vertices = int(counts_match.group(1))
+                num_faces = int(counts_match.group(2))
+
+                # Parse vertices
+                vertices = []
+                i += 1
+                for _ in range(num_vertices):
+                    if i >= len(lines):
+                        break
+                    vert_line = lines[i].strip()
+                    vert_parts = vert_line.split()
+                    if len(vert_parts) >= 3:
+                        try:
+                            vertices.append((
+                                float(vert_parts[0]),
+                                float(vert_parts[1]),
+                                float(vert_parts[2])
+                            ))
+                        except ValueError:
+                            pass
+                    i += 1
+
+                # Parse faces
+                surfaces = []
+                face_idx = 0
+
+                while face_idx < num_faces and i < len(lines):
+                    face_line = lines[i].strip()
+
+                    # Face line: vert_count v1 v2 v3 v4 ...
+                    face_parts = face_line.split()
+                    if len(face_parts) < 2:
+                        i += 1
+                        continue
+
+                    try:
+                        vert_count = int(face_parts[0])
+                        if len(face_parts) < vert_count + 1:
+                            i += 1
+                            continue
+
+                        # Get vertex indices (1-based in file, convert to 0-based)
+                        face_vert_indices = [int(face_parts[j]) - 1 for j in range(1, vert_count + 1)]
+
+                        # Get face vertices
+                        face_vertices = []
+                        for idx in face_vert_indices:
+                            if 0 <= idx < len(vertices):
+                                face_vertices.append(vertices[idx])
+
+                        if len(face_vertices) >= 3:
+                            # Determine surface type from geometry
+                            surface_type = self._determine_surface_type_from_vertices(face_vertices)
+
+                            surface_data = {
+                                'name': f'{space_name}_Surface_{face_idx}',
+                                'type': surface_type,
+                                'vertices': face_vertices,
+                                'construction': None,
+                                'windows': [],
+                                'doors': []
+                            }
+
+                            # Next line is opening flag
+                            i += 1
+                            if i < len(lines):
+                                opening_flag_line = lines[i].strip()
+                                try:
+                                    opening_count = int(opening_flag_line)
+
+                                    # Parse openings if any
+                                    for opening_idx in range(opening_count):
+                                        i += 1
+                                        if i >= len(lines):
+                                            break
+
+                                        # Opening header: vert_count flag
+                                        opening_header = lines[i].strip()
+                                        header_parts = opening_header.split()
+
+                                        if len(header_parts) >= 1:
+                                            try:
+                                                opening_vert_count = int(header_parts[0])
+
+                                                # Coordinates are on following lines, one pair per line
+                                                opening_coords_2d = []
+                                                for _ in range(opening_vert_count):
+                                                    i += 1
+                                                    if i >= len(lines):
+                                                        break
+
+                                                    coord_line = lines[i].strip()
+                                                    coord_parts = coord_line.split()
+
+                                                    if len(coord_parts) >= 2:
+                                                        try:
+                                                            x_2d = float(coord_parts[0])
+                                                            y_2d = float(coord_parts[1])
+                                                            opening_coords_2d.append((x_2d, y_2d))
+                                                        except (ValueError, IndexError):
+                                                            break
+
+                                                # Convert 2D coordinates to 3D
+                                                opening_vertices_3d = self._transform_2d_to_3d(
+                                                    opening_coords_2d,
+                                                    face_vertices
+                                                )
+
+                                                if len(opening_vertices_3d) >= 3:
+                                                    # Assume windows for now
+                                                    window_data = {
+                                                        'name': f'{space_name}_Surface_{face_idx}_Window_{opening_idx}',
+                                                        'vertices': opening_vertices_3d,
+                                                        'construction': None
+                                                    }
+                                                    surface_data['windows'].append(window_data)
+
+                                            except ValueError:
+                                                pass
+
+                                except ValueError:
+                                    pass
+
+                            surfaces.append(surface_data)
+
+                        face_idx += 1
+
+                    except (ValueError, IndexError):
+                        pass
+
+                    i += 1
+
+                # Calculate zone properties from surfaces
+                floor_area = 0.0
+                for surface in surfaces:
+                    if surface['type'] == 'Floor':
+                        # Calculate area for this floor surface
+                        verts = surface.get('vertices', [])
+                        if verts:
+                            floor_area += self._calculate_surface_area(verts)
+
+                # Estimate volume (rough approximation using floor area * average height)
+                # Find min and max Z coordinates
+                all_z = []
+                for surface in surfaces:
+                    for vert in surface.get('vertices', []):
+                        all_z.append(vert[2])
+
+                volume = 0.0
+                if all_z and floor_area > 0:
+                    height = max(all_z) - min(all_z)
+                    volume = floor_area * height
+
+                # Create space data
+                space_data = {
+                    'name': space_name,
+                    'id': space_id,
+                    'floor_plan': [],
+                    'surfaces': surfaces,
+                    'properties': {
+                        'floor_area': floor_area if floor_area > 0 else None,
+                        'volume': volume if volume > 0 else None
+                    }
+                }
+
+                self.spaces.append(space_data)
+
+            i += 1
+
+    def _calculate_surface_area(self, vertices: List[Tuple[float, float, float]]) -> float:
+        """
+        Calculate area of a 3D polygon using cross product method.
+
+        Args:
+            vertices: List of (x, y, z) tuples
+
+        Returns:
+            Area in square meters
+        """
+        if not vertices or len(vertices) < 3:
+            return 0.0
+
+        try:
+            # Use cross product method for 3D polygon
+            area = 0.0
+            n = len(vertices)
+
+            for i in range(n):
+                v1 = vertices[i]
+                v2 = vertices[(i + 1) % n]
+
+                # Cross product contribution
+                area += (v1[1] * v2[2] - v1[2] * v2[1])  # x component
+                area += (v1[2] * v2[0] - v1[0] * v2[2])  # y component
+                area += (v1[0] * v2[1] - v1[1] * v2[0])  # z component
+
+            return abs(area) / 2.0
+
+        except (TypeError, IndexError, ValueError, ZeroDivisionError):
+            return 0.0
+
+    def _determine_surface_type_from_vertices(self, vertices: List[Tuple[float, float, float]]) -> str:
+        """
+        Determine surface type from vertex geometry.
+
+        Uses surface normal to classify as floor, roof, or wall.
+        """
+        if len(vertices) < 3:
+            return 'Wall'
+
+        # Calculate surface normal using first 3 vertices
+        try:
+            v1 = vertices[0]
+            v2 = vertices[1]
+            v3 = vertices[2]
+
+            # Vectors along two edges
+            edge1 = (v2[0] - v1[0], v2[1] - v1[1], v2[2] - v1[2])
+            edge2 = (v3[0] - v1[0], v3[1] - v1[1], v3[2] - v1[2])
+
+            # Cross product gives normal
+            normal = (
+                edge1[1] * edge2[2] - edge1[2] * edge2[1],
+                edge1[2] * edge2[0] - edge1[0] * edge2[2],
+                edge1[0] * edge2[1] - edge1[1] * edge2[0]
+            )
+
+            # Normalize
+            length = (normal[0]**2 + normal[1]**2 + normal[2]**2) ** 0.5
+            if length > 0:
+                normal = (normal[0]/length, normal[1]/length, normal[2]/length)
+
+                # Check normal direction
+                # If mostly pointing up (+Z), it's a roof
+                # If mostly pointing down (-Z), it's a floor
+                # Otherwise it's a wall
+                if normal[2] > 0.7:
+                    return 'RoofCeiling'
+                elif normal[2] < -0.7:
+                    return 'Floor'
+                else:
+                    return 'Wall'
+
+        except (ZeroDivisionError, ValueError):
+            pass
+
+        return 'Wall'
+
+    def _transform_2d_to_3d(
+        self,
+        coords_2d: List[Tuple[float, float]],
+        face_vertices: List[Tuple[float, float, float]]
+    ) -> List[Tuple[float, float, float]]:
+        """
+        Transform 2D opening coordinates to 3D in face plane.
+
+        The 2D coordinates are in a local coordinate system of the face.
+        We need to establish the face's coordinate frame and map the 2D coords to 3D.
+        """
+        if len(face_vertices) < 3 or len(coords_2d) < 3:
+            return []
+
+        try:
+            # Use first vertex as origin
+            origin = face_vertices[0]
+
+            # X-axis: direction from first to second vertex
+            v1_to_v2 = (
+                face_vertices[1][0] - origin[0],
+                face_vertices[1][1] - origin[1],
+                face_vertices[1][2] - origin[2]
+            )
+            x_length = (v1_to_v2[0]**2 + v1_to_v2[1]**2 + v1_to_v2[2]**2) ** 0.5
+            if x_length == 0:
+                return []
+
+            x_axis = (v1_to_v2[0]/x_length, v1_to_v2[1]/x_length, v1_to_v2[2]/x_length)
+
+            # Calculate face normal (Z-axis)
+            v1_to_v3 = (
+                face_vertices[2][0] - origin[0],
+                face_vertices[2][1] - origin[1],
+                face_vertices[2][2] - origin[2]
+            )
+
+            # Cross product
+            z_axis = (
+                x_axis[1] * v1_to_v3[2] - x_axis[2] * v1_to_v3[1],
+                x_axis[2] * v1_to_v3[0] - x_axis[0] * v1_to_v3[2],
+                x_axis[0] * v1_to_v3[1] - x_axis[1] * v1_to_v3[0]
+            )
+            z_length = (z_axis[0]**2 + z_axis[1]**2 + z_axis[2]**2) ** 0.5
+            if z_length == 0:
+                return []
+
+            z_axis = (z_axis[0]/z_length, z_axis[1]/z_length, z_axis[2]/z_length)
+
+            # Y-axis: perpendicular to both X and Z
+            y_axis = (
+                z_axis[1] * x_axis[2] - z_axis[2] * x_axis[1],
+                z_axis[2] * x_axis[0] - z_axis[0] * x_axis[2],
+                z_axis[0] * x_axis[1] - z_axis[1] * x_axis[0]
+            )
+
+            # Transform 2D to 3D
+            vertices_3d = []
+            for x_2d, y_2d in coords_2d:
+                # Map 2D point to 3D using local coordinate frame
+                point_3d = (
+                    origin[0] + x_2d * x_axis[0] + y_2d * y_axis[0],
+                    origin[1] + x_2d * x_axis[1] + y_2d * y_axis[1],
+                    origin[2] + x_2d * x_axis[2] + y_2d * y_axis[2]
+                )
+                vertices_3d.append(point_3d)
+
+            return vertices_3d
+
+        except (ZeroDivisionError, ValueError, IndexError):
+            return []
 
     def _parse_constructions(self, content: str):
         """Parse construction assembly definitions"""

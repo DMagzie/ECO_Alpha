@@ -1,24 +1,29 @@
 """
-CIBD22 Translator Module - Text format adaptation of CIBD22X parser
+CIBD25 Translator Module - Text format for Title 24 2025
+
+CIBD25 uses the same text format as CIBD22 but with 2025 rulesets:
+- T24_2025.bin ruleset (vs T24N_2022.bin for CIBD22)
+- CBECC 2025.1.0 software version
+- Additional 2025-specific properties
 """
 
-from .importer import CIBD22Importer
-from .exporter import CIBD22Exporter, export_cibd22
+from .importer import CIBD25Importer
+from .exporter import CIBD25Exporter, export_cibd25
 
-__all__ = ['CIBD22Importer', 'CIBD22Exporter', 'export_cibd22', 'translate_cibd22_to_v6']
+__all__ = ['CIBD25Importer', 'CIBD25Exporter', 'export_cibd25', 'translate_cibd25_to_v6']
 
 
-def translate_cibd22_to_v6(text_file: str):
+def translate_cibd25_to_v6(text_file: str):
     """
-    Translate CIBD22 text file to EMJSON v6 format.
+    Translate CIBD25 text file to EMJSON v6 format.
 
     Uses modular architecture:
-    1. Text parser converts CIBD22 text → XML structure
+    1. Text parser converts CIBD25 text → XML structure (reuses CIBD22 parser)
     2. CIBD22X modular parsers process XML → InternalRepresentation
     3. Convert to EMJSON v6 format
 
     Args:
-        text_file: Path to CIBD22 text file
+        text_file: Path to CIBD25 text file
 
     Returns:
         dict: EMJSON v6 dictionary with diagnostics
@@ -26,7 +31,7 @@ def translate_cibd22_to_v6(text_file: str):
     try:
         from dataclasses import asdict
 
-        importer = CIBD22Importer()
+        importer = CIBD25Importer()
         internal = importer.import_file(text_file)
 
         # Convert InternalRepresentation to EMJSON v6 with nested structure
@@ -36,6 +41,7 @@ def translate_cibd22_to_v6(text_file: str):
                 "name": internal.metadata.get("name", internal.proj_metadata.get("name", "Unnamed Project")),
                 "description": internal.metadata.get("description", ""),
                 "location": internal.metadata.get("location", {}),
+                "title_24_version": "2025",
             },
             "geometry": {
                 "zones": [asdict(z) for z in internal.zones],
@@ -79,11 +85,11 @@ def translate_cibd22_to_v6(text_file: str):
             "diagnostics": [{
                 "level": "error",
                 "code": "E-IMPORT-FAILED",
-                "message": f"CIBD22 import failed: {str(e)}",
+                "message": f"CIBD25 import failed: {str(e)}",
                 "stage": "import",
                 "ts": "",
                 "path": text_file,
                 "context": traceback.format_exc(),
-                "source": "cibd22_importer"
+                "source": "cibd25_importer"
             }]
         }

@@ -268,6 +268,12 @@ class CIBD22XImporter:
         # to run simulations. Without this, files cannot be simulated.
         proj_metadata = self.proj_parser.parse_proj_metadata(root)
 
+        # Capture root-level attributes (e.g., RulesetFilename from CIBD22/25 text files)
+        # These are added by the text parser to preserve top-level properties
+        for attr_name, attr_value in root.attrib.items():
+            if attr_name not in proj_metadata:
+                proj_metadata[attr_name] = attr_value
+
         # ================================================================
         # STEP 2: Parse Spatial Hierarchy (STRICT ORDER REQUIRED)
         # ================================================================

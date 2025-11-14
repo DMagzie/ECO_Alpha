@@ -13,7 +13,7 @@ EXPLORER_GUI = ROOT / "gui"
 if str(EXPLORER_GUI) not in sys.path:
     sys.path.insert(0, str(EXPLORER_GUI))
 
-from gui.translators import emjson6_to_cibd22x, emjson6_to_cibd22x_uni
+from gui.translators import emjson6_to_cibd22x, emjson6_to_cibd22x_uni, emjson6_to_cibd25
 
 
 def handle_export():
@@ -105,6 +105,27 @@ def handle_export():
         )
     except Exception as e:
         st.error(f"❌ Export to XML failed: {str(e)}")
+        with st.expander("Error Details"):
+            import traceback
+            st.code(traceback.format_exc())
+
+    # CIBD25 export (Title 24 2025)
+    st.markdown("---")
+    st.subheader("Export to CIBD25 (Title 24 2025)")
+    st.info("💡 CIBD25 text format with T24_2025.bin ruleset for CBECC 2025 simulation")
+
+    try:
+        xml_data = emjson6_to_cibd25(active_model)
+
+        st.download_button(
+            label="📥 Download as CIBD25 Text Format",
+            data=xml_data.encode("utf-8") if isinstance(xml_data, str) else xml_data,
+            file_name=f"{filename.rsplit('.', 1)[0]}_export.cibd25",
+            mime="text/plain",
+            help="Download as CIBD25 text format for Title 24 2025 compliance simulation in CBECC 2025"
+        )
+    except Exception as e:
+        st.error(f"❌ Export to CIBD25 failed: {str(e)}")
         with st.expander("Error Details"):
             import traceback
             st.code(traceback.format_exc())

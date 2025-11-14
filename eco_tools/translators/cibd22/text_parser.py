@@ -55,6 +55,7 @@ class CIBD22TextParser:
     def __init__(self):
         self.objects: List[Dict[str, Any]] = []
         self.current_stack: List[Dict[str, Any]] = []
+        self.root_metadata: Dict[str, str] = {}  # For RulesetFilename and other top-level properties
 
     def parse(self, text: str) -> ET.Element:
         """
@@ -68,6 +69,7 @@ class CIBD22TextParser:
         """
         self.objects = []
         self.current_stack = []
+        self.root_metadata = {}
 
         lines = text.split('\n')
 
@@ -80,6 +82,15 @@ class CIBD22TextParser:
             if line.strip() == "..":
                 if self.current_stack:
                     self.current_stack.pop()
+                continue
+
+            # Parse top-level standalone properties (e.g., RulesetFilename "T24_2025.bin")
+            # These appear at the root level before any objects
+            standalone_prop_match = re.match(r'^([A-Z][A-Za-z0-9_]*)\s+"([^"]+)"', line)
+            if standalone_prop_match and not self.current_stack:
+                prop_name = standalone_prop_match.group(1)
+                prop_value = standalone_prop_match.group(2)
+                self.root_metadata[prop_name] = prop_value
                 continue
 
             # Parse object definition: ObjectType "name"
@@ -149,6 +160,11 @@ class CIBD22TextParser:
 
         # Convert parsed objects to XML
         root = ET.Element("SDDXML")
+
+        # Add root metadata as attributes to preserve them
+        for key, value in self.root_metadata.items():
+            root.set(key, value)
+
         for obj in self.objects:
             self._obj_to_xml(obj, root)
 

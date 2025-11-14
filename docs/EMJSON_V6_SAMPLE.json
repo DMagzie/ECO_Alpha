@@ -1,0 +1,625 @@
+{
+  "schema_version": "6.1",
+  "project": {
+    "name": "Bressi Ranch Apartments",
+    "description": "290-unit multifamily residential development in Carlsbad, CA",
+    "location": {
+      "latitude": 33.1212,
+      "longitude": -117.2298,
+      "elevation_m": 20.0,
+      "climate_zone": "7",
+      "weather_file": "CZ07RV2.bin",
+      "city": "Carlsbad",
+      "state": "CA",
+      "country": "USA"
+    },
+    "ruleset_filename": "T24N_2022.bin",
+    "software_version": "CBECC 2022.3.1 (1343)",
+    "bldg_engy_model_version": 16,
+    "building_type": "MF",
+    "compliance_type": "Residential",
+    "author": "Energy Modeling Team",
+    "created_date": "2025-01-15T10:00:00Z",
+    "modified_date": "2025-11-13T14:30:00Z"
+  },
+
+  "geometry": {
+    "zones": [
+      {
+        "id": "Unit_101",
+        "name": "Unit 101 - 2BR/1BA",
+        "building_type": "MF",
+        "zone_type": "residential",
+        "multiplier": 1,
+        "floor_area_m2": 79.0,
+        "volume_m3": 189.6,
+        "stories_above": 1,
+        "space_function": "LivingSpace",
+        "conditioned": true,
+        "du_ref": "DUT_2BR_1BA",
+        "served_by": ["HVAC_System_Unit_101"],
+        "surfaces": [
+          "Wall_101_North",
+          "Wall_101_South",
+          "Wall_101_East",
+          "Wall_101_West",
+          "Floor_101",
+          "Ceiling_101"
+        ]
+      },
+      {
+        "id": "Unit_102",
+        "name": "Unit 102 - 1BR/1BA",
+        "building_type": "MF",
+        "zone_type": "residential",
+        "multiplier": 1,
+        "floor_area_m2": 55.0,
+        "volume_m3": 132.0,
+        "stories_above": 1,
+        "space_function": "LivingSpace",
+        "conditioned": true,
+        "du_ref": "DUT_1BR_1BA",
+        "served_by": ["HVAC_System_Unit_102"],
+        "surfaces": [
+          "Wall_102_North",
+          "Wall_102_South",
+          "Wall_102_East",
+          "Wall_102_West",
+          "Floor_102",
+          "Ceiling_102"
+        ]
+      },
+      {
+        "id": "Common_Lobby",
+        "name": "Lobby",
+        "building_type": "MF",
+        "zone_type": "other_residential",
+        "multiplier": 1,
+        "floor_area_m2": 45.0,
+        "volume_m3": 135.0,
+        "space_function": "Lobby",
+        "conditioned": true,
+        "served_by": ["HVAC_Common_Areas"],
+        "surfaces": ["Wall_Lobby_North", "Floor_Lobby", "Ceiling_Lobby"]
+      }
+    ],
+
+    "zone_groups": [
+      {
+        "id": "L01",
+        "name": "Level 1",
+        "group_type": "floor",
+        "floor_number": 1,
+        "floor_to_floor_height_m": 3.048,
+        "floor_to_ceiling_height_m": 2.438,
+        "z_coordinate_m": 0.0,
+        "zone_refs": ["Unit_101", "Unit_102", "Common_Lobby"]
+      },
+      {
+        "id": "L02",
+        "name": "Level 2",
+        "group_type": "floor",
+        "floor_number": 2,
+        "floor_to_floor_height_m": 3.048,
+        "floor_to_ceiling_height_m": 2.438,
+        "z_coordinate_m": 3.048,
+        "zone_refs": ["Unit_201", "Unit_202"]
+      }
+    ],
+
+    "surfaces": [
+      {
+        "id": "Wall_101_North",
+        "name": "Unit 101 North Exterior Wall",
+        "parent_zone_id": "Unit_101",
+        "surface_type": "wall",
+        "surface_subtype": "res_ext_wall",
+        "tilt_deg": 90.0,
+        "azimuth_deg": 0.0,
+        "area_m2": 12.5,
+        "construction_ref": "Cons_ExtWall_Wood_R19",
+        "adjacency": "exterior",
+        "ext_solar_abs": 0.7,
+        "ext_thermal_abs": 0.9,
+        "openings": ["Win_101_N1", "Win_101_N2"]
+      },
+      {
+        "id": "Wall_101_South",
+        "name": "Unit 101 South Interior Wall",
+        "parent_zone_id": "Unit_101",
+        "surface_type": "wall",
+        "surface_subtype": "res_int_wall",
+        "tilt_deg": 90.0,
+        "azimuth_deg": 180.0,
+        "area_m2": 12.5,
+        "construction_ref": "Cons_IntWall_Gypsum",
+        "adjacency": "interior",
+        "adjacent_space_ref": "Unit_102"
+      },
+      {
+        "id": "Floor_101",
+        "name": "Unit 101 Slab Floor",
+        "parent_zone_id": "Unit_101",
+        "surface_type": "floor",
+        "surface_subtype": "res_slab_floor",
+        "tilt_deg": 0.0,
+        "area_m2": 79.0,
+        "perimeter_m": 35.6,
+        "construction_ref": "Cons_SlabFloor_R10",
+        "adjacency": "ground"
+      },
+      {
+        "id": "Ceiling_101",
+        "name": "Unit 101 Ceiling",
+        "parent_zone_id": "Unit_101",
+        "surface_type": "ceiling",
+        "surface_subtype": "res_ceiling",
+        "tilt_deg": 0.0,
+        "area_m2": 79.0,
+        "construction_ref": "Cons_Ceiling_R38",
+        "adjacency": "interior",
+        "adjacent_space_ref": "Unit_201"
+      }
+    ],
+
+    "openings": [
+      {
+        "id": "Win_101_N1",
+        "parent_surface_id": "Wall_101_North",
+        "type": "window",
+        "area_m2": 1.5,
+        "height_m": 1.5,
+        "width_m": 1.0,
+        "window_type_ref": "WT_DblPane_LowE_Vinyl",
+        "u_factor_SI": 2.27,
+        "shgc": 0.25,
+        "vt": 0.40
+      },
+      {
+        "id": "Win_101_N2",
+        "parent_surface_id": "Wall_101_North",
+        "type": "window",
+        "area_m2": 1.2,
+        "height_m": 1.2,
+        "width_m": 1.0,
+        "window_type_ref": "WT_DblPane_LowE_Vinyl",
+        "u_factor_SI": 2.27,
+        "shgc": 0.25,
+        "vt": 0.40
+      },
+      {
+        "id": "Door_101_Entry",
+        "parent_surface_id": "Wall_101_East",
+        "type": "door",
+        "area_m2": 1.86,
+        "height_m": 2.0,
+        "width_m": 0.93,
+        "u_factor_SI": 3.12
+      }
+    ]
+  },
+
+  "catalogs": {
+    "materials": [
+      {
+        "id": "Mat_Stucco",
+        "name": "Stucco Exterior Finish",
+        "material_type": "finish",
+        "thickness_m": 0.025,
+        "r_value_SI": 0.035,
+        "density_kg_m3": 1856.0,
+        "specific_heat": 840.0
+      },
+      {
+        "id": "Mat_Sheathing_OSB",
+        "name": "OSB Sheathing",
+        "material_type": "sheathing",
+        "thickness_m": 0.0127,
+        "r_value_SI": 0.137,
+        "density_kg_m3": 544.0,
+        "specific_heat": 1210.0
+      },
+      {
+        "id": "Mat_Insulation_R19",
+        "name": "Batt Insulation R-19",
+        "material_type": "insulation",
+        "thickness_m": 0.152,
+        "r_value_SI": 3.35,
+        "density_kg_m3": 12.0,
+        "specific_heat": 840.0
+      },
+      {
+        "id": "Mat_Gypsum_Board",
+        "name": "Gypsum Board 1/2 inch",
+        "material_type": "finish",
+        "thickness_m": 0.0127,
+        "r_value_SI": 0.079,
+        "density_kg_m3": 640.0,
+        "specific_heat": 1090.0
+      },
+      {
+        "id": "Mat_Concrete_Slab",
+        "name": "Concrete Slab 4 inch",
+        "material_type": "concrete",
+        "thickness_m": 0.102,
+        "r_value_SI": 0.087,
+        "density_kg_m3": 2240.0,
+        "specific_heat": 900.0
+      }
+    ],
+
+    "constructions": [
+      {
+        "id": "Cons_ExtWall_Wood_R19",
+        "name": "Wood Frame Exterior Wall R-19",
+        "construction_type": "wall",
+        "u_factor_SI": 0.34,
+        "r_value_SI": 2.94,
+        "material_layers": [
+          "Mat_Stucco",
+          "Mat_Sheathing_OSB",
+          "Mat_Insulation_R19",
+          "Mat_Gypsum_Board"
+        ],
+        "framing_config": "16in_oc",
+        "framing_depth_m": 0.089,
+        "framing_spacing_m": 0.406
+      },
+      {
+        "id": "Cons_IntWall_Gypsum",
+        "name": "Interior Partition Wall",
+        "construction_type": "wall",
+        "u_factor_SI": 2.5,
+        "r_value_SI": 0.40,
+        "material_layers": [
+          "Mat_Gypsum_Board",
+          "Mat_Gypsum_Board"
+        ]
+      },
+      {
+        "id": "Cons_SlabFloor_R10",
+        "name": "Slab-on-Grade Floor R-10",
+        "construction_type": "floor",
+        "u_factor_SI": 0.51,
+        "r_value_SI": 1.96,
+        "material_layers": [
+          "Mat_Concrete_Slab",
+          "Mat_Insulation_R10_Rigid"
+        ]
+      },
+      {
+        "id": "Cons_Ceiling_R38",
+        "name": "Attic Ceiling R-38",
+        "construction_type": "ceiling",
+        "u_factor_SI": 0.15,
+        "r_value_SI": 6.69,
+        "material_layers": [
+          "Mat_Gypsum_Board",
+          "Mat_Insulation_R38"
+        ]
+      }
+    ],
+
+    "window_types": [
+      {
+        "id": "WT_DblPane_LowE_Vinyl",
+        "name": "Double-Pane Low-E Vinyl Frame",
+        "fenestration_type": "window",
+        "u_factor_SI": 2.27,
+        "shgc": 0.25,
+        "vt": 0.40,
+        "frame_type": "Vinyl",
+        "glazing_type": "Double",
+        "num_panes": 2,
+        "gas_fill": "Argon"
+      },
+      {
+        "id": "WT_Skylight_DblPane",
+        "name": "Skylight Double-Pane",
+        "fenestration_type": "skylight",
+        "u_factor_SI": 2.84,
+        "shgc": 0.30,
+        "vt": 0.45,
+        "frame_type": "Aluminum",
+        "glazing_type": "Double",
+        "num_panes": 2,
+        "gas_fill": "Air"
+      }
+    ],
+
+    "schedules": [
+      {
+        "id": "Sch_Occupancy_Residential",
+        "name": "Residential Occupancy",
+        "schedule_type": "day",
+        "data_type": "fraction",
+        "values": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.5, 0.8, 1.0, 1.0, 1.0, 1.0, 1.0],
+        "hours": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+      },
+      {
+        "id": "Sch_Lighting_Residential",
+        "name": "Residential Lighting",
+        "schedule_type": "day",
+        "data_type": "fraction",
+        "values": [0.1, 0.1, 0.1, 0.1, 0.1, 0.2, 0.5, 0.7, 0.5, 0.3, 0.2, 0.2, 0.2, 0.2, 0.2, 0.3, 0.5, 0.8, 1.0, 1.0, 0.9, 0.7, 0.4, 0.2],
+        "hours": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+      }
+    ],
+
+    "du_types": [
+      {
+        "id": "DUT_2BR_1BA",
+        "name": "2 Bedroom 1 Bath Unit",
+        "bedrooms": 2,
+        "bathrooms": 1.0,
+        "floor_area_m2": 79.0,
+        "occupant_count": 3
+      },
+      {
+        "id": "DUT_1BR_1BA",
+        "name": "1 Bedroom 1 Bath Unit",
+        "bedrooms": 1,
+        "bathrooms": 1.0,
+        "floor_area_m2": 55.0,
+        "occupant_count": 2
+      }
+    ]
+  },
+
+  "systems": {
+    "hvac": [
+      {
+        "id": "HVAC_System_Unit_101",
+        "name": "Unit 101 Split System",
+        "type": 1,
+        "status": 3,
+        "fuel": "Electric",
+        "multiplier": 1,
+        "heating_systems": ["Furnace_Gas_80AFUE"],
+        "heating_counts": [1],
+        "cooling_systems": ["AC_SEER13"],
+        "cooling_counts": [1],
+        "distribution_ref": "Dist_Ducted_Unit_101",
+        "zone_refs": ["Unit_101"],
+        "floor_area_served": 79.0
+      },
+      {
+        "id": "HVAC_Common_Areas",
+        "name": "Common Areas Packaged System",
+        "type": 1,
+        "status": 3,
+        "fuel": "NaturalGas",
+        "heating_systems": ["PTAC_Heat"],
+        "heating_counts": [2],
+        "cooling_systems": ["PTAC_Cool"],
+        "cooling_counts": [2],
+        "zone_refs": ["Common_Lobby", "Common_Hallway"],
+        "floor_area_served": 90.0
+      }
+    ],
+
+    "zone_terminals": [],
+
+    "dhw": [
+      {
+        "id": "DHW_Central_System",
+        "name": "Central DHW System",
+        "system_type": "Recirculating",
+        "is_central": true,
+        "central_system_type": "Multifamily",
+        "water_heaters": ["WH_Gas_Central_1", "WH_Gas_Central_2", "WH_Solar_Thermal"],
+        "water_heater_counts": [1, 1, 1],
+        "recirculation_loops": ["Recirc_Loop_Main"],
+        "distribution_type": "Recirculating",
+        "pipe_insulation_level": "R4",
+        "dwelling_units_served": 290,
+        "floor_area_served": 22000.0
+      }
+    ],
+
+    "water_heaters": [
+      {
+        "id": "WH_Gas_Central_1",
+        "name": "Central Gas Water Heater 1",
+        "heater_type": "Gas",
+        "tank_type": "LargeStorage",
+        "storage_volume_gal": 100.0,
+        "input_capacity_btu_hr": 199000.0,
+        "uniform_energy_factor": 0.82,
+        "thermal_efficiency": 0.80,
+        "recovery_efficiency": 0.78,
+        "fuel_type": "NaturalGas",
+        "location": "Unconditioned"
+      },
+      {
+        "id": "WH_Gas_Central_2",
+        "name": "Central Gas Water Heater 2",
+        "heater_type": "Gas",
+        "tank_type": "LargeStorage",
+        "storage_volume_gal": 100.0,
+        "input_capacity_btu_hr": 199000.0,
+        "uniform_energy_factor": 0.82,
+        "thermal_efficiency": 0.80,
+        "recovery_efficiency": 0.78,
+        "fuel_type": "NaturalGas",
+        "location": "Unconditioned"
+      },
+      {
+        "id": "WH_Solar_Thermal",
+        "name": "Solar Thermal Preheat",
+        "heater_type": "Solar",
+        "tank_type": "Storage",
+        "storage_volume_gal": 80.0,
+        "location": "Exterior"
+      }
+    ],
+
+    "recirculation_loops": [
+      {
+        "id": "Recirc_Loop_Main",
+        "name": "Main Recirculation Loop",
+        "parent_dhw_system_id": "DHW_Central_System",
+        "loop_type": "Central",
+        "pipe_length_ft": 500.0,
+        "pipe_diameter_in": 1.0,
+        "pipe_insulation_r_value": 4.0,
+        "pump_power_w": 150.0,
+        "flow_rate_gpm": 5.0,
+        "control_type": "Timer",
+        "operating_hours_per_day": 16.0,
+        "heat_loss_btu_hr": 2400.0
+      }
+    ],
+
+    "iaq_fans": [
+      {
+        "id": "IAQ_Fan_Unit_101",
+        "name": "Unit 101 Ventilation Fan",
+        "fan_type": "Exhaust",
+        "airflow_cfm": 50.0,
+        "power_w": 35.0,
+        "zone_refs": ["Unit_101"]
+      }
+    ],
+
+    "pv_arrays": [
+      {
+        "id": "PV_Rooftop_Array",
+        "name": "Rooftop Solar PV Array",
+        "array_type": "FixedRoof",
+        "module_type": "Premium",
+        "rated_capacity_kw": 150.0,
+        "num_modules": 450,
+        "module_power_w": 333,
+        "tilt_deg": 20.0,
+        "azimuth_deg": 180.0,
+        "tracking_type": "Fixed",
+        "inverter_efficiency": 0.96,
+        "inverter_type": "String",
+        "location": "Roof",
+        "mounting_type": "Standoff",
+        "performance_ratio": 0.80,
+        "dc_to_ac_ratio": 1.2,
+        "annual_production_kwh": 240000.0
+      }
+    ],
+
+    "battery_systems": [
+      {
+        "id": "Battery_Storage_1",
+        "name": "Community Battery Storage",
+        "battery_type": "LithiumIon",
+        "usable_capacity_kwh": 100.0,
+        "rated_capacity_kwh": 110.0,
+        "rated_power_kw": 50.0,
+        "round_trip_efficiency": 0.90,
+        "control_strategy": "SelfConsumption",
+        "max_charge_rate_kw": 50.0,
+        "max_discharge_rate_kw": 50.0,
+        "min_state_of_charge": 0.10,
+        "max_state_of_charge": 1.00,
+        "coupled_pv_array_ref": "PV_Rooftop_Array",
+        "coupling_type": "DC",
+        "location": "Indoor"
+      }
+    ],
+
+    "lighting_systems": [
+      {
+        "id": "LtgSys_Unit_101",
+        "name": "Unit 101 Lighting",
+        "system_type": "interior",
+        "space_ref": "Unit_101",
+        "power_density_w_m2": 6.5,
+        "total_power_w": 513.5,
+        "control_type": "Manual",
+        "schedule_ref": "Sch_Lighting_Residential"
+      },
+      {
+        "id": "LtgSys_Common_Lobby",
+        "name": "Lobby Lighting",
+        "system_type": "interior",
+        "space_ref": "Common_Lobby",
+        "power_density_w_m2": 8.0,
+        "total_power_w": 360.0,
+        "control_type": "Occupancy",
+        "schedule_ref": "Sch_Lighting_Common"
+      }
+    ],
+
+    "luminaires": [
+      {
+        "id": "Lum_LED_A19",
+        "name": "LED A19 9W Bulb",
+        "luminaire_type": "LED",
+        "power_w": 9.0,
+        "count": 12,
+        "efficiency": 0.90,
+        "lighting_system_ref": "LtgSys_Unit_101"
+      }
+    ],
+
+    "fan_systems": [],
+    "heat_pumps": [],
+    "distribution_systems": [
+      {
+        "id": "Dist_Ducted_Unit_101",
+        "name": "Unit 101 Duct System",
+        "distribution_type": "ducted",
+        "duct_location": "Unconditioned",
+        "duct_insulation_r_value_SI": 1.41,
+        "duct_leakage_pct": 6.0,
+        "hvac_system_ref": "HVAC_System_Unit_101"
+      }
+    ],
+    "control_systems": []
+  },
+
+  "proj_metadata": {
+    "RulesetFilename": "T24N_2022.bin",
+    "SoftwareVersion": "CBECC 2022.3.1 (1343)",
+    "BldgEngyModelVersion": "16",
+    "Proj": "Bressi Ranch Apartments",
+    "CreateDate": "2025-01-15",
+    "ModDate": "2025-11-13"
+  },
+
+  "metadata": {
+    "format_source": "CIBD22X",
+    "import_version": "v7",
+    "parser_version": "modular_v7",
+    "total_floor_area_m2": 22000.0,
+    "total_dwelling_units": 290,
+    "building_stories": 3,
+    "construction_type": "WoodFrame",
+    "year_built": 2023
+  },
+
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "I-IMPORT-SUCCESS",
+      "message": "Successfully imported CIBD22X file with 290 zones and 3472 surfaces",
+      "stage": "import",
+      "ts": "2025-11-13T14:30:00Z",
+      "path": "Bressi_Ranch.cibd22x",
+      "source": "cibd22x_importer"
+    },
+    {
+      "level": "warning",
+      "code": "W-MATERIAL-COUNT-LOW",
+      "message": "Only 33 materials found - some constructions may reference catalog materials",
+      "stage": "import",
+      "ts": "2025-11-13T14:30:01Z",
+      "source": "material_parser"
+    },
+    {
+      "level": "info",
+      "code": "I-HVAC-ASSIGNMENT",
+      "message": "All 290 zones have HVAC system assignments",
+      "stage": "validation",
+      "ts": "2025-11-13T14:30:02Z",
+      "source": "hvac_validator"
+    }
+  ]
+}

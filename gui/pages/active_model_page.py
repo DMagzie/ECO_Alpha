@@ -14,6 +14,7 @@ if str(EXPLORER_GUI) not in sys.path:
     sys.path.insert(0, str(EXPLORER_GUI))
 
 from import_export import emjson6_to_cibd22x
+from components.collapsible_tree import render_collapsible_tree
 
 # Import 3D visualizer
 try:
@@ -72,109 +73,8 @@ def render_tree_node(label: str, data: any, level: int = 0, in_expander: bool = 
 
 def show_tree_navigator(model: dict):
     """Display a tree-style navigator for the EMJSON model."""
-    st.subheader("🌲 Model Tree Navigator")
-
-    # Project level
-    if "project" in model:
-        with st.expander("📦 Project", expanded=True):
-            project = model["project"]
-            for key, value in project.items():
-                if key == "location":
-                    st.markdown("**📍 Location**")
-                    st.json(value)
-                else:
-                    render_tree_node(key, value, level=1, in_expander=True)
-    
-    # Geometry level
-    if "geometry" in model:
-        with st.expander("🏗️ Geometry", expanded=True):
-            geom = model["geometry"]
-            
-            # Zones
-            zones = geom.get("zones", [])
-            if zones:
-                st.markdown(f"**🏢 Zones** ({len(zones)} zones)")
-                for zone in zones:
-                    zone_name = zone.get("name", zone.get("id", "Unknown"))
-                    zone_type = zone.get("type", "")
-                    area = zone.get("floor_area_m2", zone.get("area"))
-                    area_str = f"{area:.1f} m²" if area is not None else "N/A"
-
-                    st.markdown(f"  • **{zone_name}** ({zone_type}) - {area_str}")
-
-                    # Show surfaces under this zone
-                    zone_surfaces = zone.get("surfaces", [])
-                    if zone_surfaces:
-                        st.markdown(f"    🧱 Surfaces: {len(zone_surfaces)}")
-            
-            # Surfaces (if not nested under zones)
-            surfaces = geom.get("surfaces", {})
-            if surfaces and not zones:
-                if isinstance(surfaces, dict):
-                    total = sum(len(v) for v in surfaces.values() if isinstance(v, list))
-                    st.markdown(f"**🧱 Surfaces** ({total} total)")
-                    for category, surf_list in surfaces.items():
-                        if isinstance(surf_list, list):
-                                render_tree_node(category, surf_list, level=2)
-                elif isinstance(surfaces, list):
-                    st.markdown(f"**🧱 Surfaces** ({len(surfaces)} surfaces)")
-                    for surf in surfaces[:10]:  # Show first 10
-                        surf_name = surf.get("name", surf.get("id", "Unknown"))
-                        st.markdown(f"  • {surf_name}")
-                    if len(surfaces) > 10:
-                        st.markdown(f"  • ... and {len(surfaces) - 10} more")
-            
-            # Openings
-            openings = geom.get("openings", {})
-            if openings:
-                if isinstance(openings, dict):
-                    total = sum(len(v) for v in openings.values() if isinstance(v, list))
-                    st.markdown(f"**🪟 Openings** ({total} total)")
-                    for category, open_list in openings.items():
-                        if isinstance(open_list, list):
-                            st.markdown(f"  • {category}: {len(open_list)} items")
-    
-    # Catalogs level
-    if "catalogs" in model:
-        with st.expander("📚 Catalogs", expanded=False):
-            catalogs = model["catalogs"]
-            for cat_name, cat_items in catalogs.items():
-                if isinstance(cat_items, list):
-                    st.markdown(f"**📖 {cat_name.replace('_', ' ').title()}** ({len(cat_items)} items)")
-                    for item in cat_items[:5]:  # Show first 5
-                        if isinstance(item, dict):
-                            item_name = item.get("name", item.get("id", "Unknown"))
-                            st.markdown(f"  • {item_name}")
-                        else:
-                            st.markdown(f"  • {item}")
-                    if len(cat_items) > 5:
-                        st.markdown(f"  • ... and {len(cat_items) - 5} more")
-    
-    # Systems level
-    if "systems" in model:
-        with st.expander("🔧 Systems", expanded=False):
-            systems = model["systems"]
-
-            hvac = systems.get("hvac", [])
-            if hvac:
-                st.markdown(f"**❄️ HVAC Systems** ({len(hvac)} systems)")
-                for sys in hvac:
-                    sys_name = sys.get("name", sys.get("id", "Unknown"))
-                    st.markdown(f"  • {sys_name}")
-
-            dhw = systems.get("dhw", [])
-            if dhw:
-                st.markdown(f"**🚿 DHW Systems** ({len(dhw)} systems)")
-                for sys in dhw:
-                    sys_name = sys.get("name", sys.get("id", "Unknown"))
-                    st.markdown(f"  • {sys_name}")
-
-            pv = systems.get("pv", [])
-            if pv:
-                st.markdown(f"**☀️ PV Arrays** ({len(pv)} arrays)")
-                for sys in pv:
-                    sys_name = sys.get("name", sys.get("id", "Unknown"))
-                    st.markdown(f"  • {sys_name}")
+    # Interactive tree with expand/collapse buttons
+    render_collapsible_tree(model, label="EMJSON Model")
 
 
 def show_selected_element_properties(model: dict):

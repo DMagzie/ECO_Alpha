@@ -72,6 +72,6 @@ def render_quickstats(em: Dict[str, Any]) -> None:
 
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Surfaces", f"{total_surfaces:,}")
-    c2.metric("Ext. Wall Area (sf)", f"{ext_wall_area:,.1f}")
-    c3.metric("Roof Area (sf)", f"{roof_area:,.1f}")
-    c4.metric("Floor Area (sf)", f"{floor_area:,.1f}")
+    c2.metric("Ext. Wall Area (m²)", f"{ext_wall_area:,.1f}")
+    c3.metric("Roof Area (m²)", f"{roof_area:,.1f}")
+    c4.metric("Floor Area (m²)", f"{floor_area:,.1f}")

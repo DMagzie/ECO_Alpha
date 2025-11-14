@@ -19,7 +19,7 @@ from __future__ import annotations
 from typing import Dict, Any, List
 import sys
 
-from eco_tools.parsers.cibd22_text_parser import parse_cibd22_file
+from eco_tools.translators.cibd22.text_parser import parse_cibd22_file
 from eco_tools.core.id_registry import IDRegistry
 
 VERSION = "6.0"

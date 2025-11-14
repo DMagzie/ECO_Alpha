@@ -40,8 +40,8 @@ def handle_import():
         # File uploader
         uploaded_file = st.file_uploader(
             "Choose a file",
-            type=["xml", "cibd22x", "cibd22", "json", "gem"],
-            help="Upload CIBD22X XML (.xml, .cibd22x), CIBD22 text (.cibd22), EMJSON v6 JSON, or IES GEM (.gem) file",
+            type=["xml", "cibd22x", "cibd22", "cibd25", "json", "gem"],
+            help="Upload CIBD22X XML (.xml, .cibd22x), CIBD22 text (.cibd22), CIBD25 text (.cibd25), EMJSON v6 JSON, or IES GEM (.gem) file",
             key="model_file_uploader"
         )
 
@@ -97,6 +97,15 @@ def handle_import():
                 if st.button("Import CIBD22 Text File", type="primary"):
                     with st.spinner("Importing CIBD22 text file..."):
                         _process_import(uploaded_file, "cibd22")
+
+            elif file_extension == "cibd25":
+                # CIBD25 text format
+                st.markdown("### CIBD25 Text Format Import")
+                st.info("ℹ️ CIBD25 text format (Title 24 2025) will be parsed using the same architecture as CIBD22")
+
+                if st.button("Import CIBD25 Text File", type="primary"):
+                    with st.spinner("Importing CIBD25 text file..."):
+                        _process_import(uploaded_file, "cibd25")
 
             elif file_extension == "gem":
                 # IES GEM format
@@ -273,33 +282,56 @@ def _show_quick_summary(em_json: dict):
 
     st.info(f"📄 **{filename}** (Schema: {schema_version}, Source: {source})")
 
-    # Quick stats
-    zones = em_json.get("geometry", {}).get("zones", [])
-    surfaces = em_json.get("geometry", {}).get("surfaces", {})
-    openings = em_json.get("geometry", {}).get("openings", {})
+    # Try to use GeometryVisualizer for consistent stats
+    try:
+        sys.path.insert(0, str(Path(__file__).parent.parent / "utils"))
+        from geometry_visualizer import GeometryVisualizer
 
-    col1, col2, col3, col4 = st.columns(4)
+        visualizer = GeometryVisualizer()
+        stats = visualizer.get_geometry_stats(em_json)
 
-    with col1:
-        st.metric("Zones", len(zones))
-    with col2:
-        # Handle both dict and list formats for surfaces
-        if isinstance(surfaces, dict):
-            total_surfaces = sum(len(v) for v in surfaces.values() if isinstance(v, list))
-        elif isinstance(surfaces, list):
+        # Display comprehensive metrics
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            st.metric("🏢 Zones", stats['zones'])
+        with col2:
+            st.metric("🧱 Surfaces", stats['surfaces'])
+        with col3:
+            st.metric("🪟 Openings", stats['openings'])
+        with col4:
+            floor_area = stats['total_floor_area_m2']
+            st.metric("📐 Floor Area", f"{floor_area:.1f} m²")
+
+        # Show volume if available
+        if stats['total_volume_m3'] > 0:
+            st.metric("📦 Total Volume", f"{stats['total_volume_m3']:.1f} m³")
+
+    except ImportError:
+        # Fallback to basic stats if visualizer not available
+        zones = em_json.get("geometry", {}).get("zones", [])
+        surfaces = em_json.get("geometry", {}).get("surfaces", [])
+        openings = em_json.get("geometry", {}).get("openings", [])
+
+        # Handle list format (default for GEM imports)
+        if isinstance(surfaces, list):
             total_surfaces = len(surfaces)
+        elif isinstance(surfaces, dict):
+            total_surfaces = sum(len(v) for v in surfaces.values() if isinstance(v, list))
         else:
             total_surfaces = 0
-        st.metric("Surfaces", total_surfaces)
-    with col3:
-        # Handle both dict and list formats for openings
-        if isinstance(openings, dict):
-            total_openings = sum(len(v) for v in openings.values() if isinstance(v, list))
-        elif isinstance(openings, list):
+
+        if isinstance(openings, list):
             total_openings = len(openings)
+        elif isinstance(openings, dict):
+            total_openings = sum(len(v) for v in openings.values() if isinstance(v, list))
         else:
             total_openings = 0
-        st.metric("Openings", total_openings)
-    with col4:
-        hvac_count = len(em_json.get("systems", {}).get("hvac", []))
-        st.metric("HVAC Systems", hvac_count)
+
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Zones", len(zones))
+        with col2:
+            st.metric("Surfaces", total_surfaces)
+        with col3:
+            st.metric("Openings", total_openings)
