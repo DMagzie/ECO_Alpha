@@ -64,9 +64,11 @@ class ProjExporter:
             'PVArray',      # PV arrays - empty placeholder
             'FluidSys',     # Fluid systems - empty placeholder
             'EUseSummary',  # Energy use summary - output only
-            'ResProj',      # Residential project - empty placeholder
             'SchDay',       # Schedule day - empty placeholder
         }
+
+        # List of nested elements to export as sub-objects (not simple properties)
+        NESTED_ELEMENTS = {'ResProj', 'ProjVar', 'DwellUnitType'}
 
         # Export ALL properties EXCEPT containers
         # Properties are written in alphabetical order for consistency
@@ -76,13 +78,37 @@ class ProjExporter:
                 continue  # Skip container/placeholder properties
 
             value = proj_metadata[key]
-            if value is not None:
+
+            # Handle nested elements (ResProj, ProjVar, etc.)
+            if key in NESTED_ELEMENTS and isinstance(value, dict):
+                self._export_nested_element(proj_elem, key, value)
+                exported_count += 1
+            # Handle simple properties
+            elif value is not None and value != "":
                 prop_elem = ET.SubElement(proj_elem, key)
                 prop_elem.text = str(value)
                 exported_count += 1
 
         logger.info(f"Exported Proj with {exported_count} properties (skipped {len(SKIP_PROPERTIES)} containers)")
         return proj_elem
+
+    def _export_nested_element(self, parent: ET.Element, tag: str, properties: Dict[str, Any]):
+        """
+        Export a nested element like ResProj with its properties.
+
+        Args:
+            parent: Parent XML element (Proj)
+            tag: Element tag name (e.g., 'ResProj')
+            properties: Dictionary of properties to export
+        """
+        elem = ET.SubElement(parent, tag)
+
+        # Export all properties in sorted order
+        for key in sorted(properties.keys()):
+            value = properties[key]
+            if value is not None and value != "":
+                prop_elem = ET.SubElement(elem, key)
+                prop_elem.text = str(value)
 
     def _create_minimal_proj_metadata(self) -> Dict[str, Any]:
         """

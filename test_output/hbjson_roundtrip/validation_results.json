@@ -1,0 +1,275 @@
+{
+  "total_files": 22,
+  "success": 0,
+  "partial": 0,
+  "errors": 22,
+  "import_success_rate": 0.0,
+  "export_success_rate": 0.0,
+  "full_roundtrip_rate": 0.0,
+  "results": [
+    {
+      "file": "model_5vertex_sub_faces.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Surface.__init__() got an unexpected keyword argument 'vertices'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 100, in import_file\n    zones = self._convert_rooms_to_zones()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 210, in _convert_rooms_to_zones\n    zone = self._convert_room(hb_room)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 221, in _convert_room\n    surface = self._convert_face(hb_face)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 290, in _convert_face\n    surface = Surface(\n              ^^^^^^^^\nTypeError: Surface.__init__() got an unexpected keyword argument 'vertices'\n"
+    },
+    {
+      "file": "model_5vertex_sub_faces_interior.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Surface.__init__() got an unexpected keyword argument 'vertices'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 100, in import_file\n    zones = self._convert_rooms_to_zones()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 210, in _convert_rooms_to_zones\n    zone = self._convert_room(hb_room)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 221, in _convert_room\n    surface = self._convert_face(hb_face)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 290, in _convert_face\n    surface = Surface(\n              ^^^^^^^^\nTypeError: Surface.__init__() got an unexpected keyword argument 'vertices'\n"
+    },
+    {
+      "file": "model_complete_holes.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Surface.__init__() got an unexpected keyword argument 'vertices'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 100, in import_file\n    zones = self._convert_rooms_to_zones()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 210, in _convert_rooms_to_zones\n    zone = self._convert_room(hb_room)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 221, in _convert_room\n    surface = self._convert_face(hb_face)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 290, in _convert_face\n    surface = Surface(\n              ^^^^^^^^\nTypeError: Surface.__init__() got an unexpected keyword argument 'vertices'\n"
+    },
+    {
+      "file": "model_complete_multi_zone_office.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Material.__init__() got an unexpected keyword argument 'conductivity'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 97, in import_file\n    materials = self._convert_materials()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 129, in _convert_materials\n    material = Material(\n               ^^^^^^^^^\nTypeError: Material.__init__() got an unexpected keyword argument 'conductivity'\n"
+    },
+    {
+      "file": "model_complete_multiroom_radiance.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Surface.__init__() got an unexpected keyword argument 'vertices'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 100, in import_file\n    zones = self._convert_rooms_to_zones()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 210, in _convert_rooms_to_zones\n    zone = self._convert_room(hb_room)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 221, in _convert_room\n    surface = self._convert_face(hb_face)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 290, in _convert_face\n    surface = Surface(\n              ^^^^^^^^\nTypeError: Surface.__init__() got an unexpected keyword argument 'vertices'\n"
+    },
+    {
+      "file": "model_complete_office_floor.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_complete_patient_room.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_complete_single_zone_office.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Material.__init__() got an unexpected keyword argument 'conductivity'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 97, in import_file\n    materials = self._convert_materials()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 129, in _convert_materials\n    material = Material(\n               ^^^^^^^^^\nTypeError: Material.__init__() got an unexpected keyword argument 'conductivity'\n"
+    },
+    {
+      "file": "model_complete_user_data.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Construction.__init__() got an unexpected keyword argument 'material_refs'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 98, in import_file\n    constructions = self._convert_constructions()\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 159, in _convert_constructions\n    construction = Construction(\n                   ^^^^^^^^^^^^^\nTypeError: Construction.__init__() got an unexpected keyword argument 'material_refs'\n"
+    },
+    {
+      "file": "model_energy_afn.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_energy_allair_hvac.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_energy_detailed_loads.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_energy_doas_hvac.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_energy_fixed_interval.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Construction.__init__() got an unexpected keyword argument 'material_refs'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 98, in import_file\n    constructions = self._convert_constructions()\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 159, in _convert_constructions\n    construction = Construction(\n                   ^^^^^^^^^^^^^\nTypeError: Construction.__init__() got an unexpected keyword argument 'material_refs'\n"
+    },
+    {
+      "file": "model_energy_no_program.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Material.__init__() got an unexpected keyword argument 'conductivity'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 97, in import_file\n    materials = self._convert_materials()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 129, in _convert_materials\n    material = Material(\n               ^^^^^^^^^\nTypeError: Material.__init__() got an unexpected keyword argument 'conductivity'\n"
+    },
+    {
+      "file": "model_energy_service_hot_water.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_energy_shoe_box.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Material.__init__() got an unexpected keyword argument 'conductivity'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 97, in import_file\n    materials = self._convert_materials()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 129, in _convert_materials\n    material = Material(\n               ^^^^^^^^^\nTypeError: Material.__init__() got an unexpected keyword argument 'conductivity'\n"
+    },
+    {
+      "file": "model_energy_window_ac.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_energy_window_ventilation.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Schedule.__init__() got an unexpected keyword argument 'type'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 99, in import_file\n    schedules = self._convert_schedules()\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 190, in _convert_schedules\n    schedule = Schedule(\n               ^^^^^^^^^\nTypeError: Schedule.__init__() got an unexpected keyword argument 'type'\n"
+    },
+    {
+      "file": "model_radiance_dynamic_states.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Surface.__init__() got an unexpected keyword argument 'vertices'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 100, in import_file\n    zones = self._convert_rooms_to_zones()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 210, in _convert_rooms_to_zones\n    zone = self._convert_room(hb_room)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 221, in _convert_room\n    surface = self._convert_face(hb_face)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 290, in _convert_face\n    surface = Surface(\n              ^^^^^^^^\nTypeError: Surface.__init__() got an unexpected keyword argument 'vertices'\n"
+    },
+    {
+      "file": "model_radiance_grid_views.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Surface.__init__() got an unexpected keyword argument 'vertices'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 100, in import_file\n    zones = self._convert_rooms_to_zones()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 210, in _convert_rooms_to_zones\n    zone = self._convert_room(hb_room)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 221, in _convert_room\n    surface = self._convert_face(hb_face)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 290, in _convert_face\n    surface = Surface(\n              ^^^^^^^^\nTypeError: Surface.__init__() got an unexpected keyword argument 'vertices'\n"
+    },
+    {
+      "file": "model_with_shade_mesh.hbjson",
+      "status": "error",
+      "import_success": false,
+      "export_success": false,
+      "comparison": {},
+      "errors": [
+        "Surface.__init__() got an unexpected keyword argument 'vertices'"
+      ],
+      "warnings": [],
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/test_hbjson_roundtrip.py\", line 72, in validate_file\n    internal_repr = importer.import_file(hbjson_path)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 100, in import_file\n    zones = self._convert_rooms_to_zones()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 210, in _convert_rooms_to_zones\n    zone = self._convert_room(hb_room)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 221, in _convert_room\n    surface = self._convert_face(hb_face)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/DavidM/Documents/ECO_Alpha_v7/eco_tools/translators/hbjson/importer.py\", line 290, in _convert_face\n    surface = Surface(\n              ^^^^^^^^\nTypeError: Surface.__init__() got an unexpected keyword argument 'vertices'\n"
+    }
+  ]
+}

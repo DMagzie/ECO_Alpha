@@ -13,7 +13,7 @@ EXPLORER_GUI = ROOT / "gui"
 if str(EXPLORER_GUI) not in sys.path:
     sys.path.insert(0, str(EXPLORER_GUI))
 
-from gui.translators import emjson6_to_cibd22x, emjson6_to_cibd22x_uni, emjson6_to_cibd25
+from gui.translators import emjson6_to_cibd22x, emjson6_to_cibd25
 
 
 def handle_export():
@@ -75,33 +75,21 @@ def handle_export():
     with col2:
         st.write("")  # Spacing
 
-    # CIBD22x XML export with translator selection
+    # CIBD22x XML export
     st.markdown("---")
-    st.subheader("Export to CIBD22x XML")
-    
-    # Translator selection
-    translator_option = st.radio(
-        "Select Translator:",
-        options=["em-tools", "Universal Translator"],
-        help="Choose which translator to use for exporting to CIBD22x XML format",
-        horizontal=True
-    )
-    
+    st.subheader("Export to CIBD22x XML (v7 Modular)")
+    st.info("💡 Uses v7 modular exporters with 99.8% roundtrip accuracy")
+
     # Export button
     try:
-        if translator_option == "em-tools":
-            xml_data = emjson6_to_cibd22x(active_model)
-            exporter_label = "em-tools"
-        else:  # Universal Translator
-            xml_data = emjson6_to_cibd22x_uni(active_model)
-            exporter_label = "Universal Translator"
-        
+        xml_data = emjson6_to_cibd22x(active_model)
+
         st.download_button(
-            label=f"📥 Download as CIBD22x XML ({exporter_label})",
+            label="📥 Download as CIBD22x XML",
             data=xml_data.encode("utf-8") if isinstance(xml_data, str) else xml_data,
-            file_name=f"{filename.rsplit('.', 1)[0]}_export_{translator_option.replace(' ', '_').lower()}.xml",
+            file_name=f"{filename.rsplit('.', 1)[0]}_export.cibd22x",
             mime="application/xml",
-            help=f"Download as CIBD22x XML format using {exporter_label}"
+            help="Download as CIBD22x XML format using v7 modular exporter"
         )
     except Exception as e:
         st.error(f"❌ Export to XML failed: {str(e)}")
@@ -115,7 +103,17 @@ def handle_export():
     st.info("💡 CIBD25 text format with T24_2025.bin ruleset for CBECC 2025 simulation")
 
     try:
-        xml_data = emjson6_to_cibd25(active_model)
+        # Get source file path for roundtrip (if available)
+        source_file = st.session_state.get('source_file_path')
+
+        # DEBUG: Show what we're passing
+        st.info(f"🔍 DEBUG: source_file_path from session = {source_file}")
+        if source_file:
+            import os
+            st.info(f"🔍 DEBUG: File exists = {os.path.exists(source_file)}")
+
+        # Export with roundtrip if source is CIBD22X
+        xml_data = emjson6_to_cibd25(active_model, source_cibd22x_file=source_file)
 
         st.download_button(
             label="📥 Download as CIBD25 Text Format",

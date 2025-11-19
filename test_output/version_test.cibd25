@@ -1,5 +1,0 @@
-RulesetFilename "T24_2025.bin"
-
-Proj "VersionTest" {
-   Name = "Version Test Project"
-}

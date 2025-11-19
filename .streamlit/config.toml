@@ -1,24 +1,8 @@
 [server]
-# Increase timeouts for development and large models
-maxUploadSize = 500
-enableXsrfProtection = false
-enableCORS = false
-
-# Connection settings
-headless = false
-port = 8501
-
-[browser]
-# Auto-open browser
-gatherUsageStats = false
-serverAddress = "localhost"
-serverPort = 8501
+# Disable module caching so code changes are picked up immediately
+runOnSave = true
 
 [runner]
-# Allow longer running scripts
+# Clear cache on every run
 magicEnabled = true
-installTracer = false
-fixMatplotlib = true
-
-[client]
-showErrorDetails = true
+fastReruns = false

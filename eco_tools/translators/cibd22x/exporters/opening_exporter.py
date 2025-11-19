@@ -98,12 +98,12 @@ class OpeningExporter(BaseExporter):
             self.add_numeric_element(open_elem, 'Width', width_ft, precision=2)
 
         # Window type reference (for catalog-based windows) - use format-aware tag
+        # NOTE: Prefer window_type_ref over fenestration_cons_ref to avoid duplicates
         window_type_tag = get_window_type_ref_tag(format_type)
         if opening.window_type_ref:
             self.add_text_element(open_elem, window_type_tag, opening.window_type_ref)
-
-        # Fenestration construction reference - use format-aware tag
-        if opening.fenestration_cons_ref:
+        elif opening.fenestration_cons_ref:
+            # Use fenestration_cons_ref only if window_type_ref is not available
             self.add_text_element(open_elem, window_type_tag, opening.fenestration_cons_ref)
 
         # U-factor (if specified inline, not from catalog)

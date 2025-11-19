@@ -3,8 +3,9 @@ CIBD22X Translator Module
 """
 
 from .importer import CIBD22XImporter
+from .exporter import CIBD22XExporter
 
-__all__ = ['CIBD22XImporter', 'translate_cibd22x_to_v6']
+__all__ = ['CIBD22XImporter', 'CIBD22XExporter', 'translate_cibd22x_to_v6']
 
 
 def translate_cibd22x_to_v6(xml_file: str):

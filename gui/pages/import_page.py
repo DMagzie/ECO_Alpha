@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 import tempfile
+import shutil
 import os
 import sys
 from pathlib import Path
@@ -212,6 +213,36 @@ def _process_import(file_path, importer_id: str, is_temp: bool = False, filename
             st.session_state['active_model_source'] = importer_id
             st.session_state['active_model_filename'] = filename
             st.session_state['import_timestamp'] = datetime.now().isoformat()
+
+            # Store source file path for roundtrip export
+            if not is_temp and hasattr(file_path, 'name'):
+                # For uploaded files, save to temp location for roundtrip
+                # Create temp file with original extension
+                suffix = f".{filename.split('.')[-1]}" if '.' in filename else '.xml'
+                temp_fd, temp_path = tempfile.mkstemp(suffix=suffix, prefix='uploaded_')
+                os.close(temp_fd)
+
+                # Copy uploaded file content to temp location
+                file_path.seek(0)  # Reset file pointer
+                with open(temp_path, 'wb') as f:
+                    shutil.copyfileobj(file_path, f)
+
+                st.session_state['source_file_path'] = temp_path
+                st.session_state['source_file_format'] = importer_id
+                st.session_state['source_file_is_temp'] = True
+
+                # DEBUG
+                st.success(f"✅ DEBUG: Saved uploaded file to temp location: {temp_path}")
+            elif not is_temp:
+                # For direct file paths, store the actual path
+                st.session_state['source_file_path'] = str(file_path)
+                st.session_state['source_file_format'] = importer_id
+                st.session_state['source_file_is_temp'] = False
+            else:
+                # For temp files (pasted content), no source
+                st.session_state['source_file_path'] = None
+                st.session_state['source_file_format'] = None
+                st.session_state['source_file_is_temp'] = False
 
             # Show results
             _show_import_results(result, filename)

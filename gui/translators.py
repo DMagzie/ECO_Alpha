@@ -396,7 +396,7 @@ def emjson6_to_hbjson(em_json: Dict[str, Any]) -> str:
         }, indent=4)
 
 
-def emjson6_to_cibd25(em_json: Dict[str, Any]) -> str:
+def emjson6_to_cibd25(em_json: Dict[str, Any], source_cibd22x_file: str = None) -> str:
     """
     Export EMJSON v6 → CIBD25 text format string for Title 24 2025 simulation.
 
@@ -404,72 +404,53 @@ def emjson6_to_cibd25(em_json: Dict[str, Any]) -> str:
     - RulesetFilename: "T24_2025.bin"
     - SoftwareVersion: "CBECC 2025.2.0 (1390)"
 
-    This uses the full export pipeline: EMJSON → CIBD22X → Text conversion
+    Strategy: If source CIBD22X file is provided, use it for roundtrip.
+    Otherwise, use the old conversion path.
 
     Args:
         em_json: EMJSON v6 dictionary
+        source_cibd22x_file: Optional path to original CIBD22X file for roundtrip
 
     Returns:
         CIBD25 text format string ready for CBECC 2025
     """
     try:
-        from eco_tools.translators.cibd_xml_to_text import convert_xml_to_text
+        from eco_tools.translators.cibd22x import CIBD22XImporter
+        from eco_tools.translators.cibd25 import CIBD25Exporter
         import tempfile
         import os
 
-        # Step 1: Export EMJSON to CIBD22X XML using the universal translator
-        # (This already handles full building data)
-        cibd22x_xml = emjson6_to_cibd22x_uni(em_json)
+        # DEBUG: Print what we received
+        print(f"[DEBUG] emjson6_to_cibd25 called with source_cibd22x_file={source_cibd22x_file}")
+        if source_cibd22x_file:
+            print(f"[DEBUG] File exists check: {os.path.exists(source_cibd22x_file)}")
 
-        # Create temp XML file
-        with tempfile.NamedTemporaryFile(mode='w', suffix='_temp.xml', delete=False) as tmp_xml:
-            tmp_xml_path = tmp_xml.name
-            tmp_xml.write(cibd22x_xml)
-            tmp_xml.flush()
+        # If we have the original CIBD22X file, use it for roundtrip
+        if source_cibd22x_file and os.path.exists(source_cibd22x_file):
+            print(f"[DEBUG] Using ROUNDTRIP path with source file: {source_cibd22x_file}")
+            # Step 1: Import from CIBD22X
+            importer = CIBD22XImporter()
+            internal = importer.import_file(source_cibd22x_file)
+        else:
+            print(f"[DEBUG] Using FALLBACK path (EMJSON → InternalRepresentation)")
+            # Fallback: Convert EMJSON to InternalRepresentation (old path)
+            internal = _emjson_to_internal_repr(em_json)
 
-        # Step 2: Update metadata for CIBD25
-        import xml.etree.ElementTree as ET
-        tree = ET.parse(tmp_xml_path)
-        root = tree.getroot()
+        # Step 2: Use v7 CIBD25 exporter (includes fix for duplicate WinType bug)
+        exporter = CIBD25Exporter()
 
-        # Detect namespace
-        namespace = ''
-        if '}' in root.tag:
-            namespace = root.tag.split('}')[0] + '}'
-
-        # Set root attribute for 2025
-        root.set('RulesetFilename', 'T24_2025.bin')
-
-        # Update Proj metadata
-        proj = root.find(f".//{namespace}Proj") if namespace else root.find(".//Proj")
-        if proj is not None:
-            for child in proj:
-                tag = child.tag.replace(namespace, '') if namespace else child.tag
-
-                if tag == 'SoftwareVersion':
-                    child.text = 'CBECC 2025.2.0 (1390)'
-                elif tag == 'RulesetFilename':
-                    child.text = 'T24_2025.bin'
-                elif tag == 'BldgEngyModelVersion':
-                    if child.text != '17':
-                        child.text = '17'
-
-        # Write updated XML
-        ET.indent(tree, space="  ", level=0)
-        tree.write(tmp_xml_path, encoding='utf-8', xml_declaration=True)
-
-        # Step 3: Convert XML to text format
+        # Step 3: Export to temporary CIBD25 file
         with tempfile.NamedTemporaryFile(mode='w', suffix='.cibd25', delete=False) as tmp_text:
             tmp_text_path = tmp_text.name
 
-        convert_xml_to_text(tmp_xml_path, tmp_text_path)
+        # Export directly to CIBD25 text format
+        exporter.export(internal, tmp_text_path)
 
         # Step 4: Read text content
         with open(tmp_text_path, 'r', encoding='utf-8') as f:
             text_content = f.read()
 
-        # Clean up temp files
-        os.unlink(tmp_xml_path)
+        # Clean up temp file
         os.unlink(tmp_text_path)
 
         return text_content
@@ -606,23 +587,20 @@ def _internal_repr_to_emjson(internal_repr) -> Dict[str, Any]:
 
 def _emjson_to_internal_repr(emjson: Dict[str, Any]):
     """
-    Convert EMJSON v6 to InternalRepresentation.
-    
+    Convert EMJSON v6 to v7 InternalRepresentation.
+
     Args:
         emjson: EMJSON v6 dictionary
-        
+
     Returns:
-        InternalRepresentation for cibd22x_uni_base
+        v7 InternalRepresentation with proper dataclass objects
     """
-    # Import here to avoid circular dependency issues
-    UNI_BASE = ROOT / "cibd22x_uni_base"
-    if str(UNI_BASE) not in sys.path:
-        sys.path.insert(0, str(UNI_BASE))
-    
+    # Import v7 dataclasses (NOT old cibd22x_uni_base)
     from eco_tools.core.internal_repr import (
         InternalRepresentation, Zone, Surface, Opening,
         HVACSystem, DHWSystem, IAQFan, Material, Construction,
-        WindowType, PVArray, ZoneGroup
+        WindowType, PVArray, ZoneGroup, Schedule,
+        ZoneTerminal, WaterHeater, RecirculationLoop
     )
     
     internal = InternalRepresentation()
@@ -899,20 +877,32 @@ def _emjson_to_internal_repr(emjson: Dict[str, Any]):
 
     # Convert schedules
     for sch_dict in catalogs.get("schedules", []):
-        # Create a Schedule object - use SimpleNamespace to make it compatible
-        from types import SimpleNamespace
-        schedule = SimpleNamespace(
-            id=sch_dict.get("id", ""),
-            name=sch_dict.get("name", ""),
-            type=sch_dict.get("type", "fraction"),
-            schedule_type=sch_dict.get("schedule_type", ""),
-            building_type=sch_dict.get("building_type", ""),
-            weekday=sch_dict.get("weekday", []),
-            saturday=sch_dict.get("saturday", []),
-            sunday=sch_dict.get("sunday", []),
-            holiday=sch_dict.get("holiday", [])
-        )
-        internal.schedules.append(schedule)
+        # Create a proper Schedule dataclass object (v7 architecture)
+        # Map EMJSON v6 fields to v7 Schedule dataclass fields
+        schedule_data = {
+            "id": sch_dict.get("id", ""),
+            "name": sch_dict.get("name", ""),
+            "schedule_type": sch_dict.get("schedule_type", "day"),
+            "data_type": sch_dict.get("type", "fraction"),  # EMJSON 'type' → v7 'data_type'
+        }
+
+        # Map day-based schedule data to v7 format
+        # EMJSON has weekday/saturday/sunday/holiday, v7 uses values/hours/day_schedules
+        if "weekday" in sch_dict:
+            schedule_data["values"] = sch_dict["weekday"]
+        if "hours" in sch_dict:
+            schedule_data["hours"] = sch_dict["hours"]
+
+        # Store EMJSON-specific fields in annotation for roundtrip
+        annotation = dict(sch_dict.get("annotation", {}))
+        for field in ["building_type", "saturday", "sunday", "holiday"]:
+            if field in sch_dict:
+                annotation[field] = sch_dict[field]
+
+        if annotation:
+            schedule_data["annotation"] = annotation
+
+        internal.schedules.append(Schedule(**schedule_data))
 
     internal.du_types = catalogs.get("du_types", [])
 
@@ -953,27 +943,22 @@ def _emjson_to_internal_repr(emjson: Dict[str, Any]):
             if field in h_dict:
                 hvac_data[field] = h_dict[field]
 
-        # Copy equipment details directly to HVACSystem fields (not annotation)
+        # Store ALL equipment/capacity fields in annotation (HVACSystem dataclass doesn't have these fields)
+        annotation = dict(h_dict.get("annotation", {}))
+
+        # All equipment, capacity, efficiency, and legacy fields go to annotation
         equipment_fields = [
             "equipment_type", "manufacturer", "model",
-            "cooling_type", "cooling_capacity_tons", "cooling_capacity_kw", "cooling_capacity_mbh",
+            "cooling_type", "cooling_capacity_tons", "cooling_capacity_kw", "cooling_capacity_mbh", "cooling_capacity_btu",
             "cooling_efficiency_eer", "cooling_efficiency_ieer", "cooling_efficiency_seer2",
-            "heating_type", "heating_capacity_kw", "heating_capacity_mbh",
+            "heating_type", "heating_capacity_kw", "heating_capacity_mbh", "heating_capacity_btu",
             "heating_efficiency_cop", "heating_efficiency_hspf2",
             "airflow_cfm", "minimum_oa_cfm", "fan_control",
             "economizer_type", "economizer_fdd",
             "cooling_setpoint_f", "heating_setpoint_f", "has_bacnet", "has_dcv", "dcv_minimum_oa_cfm",
-            "filter_merv"
+            "filter_merv", "system_type", "description", "template_source", "sizing_method", "sizing_note"
         ]
         for field in equipment_fields:
-            if field in h_dict:
-                hvac_data[field] = h_dict[field]
-
-        # Store remaining fields in annotation for export
-        annotation = dict(h_dict.get("annotation", {}))
-        remaining_fields = ["system_type", "cooling_capacity_btu", "heating_capacity_btu",
-                           "description", "template_source", "sizing_method", "sizing_note"]
-        for field in remaining_fields:
             if field in h_dict:
                 annotation[field] = h_dict[field]
 
@@ -1046,68 +1031,11 @@ def _emjson_to_internal_repr(emjson: Dict[str, Any]):
     # Metadata and diagnostics
     internal.metadata = emjson.get("project", {})
     internal.diagnostics = emjson.get("diagnostics", [])
-    
+
+    # CRITICAL: Restore proj_metadata (contains ResProj, ProjVar, DwellUnitType for residential compliance)
+    internal.proj_metadata = emjson.get("proj_metadata", {})
+
     return internal
-
-
-def translate_cibd22x_uni_to_v6(xml_file: str) -> Dict[str, Any]:
-    """
-    CIBD22X XML → EMJSON v6 using cibd22x_uni_base UniversalTranslator.
-    
-    Args:
-        xml_file: Path to CIBD22X XML file
-        
-    Returns:
-        EMJSON v6 dict with diagnostics
-    """
-    try:
-        # Add cibd22x_uni_base to path
-        UNI_BASE = ROOT / "cibd22x_uni_base"
-        if str(UNI_BASE) not in sys.path:
-            sys.path.insert(0, str(UNI_BASE))
-        
-        from eco_tools.core.translator import UniversalTranslator
-        
-        # Create translator
-        translator = UniversalTranslator()
-        
-        # Load CIBD22X file to internal representation
-        internal_repr = translator.load(xml_file)
-        
-        # Convert to EMJSON
-        emjson = _internal_repr_to_emjson(internal_repr)
-        
-        return emjson
-        
-    except ImportError as e:
-        return {
-            "schema_version": "6.0",
-            "diagnostics": [{
-                "level": "error",
-                "code": "E-TRANSLATOR-MISSING",
-                "message": f"Cannot import UniversalTranslator from cibd22x_uni_base: {e}",
-                "stage": "import",
-                "ts": "",
-                "path": "",
-                "context": "Ensure cibd22x_uni_base package is available",
-                "source": "explorer_gui"
-            }]
-        }
-    except Exception as e:
-        import traceback
-        return {
-            "schema_version": "6.0",
-            "diagnostics": [{
-                "level": "error",
-                "code": "E-TRANSLATION-FAILED",
-                "message": str(e),
-                "stage": "import",
-                "ts": "",
-                "path": xml_file,
-                "context": traceback.format_exc(),
-                "source": "explorer_gui"
-            }]
-        }
 
 
 def emjson6_to_cbecc_sddxml(em_json: Dict[str, Any]) -> str:
@@ -1139,72 +1067,6 @@ def emjson6_to_cbecc_sddxml(em_json: Dict[str, Any]) -> str:
 """
 
 
-def emjson6_to_cibd22x_uni(em_json: Dict[str, Any]) -> str:
-    """
-    Export EMJSON v6 → CIBD22X XML string using cibd22x_uni_base UniversalTranslator.
-
-    DEPRECATED: Use emjson6_to_cbecc_sddxml for CBECC-Com export.
-
-    Args:
-        em_json: EMJSON v6 dictionary
-
-    Returns:
-        XML string (pretty-printed)
-    """
-    try:
-        # Add cibd22x_uni_base to path
-        UNI_BASE = ROOT / "cibd22x_uni_base"
-        if str(UNI_BASE) not in sys.path:
-            sys.path.insert(0, str(UNI_BASE))
-        
-        from eco_tools.core.translator import UniversalTranslator
-        from xml.etree import ElementTree as ET
-        from xml.dom import minidom
-        import tempfile
-        
-        # Convert EMJSON to internal representation
-        internal_repr = _emjson_to_internal_repr(em_json)
-        
-        # Create translator
-        translator = UniversalTranslator()
-        
-        # Save to temporary file
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.xml', delete=False) as tmp:
-            tmp_path = tmp.name
-        
-        translator.save(internal_repr, tmp_path, 'CIBD22X')
-        
-        # Read back as string
-        with open(tmp_path, 'r') as f:
-            xml_content = f.read()
-        
-        # Clean up temp file
-        import os
-        os.unlink(tmp_path)
-        
-        return xml_content
-        
-    except ImportError as e:
-        return f"""<?xml version="1.0" encoding="UTF-8"?>
-<!-- Export failed: Cannot import UniversalTranslator from cibd22x_uni_base: {e} -->
-<!-- Ensure cibd22x_uni_base package is available -->
-<Error>
-    <Message>Exporter not found</Message>
-</Error>
-"""
-    except Exception as e:
-        import traceback
-        return f"""<?xml version="1.0" encoding="UTF-8"?>
-<!-- Export failed: {str(e)} -->
-<!-- Traceback:
-{traceback.format_exc()}
--->
-<Error>
-    <Message>{str(e)}</Message>
-</Error>
-"""
-
-
 def list_importers() -> List[Dict[str, Any]]:
     """
     Return metadata for all available importers.
@@ -1215,16 +1077,9 @@ def list_importers() -> List[Dict[str, Any]]:
     return [
         {
             "id": "cibd22x",
-            "label": "CIBD22X (V7 Adapter)",
-            "description": "Import CIBD22X XML format using v7 adapter: 99.8% coverage, stable IDs, unit conversions, round-trip capable.",
+            "label": "CIBD22X (V7 Modular)",
+            "description": "Import CIBD22X XML format using v7 modular parsers: 99.8% coverage, stable IDs, unit conversions, round-trip capable.",
             "fn": translate_cibd22x_to_v6,
-            "extensions": [".xml", ".cibd22x"],
-        },
-        {
-            "id": "cibd22x_uni",
-            "label": "CIBD22X (Universal Translator)",
-            "description": "Import CIBD22X XML format using cibd22x_uni_base UniversalTranslator: adapter-based architecture with format detection and validation.",
-            "fn": translate_cibd22x_uni_to_v6,
             "extensions": [".xml", ".cibd22x"],
         },
         {

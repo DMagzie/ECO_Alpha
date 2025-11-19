@@ -33,13 +33,14 @@ class ProjParser(BaseParser):
 
     def parse_proj_metadata(self, root: ET.Element) -> Dict[str, Any]:
         """
-        Parse all Proj metadata properties.
+        Parse all Proj metadata properties including nested elements.
 
         CBECC requires the Proj element for simulation. It contains:
         - Project identification (name, dates)
         - Location information (address, climate zone)
         - Analysis settings (compliance type, analysis type)
         - Software version information
+        - Nested objects: ResProj (residential compliance)
 
         Args:
             root: Root XML element
@@ -64,8 +65,38 @@ class ProjParser(BaseParser):
         # CBECC has dozens of Proj properties, we preserve them all
         for child in proj_elem:
             tag = self._local_tag(child.tag)
-            if child.text:
+
+            # Handle nested elements (ResProj, ProjVar, etc.)
+            if tag in ['ResProj', 'ProjVar', 'DwellUnitType']:
+                metadata[tag] = self._parse_nested_element(child)
+            # Handle simple properties
+            elif child.text and child.text.strip():
                 metadata[tag] = child.text.strip()
+            # Handle empty child markers (child elements present but not parsed yet)
+            else:
+                metadata[tag] = ""
 
         logger.info(f"Parsed {len(metadata)} project metadata properties")
         return metadata
+
+    def _parse_nested_element(self, elem: ET.Element) -> Dict[str, Any]:
+        """
+        Parse a nested element like ResProj into a dictionary.
+
+        Args:
+            elem: XML element to parse
+
+        Returns:
+            Dictionary of all properties in the nested element
+        """
+        result = {}
+
+        # Extract all child properties
+        for child in elem:
+            tag = self._local_tag(child.tag)
+            if child.text and child.text.strip():
+                result[tag] = child.text.strip()
+            else:
+                result[tag] = ""
+
+        return result
