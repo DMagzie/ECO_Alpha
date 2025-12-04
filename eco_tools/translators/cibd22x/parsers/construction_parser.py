@@ -304,6 +304,18 @@ class ConstructionParser(BaseParser):
             if value:
                 annotation[prop] = value
 
+        # CRITICAL: Capture MatRef array for commercial constructions
+        # MatRef specifies the material layers that make up the assembly.
+        # CBECC uses these to calculate framing factors (FrmConfig, FrmMat).
+        # Without MatRef, CBECC defaults to '- specify -' causing table lookup failures.
+        mat_refs = []
+        for mat_ref_elem in cons_elem.findall('.//MatRef'):
+            if mat_ref_elem.text:
+                mat_refs.append(mat_ref_elem.text.strip())
+
+        if mat_refs:
+            annotation['MatRef'] = mat_refs
+
         return annotation
 
     def _get_name(self, element: ET.Element) -> Optional[str]:

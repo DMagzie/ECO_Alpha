@@ -1,0 +1,26 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Euclid_Bldg B_2024-04-2922TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"MFC-1 TrmlUnit","Uncontrolled","MFC-1 AirSys","IDF_L01",635.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"MFC-1 ClgCoil","DirectExpansion","MFC-1 AirSys","n/a",18000.000,18779.591,-99996.00000,14.896,11.880,1
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"MFC-1 HtgCoil","HeatPump","MFC-1 AirSys","n/a",18000.000,17220.409,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"MFC-1 SupFan","ConstantVolume","MFC-1 AirSys","n/a",635.000,-99996.000,0.650,"StaticPressure",0.771,0.119,0.250,"InAirStream",0.900,0.1549
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"MFC-1 OACtrl","NoEconomizer","MFC-1 AirSys","UNDEFINED"
+ENDTABLE

@@ -1,0 +1,86 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Euclid Building A_v3_2024-04-2922TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Sport-Lounge TrmlUnit","Uncontrolled","Sport-Lounge AirSys","Sport-Lounge",1200.000,-99996.000,-99996.000,""
+,"Sport-Lounge TrmlUnit-2","Uncontrolled","Sport-Lounge AirSys-2","Sport-Lounge-2",1200.000,-99996.000,-99996.000,""
+,"Fitness-Center TrmlUnit","Uncontrolled","Fitness-Center AirSys","Fitness-Center",2000.000,-99996.000,-99996.000,""
+,"Co-Work TrmlUnit","Uncontrolled","Co-Work AirSys","Co-Work",1000.000,-99996.000,-99996.000,""
+,"Leasing TrmlUnit","Uncontrolled","Leasing AirSys","Leasing",2000.000,-99996.000,-99996.000,""
+,"Media-Lounge TrmlUnit","Uncontrolled","Media-Lounge AirSys","Media-Lounge",1000.000,-99996.000,-99996.000,""
+,"Inverter-Rm_L01 TrmlUnit","Uncontrolled","Inverter-Rm_L01 AirSys","Inverter-Rm_L01",635.000,-99996.000,-99996.000,""
+,"Offices_Break-Rm TrmlUnit","Uncontrolled","Offices_Break-Rm AirSys","Offices_Break-Rm",1200.000,-99996.000,-99996.000,""
+,"Social-Lounge TrmlUnit","Uncontrolled","Social-Lounge AirSys","Social-Lounge",2000.000,-99996.000,-99996.000,""
+,"Social-Lounge TrmlUnit-2","Uncontrolled","Social-Lounge AirSys-2","Social-Lounge-2",2000.000,-99996.000,-99996.000,""
+,"Pet-Spa_L01 TrmlUnit","Uncontrolled","Pet-Spa_L01 AirSys","Pet-Spa_L01",800.000,-99996.000,-99996.000,""
+,"Fitness-Center TrmlUnit-2","Uncontrolled","Fitness-Center AirSys-2","Fitness-Center-2",2000.000,-99996.000,-99996.000,""
+,"Fitness-Center TrmlUnit-3","Uncontrolled","Fitness-Center AirSys-3","Fitness-Center-3",2000.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Euclid Building A_v3_2024-04-2922CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Sport-Lounge ClgCoil","DirectExpansion","Sport-Lounge AirSys","n/a",34000.000,35472.561,-99996.00000,14.896,11.880,1
+,"Sport-Lounge ClgCoil-2","DirectExpansion","Sport-Lounge AirSys-2","n/a",34000.000,35472.561,-99996.00000,14.896,11.880,1
+,"Fitness-Center ClgCoil","DirectExpansion","Fitness-Center AirSys","n/a",57000.000,59468.705,-99996.00000,14.896,11.880,1
+,"Co-Work ClgCoil","DirectExpansion","Co-Work AirSys","n/a",27600.000,28795.373,-99996.00000,14.896,11.880,1
+,"Leasing ClgCoil","DirectExpansion","Leasing AirSys","n/a",57000.000,59468.705,-99996.00000,14.896,11.880,1
+,"Media-Lounge ClgCoil","DirectExpansion","Media-Lounge AirSys","n/a",27600.000,28795.373,-99996.00000,14.896,11.880,1
+,"Inverter-Rm_L01 ClgCoil","DirectExpansion","Inverter-Rm_L01 AirSys","n/a",18000.000,18779.591,-99996.00000,22.396,13.000,1
+,"Offices_Break-Rm ClgCoil","DirectExpansion","Offices_Break-Rm AirSys","n/a",34000.000,35472.561,-99996.00000,14.896,11.880,1
+,"Social-Lounge ClgCoil","DirectExpansion","Social-Lounge AirSys","n/a",57000.000,59468.705,-99996.00000,14.896,11.880,1
+,"Social-Lounge ClgCoil-2","DirectExpansion","Social-Lounge AirSys-2","n/a",57000.000,59468.705,-99996.00000,14.896,11.880,1
+,"Pet-Spa_L01 ClgCoil","DirectExpansion","Pet-Spa_L01 AirSys","n/a",24000.000,25039.455,-99996.00000,22.396,13.000,1
+,"Fitness-Center ClgCoil-2","DirectExpansion","Fitness-Center AirSys-2","n/a",57000.000,59468.705,-99996.00000,14.896,11.880,1
+,"Fitness-Center ClgCoil-3","DirectExpansion","Fitness-Center AirSys-3","n/a",57000.000,59468.705,-99996.00000,14.896,11.880,1
+ENDTABLE
+TABLE Euclid Building A_v3_2024-04-2922CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Sport-Lounge HtgCoil","HeatPump","Sport-Lounge AirSys","n/a",33000.000,31527.439,-99996.00000,-99996.000,-99996.000
+,"Sport-Lounge HtgCoil-2","HeatPump","Sport-Lounge AirSys-2","n/a",33000.000,31527.439,-99996.00000,-99996.000,-99996.000
+,"Fitness-Center HtgCoil","HeatPump","Fitness-Center AirSys","n/a",55500.000,53031.295,-99996.00000,-99996.000,-99996.000
+,"Co-Work HtgCoil","HeatPump","Co-Work AirSys","n/a",27600.000,26404.627,-99996.00000,-99996.000,-99996.000
+,"Leasing HtgCoil","HeatPump","Leasing AirSys","n/a",55000.000,52531.295,-99996.00000,-99996.000,-99996.000
+,"Media-Lounge HtgCoil","HeatPump","Media-Lounge AirSys","n/a",28400.000,27204.627,-99996.00000,-99996.000,-99996.000
+,"Inverter-Rm_L01 HtgCoil","HeatPump","Inverter-Rm_L01 AirSys","n/a",18000.000,17220.409,-99996.00000,-99996.000,-99996.000
+,"Offices_Break-Rm HtgCoil","HeatPump","Offices_Break-Rm AirSys","n/a",34000.000,32527.439,-99996.00000,-99996.000,-99996.000
+,"Social-Lounge HtgCoil","HeatPump","Social-Lounge AirSys","n/a",55500.000,53031.295,-99996.00000,-99996.000,-99996.000
+,"Social-Lounge HtgCoil-2","HeatPump","Social-Lounge AirSys-2","n/a",55500.000,53031.295,-99996.00000,-99996.000,-99996.000
+,"Pet-Spa_L01 HtgCoil","HeatPump","Pet-Spa_L01 AirSys","n/a",29000.000,27960.545,-99996.00000,-99996.000,-99996.000
+,"Fitness-Center HtgCoil-2","HeatPump","Fitness-Center AirSys-2","n/a",55500.000,53031.295,-99996.00000,-99996.000,-99996.000
+,"Fitness-Center HtgCoil-3","HeatPump","Fitness-Center AirSys-3","n/a",55500.000,53031.295,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Euclid Building A_v3_2024-04-2922Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Sport-Lounge SupFan","ConstantVolume","Sport-Lounge AirSys","n/a",1200.000,-99996.000,0.650,"StaticPressure",0.500,0.145,0.500,"InAirStream",0.900,0.1004
+,"Sport-Lounge SupFan-2","ConstantVolume","Sport-Lounge AirSys-2","n/a",1200.000,-99996.000,0.650,"StaticPressure",0.500,0.145,0.500,"InAirStream",0.900,0.1004
+,"Fitness-Center SupFan","ConstantVolume","Fitness-Center AirSys","n/a",2000.000,-99996.000,0.650,"StaticPressure",0.500,0.242,0.750,"InAirStream",0.900,0.1004
+,"Co-Work SupFan","ConstantVolume","Co-Work AirSys","n/a",1000.000,-99996.000,0.650,"StaticPressure",0.500,0.121,0.500,"InAirStream",0.900,0.1004
+,"Leasing SupFan","ConstantVolume","Leasing AirSys","n/a",2000.000,-99996.000,0.650,"StaticPressure",0.500,0.242,0.750,"InAirStream",0.900,0.1004
+,"Media-Lounge SupFan","ConstantVolume","Media-Lounge AirSys","n/a",1000.000,-99996.000,0.650,"StaticPressure",0.300,0.073,0.500,"InAirStream",0.900,0.0603
+,"Inverter-Rm_L01 SupFan","ConstantVolume","Inverter-Rm_L01 AirSys","n/a",635.000,-99996.000,0.650,"StaticPressure",0.100,0.015,0.500,"InAirStream",0.900,0.0201
+,"Offices_Break-Rm SupFan","ConstantVolume","Offices_Break-Rm AirSys","n/a",1200.000,-99996.000,0.650,"StaticPressure",0.500,0.145,0.500,"InAirStream",0.900,0.1004
+,"Social-Lounge SupFan","ConstantVolume","Social-Lounge AirSys","n/a",2000.000,-99996.000,0.650,"StaticPressure",0.500,0.242,0.750,"InAirStream",0.900,0.1004
+,"Social-Lounge SupFan-2","ConstantVolume","Social-Lounge AirSys-2","n/a",2000.000,-99996.000,0.650,"StaticPressure",0.500,0.242,0.750,"InAirStream",0.900,0.1004
+,"Pet-Spa_L01 SupFan","ConstantVolume","Pet-Spa_L01 AirSys","n/a",800.000,-99996.000,0.650,"StaticPressure",0.100,0.019,0.500,"InAirStream",0.500,0.0362
+,"Fitness-Center SupFan-2","ConstantVolume","Fitness-Center AirSys-2","n/a",2000.000,-99996.000,0.650,"StaticPressure",0.500,0.242,0.750,"InAirStream",0.900,0.1004
+,"Fitness-Center SupFan-3","ConstantVolume","Fitness-Center AirSys-3","n/a",2000.000,-99996.000,0.650,"StaticPressure",0.500,0.242,0.750,"InAirStream",0.900,0.1004
+ENDTABLE
+TABLE Euclid Building A_v3_2024-04-2922OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"Sport-Lounge OACtrl","NoEconomizer","Sport-Lounge AirSys","UNDEFINED"
+,"Sport-Lounge OACtrl-2","NoEconomizer","Sport-Lounge AirSys-2","UNDEFINED"
+,"Fitness-Center OACtrl","NoEconomizer","Fitness-Center AirSys","UNDEFINED"
+,"Co-Work OACtrl","NoEconomizer","Co-Work AirSys","UNDEFINED"
+,"Leasing OACtrl","NoEconomizer","Leasing AirSys","UNDEFINED"
+,"Media-Lounge OACtrl","NoEconomizer","Media-Lounge AirSys","UNDEFINED"
+,"Inverter-Rm_L01 OACtrl","NoEconomizer","Inverter-Rm_L01 AirSys","UNDEFINED"
+,"Offices_Break-Rm OACtrl","NoEconomizer","Offices_Break-Rm AirSys","UNDEFINED"
+,"Social-Lounge OACtrl","NoEconomizer","Social-Lounge AirSys","UNDEFINED"
+,"Social-Lounge OACtrl-2","NoEconomizer","Social-Lounge AirSys-2","UNDEFINED"
+,"Pet-Spa_L01 OACtrl","NoEconomizer","Pet-Spa_L01 AirSys","UNDEFINED"
+,"Fitness-Center OACtrl-2","NoEconomizer","Fitness-Center AirSys-2","UNDEFINED"
+,"Fitness-Center OACtrl-3","NoEconomizer","Fitness-Center AirSys-3","UNDEFINED"
+ENDTABLE

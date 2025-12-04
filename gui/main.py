@@ -1,6 +1,32 @@
 import streamlit as st
 import sys
+import os
+import shutil
 from pathlib import Path
+
+# Clear Python cache before imports to ensure latest code is loaded
+def clear_pycache():
+    """Clear all __pycache__ directories and .pyc files in eco_tools."""
+    ROOT = Path(__file__).resolve().parent.parent
+    eco_tools_path = ROOT / "eco_tools"
+
+    if eco_tools_path.exists():
+        # Remove all __pycache__ directories
+        for pycache_dir in eco_tools_path.rglob("__pycache__"):
+            try:
+                shutil.rmtree(pycache_dir)
+            except Exception:
+                pass
+
+        # Remove all .pyc files
+        for pyc_file in eco_tools_path.rglob("*.pyc"):
+            try:
+                pyc_file.unlink()
+            except Exception:
+                pass
+
+# Clear cache on startup
+clear_pycache()
 
 # Add project root to path
 ROOT = Path(__file__).resolve().parent.parent
@@ -17,6 +43,7 @@ from gui.pages.diagnostics_page import show_diagnostics
 from gui.pages.round_trip_page import handle_round_trip
 from gui.pages.active_model_page import show_active_model
 from gui.pages.editing_page import handle_editing
+from gui.pages.comparison_page import handle_comparison
 
 # Optional features - imported with error handling
 try:
@@ -45,6 +72,7 @@ def main():
         "📚 Template Browser",
         "Active Model",
         "Edit Model",
+        "🔄 Compare Models",
         "Export",
         "⚡ Simulate",
         "Diagnostics",
@@ -81,6 +109,8 @@ def main():
         show_active_model()
     elif page == "Edit Model":
         handle_editing()
+    elif page == "🔄 Compare Models":
+        handle_comparison()
     elif page == "Export":
         handle_export()
     elif page == "⚡ Simulate":

@@ -1,0 +1,27 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Euclid_Bldg B_2024-04-2922TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"ResBaseAirSys TrmlUnit","Uncontrolled","ResBaseAirSys_SZHP","IDF_L01",21.568,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilClg","DirectExpansion","ResBaseAirSys_SZHP","n/a",690.473,720.378,-99996.00000,15.053,11.956,1
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilHtg","HeatPump","ResBaseAirSys_SZHP","n/a",750.283,720.378,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP SuppCoilHtg","Resistance","ResBaseAirSys_SZHP","n/a",576.800,576.800,0.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"ResBaseAirSys_SZHP SupFan","ConstantVolume","ResBaseAirSys_SZHP","n/a",21.568,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.018,0.083,"InAirStream",0.855,0.7440
+ENDTABLE
+TABLE Euclid_Bldg B_2024-04-2922OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"ResBaseAirSys_SZHP OACtrl","NoEconomizer","ResBaseAirSys_SZHP","UNDEFINED"
+ENDTABLE

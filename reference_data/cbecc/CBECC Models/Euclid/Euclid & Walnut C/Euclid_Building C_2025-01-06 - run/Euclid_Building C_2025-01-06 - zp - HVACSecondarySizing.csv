@@ -1,0 +1,26 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Euclid_Building C_2025-01-0622TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Inverter-Rm_L01 TrmlUnit","Uncontrolled","Inverter-Rm_L01 AirSys","Inverter-Rm_L01",635.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Euclid_Building C_2025-01-0622CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Inverter-Rm_L01 ClgCoil","DirectExpansion","Inverter-Rm_L01 AirSys","n/a",18000.000,18779.591,-99996.00000,21.500,13.000,1
+ENDTABLE
+TABLE Euclid_Building C_2025-01-0622CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Inverter-Rm_L01 HtgCoil","HeatPump","Inverter-Rm_L01 AirSys","n/a",18000.000,17220.409,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Euclid_Building C_2025-01-0622Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Inverter-Rm_L01 SupFan","ConstantVolume","Inverter-Rm_L01 AirSys","n/a",635.000,-99996.000,0.650,"StaticPressure",0.100,0.015,0.500,"InAirStream",0.900,0.0201
+ENDTABLE
+TABLE Euclid_Building C_2025-01-0622OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"Inverter-Rm_L01 OACtrl","NoEconomizer","Inverter-Rm_L01 AirSys","UNDEFINED"
+ENDTABLE

@@ -19,7 +19,7 @@ from __future__ import annotations
 from typing import Dict, Any, List
 import sys
 
-from eco_tools.translators.cibd22.text_parser import parse_cibd22_file
+from eco_tools.translators.cibd25.text_reader import parse_cibd25_text
 from eco_tools.core.id_registry import IDRegistry
 
 VERSION = "6.0"
@@ -377,6 +377,72 @@ def _parse_zones(parser, em: Dict[str, Any], id_registry: IDRegistry,
     return zone_name_to_id
 
 
+def _nest_surfaces_into_zones(em: Dict[str, Any]) -> None:
+    """
+    Nest surfaces from geometry.surfaces into their parent zones.
+
+    After parsing, surfaces are stored in em["geometry"]["surfaces"] as:
+    {
+        "walls": [...],
+        "roofs": [...],
+        "floors": [...]
+    }
+
+    This function moves each surface into its parent zone's surfaces array
+    so the GUI can display them correctly.
+    """
+    # Get zones and surfaces
+    zones = em.get("geometry", {}).get("zones", [])
+    all_surfaces = em.get("geometry", {}).get("surfaces", {})
+
+    if not zones or not all_surfaces:
+        return
+
+    # Create zone lookup by ID for fast access
+    zone_by_id = {z["id"]: z for z in zones}
+
+    # Track statistics
+    nested_count = 0
+    orphaned_count = 0
+
+    # Iterate through all surface buckets (walls, roofs, floors)
+    for bucket_name, surface_list in all_surfaces.items():
+        for surface in surface_list:
+            zone_id = surface.get("zone_id")
+
+            if zone_id and zone_id in zone_by_id:
+                # Add surface to its parent zone
+                zone_by_id[zone_id]["surfaces"].append(surface)
+                nested_count += 1
+            else:
+                # Surface has no zone or zone doesn't exist
+                orphaned_count += 1
+                if zone_id:
+                    em["diagnostics"].append({
+                        "level": "warning",
+                        "code": "W-SURFACE-ORPHANED",
+                        "message": f"Surface '{surface.get('name', 'unknown')}' references non-existent zone '{zone_id}'",
+                        "context": {
+                            "surface_name": surface.get("name"),
+                            "zone_id": zone_id,
+                            "surface_type": bucket_name
+                        }
+                    })
+
+    # Add diagnostic info
+    if nested_count > 0:
+        em["diagnostics"].append({
+            "level": "info",
+            "code": "I-SURFACES-NESTED",
+            "message": f"Nested {nested_count} surfaces into {len(zone_by_id)} zones ({orphaned_count} orphaned)",
+            "context": {
+                "nested_count": nested_count,
+                "orphaned_count": orphaned_count,
+                "zone_count": len(zone_by_id)
+            }
+        })
+
+
 def _parse_surfaces(parser, em: Dict[str, Any], id_registry: IDRegistry,
                    zone_name_to_id: Dict[str, str], cons_name_to_id: Dict[str, str]) -> None:
     """Parse ResExtWall, Roof, ResSlabFlr objects with robust heuristic resolution."""
@@ -492,7 +558,10 @@ def _parse_surfaces(parser, em: Dict[str, Any], id_registry: IDRegistry,
             surfaces[bucket].append(item)
     
     em["geometry"]["surfaces"] = surfaces
-    
+
+    # Nest surfaces into their parent zones
+    _nest_surfaces_into_zones(em)
+
     total_surfs = sum(len(v) for v in surfaces.values())
     if total_surfs > 0:
         em["diagnostics"].append({
@@ -713,8 +782,8 @@ def translate_cibd25_to_v6(file_path: str) -> Dict[str, Any]:
         >>> emjson = translate_cibd25_to_v6("model.cibd25")
         >>> print(f"Zones: {len(emjson['geometry']['zones'])}")
     """
-    # Parse CIBD25 text format (uses same parser as CIBD22)
-    parser = parse_cibd22_file(file_path)
+    # Parse CIBD25 text format using the text reader
+    parser = parse_cibd25_text(file_path)
     
     # Initialize EMJSON v6 structure
     em: Dict[str, Any] = {

@@ -182,6 +182,9 @@ class OpeningParser(BaseParser):
         shgc = self._to_float(self.get_property(open_elem, 'SHGC'))
         vt = self._to_float(self.get_property(open_elem, 'VT'))
 
+        # Parse PolyLp vertices for CIBD25 export (commercial openings need geometry)
+        vertices = self._parse_polylp_vertices(open_elem)
+
         # Determine opening type
         open_type = self._determine_opening_type(open_tag)
 
@@ -198,10 +201,41 @@ class OpeningParser(BaseParser):
             u_factor_SI=u_factor,
             shgc=shgc,
             vt=vt,
+            vertices=vertices,
             annotation={'xml_tag': open_tag}
         )
 
         return opening
+
+    def _parse_polylp_vertices(self, element: ET.Element) -> Optional[List[Dict[str, float]]]:
+        """
+        Parse PolyLp vertices for CIBD25 export.
+
+        Commercial openings (Win, Dr) require PolyLp geometry in CIBD25, just like surfaces.
+        This method extracts CartesianPt coordinates from the PolyLp child element.
+
+        Args:
+            element: XML element that may contain a PolyLp child
+
+        Returns:
+            List of vertices [{'x': float, 'y': float, 'z': float}, ...] or None if no PolyLp found
+        """
+        polylp = self.find_child(element, 'PolyLp')
+        if polylp is None:
+            return None
+
+        # Extract all 3 coordinates (X, Y, Z) from CartesianPt elements
+        vertices = []
+        for pt in self.find_children(polylp, 'CartesianPt'):
+            coords = self.find_children(pt, 'Coord')
+            if len(coords) >= 3:
+                x = self._to_float(coords[0].text)
+                y = self._to_float(coords[1].text)
+                z = self._to_float(coords[2].text)
+                if x is not None and y is not None and z is not None:
+                    vertices.append({'x': x, 'y': y, 'z': z})
+
+        return vertices if len(vertices) >= 3 else None
 
     def _determine_opening_type(self, open_tag: str) -> str:
         """

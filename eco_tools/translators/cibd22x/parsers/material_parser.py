@@ -269,8 +269,12 @@ class MaterialParser(BaseParser):
             'FrmCfg',              # Framing configuration (16" OC, 24" OC, etc.)
             'FrmDpth',             # Framing depth (inches)
             'FrmSpc',              # Framing spacing (inches)
+            'FrmMat',              # Framing material (Wood, Metal)
+            'FrmConfig',           # Framing configuration (alternate name)
+            'FrmDepth',            # Framing depth (alternate name)
 
             # Insulation installation options
+            'CavityIns',           # Cavity insulation R-value (numeric) - CRITICAL for MetalInsFrameLayers
             'CavityInsOpt'         # Cavity insulation option (loose fill, batt, spray foam)
         ]
 

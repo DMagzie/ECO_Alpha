@@ -364,32 +364,59 @@ class GeometryVisualizer:
         zones = geometry.get('zones', [])
         stats['zones'] = len(zones)
 
-        # Calculate totals from zones
+        # Calculate totals from zones and count zone-nested surfaces
+        zone_surface_count = 0
+        zone_opening_count = 0
+
         for zone in zones:
             area = zone.get('floor_area_m2') or zone.get('area') or 0
             volume = zone.get('volume_m3') or zone.get('volume') or 0
             stats['total_floor_area_m2'] += area
             stats['total_volume_m3'] += volume
 
-        # Count surfaces
+            # Count surfaces nested in zones (if they're full objects, not just IDs)
+            zone_surfaces = zone.get('surfaces', [])
+            if zone_surfaces and isinstance(zone_surfaces[0], dict):
+                # Surfaces are full objects
+                zone_surface_count += len(zone_surfaces)
+                # Count surface types from zone surfaces
+                for surf in zone_surfaces:
+                    surf_type = surf.get('type', 'unknown')
+                    stats['surface_types'][surf_type] = stats['surface_types'].get(surf_type, 0) + 1
+
+            # Count openings nested in zones
+            zone_openings = zone.get('openings', [])
+            if zone_openings and isinstance(zone_openings, list):
+                if zone_openings and isinstance(zone_openings[0], dict):
+                    zone_opening_count += len(zone_openings)
+
+        # Count surfaces at geometry level
+        top_level_surface_count = 0
         surfaces = geometry.get('surfaces', {})
         if isinstance(surfaces, dict):
             for category, surf_list in surfaces.items():
                 if isinstance(surf_list, list):
                     count = len(surf_list)
-                    stats['surfaces'] += count
-                    stats['surface_types'][category] = count
+                    top_level_surface_count += count
+                    stats['surface_types'][category] = stats['surface_types'].get(category, 0) + count
         elif isinstance(surfaces, list):
-            stats['surfaces'] = len(surfaces)
+            top_level_surface_count = len(surfaces)
 
-        # Count openings
+        # Use zone-nested surfaces if available, otherwise use top-level
+        stats['surfaces'] = max(zone_surface_count, top_level_surface_count)
+
+        # Count openings at geometry level
+        top_level_opening_count = 0
         openings = geometry.get('openings', {})
         if isinstance(openings, dict):
             for category, open_list in openings.items():
                 if isinstance(open_list, list):
-                    stats['openings'] += len(open_list)
+                    top_level_opening_count += len(open_list)
         elif isinstance(openings, list):
-            stats['openings'] = len(openings)
+            top_level_opening_count = len(openings)
+
+        # Use zone-nested openings if available, otherwise use top-level
+        stats['openings'] = max(zone_opening_count, top_level_opening_count)
 
         return stats
 

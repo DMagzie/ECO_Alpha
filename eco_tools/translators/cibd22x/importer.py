@@ -91,6 +91,7 @@ from .parsers.dhw_parser import DHWSystemParser
 from .parsers.waterheater_parser import WaterHeaterParser
 from .parsers.pvarray_parser import PVArrayParser
 from .parsers.proj_parser import ProjParser
+from .parsers.commercial_hvac_parser import CommercialHVACParser
 
 
 class CIBD22XImporter:
@@ -172,6 +173,7 @@ class CIBD22XImporter:
         self.distributionsystem_parser = DistributionSystemParser(self.id_registry)
         self.controlsystem_parser = ControlSystemParser(self.id_registry)
         self.dutype_parser = DUTypeParser(self.id_registry)
+        self.commercial_hvac_parser = CommercialHVACParser()
 
         # ============================================
         # LIGHTING PARSERS (Cross-Catalog)
@@ -287,6 +289,11 @@ class CIBD22XImporter:
         # Each Zone has a parent_zone_group_id that references a ZoneGroup
         zones = self.zone_parser.parse_zones(root, zone_groups)
 
+        # POST-PROCESSING: Populate zone_refs in zone groups
+        # Zones know their parent zone group, but zone groups don't maintain
+        # a list of their child zones. Build this bidirectional relationship.
+        self._populate_zone_group_refs(zones, zone_groups)
+
         # 2c. Surfaces (needs zones for parent linking)
         # Each Surface has a parent_zone_id that references a Zone
         surfaces = self.surface_parser.parse_surfaces(root, zones)
@@ -377,6 +384,13 @@ class CIBD22XImporter:
         pv_arrays, battery_systems = self.pvarray_parser.parse_pv_arrays(root)
 
         # ================================================================
+        # STEP 9b: Parse Commercial HVAC Components
+        # ================================================================
+        # Extract commercial HVAC air systems (AirSys, Fan, CoilClg, etc.)
+        # as raw dictionaries for round-trip export
+        commercial_hvac = self.commercial_hvac_parser.parse_commercial_hvac(root)
+
+        # ================================================================
         # STEP 10: Assemble InternalRepresentation
         # ================================================================
         # Collect all parsed elements into the unified data structure.
@@ -423,6 +437,11 @@ class CIBD22XImporter:
             pv_arrays=pv_arrays,
             battery_systems=battery_systems,
         )
+
+        # Store commercial HVAC components in metadata for round-trip export
+        # These are stored as raw dictionaries since they don't fit the standard
+        # HVACSystem model (which is designed for residential systems)
+        internal_repr.metadata['commercial_hvac_components'] = commercial_hvac
 
         return internal_repr
 
@@ -493,4 +512,56 @@ class CIBD22XImporter:
                 # so it can regenerate LuminaireRef + Count instead of inline power
                 ltg_sys.annotation['calculated_from_luminaires'] = True
                 ltg_sys.annotation['luminaire_power_w'] = luminaire.power_w
+
+    def _populate_zone_group_refs(self, zones: List, zone_groups: List) -> None:
+        """
+        POST-PROCESSING: Populate zone_refs in zone groups based on zone parent references.
+
+        BIDIRECTIONAL LINKING PROBLEM:
+        During parsing, zones store their parent zone group ID in their annotation:
+            zone.annotation['parent_zone_group_id'] = 'ZG_Floor_1'
+
+        But zone groups don't maintain a list of their child zones because:
+        1. Zone groups are parsed BEFORE zones (hierarchical dependency)
+        2. At zone group parse time, zones don't exist yet
+        3. No zone count is known when creating zone group
+
+        This post-processing step builds the reverse relationship:
+            zone_group.zone_refs = ['Z_Unit_1', 'Z_Unit_2', 'Z_Unit_3', ...]
+
+        WHY THIS IS CRITICAL:
+        The CIBD25 Direct Writer needs zone_refs to know which zones to write
+        under each zone group. Without this, exports are missing all zones.
+
+        MODIFIES IN-PLACE:
+        Updates ZoneGroup.zone_refs lists (originally empty).
+
+        Args:
+            zones: List of Zone objects (read-only)
+            zone_groups: List of ZoneGroup objects (modified in-place)
+        """
+        # Build fast lookup: zone_group_id → ZoneGroup object
+        # This enables O(1) lookup when processing each zone
+        zg_by_id = {zg.id: zg for zg in zone_groups}
+
+        # Iterate through all zones and link them to their parent zone group
+        for zone in zones:
+            # Get parent zone group ID from zone's annotation
+            # This was stored during zone parsing (see zone_parser.py line 664)
+            parent_zg_id = zone.annotation.get('parent_zone_group_id')
+
+            # Skip zones without parent zone group (rare, but handle gracefully)
+            if not parent_zg_id:
+                continue
+
+            # Find the parent zone group
+            zone_group = zg_by_id.get(parent_zg_id)
+            if not zone_group:
+                # Dangling reference - zone references non-existent zone group
+                # This shouldn't happen with valid data, but handle gracefully
+                continue
+
+            # Add this zone to the zone group's zone_refs list
+            if zone.id not in zone_group.zone_refs:
+                zone_group.zone_refs.append(zone.id)
 

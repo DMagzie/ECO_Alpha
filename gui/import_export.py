@@ -13,10 +13,11 @@ from translators import (
     list_importers,
     translate_cibd22x_to_v6 as _translate_cibd22x_to_v6,
     translate_cibd22_to_v6 as _translate_cibd22_to_v6,
+    translate_cibd25_to_v6 as _translate_cibd25_to_v6,
     translate_gem_to_v6 as _translate_gem_to_v6,
     emjson6_to_cibd22x as _emjson6_to_cibd22x,
+    emjson6_to_cibd25 as _emjson6_to_cibd25,
     # Legacy translators disabled for now
-    # translate_cibd25_to_v6 as _translate_cibd25_to_v6,
     # translate_hbjson_to_v6 as _translate_hbjson_to_v6,
     # emjson6_to_hbjson as _emjson6_to_hbjson,
 )
@@ -109,6 +110,8 @@ def import_file(importer_id: str, file_path: str) -> Dict[str, Any]:
             result = _translate_cibd22x_to_v6(actual_path)
         elif imp == "cibd22":
             result = _translate_cibd22_to_v6(actual_path)
+        elif imp == "cibd25":
+            result = _translate_cibd25_to_v6(actual_path)
         elif imp == "gem":
             result = _translate_gem_to_v6(actual_path)
         else:
@@ -121,7 +124,7 @@ def import_file(importer_id: str, file_path: str) -> Dict[str, Any]:
                     "stage": "import",
                     "ts": "",
                     "path": "",
-                    "context": f"Supported importers: cibd22x (XML), cibd22 (text), cibd22x_uni (Universal Translator), gem (IES GEM)",
+                    "context": f"Supported importers: cibd22x (XML), cibd22 (text), cibd25 (text), cibd22x_uni (Universal Translator), gem (IES GEM)",
                     "source": "import_export"
                 }]
             }
@@ -257,3 +260,61 @@ def export_emjson6_to_cibd22x_uni(em_json: Dict[str, Any], out_path: str) -> Dic
         Diagnostics dict with success/error info
     """
     return export_emjson6_to_cibd22x(em_json, out_path, exporter_id="cibd22x_uni")
+
+
+def export_emjson6_to_cibd25(em_json: Dict[str, Any], out_path: str, source_cibd22x_file: str = None) -> Dict[str, Any]:
+    """
+    Export EMJSON v6 -> CIBD25 text format and write to file.
+
+    Uses production-ready CIBD22X → CIBD25 translator with:
+    - Automatic ruleset conversion (T24N_2022.bin → T24_2025.bin)
+    - Nested element extraction to flat structure
+    - Window type preservation (WinType property)
+    - Property defaults (Type, VentSpcFunc)
+
+    Args:
+        em_json: EMJSON v6 dictionary
+        out_path: Output file path
+        source_cibd22x_file: Optional path to original CIBD22X file for roundtrip
+
+    Returns:
+        Diagnostics dict with success/error info
+    """
+    try:
+        # Convert EMJSON v6 -> CIBD25 text
+        cibd25_text = _emjson6_to_cibd25(em_json, source_cibd22x_file)
+
+        # Write to file
+        parent = os.path.dirname(out_path)
+        if parent and not os.path.isdir(parent):
+            os.makedirs(parent, exist_ok=True)
+
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.write(cibd25_text)
+
+        return {
+            "diagnostics": [{
+                "level": "info",
+                "code": "I-EXPORT-SUCCESS",
+                "message": f"Successfully exported to {out_path} (CIBD25 format)",
+                "stage": "export",
+                "ts": "",
+                "path": out_path,
+                "context": f"File size: {len(cibd25_text)} bytes",
+                "source": "import_export"
+            }]
+        }
+    except Exception as e:
+        import traceback
+        return {
+            "diagnostics": [{
+                "level": "error",
+                "code": "E-EXPORT",
+                "message": str(e),
+                "stage": "export",
+                "ts": "",
+                "path": out_path,
+                "context": traceback.format_exc(),
+                "source": "import_export"
+            }]
+        }

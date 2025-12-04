@@ -171,7 +171,7 @@ class ZoneParser(BaseParser):
             tag = self._local_tag(zone_elem.tag)
 
             # Filter: only process zone element types
-            if tag not in ('ResZn', 'ComZn', 'ResOtherZn', 'Spc', 'ThrmlZn'):
+            if tag not in ('ResZn', 'ComZn', 'ResOtherZn', 'ResAttic', 'Spc', 'ThrmlZn'):
                 continue
 
             # Extract zone name (required for identification)
@@ -273,7 +273,7 @@ class ZoneParser(BaseParser):
         # ================================================================
         # AREA: Zone floor area in ft² → m² (× 0.092903)
         # Used for: Internal load calculations, code compliance
-        area_m2, area_annotation = self._parse_area(zone_elem, tag)
+        area_m2, area_annotation, vertices = self._parse_area(zone_elem, tag)
 
         # VOLUME: Zone volume in ft³ → m³ (× 0.0283168)
         # Used for: Ventilation calculations, infiltration
@@ -371,6 +371,70 @@ class ZoneParser(BaseParser):
         annotation.update(area_annotation)
 
         # ================================================================
+        # STEP 11b: Add ResAttic-Specific Properties
+        # ================================================================
+        # ResAttic zones have unique properties like roof characteristics
+        if tag == 'ResAttic':
+            # RoofRise: Roof pitch/rise
+            roof_rise = self.get_property(zone_elem, 'RoofRise')
+            if roof_rise is not None:
+                annotation['RoofRise'] = roof_rise
+
+            # Construction: Roof construction assembly reference
+            construction = self.get_property(zone_elem, 'Construction')
+            if construction:
+                annotation['Construction'] = construction
+
+            # RoofSolReflect: Roof solar reflectance
+            roof_sol_reflect = self.get_property(zone_elem, 'RoofSolReflect')
+            if roof_sol_reflect is not None:
+                annotation['RoofSolReflect'] = roof_sol_reflect
+
+        # ================================================================
+        # STEP 11c: Add Spc-Specific Properties
+        # ================================================================
+        # Spc (commercial space) zones have different properties than residential zones
+        if tag == 'Spc':
+            # ThrmlZnRef: Reference to thermal zone (grouping for HVAC control)
+            thrml_zn_ref = self.get_property(zone_elem, 'ThrmlZnRef')
+            if thrml_zn_ref:
+                annotation['ThrmlZnRef'] = thrml_zn_ref
+
+            # SHWFluidSegRef: Service hot water fluid segment reference
+            shw_fluid_seg_ref = self.get_property(zone_elem, 'SHWFluidSegRef')
+            if shw_fluid_seg_ref:
+                annotation['SHWFluidSegRef'] = shw_fluid_seg_ref
+
+            # OccSensorCtrl: Occupancy sensor control (0 or 1)
+            occ_sensor_ctrl = self.get_property(zone_elem, 'OccSensorCtrl')
+            if occ_sensor_ctrl is not None:
+                annotation['OccSensorCtrl'] = occ_sensor_ctrl
+
+            # Vol: Original volume in ft³ (for round-trip fidelity)
+            # Store original value to preserve exact formatting
+            vol_str = self.get_property(zone_elem, 'Vol')
+            if vol_str:
+                annotation['original_vol_ft3'] = vol_str
+
+            # SpcFuncDefaultsRef: Space function defaults reference (already in space_function)
+            # Store separately for round-trip if it differs from SpcFunc
+            spc_func_defaults_ref = self.get_property(zone_elem, 'SpcFuncDefaultsRef')
+            if spc_func_defaults_ref:
+                annotation['SpcFuncDefaultsRef'] = spc_func_defaults_ref
+
+            # ParentStoryRef: Story parent for Spc elements
+            # Spc elements are nested inside Story elements in CIBD22X
+            # Find the parent Story name and store for export
+            parent_elem = parent_map.get(zone_elem)
+            if parent_elem is not None:
+                parent_tag = self._local_tag(parent_elem.tag)
+                if parent_tag == 'Story':
+                    story_name = self.get_name(parent_elem)
+                    if story_name:
+                        annotation['ParentStoryRef'] = story_name
+                        logger.debug(f"Spc '{name}' parent Story: '{story_name}'")
+
+        # ================================================================
         # STEP 12: Create Zone Object
         # ================================================================
         # Assemble all parsed data into universal Zone model
@@ -385,17 +449,27 @@ class ZoneParser(BaseParser):
             du_ref=du_ref,                        # Dwelling unit reference (residential only)
             space_function=space_function,        # Title 24 space type
             conditioned=conditioned,              # Boolean: requires HVAC?
+            vertices=vertices,                    # PolyLp floor polygon vertices for CIBD25 export
             annotation=annotation                 # Format-specific extras
         )
 
         return zone
 
     def _find_parent_zone_group(self, zone_elem: ET.Element, parent_map: Dict) -> Optional[str]:
-        """Find parent zone group name from parent map."""
+        """
+        Find parent zone group name from parent map.
+
+        For residential zones, the parent is ResZnGrp.
+        For commercial zones (Spc), the parent might be Story or Building.
+        This method returns the immediate parent name for zone group linking.
+        """
         parent_elem = parent_map.get(zone_elem)
         if parent_elem is not None:
             parent_tag = self._local_tag(parent_elem.tag)
             if parent_tag == 'ResZnGrp':
+                return self.get_name(parent_elem)
+            # For Story parents (commercial zones), return Story name
+            elif parent_tag == 'Story':
                 return self.get_name(parent_elem)
         return None
 
@@ -466,7 +540,12 @@ class ZoneParser(BaseParser):
 
         # Convert ft² to m²
         area_m2 = (area_ft2 * 0.092903) if area_ft2 else None
-        return (area_m2, area_annotation)
+
+        # Parse PolyLp vertices for CIBD25 export
+        # Spc/ThrmlZn zones need floor polygon geometry for proper area calculation
+        vertices = self._parse_polylp_vertices(zone_elem)
+
+        return (area_m2, area_annotation, vertices)
 
     def _parse_volume(self, zone_elem: ET.Element) -> Optional[float]:
         """Parse zone volume and convert from ft³ to m³."""

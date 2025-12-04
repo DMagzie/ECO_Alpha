@@ -29,20 +29,23 @@ import tempfile
 from eco_tools.core.internal_repr import InternalRepresentation
 from ..cibd22x.exporter import CIBD22XExporter
 from ..cibd_xml_to_text import convert_xml_to_text
+from .direct_writer import CIBD25DirectWriter
 
 logger = logging.getLogger('eco_tools.exporters')
 
 
 class CIBD25Exporter:
     """
-    Exporter for CIBD25 (Title 24 2025) XML format.
+    Exporter for CIBD25 (Title 24 2025) format.
 
-    Reuses CIBD22X architecture but ensures 2025-specific metadata.
+    Uses DirectWriter for .cibd25 text format (preferred).
+    Falls back to CIBD22X wrapper for XML format.
     """
 
     def __init__(self):
-        """Initialize CIBD25 exporter with CIBD22X infrastructure."""
+        """Initialize CIBD25 exporter with both direct writer and CIBD22X fallback."""
         self.cibd22x_exporter = CIBD22XExporter()
+        self.direct_writer = None  # Created on demand
 
     def export(self, internal: InternalRepresentation, output_path: str = None) -> ET.Element:
         """
@@ -53,48 +56,130 @@ class CIBD25Exporter:
             output_path: Optional path to write file (.cibd25 for text, .xml for XML)
 
         Returns:
-            XML Element root with CIBD25-compliant structure
+            XML Element root with CIBD25-compliant structure (or None if using DirectWriter)
         """
         # First, ensure proj_metadata has 2025-specific values
         self._ensure_2025_metadata(internal)
-
-        # Use CIBD22X exporter to create XML structure
-        root = self.cibd22x_exporter.export_to_element(internal)
-
-        # Add RulesetFilename as root attribute (for text format compatibility)
-        ruleset = internal.proj_metadata.get('RulesetFilename', 'T24_2025.bin')
-        root.set('RulesetFilename', ruleset)
 
         # Write to file if path provided
         if output_path:
             path_obj = Path(output_path)
 
             if path_obj.suffix == '.cibd25':
-                # Export as text format
-                # First write temporary XML
-                with tempfile.NamedTemporaryFile(mode='w', suffix='.xml', delete=False) as tmp:
-                    tmp_path = tmp.name
+                # Use DirectWriter for .cibd25 text format (preferred method)
+                logger.info(f"Using DirectWriter for CIBD25 export to {output_path}")
 
-                tree = ET.ElementTree(root)
-                ET.indent(tree, space="  ", level=0)
-                tree.write(tmp_path, encoding='utf-8', xml_declaration=True)
+                # Convert InternalRepresentation to EMJSON format
+                emjson = self._internal_to_emjson(internal)
 
-                # Convert XML to text
-                convert_xml_to_text(tmp_path, output_path)
+                # Use DirectWriter
+                writer = CIBD25DirectWriter(emjson)
+                success = writer.write_file(output_path)
 
-                # Clean up temp file
-                import os
-                os.unlink(tmp_path)
+                if success:
+                    logger.info(f"Exported CIBD25 text format to {output_path}")
+                else:
+                    logger.error(f"Failed to export CIBD25 to {output_path}")
 
-                logger.info(f"Exported CIBD25 text format to {output_path}")
+                return None  # DirectWriter doesn't return XML Element
             else:
-                # Export as XML format (.xml)
+                # Export as XML format (.xml) - use legacy CIBD22X wrapper
+                logger.info(f"Using CIBD22X wrapper for XML export to {output_path}")
+                root = self.cibd22x_exporter.export_to_element(internal)
+                ruleset = internal.proj_metadata.get('RulesetFilename', 'T24_2025.bin')
+                root.set('RulesetFilename', ruleset)
+
                 tree = ET.ElementTree(root)
                 ET.indent(tree, space="  ", level=0)
                 tree.write(output_path, encoding='utf-8', xml_declaration=True)
                 logger.info(f"Exported CIBD25 XML to {output_path}")
+                return root
+        else:
+            # No output path - return XML element
+            root = self.cibd22x_exporter.export_to_element(internal)
+            ruleset = internal.proj_metadata.get('RulesetFilename', 'T24_2025.bin')
+            root.set('RulesetFilename', ruleset)
+            return root
 
-        return root
+    def _internal_to_emjson(self, internal: InternalRepresentation) -> Dict[str, Any]:
+        """
+        Convert InternalRepresentation to EMJSON format for DirectWriter.
+
+        Args:
+            internal: InternalRepresentation with building data
+
+        Returns:
+            EMJSON dictionary suitable for CIBD25DirectWriter
+        """
+        def to_dict(obj):
+            """Convert object to dict if needed."""
+            if isinstance(obj, dict):
+                return obj
+            return vars(obj)
+
+        # Build EMJSON structure matching what DirectWriter expects
+        # Extract project name from various possible fields
+        proj_name = (
+            internal.proj_metadata.get('name') or
+            internal.proj_metadata.get('proj_name') or
+            internal.proj_metadata.get('ProjName') or
+            internal.proj_metadata.get('title') or
+            'Unnamed Project'
+        )
+
+        emjson = {
+            'project': {
+                'name': proj_name,
+                'ruleset_filename': internal.proj_metadata.get('RulesetFilename', 'T24_2025.bin'),
+                'software_version': internal.proj_metadata.get('SoftwareVersion', 'CBECC 2025.2.0 (1390)'),
+                'create_date': internal.proj_metadata.get('CreateDate'),
+                'mod_date': internal.proj_metadata.get('ModDate'),
+                'run_title': internal.proj_metadata.get('RunTitle'),
+                'weather_city': internal.proj_metadata.get('weather_city'),
+                'weather_station': internal.proj_metadata.get('weather_station'),
+                'climate_zone': internal.proj_metadata.get('climate_zone'),
+                'building_type': internal.proj_metadata.get('building_type'),
+            },
+            'geometry': {
+                'zones': [to_dict(z) for z in internal.zones],
+                'surfaces': [to_dict(s) for s in internal.surfaces],
+                'zone_groups': [to_dict(zg) for zg in internal.zone_groups],
+                'openings': [to_dict(o) for o in internal.openings],
+            },
+            'catalogs': {
+                'Mat': [to_dict(m) for m in internal.materials],
+                'ConsAssm': [to_dict(c) for c in internal.constructions],
+                'FenCons': [],  # Will be populated from window_types
+                'window_types': [to_dict(wt) for wt in internal.window_types],
+                'du_types': [to_dict(dt) for dt in internal.du_types],
+            },
+            # HVAC catalog components at root level (DirectWriter expects them there)
+            'heat_pumps': [to_dict(hp) for hp in internal.heat_pumps],
+            'fan_systems': [to_dict(fs) for fs in internal.fan_systems],
+            'distribution_systems': [to_dict(ds) for ds in internal.distribution_systems],
+            'iaq_fans': [to_dict(iaq) for iaq in internal.iaq_fans],
+            # Systems at root level
+            'systems': {
+                'hvac': [to_dict(h) for h in internal.hvac_systems],
+                'dhw': [to_dict(d) for d in internal.dhw_systems],
+                'water_heaters': [to_dict(wh) for wh in internal.water_heaters],
+            },
+            'pv_arrays': [to_dict(pv) for pv in internal.pv_arrays],
+            'batteries': [to_dict(b) for b in internal.battery_systems],
+            # Include metadata (contains commercial_hvac_components and other extras)
+            'metadata': internal.metadata,
+        }
+
+        # Debug: check if commercial HVAC components are in metadata
+        logger.info(f"DEBUG: internal.metadata keys = {list(internal.metadata.keys())}")
+        if 'commercial_hvac_components' in internal.metadata:
+            comp_hvac = internal.metadata['commercial_hvac_components']
+            total = sum(len(v) for v in comp_hvac.values())
+            logger.info(f"DEBUG: Found {total} commercial HVAC components in metadata")
+        else:
+            logger.warning("DEBUG: No commercial_hvac_components in internal.metadata")
+
+        return emjson
 
     def _ensure_2025_metadata(self, internal: InternalRepresentation):
         """

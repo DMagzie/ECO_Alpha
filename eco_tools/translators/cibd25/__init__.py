@@ -5,12 +5,80 @@ CIBD25 uses the same text format as CIBD22 but with 2025 rulesets:
 - T24_2025.bin ruleset (vs T24N_2022.bin for CIBD22)
 - CBECC 2025.1.0 software version
 - Additional 2025-specific properties
+
+New Direct Writer (Recommended):
+- direct_writer: EMJSON → CIBD25 direct conversion (no XML intermediate)
+- Fixes: commercial catalogs, property formatting, window types
+- Zero errors on exported files
+
+Legacy Converter (Deprecated):
+- See eco_tools.translators.cibd25_legacy for old XML-based converter
 """
 
 from .importer import CIBD25Importer
 from .exporter import CIBD25Exporter, export_cibd25
 
-__all__ = ['CIBD25Importer', 'CIBD25Exporter', 'export_cibd25', 'translate_cibd25_to_v6']
+# New direct writer (recommended)
+from .direct_writer import CIBD25DirectWriter, convert_emjson_to_cibd25
+from .element_writer import ElementWriter, ResidentialElementWriter, CommercialElementWriter, PropertyFormatter
+from .catalog_builder import build_default_commercial_catalogs
+from .property_mapper import PropertyMapper
+from .validators import CIBD25Validator as CIBD25OutputValidator
+
+# Property rules - single source of truth for V7 lessons learned
+from .property_rules import (
+    should_skip_element,
+    should_skip_property,
+    get_required_defaults,
+    apply_required_defaults,
+    get_element_priority,
+    should_defer_root_element,
+    filter_properties,
+    sort_elements_by_priority,
+    DEPRECATED_PROPERTIES_GLOBAL,
+    DEPRECATED_PROPERTIES_BY_ELEMENT,
+    SKIP_ELEMENTS,
+    REQUIRED_DEFAULTS,
+    ELEMENT_PRIORITIES,
+    DEFER_ROOT_ELEMENTS,
+    VERSION_MARKERS,
+)
+
+__all__ = [
+    # Import/Export
+    'CIBD25Importer',
+    'CIBD25Exporter',
+    'export_cibd25',
+    'translate_cibd25_to_v6',
+    # Direct Writer (New - Recommended)
+    'CIBD25DirectWriter',
+    'convert_emjson_to_cibd25',
+    # Element Writers
+    'ElementWriter',
+    'ResidentialElementWriter',
+    'CommercialElementWriter',
+    'PropertyFormatter',
+    # Utilities
+    'build_default_commercial_catalogs',
+    'PropertyMapper',
+    'CIBD25OutputValidator',
+    # Property Rules (V7 lessons learned)
+    'should_skip_element',
+    'should_skip_property',
+    'get_required_defaults',
+    'apply_required_defaults',
+    'get_element_priority',
+    'should_defer_root_element',
+    'filter_properties',
+    'sort_elements_by_priority',
+    'DEPRECATED_PROPERTIES_GLOBAL',
+    'DEPRECATED_PROPERTIES_BY_ELEMENT',
+    'SKIP_ELEMENTS',
+    'REQUIRED_DEFAULTS',
+    'ELEMENT_PRIORITIES',
+    'DEFER_ROOT_ELEMENTS',
+    'VERSION_MARKERS',
+]
 
 
 def translate_cibd25_to_v6(text_file: str):
@@ -28,68 +96,6 @@ def translate_cibd25_to_v6(text_file: str):
     Returns:
         dict: EMJSON v6 dictionary with diagnostics
     """
-    try:
-        from dataclasses import asdict
-
-        importer = CIBD25Importer()
-        internal = importer.import_file(text_file)
-
-        # Convert InternalRepresentation to EMJSON v6 with nested structure
-        emjson = {
-            "schema_version": "6.0",
-            "project": {
-                "name": internal.metadata.get("name", internal.proj_metadata.get("name", "Unnamed Project")),
-                "description": internal.metadata.get("description", ""),
-                "location": internal.metadata.get("location", {}),
-                "title_24_version": "2025",
-            },
-            "geometry": {
-                "zones": [asdict(z) for z in internal.zones],
-                "zone_groups": [asdict(zg) for zg in internal.zone_groups],
-                "surfaces": [asdict(s) for s in internal.surfaces],
-                "openings": [asdict(o) for o in internal.openings],
-            },
-            "catalogs": {
-                "materials": [asdict(m) for m in internal.materials],
-                "constructions": [asdict(c) for c in internal.constructions],
-                "window_types": [asdict(w) for w in internal.window_types],
-                "schedules": [asdict(s) for s in internal.schedules],
-                "du_types": internal.du_types,
-            },
-            "systems": {
-                "hvac": [asdict(h) for h in internal.hvac_systems],
-                "zone_terminals": [asdict(t) for t in internal.zone_terminals],
-                "dhw": [asdict(d) for d in internal.dhw_systems],
-                "water_heaters": [asdict(wh) for wh in internal.water_heaters],
-                "recirculation_loops": [asdict(r) for r in internal.recirculation_loops],
-                "iaq_fans": [asdict(f) for f in internal.iaq_fans],
-                "pv_arrays": [asdict(p) for p in internal.pv_arrays],
-                "battery_systems": [asdict(b) for b in internal.battery_systems],
-                "lighting_systems": [asdict(ls) for ls in internal.lighting_systems],
-                "luminaires": [asdict(l) for l in internal.luminaires],
-                "fan_systems": [asdict(fs) for fs in internal.fan_systems],
-                "heat_pumps": [asdict(hp) for hp in internal.heat_pumps],
-                "distribution_systems": [asdict(ds) for ds in internal.distribution_systems],
-                "control_systems": [asdict(cs) for cs in internal.control_systems],
-            },
-            "proj_metadata": internal.proj_metadata,
-            "diagnostics": internal.diagnostics
-        }
-
-        return emjson
-    except Exception as e:
-        import traceback
-        # Return error in EMJSON format
-        return {
-            "schema_version": "6.0",
-            "diagnostics": [{
-                "level": "error",
-                "code": "E-IMPORT-FAILED",
-                "message": f"CIBD25 import failed: {str(e)}",
-                "stage": "import",
-                "ts": "",
-                "path": text_file,
-                "context": traceback.format_exc(),
-                "source": "cibd25_importer"
-            }]
-        }
+    # Use the simplified importer (works with text reader)
+    from .simple_importer import convert_cibd25_to_emjson
+    return convert_cibd25_to_emjson(text_file)

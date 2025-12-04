@@ -233,7 +233,7 @@ class WindowTypeParser(BaseParser):
 
         # List of additional properties to capture
         additional_props = [
-            'SpecMethod', 'NFRCUfactor', 'NFRCCertified',
+            'SpecMethod', 'NFRCUfactor', 'NFRCSHGC', 'NFRCCertified',
             'Coating', 'LowECoating', 'TintType', 'FilmType',
             'SpacerType', 'EdgeSeal', 'DividerType',
             'ExteriorShade', 'InteriorShade', 'BetweenGlzShade',

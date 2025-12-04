@@ -76,6 +76,15 @@ class ProjParser(BaseParser):
             else:
                 metadata[tag] = ""
 
+        # CIBD22 text format: ResProj/ProjVar may be at ROOT level (siblings of Proj)
+        # not nested inside Proj. Check root level for these elements.
+        root_level_nested = ['ResProj', 'ProjVar']
+        for child in root:
+            tag = self._local_tag(child.tag)
+            if tag in root_level_nested and tag not in metadata:
+                metadata[tag] = self._parse_nested_element(child)
+                logger.debug(f"Found {tag} at root level (CIBD22 text format)")
+
         logger.info(f"Parsed {len(metadata)} project metadata properties")
         return metadata
 

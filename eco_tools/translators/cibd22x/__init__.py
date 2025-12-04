@@ -62,6 +62,7 @@ def translate_cibd22x_to_v6(xml_file: str):
                 "control_systems": [asdict(cs) for cs in internal.control_systems],
             },
             "proj_metadata": internal.proj_metadata,
+            "metadata": internal.metadata,  # Preserve all metadata including commercial_hvac_components
             "diagnostics": internal.diagnostics
         }
 

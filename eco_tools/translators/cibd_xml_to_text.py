@@ -37,7 +37,8 @@ class CIBDXMLToTextConverter:
         tree = ET.parse(xml_path)
         root = tree.getroot()
 
-        with open(output_path, 'w', encoding='utf-8') as f:
+        # Fix #33: Use LF line endings (Unix) - working Euclid file uses LF, not CRLF
+        with open(output_path, 'w', encoding='utf-8', newline='\n') as f:
             self.convert_element(root, f)
 
     def convert_element(self, root: ET.Element, output: TextIO):
@@ -58,7 +59,8 @@ class CIBDXMLToTextConverter:
         # Write top-level attributes (e.g., RulesetFilename)
         for attr_name, attr_value in root.attrib.items():
             if attr_name != 'xmlns':
-                output.write(f'{attr_name}   "{attr_value}"  \n')
+                # Fix #32: Remove trailing spaces
+                output.write(f'{attr_name}   "{attr_value}"\n')
 
         if root.attrib:
             output.write('\n')
@@ -75,17 +77,40 @@ class CIBDXMLToTextConverter:
                 # Convert CIBD22 ruleset to CIBD25 ruleset for compatibility
                 if ruleset_file == 'T24N_2022.bin':
                     ruleset_file = 'T24_2025.bin'
-                output.write(f'RulesetFilename   "{ruleset_file}"  \n\n')
+                # Fix #32: Remove trailing spaces
+                output.write(f'RulesetFilename   "{ruleset_file}"\n\n')
                 break
 
         # Process child elements
-        for child in root:
-            self._write_object(child, output, indent=0)
+        # Fix #36: ALL root-level elements (except RulesetFilename, Proj) must be deferred
+        # for proper sorting. CBECC reference file order:
+        # RulesetFilename → Proj → ProjVar → ResProj → SchDay → Bldg → ... → DwellUnitType → HVAC → END
+        # Elements written directly (not deferred):
+        WRITE_DIRECTLY = {'RulesetFilename', 'Proj'}
 
-        # Write any deferred siblings (e.g., ResProj, ProjVar) at root level
+        for child in root:
+            child_tag = child.tag.replace(self.namespace, '') if self.namespace else child.tag
+            # Fix #36: Defer all root elements except RulesetFilename and Proj for proper sorting
+            if child_tag in WRITE_DIRECTLY:
+                self._write_object(child, output, indent=0)
+            else:
+                self.deferred_siblings.append(child)
+
+        # Fix #26: Write any deferred siblings (e.g., ResProj, ProjVar) at root level
+        # Sort deferred siblings to ensure correct ordering: Building structure objects (Bldg)
+        # must come BEFORE type definitions (DwellUnitType). CBECC requires DwellUnit instances
+        # to appear in the file BEFORE DwellUnitType definitions, so building hierarchy must be
+        # written early to allow DwellUnit instances (immediate siblings of ResZn) to appear
+        # before DwellUnitType definitions (deferred siblings of Proj written at end).
         if self.deferred_siblings:
-            for sibling in self.deferred_siblings:
+            # Sort deferred siblings by priority (lower number = written first)
+            sorted_siblings = sorted(self.deferred_siblings, key=self._get_deferred_sibling_priority)
+            for sibling in sorted_siblings:
                 self._write_object(sibling, output, indent=0)
+
+        # Fix #40: Remove END_OF_FILE marker - Euclid working file doesn't have it
+        # END_OF_FILE may interfere with GUI recognition of DwellUnitType
+        # output.write('\n\nEND_OF_FILE\n')
 
     def _write_object(self, elem: ET.Element, output: TextIO, indent: int = 0):
         """
@@ -107,6 +132,11 @@ class CIBDXMLToTextConverter:
         if tag in ['EUseSummary', 'DwellUnitRpt', 'ResIAQVentRpt', 'ResSCSysRpt', 'ResDHWSysRpt']:
             return
 
+        # Fix #43: Skip Batt element - causes CBECC GUI to stall during file open
+        # Battery storage is not properly supported in CIBD25 text format conversion
+        if tag == 'Batt':
+            return
+
         # Get object name from 'Name' or 'n' child or text content
         obj_name = None
         properties = []
@@ -126,6 +156,25 @@ class CIBDXMLToTextConverter:
             elif len(child) > 0:
                 # Check if this should be a top-level sibling instead of nested
                 if self._is_top_level_sibling(child_tag, tag, child):
+                    # CIBD25: When extracting Spc from Story, inject ParentStoryRef
+                    if tag == 'Story' and child_tag == 'Spc' and obj_name:
+                        # Create ParentStoryRef element and inject into child
+                        parent_ref = ET.SubElement(child, 'ParentStoryRef')
+                        parent_ref.text = obj_name
+
+                    # Fix #27: DwellUnit objects need WasherZoneRef and DryerZoneRef injected
+                    # These properties are REQUIRED for CBECC to associate the DwellUnit with
+                    # its parent zone and properly resolve DwellUnitTypeRef references in the GUI.
+                    # Without these, CBECC GUI shows "(No DwellUnitType assigned)" even though
+                    # the DwellUnitTypeRef value is present in the file.
+                    if tag == 'ResZn' and child_tag == 'DwellUnit' and obj_name:
+                        # Inject WasherZoneRef pointing to parent zone
+                        washer_ref = ET.SubElement(child, 'WasherZoneRef')
+                        washer_ref.text = obj_name
+                        # Inject DryerZoneRef pointing to parent zone
+                        dryer_ref = ET.SubElement(child, 'DryerZoneRef')
+                        dryer_ref.text = obj_name
+
                     # Determine if this should be immediate or deferred
                     # Residential zone children are immediate (written right after zone)
                     # Other extractions (HVAC, schedules, etc.) are deferred (written at end)
@@ -141,16 +190,56 @@ class CIBDXMLToTextConverter:
                     child_objects.append(child)
             else:
                 # Leaf node - it's a property
-                properties.append((child_tag, child.text))
+                # CIBD25: Check if element has 'index' attribute (for array properties like DHWHeater[1])
+                # XML uses 0-based index attribute, CIBD25 uses 1-based bracket notation
+                index_attr = child.get('index')
+                if index_attr is not None:
+                    # Convert 0-based XML index to 1-based CIBD25 index
+                    cibd_index = int(index_attr) + 1
+                    prop_name = f'{child_tag}[{cibd_index}]'
+                    properties.append((prop_name, child.text))
+                else:
+                    properties.append((child_tag, child.text))
 
         # If no name found, check if element has text content
         if obj_name is None and elem.text and elem.text.strip():
             obj_name = elem.text.strip()
 
+        # Clean any XML tags from object name (handles malformed source data)
+        if obj_name:
+            obj_name = re.sub(r'<[^>]+>', '', obj_name)
+
+        # CIBD25: Generate auto-names for geometry elements that lack names
+        if not obj_name:
+            if tag == 'PolyLp':
+                # Auto-generate PolyLoop name with counter
+                if not hasattr(self, 'polylp_counter'):
+                    self.polylp_counter = 0
+                self.polylp_counter += 1
+                obj_name = f"PolyLoop {self.polylp_counter}"
+            elif tag == 'CartesianPt':
+                # Auto-generate CartesianPoint name with counter
+                if not hasattr(self, 'cartesianpt_counter'):
+                    self.cartesianpt_counter = 0
+                self.cartesianpt_counter += 1
+                obj_name = f"CartesianPoint {self.cartesianpt_counter}"
+
+        # CIBD25: Special handling for CartesianPt - combine Coord values into tuple
+        if tag == 'CartesianPt':
+            coord_values = [value for prop_name, value in properties if prop_name == 'Coord']
+            if coord_values:
+                # Remove individual Coord properties
+                properties = [(p, v) for p, v in properties if p != 'Coord']
+                # Add single Coord tuple property
+                coord_tuple = '( ' + ', '.join(coord_values) + ' )'
+                properties.append(('Coord', coord_tuple))
+
         # Write object header
         indent_str = '   ' * indent
         if obj_name:
-            output.write(f'{indent_str}{tag}   "{obj_name}"  \n')
+            # Fix #38: NO trailing spaces after object name - matches Euclid working format
+            # Euclid hex shows: "DU_B2.4"\n (22 0a = quote then newline, no spaces)
+            output.write(f'{indent_str}{tag}   "{obj_name}"\n')
         else:
             # Some objects don't have names
             output.write(f'{indent_str}{tag}\n')
@@ -166,6 +255,16 @@ class CIBDXMLToTextConverter:
                 # Remove from Proj properties
                 properties = [p for p in properties if not p[0].startswith('ExcptCond')]
 
+            # Fix #39: Update version markers for CIBD25 format (2022 → 2025 conversion)
+            updated_properties = []
+            for prop_name, prop_value in properties:
+                if prop_name == 'RunTitle' and '2022' in str(prop_value):
+                    prop_value = 'Title 24 2025 Compliance'
+                elif prop_name == 'SoftwareVersion':
+                    prop_value = 'CBECC 2025.2.0 (converted from CIBD22X)'
+                updated_properties.append((prop_name, prop_value))
+            properties = updated_properties
+
         # Write properties - collect them first to handle terminator correctly
         property_lines = []
         for prop_name, prop_value in properties:
@@ -180,20 +279,40 @@ class CIBDXMLToTextConverter:
             if hasattr(self, 'root_attributes') and prop_name in self.root_attributes:
                 continue
 
-            # CIBD25 Format: ResWin elements should NOT have WinType property
-            # CBECC 2025 removes WinType when converting CIBD22X to CIBD25
-            # The window type info is inferred from other properties or aggregated
-            if tag == 'ResWin' and prop_name == 'WinType':
+            # Skip MassThickness for ResConsAssm (CIBD22X property not recognized in CIBD25)
+            if tag == 'ResConsAssm' and prop_name == 'MassThickness':
+                continue
+
+            # Skip EMJSON metadata properties for ResHVACSys
+            if tag == 'ResHVACSys' and prop_name in ['ht_pump_system_refs', 'heat_system_refs', 'cool_system_refs']:
+                continue
+
+            # Skip EMJSON metadata properties for ResDHWSys
+            if tag == 'ResDHWSys' and prop_name in ['dhw_heater_refs']:
+                continue
+
+            # Fix #41: Skip deprecated properties from CIBD22X not recognized in CIBD25
+            if tag in ['ResZn', 'ResOtherZn'] and prop_name == 'VentSpcFunc':
+                continue
+
+            # Fix #44: Skip battery-related properties deprecated in CIBD25
+            # These cause GUI to stall when opening files (not in any CBECC 2025 sample files)
+            if prop_name in ['PVBattSizeBldgType', 'BattReq_PartOfLargeTenantArea']:
                 continue
 
             # Detect if this is a reference (array or single)
             array_match = re.match(r'(.+)\[(\d+)\]', prop_name)
 
             if array_match:
-                # Array reference: MatRef[1] = "Material Name"
+                # Array reference: MatRef[1] = "Material Name" OR HeaterMult[1] = 6
                 base_name = array_match.group(1)
                 index = array_match.group(2)
-                property_lines.append(f'{indent_str}   {base_name}[{index}] = "{prop_value}"')
+                # Check if value is numeric (shouldn't be quoted)
+                prop_type = self._get_property_type(base_name, prop_value)
+                if prop_type == 'number':
+                    property_lines.append(f'{indent_str}   {base_name}[{index}] = {prop_value}')
+                else:
+                    property_lines.append(f'{indent_str}   {base_name}[{index}] = "{prop_value}"')
             else:
                 # Transform property value if needed (e.g., IAQFanType conversion)
                 prop_value = self._transform_property_value(prop_name, prop_value)
@@ -201,7 +320,11 @@ class CIBDXMLToTextConverter:
                 # Determine property type
                 prop_type = self._get_property_type(prop_name, prop_value)
 
-                if prop_type == 'number':
+                # Special case: Coord tuples should NOT be quoted
+                if prop_name == 'Coord' and prop_value.startswith('('):
+                    # Coordinate tuple: Coord = ( x, y, z )
+                    property_lines.append(f'{indent_str}   {prop_name} = {prop_value}')
+                elif prop_type == 'number':
                     # Numeric value (no quotes)
                     property_lines.append(f'{indent_str}   {prop_name} = {prop_value}')
                 else:
@@ -217,12 +340,16 @@ class CIBDXMLToTextConverter:
                 # CBECC rules will determine actual conditioning based on HVAC assignments
                 property_lines.insert(0, f'{indent_str}   Type = "Conditioned"')
 
-            # CIBD25 requirement: ResOtherZn should have VentSpcFunc to avoid ruleset inference errors
-            # If not set, default to "NA" to prevent CBECC from trying to infer using old CIBD22 enumerations
-            has_vent = any('VentSpcFunc =' in line for line in property_lines)
-            if not has_vent:
-                # Add VentSpcFunc = "NA" after Type
-                property_lines.insert(1 if not has_type else 2, f'{indent_str}   VentSpcFunc = "NA"')
+            # Fix #41: REMOVED - VentSpcFunc is deprecated in CIBD25 (was CIBD22X only)
+            # Euclid working file doesn't have VentSpcFunc, and CBECC logs "unrecognized property" errors
+            # Previous code was adding VentSpcFunc = "NA" but this is wrong for CIBD25 format
+
+        # Fix #43: ResCentralVentSys MUST have Type property or CBECC GUI stalls
+        if tag == 'ResCentralVentSys':
+            has_type = any('Type =' in line for line in property_lines)
+            if not has_type:
+                # Insert Type as first property - default to "Balanced"
+                property_lines.insert(0, f'{indent_str}   Type = "Balanced"')
 
         # Write all properties
         for line in property_lines:
@@ -233,15 +360,9 @@ class CIBDXMLToTextConverter:
             self._write_object(child_obj, output, indent + 1)
 
         # Write object terminator
-        # If there are no nested objects and we have properties, append .. on last property line
-        if not child_objects and property_lines:
-            # Go back and append .. to last line
-            # This requires seeking - simpler to just use correct format from start
-            # For now, keep .. on separate line (matches most of official format)
-            output.write(f'{indent_str}   ..\n\n')
-        else:
-            # Standard terminator
-            output.write(f'{indent_str}   ..\n\n')
+        # Fix #30: Match working file format - terminator '..' with no leading spaces
+        # Fix #31: Need blank line after terminator to separate objects
+        output.write('..\n\n')
 
         # Write immediate siblings right after this object (at root level)
         # These are children that were extracted to top level but need to maintain
@@ -252,13 +373,15 @@ class CIBDXMLToTextConverter:
 
         # CIBD25 Format: Write ProjVar element after Proj if we extracted ExcptCond properties
         if tag == 'Proj' and projvar_properties:
-            output.write(f'ProjVar   "{projvar_name}"  \n')
+            # Fix #28: Remove trailing spaces
+            output.write(f'ProjVar   "{projvar_name}"\n')
             for prop_name, prop_value in projvar_properties:
                 if prop_value is None:
                     continue
                 # All ExcptCond properties are string enumerations
                 output.write(f'   {prop_name} = "{prop_value}"\n')
-            output.write('   ..\n\n')
+            # Fix #30/31: Match working file format - terminator '..' with blank line after
+            output.write('..\n\n')
 
     def _transform_property_value(self, prop_name: str, prop_value: str) -> str:
         """
@@ -429,14 +552,28 @@ class CIBDXMLToTextConverter:
 
         # Elements that appear as children of Spc in XML but should be siblings in text
         if parent_tag == 'Spc':
-            # Building envelope components and lighting systems nested under Spc must be extracted to top level
-            if child_tag in ['ExtWall', 'IntWall', 'UndgrFlr', 'UndgrWall', 'Flr', 'Roof', 'Ceiling', 'IntFlr', 'ExtFlr', 'IntLtgSys']:
+            # Building envelope components, lighting systems, residential DHW features, and geometry must be extracted to top level
+            if child_tag in ['ExtWall', 'IntWall', 'UndgrFlr', 'UndgrWall', 'Flr', 'Roof', 'Ceiling', 'IntFlr', 'ExtFlr', 'IntLtgSys', 'PolyLp', 'ResSpcDHWFeatures']:
                 return True
 
         # Elements that appear as children of ExtWall in XML but should be siblings in text
         if parent_tag == 'ExtWall':
             # Windows and doors (commercial) must be extracted to top level
             if child_tag in ['Win', 'Dr']:
+                return True
+
+        # Elements that appear as children of Roof in XML but should be siblings in text
+        if parent_tag == 'Roof':
+            # Skylights (commercial) must be extracted to top level
+            if child_tag == 'Skylt':
+                return True
+
+        # Elements that appear as children of commercial surface elements in XML but should be siblings in text
+        # This includes ALL commercial building envelope surfaces AND fenestration that can have geometry
+        if parent_tag in ['ExtWall', 'IntWall', 'UndgrFlr', 'UndgrWall', 'Flr', 'Roof', 'Ceiling', 'IntFlr', 'ExtFlr', 'Dr', 'Win', 'Skylt']:
+            # PolyLp geometry must be extracted to top level
+            # CIBD25 does NOT allow nested PolyLp inside surface elements OR fenestration elements (Win, Dr, Skylt)
+            if child_tag == 'PolyLp':
                 return True
 
         # Elements that appear as children of FluidSys in XML but should be siblings in text
@@ -450,14 +587,20 @@ class CIBDXMLToTextConverter:
         if parent_tag == 'AirSys':
             # Air segments and HVAC components must be extracted to top level
             # Similar to FluidSys structure - components are top-level siblings
-            if child_tag in ['AirSeg', 'CoilClg', 'CoilHtg', 'Fan', 'TrmlUnit', 'OACtrl', 'EvapClr']:
+            if child_tag in ['AirSeg', 'CoilClg', 'CoilHtg', 'Fan', 'TrmlUnit', 'OACtrl', 'EvapClr', 'HtRcvry']:
                 return True
 
         # Elements that appear as children of AirSeg in XML but should be siblings in text
         if parent_tag == 'AirSeg':
             # HVAC components nested under AirSeg must also be extracted to top level
             # They are top-level siblings in CIBD25 format, not nested under AirSeg
-            if child_tag in ['CoilClg', 'CoilHtg', 'Fan', 'OACtrl']:
+            if child_tag in ['CoilClg', 'CoilHtg', 'Fan', 'OACtrl', 'EvapClr', 'TrmlUnit']:
+                return True
+
+        # Elements that appear as children of PolyLp in XML but should be siblings in text
+        if parent_tag == 'PolyLp':
+            # CartesianPt (Cartesian Points) must be extracted to top level
+            if child_tag == 'CartesianPt':
                 return True
 
         # CRITICAL: In CIBD25 text format, ResZnGrp is an empty container and ALL
@@ -476,6 +619,7 @@ class CIBDXMLToTextConverter:
                 'DwellUnit',           # Dwelling units
                 'ResExtWall',          # Exterior walls
                 'ResIntWall',          # Interior walls
+                'ResUndgrWall',        # Underground walls
                 'ResSlabFlr',          # Slab floors
                 'ResIntFlr',           # Interior floors
                 'ResCathedralCeiling', # Cathedral ceilings
@@ -493,6 +637,7 @@ class CIBDXMLToTextConverter:
             if child_tag in [
                 'ResExtWall',          # Exterior walls
                 'ResIntWall',          # Interior walls
+                'ResUndgrWall',        # Underground walls
                 'ResSlabFlr',          # Slab floors
                 'ResIntFlr',           # Interior floors
                 'ResCathedralCeiling', # Cathedral ceilings
@@ -518,6 +663,94 @@ class CIBDXMLToTextConverter:
 
         return False
 
+    def _get_deferred_sibling_priority(self, elem: ET.Element) -> int:
+        """
+        Get priority order for deferred siblings (lower number = written earlier).
+
+        Fix #26: CBECC 2025 requires specific ordering where building structure (Bldg)
+        must be written BEFORE type definitions like DwellUnitType. This ensures that
+        DwellUnit instances (which are immediate siblings of ResZn inside Bldg hierarchy)
+        appear in the output file BEFORE DwellUnitType definitions are written.
+
+        Args:
+            elem: XML element being ordered
+
+        Returns:
+            Priority number (lower = earlier in file)
+        """
+        tag = elem.tag.replace(self.namespace, '') if self.namespace else elem.tag
+
+        # Priority levels (based on CBECC reference MF8Unit order):
+        # Order: ProjVar → ResProj → SchDay → Bldg → ... → DwellUnitType → HVAC systems
+
+        # 1. Fix #36: ResProj and ProjVar must come BEFORE Bldg
+        # Fix #37: Match Euclid working file order (NOT CBECC MF8 reference)
+        # Euclid order: Proj → Construction → HVAC components → Bldg → ... → DwellUnitType → HVAC systems
+
+        # 1. Project variants
+        if tag in ['ResProj', 'ProjVar']:
+            return 50
+
+        # 2. Schedule objects
+        if tag in ['SchDay', 'SchWeek', 'Sch']:
+            return 60
+
+        # 3. Construction catalog - BEFORE Bldg (matches Euclid)
+        if tag in ['ResConsAssm', 'ResMat', 'ResWinType', 'ConsAssm', 'Mat',
+                   'FenCons', 'DrCons', 'SpcFuncDefaults']:
+            return 70
+
+        # 4. HVAC COMPONENTS - BEFORE Bldg (matches Euclid)
+        # These are catalog/library objects, not system assignments
+        # Fix #42: Specific order within HVAC components based on working Euclid file:
+        # ResHtPumpSys → ResFanSys → ResCentralVentSys → ResDistSys → ResIAQFan
+        if tag in ['ResHtgSys', 'ResClgSys']:
+            return 80
+        if tag == 'ResHtPumpSys':
+            return 81
+        if tag == 'ResFanSys':
+            return 82
+        if tag == 'ResCentralVentSys':
+            return 83
+        if tag == 'ResDistSys':
+            return 84
+        if tag in ['ResIAQFan', 'ResLpTankHtr']:
+            return 85
+
+        # 5. Building structure
+        if tag == 'Bldg':
+            return 100
+
+        # 6. Commercial HVAC system structure
+        if tag in ['AirSys', 'FluidSys', 'VRFSys', 'ZnSys']:
+            return 200
+
+        # 7. Equipment catalog objects
+        if tag in ['Lum', 'WtrHtr', 'Chiller', 'Boiler', 'Pump', 'ThrmlEngyStor',
+                   'PVArray', 'Batt']:
+            return 600
+
+        # 8. HERS/Compliance objects
+        if tag in ['HERSCool', 'HERSHeat', 'HERSHtPump', 'HERSDist', 'HERSFan',
+                   'HERSDHWSys', 'HERSOther', 'SpeclFtr']:
+            return 700
+
+        # 9. DwellUnitType - AFTER all DwellUnit instances (inside Bldg)
+        if tag == 'DwellUnitType':
+            return 900
+
+        # 10. HVAC SYSTEMS - AFTER DwellUnitType (matches Euclid end order)
+        # These are system assignments that reference DwellUnitType
+        if tag in ['ResHVACSys', 'ResDHWSys', 'ResDWHRSys', 'ResWtrHtr']:
+            return 950
+
+        # 10. Report objects (always last)
+        if tag in ['ResDHWSysRpt', 'DwellUnitRpt', 'ResIAQVentRpt', 'ResSCSysRpt', 'EUseSummary']:
+            return 1000
+
+        # Default: middle priority
+        return 500
+
     def _is_immediate_sibling(self, child_tag: str, parent_tag: str) -> bool:
         """
         Determine if extracted child should be written immediately after parent.
@@ -532,11 +765,25 @@ class CIBDXMLToTextConverter:
         if parent_tag == 'Bldg' and child_tag == 'ResZnGrp':
             return True
 
+        # Children of Story (commercial spaces) must be written immediately after Story
+        # CRITICAL: This maintains proper CBECC GUI hierarchy: Story → Spc → envelope
+        # If deferred, spaces appear under wrong stories in GUI tree
+        if parent_tag == 'Story' and child_tag == 'Spc':
+            return True
+
         # Children of ResZn/ResOtherZn must be written immediately after the zone
         if parent_tag in ['ResZn', 'ResOtherZn']:
             if child_tag in ['DwellUnit', 'ResExtWall', 'ResIntWall', 'ResSlabFlr',
                             'ResIntFlr', 'ResCathedralCeiling', 'ResCeilingBelowAttic',
                             'ResOpening', 'ResExtFlr', 'ResAtticRoof', 'IntLtgSys']:
+                return True
+
+        # Children of Spc (commercial) must be written immediately after the space
+        # CRITICAL: This maintains proper CBECC GUI hierarchy: Spc → envelope components
+        # If deferred, envelope elements appear at end of file, breaking parent-child display
+        if parent_tag == 'Spc':
+            if child_tag in ['ExtWall', 'IntWall', 'UndgrFlr', 'UndgrWall', 'Flr', 'Roof',
+                            'Ceiling', 'IntFlr', 'ExtFlr', 'IntLtgSys']:
                 return True
 
         # Children of ResExtWall must be written immediately

@@ -49,12 +49,38 @@ htmlcov/
 # Project-specific
 *.cibd22x
 *.cibd22
+*.cibd25
 *.log
 *.xml
 !**/fixtures/**/*.cibd22x  # Keep test fixtures
+!**/fixtures/**/*.cibd25   # Keep test fixtures
 !**/examples/**/*.cibd22x  # Keep examples
+!**/examples/**/*.cibd25   # Keep examples
 *.emjson
 !**/examples/**/*.emjson   # Keep example files
+
+# Development artifacts
+test_*.py
+!tests/test_*.py           # Keep actual test files
+debug_*.py
+verify_*.py
+fix_*.py
+diagnose_*.py
+*.sh
+!scripts/*.sh              # Keep scripts folder if exists
+
+# Session/fix notes (keep only official docs)
+SESSION_*.md
+FIX_*.md
+WORKING_*.md
+DEBUG_*.md
+
+# macOS
+.DS_Store
+*.DS_Store
+
+# Claude Code
+.claude/
 
 # Simulation outputs
 **/run/

@@ -41,12 +41,12 @@ class SurfaceParser(BaseParser):
     # CIBD22X surface tags (residential and commercial)
     SURFACE_TAGS = [
         'ResExtWall', 'ResIntWall', 'ResIntFlr', 'ResSlabFlr', 'ResUndgrWall', 'ResUndgrFlr',
-        'ResCathedralCeiling', 'ResAtticRoof', 'ResOtherFlr',
+        'ResCathedralCeiling', 'ResCeilingBelowAttic', 'ResAtticRoof', 'ResOtherFlr',
         'ExtWall', 'IntWall', 'Roof', 'ExtFlr', 'IntFlr', 'UndgrWall', 'UndgrFlr'
     ]
 
     # Zone tags that can contain surfaces
-    ZONE_TAGS = ['ResZn', 'ComZn', 'ResOtherZn', 'Spc', 'ThrmlZn']
+    ZONE_TAGS = ['ResZn', 'ComZn', 'ResOtherZn', 'ResAttic', 'Spc', 'ThrmlZn']
 
     def __init__(self, id_registry: IDRegistry):
         """
@@ -141,6 +141,9 @@ class SurfaceParser(BaseParser):
         perimeter_ft = self._to_float(perimeter_str)
         perimeter_m = (perimeter_ft * 0.3048) if perimeter_ft else None
 
+        # Parse PolyLp vertices for CIBD25 export
+        vertices = self._parse_polylp_vertices(surf_elem)
+
         # Parse orientation and tilt
         azimuth = self._to_float(self.get_property(surf_elem, 'Az'))
         tilt = self._to_float(self.get_property(surf_elem, 'Tilt'))
@@ -193,6 +196,7 @@ class SurfaceParser(BaseParser):
             surface_subtype=surf_subtype,
             area_m2=area_m2,
             perimeter_m=perimeter_m,
+            vertices=vertices,
             tilt_deg=tilt,
             azimuth_deg=azimuth,
             construction_ref=construction_ref,
@@ -243,6 +247,33 @@ class SurfaceParser(BaseParser):
             area -= points[j][0] * points[i][1]
 
         return abs(area) / 2.0
+
+    def _parse_polylp_vertices(self, element: ET.Element) -> Optional[List[Dict[str, float]]]:
+        """
+        Parse PolyLp vertices for CIBD25 export.
+
+        Args:
+            element: XML element that may contain a PolyLp child
+
+        Returns:
+            List of vertices [{'x': float, 'y': float, 'z': float}, ...] or None if no PolyLp found
+        """
+        polylp = self.find_child(element, 'PolyLp')
+        if polylp is None:
+            return None
+
+        # Extract all 3 coordinates (X, Y, Z) from CartesianPt elements
+        vertices = []
+        for pt in self.find_children(polylp, 'CartesianPt'):
+            coords = self.find_children(pt, 'Coord')
+            if len(coords) >= 3:
+                x = self._to_float(coords[0].text)
+                y = self._to_float(coords[1].text)
+                z = self._to_float(coords[2].text)
+                if x is not None and y is not None and z is not None:
+                    vertices.append({'x': x, 'y': y, 'z': z})
+
+        return vertices if len(vertices) >= 3 else None
 
     def _determine_surface_type(self, surf_tag: str) -> str:
         """
@@ -298,6 +329,7 @@ class SurfaceParser(BaseParser):
             'ResIntFlr': 'res_int_floor',
             'ResUndgrWall': 'res_undergr_wall',
             'ResCathedralCeiling': 'res_cathedral_ceiling',
+            'ResCeilingBelowAttic': 'res_ceiling_below_attic',
             'ResAtticRoof': 'res_attic_roof',
             'ResOtherFlr': 'res_other_floor'
         }

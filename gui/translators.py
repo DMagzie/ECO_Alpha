@@ -322,6 +322,11 @@ def emjson6_to_cibd22x(em_json: Dict[str, Any]) -> str:
     """
     Export EMJSON v6 → CIBD22X XML string using eco_tools exporter.
 
+    Conversion Flow:
+    1. EMJSON v6 → InternalRepresentation (using _emjson_to_internal_repr)
+    2. InternalRepresentation → CIBD22X XML (using CIBD22XExporter)
+    3. XML Element → Pretty-printed string
+
     Args:
         em_json: EMJSON v6 dictionary
 
@@ -329,22 +334,30 @@ def emjson6_to_cibd22x(em_json: Dict[str, Any]) -> str:
         XML string (pretty-printed)
     """
     try:
-        from eco_tools.exporters.cibd22x_exporter import emjson6_to_cibd22x as _exporter_func, write_xml
+        from eco_tools.translators.cibd22x.exporter import CIBD22XExporter
         from xml.etree import ElementTree as ET
         from xml.dom import minidom
-        
-        # Convert to XML element tree
-        root = _exporter_func(em_json)
-        
-        # Convert to pretty XML string
-        xml_str = ET.tostring(root, encoding="utf-8")
+
+        # Step 1: Convert EMJSON v6 to InternalRepresentation
+        internal = _emjson_to_internal_repr(em_json)
+
+        # Step 2: Export InternalRepresentation to CIBD22X XML Element
+        exporter = CIBD22XExporter()
+        root_element = exporter.export_to_element(internal)
+
+        # Step 3: Convert to pretty XML string
+        xml_str = ET.tostring(root_element, encoding="utf-8")
         pretty = minidom.parseString(xml_str).toprettyxml(indent="  ")
-        
+
         return pretty
-        
+
     except ImportError as e:
+        import traceback
         return f"""<?xml version="1.0" encoding="UTF-8"?>
-<!-- Export failed: Cannot import exporter from eco_tools: {e} -->
+<!-- Export failed: Cannot import CIBD22X exporter from eco_tools: {e} -->
+<!-- Traceback:
+{traceback.format_exc()}
+-->
 <!-- Ensure eco_tools package is installed and on Python path -->
 <Error>
     <Message>Exporter not found</Message>
@@ -396,16 +409,111 @@ def emjson6_to_hbjson(em_json: Dict[str, Any]) -> str:
         }, indent=4)
 
 
-def emjson6_to_cibd25(em_json: Dict[str, Any], source_cibd22x_file: str = None) -> str:
+def emjson6_to_cibd25_direct(em_json: Dict[str, Any]) -> str:
     """
-    Export EMJSON v6 → CIBD25 text format string for Title 24 2025 simulation.
+    Export EMJSON v6 → CIBD25 using Direct Writer (V7 Consolidated).
 
-    CIBD25 uses same structure as CIBD22X but with 2025 rulesets:
-    - RulesetFilename: "T24_2025.bin"
-    - SoftwareVersion: "CBECC 2025.2.0 (1390)"
+    Uses the unified CIBD25 Direct Writer with all V7 lessons learned:
+    - Direct EMJSON → CIBD25 (no XML intermediate)
+    - Property filtering via property_rules module:
+      * VentSpcFunc filtered on ResZn/ResOtherZn (Fix #41)
+      * PVBattSizeBldgType, BattReq_PartOfLargeTenantArea filtered (Fix #44)
+      * Batt elements skipped (Fix #43)
+    - Required defaults applied (ResCentralVentSys.Type, etc.)
+    - Element ordering per CBECC 2025 requirements
+    - Version markers for Title 24 2025
 
-    Strategy: If source CIBD22X file is provided, use it for roundtrip.
-    Otherwise, use the old conversion path.
+    Benefits:
+    - Single code path (no legacy dual-path)
+    - Property rules in one place (property_rules.py)
+    - Tested with 7 production models
+    - Correct property formatting (int vs string)
+
+    Args:
+        em_json: EMJSON v6 dictionary
+
+    Returns:
+        CIBD25 text format string ready for CBECC 2025
+    """
+    try:
+        from eco_tools.translators.cibd25 import CIBD25DirectWriter
+        import tempfile
+        import os
+        import logging
+
+        # Enable debug logging to see what's failing
+        logging.basicConfig(level=logging.DEBUG)
+        logger = logging.getLogger(__name__)
+
+        # Create Direct Writer instance
+        logger.debug("Creating CIBD25DirectWriter instance...")
+        writer = CIBD25DirectWriter(em_json)
+
+        # Write to temporary file
+        temp_cibd25 = tempfile.NamedTemporaryFile(mode='w', suffix='.cibd25', delete=False, encoding='utf-8')
+        cibd25_path = temp_cibd25.name
+        temp_cibd25.close()
+
+        logger.debug(f"Writing to temp file: {cibd25_path}")
+
+        # Perform conversion
+        try:
+            success = writer.write_file(cibd25_path)
+        except Exception as write_error:
+            # Capture the actual error from write_file
+            raise Exception(f"Direct Writer write_file() raised exception: {write_error}") from write_error
+
+        if not success:
+            # Check if file was created and has content
+            if os.path.exists(cibd25_path):
+                with open(cibd25_path, 'r', encoding='utf-8') as f:
+                    partial_content = f.read()
+                if partial_content:
+                    raise Exception(f"CIBD25 Direct Writer returned False. Partial output ({len(partial_content)} chars):\n{partial_content[:500]}")
+                else:
+                    raise Exception("CIBD25 Direct Writer returned False. Output file is empty.")
+            else:
+                raise Exception("CIBD25 Direct Writer returned False. Output file was not created.")
+
+        # Read CIBD25 content
+        logger.debug("Reading CIBD25 content...")
+        with open(cibd25_path, 'r', encoding='utf-8') as f:
+            cibd25_content = f.read()
+
+        logger.debug(f"Generated {len(cibd25_content)} characters")
+
+        # Clean up temp file
+        os.unlink(cibd25_path)
+
+        return cibd25_content
+
+    except ImportError as e:
+        return f"""# Export failed: Cannot import CIBD25 Direct Writer from eco_tools: {e}
+# Ensure eco_tools package is installed with CIBD25 support
+"""
+    except Exception as e:
+        import traceback
+        return f"""# Export failed: {str(e)}
+# Traceback:
+# {traceback.format_exc()}
+"""
+
+
+def emjson6_to_cibd25_legacy(em_json: Dict[str, Any], source_cibd22x_file: str = None) -> str:
+    """
+    Export EMJSON v6 → CIBD25 using legacy two-step process.
+
+    Uses the production-ready CIBD22X → CIBD25 translator with:
+    - Automatic ruleset conversion (T24N_2022.bin → T24_2025.bin)
+    - Nested element extraction to flat structure
+    - Window type preservation (WinType property)
+    - Property defaults (Type, VentSpcFunc)
+
+    Strategy:
+    1. Export EMJSON v6 → CIBD22X XML (using existing exporter)
+    2. Convert CIBD22X → CIBD25 (using production-ready CIBDXMLToTextConverter)
+
+    Note: This is the legacy two-step process. For new code, prefer emjson6_to_cibd25_direct().
 
     Args:
         em_json: EMJSON v6 dictionary
@@ -415,48 +523,49 @@ def emjson6_to_cibd25(em_json: Dict[str, Any], source_cibd22x_file: str = None) 
         CIBD25 text format string ready for CBECC 2025
     """
     try:
-        from eco_tools.translators.cibd22x import CIBD22XImporter
-        from eco_tools.translators.cibd25 import CIBD25Exporter
+        from eco_tools.translators.cibd_xml_to_text import CIBDXMLToTextConverter
         import tempfile
         import os
 
-        # DEBUG: Print what we received
-        print(f"[DEBUG] emjson6_to_cibd25 called with source_cibd22x_file={source_cibd22x_file}")
-        if source_cibd22x_file:
-            print(f"[DEBUG] File exists check: {os.path.exists(source_cibd22x_file)}")
-
-        # If we have the original CIBD22X file, use it for roundtrip
+        # Step 1: If source CIBD22X file provided, use it directly
+        # Otherwise, export EMJSON → CIBD22X first
         if source_cibd22x_file and os.path.exists(source_cibd22x_file):
-            print(f"[DEBUG] Using ROUNDTRIP path with source file: {source_cibd22x_file}")
-            # Step 1: Import from CIBD22X
-            importer = CIBD22XImporter()
-            internal = importer.import_file(source_cibd22x_file)
+            cibd22x_path = source_cibd22x_file
+            temp_cibd22x = None
         else:
-            print(f"[DEBUG] Using FALLBACK path (EMJSON → InternalRepresentation)")
-            # Fallback: Convert EMJSON to InternalRepresentation (old path)
-            internal = _emjson_to_internal_repr(em_json)
+            # Export EMJSON v6 → CIBD22X XML
+            cibd22x_xml = emjson6_to_cibd22x(em_json)
 
-        # Step 2: Use v7 CIBD25 exporter (includes fix for duplicate WinType bug)
-        exporter = CIBD25Exporter()
+            # Write to temporary file
+            temp_cibd22x = tempfile.NamedTemporaryFile(mode='w', suffix='.cibd22x', delete=False, encoding='utf-8')
+            temp_cibd22x.write(cibd22x_xml)
+            temp_cibd22x.close()
+            cibd22x_path = temp_cibd22x.name
 
-        # Step 3: Export to temporary CIBD25 file
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.cibd25', delete=False) as tmp_text:
-            tmp_text_path = tmp_text.name
+        # Step 2: Convert CIBD22X → CIBD25 using production-ready translator
+        converter = CIBDXMLToTextConverter()
 
-        # Export directly to CIBD25 text format
-        exporter.export(internal, tmp_text_path)
+        # Create temporary CIBD25 file
+        temp_cibd25 = tempfile.NamedTemporaryFile(mode='w', suffix='.cibd25', delete=False, encoding='utf-8')
+        cibd25_path = temp_cibd25.name
+        temp_cibd25.close()
 
-        # Step 4: Read text content
-        with open(tmp_text_path, 'r', encoding='utf-8') as f:
-            text_content = f.read()
+        # Perform conversion
+        converter.convert_file(cibd22x_path, cibd25_path)
 
-        # Clean up temp file
-        os.unlink(tmp_text_path)
+        # Step 3: Read CIBD25 content
+        with open(cibd25_path, 'r', encoding='utf-8') as f:
+            cibd25_content = f.read()
 
-        return text_content
+        # Clean up temp files
+        os.unlink(cibd25_path)
+        if temp_cibd22x:
+            os.unlink(temp_cibd22x.name)
+
+        return cibd25_content
 
     except ImportError as e:
-        return f"""# Export failed: Cannot import CIBD25 exporter from eco_tools: {e}
+        return f"""# Export failed: Cannot import CIBD25 translator from eco_tools: {e}
 # Ensure eco_tools package is installed and on Python path
 """
     except Exception as e:
@@ -465,6 +574,28 @@ def emjson6_to_cibd25(em_json: Dict[str, Any], source_cibd22x_file: str = None) 
 # Traceback:
 # {traceback.format_exc()}
 """
+
+
+def emjson6_to_cibd25(em_json: Dict[str, Any], source_cibd22x_file: str = None) -> str:
+    """
+    Export EMJSON v6 → CIBD25 (Backward Compatible Wrapper).
+
+    By default, uses the new Direct Writer (emjson6_to_cibd25_direct).
+    The source_cibd22x_file parameter is ignored (kept for compatibility).
+
+    For explicit control, use:
+    - emjson6_to_cibd25_direct() - Single-step Direct Writer (recommended)
+    - emjson6_to_cibd25_legacy() - Two-step legacy process
+
+    Args:
+        em_json: EMJSON v6 dictionary
+        source_cibd22x_file: Ignored (kept for backward compatibility)
+
+    Returns:
+        CIBD25 text format string ready for CBECC 2025
+    """
+    # Use Direct Writer by default (faster, more reliable)
+    return emjson6_to_cibd25_direct(em_json)
 
 
 def translate_gem_to_v6(gem_file: str) -> Dict[str, Any]:
@@ -1025,7 +1156,8 @@ def _emjson_to_internal_repr(emjson: Dict[str, Any]):
         internal.pv_arrays.append(PVArray(**p_dict))
     
     # Convert zone groups
-    for zg_dict in emjson.get("zone_groups", []):
+    # IMPORTANT: Zone groups are in geometry section, not top level
+    for zg_dict in emjson.get("geometry", {}).get("zone_groups", []):
         internal.zone_groups.append(ZoneGroup(**zg_dict))
     
     # Metadata and diagnostics

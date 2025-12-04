@@ -68,6 +68,18 @@ class DUTypeParser(BaseParser):
         if not name:
             return None
 
+        # Helper to get array or single value
+        # CIBD22 text parser converts arrays (IAQFanRef[1], IAQFanRef[2]) to multiple XML child elements
+        def get_array_or_single(tag: str) -> Optional[Any]:
+            """Get property as array if multiple elements exist, otherwise single value."""
+            elements = self.find_all(du_elem, tag)
+            if not elements:
+                return None
+            if len(elements) == 1:
+                return elements[0].text.strip() if elements[0].text else None
+            # Multiple elements - return as list
+            return [elem.text.strip() if elem.text else None for elem in elements]
+
         # Capture all DwellUnitType properties for complete round-trip
         return {
             'id': self.id_registry.generate_id('DU', name, '', 'CIBD22X'),
@@ -78,17 +90,18 @@ class DUTypeParser(BaseParser):
             # Appliances
             'dryer_fuel': self.get_property(du_elem, 'DryerFuel'),
             'cook_fuel': self.get_property(du_elem, 'CookFuel'),
-            # HVAC system references
+            # HVAC system references (arrays or single values)
             'hvac_sys_type': self.get_property(du_elem, 'HVACSysType'),
-            'hvac_ht_pump_ref': self.get_property(du_elem, 'HVACHtPumpRef'),
-            'hvac_fan_ref': self.get_property(du_elem, 'HVACFanRef'),
-            'hvac_dist_ref': self.get_property(du_elem, 'HVACDistRef'),
-            # IAQ system references
+            'hvac_ht_pump_ref': get_array_or_single('HVACHtPumpRef'),
+            'ht_pump_equip_count': get_array_or_single('HtPumpEquipCount'),  # Added missing property
+            'hvac_fan_ref': self.get_property(du_elem, 'HVACFanRef'),  # Usually single value
+            'hvac_dist_ref': self.get_property(du_elem, 'HVACDistRef'),  # Usually single value
+            # IAQ system references (arrays or single values)
             'iaq_option': self.get_property(du_elem, 'IAQOption'),
-            'iaq_fan_ref': self.get_property(du_elem, 'IAQFanRef'),
+            'iaq_fan_ref': get_array_or_single('IAQFanRef'),
             'iaq_fan_cnt': self._to_int(self.get_property(du_elem, 'IAQFanCnt')),
-            # DHW system reference
-            'dhw_sys_ref': self.get_property(du_elem, 'DHWSysRef'),
+            # DHW system reference (array or single value)
+            'dhw_sys_ref': get_array_or_single('DHWSysRef'),
         }
 
     def _get_name(self, element: ET.Element) -> Optional[str]:

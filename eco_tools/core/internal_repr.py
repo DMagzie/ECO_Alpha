@@ -23,6 +23,7 @@ class Zone:
     conditioned: Optional[bool] = None  # True=conditioned, False=unconditioned, None=unknown
     served_by: List[str] = field(default_factory=list)
     surfaces: List[str] = field(default_factory=list)
+    vertices: Optional[List[Dict[str, float]]] = None  # PolyLp floor polygon vertices [{x, y, z}, ...]
     annotation: Dict[str, Any] = field(default_factory=dict)
 
 
@@ -38,6 +39,7 @@ class Surface:
     azimuth_deg: Optional[float] = None
     area_m2: Optional[float] = None
     perimeter_m: Optional[float] = None  # Perimeter (for slab-on-grade floors)
+    vertices: Optional[List[Dict[str, float]]] = None  # PolyLp vertices for CIBD25 export: [{'x': float, 'y': float, 'z': float}, ...]
     construction_ref: Optional[str] = None
     adjacency: str = 'exterior'
     is_party_surface: bool = False  # CBECC party wall designation (ResIntWall)
@@ -63,6 +65,7 @@ class Opening:
     u_factor_SI: Optional[float] = None
     shgc: Optional[float] = None
     vt: Optional[float] = None
+    vertices: Optional[List[Dict[str, float]]] = None  # PolyLp geometry vertices [{x, y, z}, ...]
     annotation: Dict[str, Any] = field(default_factory=dict)
 
 

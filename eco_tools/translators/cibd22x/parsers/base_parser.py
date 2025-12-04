@@ -48,7 +48,7 @@ INHERITANCE HIERARCHY:
       └─ ... (19 more parsers)
 """
 
-from typing import Optional, Any, List
+from typing import Optional, Any, List, Dict
 import xml.etree.ElementTree as ET
 import logging
 
@@ -350,3 +350,33 @@ class BaseParser:
             area -= points[j][0] * points[i][1]
 
         return abs(area) / 2.0
+
+    def _parse_polylp_vertices(self, element: ET.Element) -> Optional[List[Dict[str, float]]]:
+        """
+        Parse PolyLp vertices for CIBD25 export.
+
+        This method extracts CartesianPt coordinates from the PolyLp child element
+        for export to CIBD25 format, which requires explicit polygon geometry.
+
+        Args:
+            element: XML element that may contain a PolyLp child
+
+        Returns:
+            List of vertices [{'x': float, 'y': float, 'z': float}, ...] or None if no PolyLp found
+        """
+        polylp = self.find_child(element, 'PolyLp')
+        if polylp is None:
+            return None
+
+        # Extract all 3 coordinates (X, Y, Z) from CartesianPt elements
+        vertices = []
+        for pt in self.find_children(polylp, 'CartesianPt'):
+            coords = self.find_children(pt, 'Coord')
+            if len(coords) >= 3:
+                x = self._to_float(coords[0].text)
+                y = self._to_float(coords[1].text)
+                z = self._to_float(coords[2].text)
+                if x is not None and y is not None and z is not None:
+                    vertices.append({'x': x, 'y': y, 'z': z})
+
+        return vertices if len(vertices) >= 3 else None

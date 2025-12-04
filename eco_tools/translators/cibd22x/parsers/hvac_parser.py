@@ -43,8 +43,8 @@ class HVACSystemParser(BaseParser):
         'ResHVACSys',   # Residential HVAC systems
         'ComHVACSys',   # Commercial HVAC systems
         'HVACSys',      # Generic HVAC systems
-        'AirSeg',       # Air segments (CBECC-Com)
-        'TrmlUnit',     # Terminal units (CBECC-Com)
+        # NOTE: AirSeg and TrmlUnit are commercial HVAC components, handled by CommercialHVACParser
+        # DO NOT parse them as residential HVAC systems here
     ]
 
     def __init__(self, id_registry: IDRegistry):
@@ -70,15 +70,9 @@ class HVACSystemParser(BaseParser):
                 systems.append(hvac_sys)
                 all_zone_terminals.extend(zone_terminals)
 
-        # Parse CBECC-Com air segments
-        for airseg in root.findall('.//AirSeg'):
-            hvac_sys = self._parse_air_segment(airseg)
-            if hvac_sys:
-                systems.append(hvac_sys)
-
-        # Parse CBECC-Com terminal units
-        terminals = self._parse_terminal_units(root, systems)
-        all_zone_terminals.extend(terminals)
+        # NOTE: AirSeg and TrmlUnit are commercial HVAC components
+        # They are already parsed by CommercialHVACParser
+        # DO NOT parse them as residential HVAC systems
 
         logger.info(f"Parsed {len(systems)} HVAC systems and {len(all_zone_terminals)} zone terminals")
         return systems, all_zone_terminals
