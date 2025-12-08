@@ -1,0 +1,23 @@
+# Conventions inform codegen helpers (angles, units, derivations).
+# Generators: include helpers
+#   - deg_from(source_text)
+#   - area_from(explicit, width, height) with precedence below.
+kind: conventions
+geometry:
+  azimuth:
+    reference: "0° = North"   # clockwise positive
+    direction: "clockwise positive"
+    units: "deg"
+  tilt:
+    reference: "0° = horizontal up, 90° = vertical"  # floors ≈ 0, walls ≈ 90
+    units: "deg"
+units:
+  length: ft
+  area: ft2
+  temperature: degF
+  power: W
+  heat_transfer_coeff: "Btu/h·ft2·°F"
+area_derivation_precedence:
+  - explicit_area_element       # prefer <Area>
+  - width_times_height          # else Width * Height
+  - null                        # else null (no heuristics)

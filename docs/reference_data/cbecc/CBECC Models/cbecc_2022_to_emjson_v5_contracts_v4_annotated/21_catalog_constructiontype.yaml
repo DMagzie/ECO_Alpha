@@ -1,0 +1,26 @@
+# Catalog handler: construction_types by Name with U-factor.
+object: ConstructionType
+source_paths:
+  cib22:
+    - "/CBECCProject/Catalogs/ConstructionTypes/ConstructionType"
+  cibd22x:
+    - "/CBECCProject/Catalogs/ConstructionTypes/ConstructionType"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: u
+    type: float
+    units: "Btu/h·ft2·°F"
+    required: true
+    source:
+      cib22: [{xpath:"UFactor/text()"}]
+      cibd22x: [{xpath:"UFactor/text()"}]

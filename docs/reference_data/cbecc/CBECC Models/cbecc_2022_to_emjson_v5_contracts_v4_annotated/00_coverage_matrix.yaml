@@ -1,0 +1,46 @@
+# Coverage matrix guides generator scaffolding for 2022 imports:
+# - Iterate objects in this order for deterministic creation.
+# - "status: included" means a handler must exist.
+# - Fields listed define the EMJSON v5 struct schemas to scaffold.
+kind: coverage_matrix
+version: "CBECC 2022 → EMJSON v5"
+objects:
+  - object: Project
+    status: included
+    fields: [name, description]
+  - object: Location
+    status: included
+    fields: [city, state, postal_code, climate_zone, address_line1, address_line2]
+  - object: WindowType
+    status: included
+    fields: [name, u, shgc, vt]
+  - object: ConstructionType
+    status: included
+    fields: [name, u]
+  - object: DUType
+    status: included
+    fields: [name, floor_area]
+  - object: ResZone
+    status: included
+    fields: [id, name, type, floor_area, volume, du_type_ref, multiplier]
+  - object: ResExtWallInstance
+    status: included
+    fields: [name, azimuth_deg, tilt_deg, area_ft2, construction_type_ref, parent_zone_ref]
+  - object: ResRoofInstance
+    status: included
+    fields: [name, azimuth_deg, tilt_deg, area_ft2, construction_type_ref, parent_zone_ref]
+  - object: ResFloorInstance
+    status: included
+    fields: [name, azimuth_deg, tilt_deg, area_ft2, construction_type_ref, parent_zone_ref]
+  - object: ResWindowInstance
+    status: included
+    fields: [name, window_type_ref, width_ft, height_ft, area_ft2, parent_surface_ref]
+  - object: DoorInstance
+    status: included
+    fields: [name, width_ft, height_ft, area_ft2, construction_type_ref, parent_surface_ref]
+  - object: SkylightInstance
+    status: included
+    fields: [name, window_type_ref, width_ft, height_ft, area_ft2, parent_surface_ref]
+  - object: ResHVACSystem
+    status: included
+    fields: [name, system_type, fuel, heating_eff, cooling_eff, served_zones]

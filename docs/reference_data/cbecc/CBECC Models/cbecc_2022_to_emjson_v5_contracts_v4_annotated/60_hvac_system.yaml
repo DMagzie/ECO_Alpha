@@ -1,0 +1,84 @@
+# Systems: closed enums for system_type/fuel. Zone serving list must resolve.
+object: ResHVACSystem
+source_paths:
+  cib22:
+    - "/CBECCProject/Systems/ResHVACSystem"
+  cibd22x:
+    - "/CBECCProject/Systems/ResHVACSystem"
+precedence: first
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "global"
+references:
+  - field: served_zones
+    target_collection: "zones"
+    collection: true              # generator: treat as array of refs
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: system_type
+    type: enum
+    required: true
+    source:
+      cib22: [{ xpath:"SystemType/text()" }]
+      cibd22x: [{ xpath:"SystemType/text()" }]
+    enum_map:                      # CLOSED; expand only with spec
+      "SplitHeatPump": "heat_pump_split"
+      "PackagedHP": "packaged_hp"
+      "DuctlessMiniSplit": "mini_split_ductless"
+      "DuctedMiniSplit": "mini_split_ducted"
+      "FurnaceAC": "furnace_ac"
+      "BoilerFanCoil": "boiler_fan_coil"
+      "RadiantBoiler": "radiant_boiler"
+      "PackagedDX": "packaged_dx"
+      "ElectricResistance": "electric_resistance"
+      "Other": "other"
+    diagnostics:
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"system_type", xpath:"//ResHVACSystem/SystemType" }
+  - name: fuel
+    type: enum
+    required: false
+    default: "electricity"
+    source:
+      cib22: [{ xpath:"Fuel/text()" }]
+      cibd22x: [{ xpath:"Fuel/text()" }]
+    enum_map:
+      "Electricity": "electricity"
+      "NaturalGas": "natural_gas"
+      "Propane": "propane"
+      "FuelOil": "fuel_oil"
+      "Other": "other"
+    diagnostics:
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"fuel", xpath:"//ResHVACSystem/Fuel" }
+  - name: heating_eff
+    type: float
+    required: false
+    source:
+      cib22: [{xpath:"HeatingEff/text()"}]
+      cibd22x: [{xpath:"HeatingEff/text()"}]
+  - name: cooling_eff
+    type: float
+    required: false
+    source:
+      cib22: [{xpath:"CoolingEff/text()"}]
+      cibd22x: [{xpath:"CoolingEff/text()"}]
+  - name: served_zones
+    type: string
+    required: false
+    default: []
+    source:
+      cib22:
+        - { xpath:"ServedZones/ZoneRef/@ref" }   # prefer attribute ref
+        - { xpath:"ServedZones/ZoneRef/text()" } # fallback to text content
+      cibd22x:
+        - { xpath:"ServedZones/ZoneRef/@ref" }
+        - { xpath:"ServedZones/ZoneRef/text()" }
+    normalize:
+      as_array: true

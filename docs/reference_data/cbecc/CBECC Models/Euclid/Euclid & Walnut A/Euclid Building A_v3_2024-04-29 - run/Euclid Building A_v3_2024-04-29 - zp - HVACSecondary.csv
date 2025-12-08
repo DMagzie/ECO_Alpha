@@ -1,0 +1,117 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"Sport-Lounge AirSys","SZHP","New",1,685.73,34000,58,49.5822,423.529,33000,95,48.1239,1200,1.74996,342.8,0.499905,"Sport-Lounge","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Sport-Lounge AirSys-2","SZHP","New",1,685.73,34000,58,49.5822,423.529,33000,95,48.1239,1200,1.74996,342.8,0.499905,"Sport-Lounge","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Fitness-Center AirSys","SZHP","New",1,848.95,57000,58,67.1418,421.053,55500,95,65.3749,2000,2.35585,424.4,0.499912,"Fitness-Center","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Co-Work AirSys","SZHP","New",1,756.48,27600,58,36.4848,434.783,27600,95,36.4848,1000,1.32191,113.4,0.149905,"Co-Work","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Leasing AirSys","SZHP","New",1,1053.52,57000,58,54.1043,421.053,55000,95,52.2059,2000,1.8984,158,0.149973,"Leasing","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Media-Lounge AirSys","SZHP","New",1,571.996,27600,58,48.2521,434.783,28400,95,49.6507,1000,1.74826,85.7,0.149826,"Media-Lounge","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Inverter-Rm_L01 AirSys","SZHP","New",1,49.7379,18000,58,361.897,423.333,18000,95,361.897,635,12.7669,0,0,"Inverter-Rm_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Offices_Break-Rm AirSys","SZHP","New",1,759.462,34000,58,44.7685,423.529,34000,95,44.7685,1200,1.58007,113.9,0.149975,"Offices_Break-Rm","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Social-Lounge AirSys","SZHP","New",1,716.835,57000,58,79.5162,421.053,55500,95,77.4237,2000,2.79004,107.5,0.149965,"Social-Lounge","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Social-Lounge AirSys-2","SZHP","New",1,716.835,57000,58,79.5162,421.053,55500,95,77.4237,2000,2.79004,107.5,0.149965,"Social-Lounge","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Pet-Spa_L01 AirSys","SZHP","New",1,225.413,24000,58,106.471,400,29000,95,128.653,800,3.54904,0,0,"Pet-Spa_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Fitness-Center AirSys-2","SZHP","New",1,848.95,57000,58,67.1418,421.053,55500,95,65.3749,2000,2.35585,424.4,0.499912,"Fitness-Center","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Fitness-Center AirSys-3","SZHP","New",1,848.95,57000,58,67.1418,421.053,55500,95,65.3749,2000,2.35585,424.4,0.499912,"Fitness-Center","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"Sport-Lounge TrmlUnit","Uncontrolled","New",1,"Sport-Lounge AirSys",1,"Sport-Lounge",-99996,-99996,1200,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Sport-Lounge TrmlUnit-2","Uncontrolled","New",1,"Sport-Lounge AirSys-2",1,"Sport-Lounge-2",-99996,-99996,1200,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Fitness-Center TrmlUnit","Uncontrolled","New",1,"Fitness-Center AirSys",1,"Fitness-Center",-99996,-99996,2000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Co-Work TrmlUnit","Uncontrolled","New",1,"Co-Work AirSys",1,"Co-Work",-99996,-99996,1000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Leasing TrmlUnit","Uncontrolled","New",1,"Leasing AirSys",1,"Leasing",-99996,-99996,2000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Media-Lounge TrmlUnit","Uncontrolled","New",1,"Media-Lounge AirSys",1,"Media-Lounge",-99996,-99996,1000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Inverter-Rm_L01 TrmlUnit","Uncontrolled","New",1,"Inverter-Rm_L01 AirSys",1,"Inverter-Rm_L01",-99996,-99996,635,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Offices_Break-Rm TrmlUnit","Uncontrolled","New",1,"Offices_Break-Rm AirSys",1,"Offices_Break-Rm",-99996,-99996,1200,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Social-Lounge TrmlUnit","Uncontrolled","New",1,"Social-Lounge AirSys",1,"Social-Lounge",-99996,-99996,2000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Social-Lounge TrmlUnit-2","Uncontrolled","New",1,"Social-Lounge AirSys-2",1,"Social-Lounge-2",-99996,-99996,2000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Pet-Spa_L01 TrmlUnit","Uncontrolled","New",1,"Pet-Spa_L01 AirSys",1,"Pet-Spa_L01",-99996,-99996,800,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Fitness-Center TrmlUnit-2","Uncontrolled","New",1,"Fitness-Center AirSys-2",1,"Fitness-Center-2",-99996,-99996,2000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Fitness-Center TrmlUnit-3","Uncontrolled","New",1,"Fitness-Center AirSys-3",1,"Fitness-Center-3",-99996,-99996,2000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"Sport-Lounge ClgCoil","DirectExpansion","New","Electric","Sport-Lounge AirSys",1,"n/a",34000,35472.6,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Sport-Lounge ClgCoil-2","DirectExpansion","New","Electric","Sport-Lounge AirSys-2",1,"n/a",34000,35472.6,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Fitness-Center ClgCoil","DirectExpansion","New","Electric","Fitness-Center AirSys",1,"n/a",57000,59468.7,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Co-Work ClgCoil","DirectExpansion","New","Electric","Co-Work AirSys",1,"n/a",27600,28795.4,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Leasing ClgCoil","DirectExpansion","New","Electric","Leasing AirSys",1,"n/a",57000,59468.7,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Media-Lounge ClgCoil","DirectExpansion","New","Electric","Media-Lounge AirSys",1,"n/a",27600,28795.4,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Inverter-Rm_L01 ClgCoil","DirectExpansion","New","Electric","Inverter-Rm_L01 AirSys",1,"n/a",18000,18779.6,"NONE","NONE",-99996,"Air",1,22.4,-99996,13,-99996,-99996,-99996,0.210053,1,21.5,13.4,-99996,-99996
+"Offices_Break-Rm ClgCoil","DirectExpansion","New","Electric","Offices_Break-Rm AirSys",1,"n/a",34000,35472.6,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Social-Lounge ClgCoil","DirectExpansion","New","Electric","Social-Lounge AirSys",1,"n/a",57000,59468.7,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Social-Lounge ClgCoil-2","DirectExpansion","New","Electric","Social-Lounge AirSys-2",1,"n/a",57000,59468.7,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Pet-Spa_L01 ClgCoil","DirectExpansion","New","Electric","Pet-Spa_L01 AirSys",1,"n/a",24000,25039.5,"NONE","NONE",-99996,"Air",1,22.4,-99996,13,-99996,-99996,-99996,0.210053,1,21.5,13.4,-99996,-99996
+"Fitness-Center ClgCoil-2","DirectExpansion","New","Electric","Fitness-Center AirSys-2",1,"n/a",57000,59468.7,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+"Fitness-Center ClgCoil-3","DirectExpansion","New","Electric","Fitness-Center AirSys-3",1,"n/a",57000,59468.7,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,1,14.3,13.4,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"Sport-Lounge HtgCoil","HeatPump","New","Electric","Sport-Lounge AirSys",1,"n/a",33000,31527.4,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256686,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Sport-Lounge HtgCoil-2","HeatPump","New","Electric","Sport-Lounge AirSys-2",1,"n/a",33000,31527.4,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256686,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Fitness-Center HtgCoil","HeatPump","New","Electric","Fitness-Center AirSys",1,"n/a",55500,53031.3,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256797,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Co-Work HtgCoil","HeatPump","New","Electric","Co-Work AirSys",1,"n/a",27600,26404.6,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.257706,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Leasing HtgCoil","HeatPump","New","Electric","Leasing AirSys",1,"n/a",55000,52531.3,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256482,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Media-Lounge HtgCoil","HeatPump","New","Electric","Media-Lounge AirSys",1,"n/a",28400,27204.6,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.258651,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Inverter-Rm_L01 HtgCoil","HeatPump","New","Electric","Inverter-Rm_L01 AirSys",1,"n/a",18000,17220.4,"NONE","NONE",-99996,"Air",1,15.5,-99996,5.25,-99996,0.153828,0,-99996,-99996,-99996,-99996,-99996,1,13,6.7
+"Offices_Break-Rm HtgCoil","HeatPump","New","Electric","Offices_Break-Rm AirSys",1,"n/a",34000,32527.4,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.257706,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Social-Lounge HtgCoil","HeatPump","New","Electric","Social-Lounge AirSys",1,"n/a",55500,53031.3,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256797,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Social-Lounge HtgCoil-2","HeatPump","New","Electric","Social-Lounge AirSys-2",1,"n/a",55500,53031.3,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256797,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Pet-Spa_L01 HtgCoil","HeatPump","New","Electric","Pet-Spa_L01 AirSys",1,"n/a",29000,27960.5,"NONE","NONE",-99996,"Air",1,14.3,-99996,4.95,-99996,0.172355,0,-99996,-99996,-99996,-99996,-99996,1,12,6.7
+"Fitness-Center HtgCoil-2","HeatPump","New","Electric","Fitness-Center AirSys-2",1,"n/a",55500,53031.3,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256797,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+"Fitness-Center HtgCoil-3","HeatPump","New","Electric","Fitness-Center AirSys-3",1,"n/a",55500,53031.3,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.256797,0,-99996,-99996,-99996,-99996,-99996,1,7.5,6.7
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"Sport-Lounge SupFan","ConstantVolume","New","Centrifugal","AirFoil","Sport-Lounge AirSys",1,"n/a",1200,-99996,0.65,"StaticPressure",0.145469,0.5,0.100427,0.5,"InAirStream",0.9
+"Sport-Lounge SupFan-2","ConstantVolume","New","Centrifugal","AirFoil","Sport-Lounge AirSys-2",1,"n/a",1200,-99996,0.65,"StaticPressure",0.145469,0.5,0.100427,0.5,"InAirStream",0.9
+"Fitness-Center SupFan","ConstantVolume","New","Centrifugal","AirFoil","Fitness-Center AirSys",1,"n/a",2000,-99996,0.65,"StaticPressure",0.242448,0.5,0.100427,0.75,"InAirStream",0.9
+"Co-Work SupFan","ConstantVolume","New","Centrifugal","AirFoil","Co-Work AirSys",1,"n/a",1000,-99996,0.65,"StaticPressure",0.121224,0.5,0.100427,0.5,"InAirStream",0.9
+"Leasing SupFan","ConstantVolume","New","Centrifugal","AirFoil","Leasing AirSys",1,"n/a",2000,-99996,0.65,"StaticPressure",0.242448,0.5,0.100427,0.75,"InAirStream",0.9
+"Media-Lounge SupFan","ConstantVolume","New","Centrifugal","AirFoil","Media-Lounge AirSys",1,"n/a",1000,-99996,0.65,"StaticPressure",0.0727344,0.3,0.0602564,0.5,"InAirStream",0.9
+"Inverter-Rm_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","Inverter-Rm_L01 AirSys",1,"n/a",635,-99996,0.65,"StaticPressure",0.0153954,0.1,0.0200855,0.5,"InAirStream",0.9
+"Offices_Break-Rm SupFan","ConstantVolume","New","Centrifugal","AirFoil","Offices_Break-Rm AirSys",1,"n/a",1200,-99996,0.65,"StaticPressure",0.145469,0.5,0.100427,0.5,"InAirStream",0.9
+"Social-Lounge SupFan","ConstantVolume","New","Centrifugal","AirFoil","Social-Lounge AirSys",1,"n/a",2000,-99996,0.65,"StaticPressure",0.242448,0.5,0.100427,0.75,"InAirStream",0.9
+"Social-Lounge SupFan-2","ConstantVolume","New","Centrifugal","AirFoil","Social-Lounge AirSys-2",1,"n/a",2000,-99996,0.65,"StaticPressure",0.242448,0.5,0.100427,0.75,"InAirStream",0.9
+"Pet-Spa_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","Pet-Spa_L01 AirSys",1,"n/a",800,-99996,0.65,"StaticPressure",0.0193958,0.1,0.0361538,0.5,"InAirStream",0.5
+"Fitness-Center SupFan-2","ConstantVolume","New","Centrifugal","AirFoil","Fitness-Center AirSys-2",1,"n/a",2000,-99996,0.65,"StaticPressure",0.242448,0.5,0.100427,0.75,"InAirStream",0.9
+"Fitness-Center SupFan-3","ConstantVolume","New","Centrifugal","AirFoil","Fitness-Center AirSys-3",1,"n/a",2000,-99996,0.65,"StaticPressure",0.242448,0.5,0.100427,0.75,"InAirStream",0.9
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"Sport-Lounge OACtrl","NoEconomizer","New",342.8,"Sport-Lounge AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Sport-Lounge OACtrl-2","NoEconomizer","New",342.8,"Sport-Lounge AirSys-2",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Fitness-Center OACtrl","NoEconomizer","New",424.4,"Fitness-Center AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Co-Work OACtrl","NoEconomizer","New",113.4,"Co-Work AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Leasing OACtrl","NoEconomizer","New",158,"Leasing AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Media-Lounge OACtrl","NoEconomizer","New",85.7,"Media-Lounge AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Inverter-Rm_L01 OACtrl","NoEconomizer","New",0,"Inverter-Rm_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Offices_Break-Rm OACtrl","NoEconomizer","New",113.9,"Offices_Break-Rm AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Social-Lounge OACtrl","NoEconomizer","New",107.5,"Social-Lounge AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Social-Lounge OACtrl-2","NoEconomizer","New",107.5,"Social-Lounge AirSys-2",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Pet-Spa_L01 OACtrl","NoEconomizer","New",0,"Pet-Spa_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Fitness-Center OACtrl-2","NoEconomizer","New",424.4,"Fitness-Center AirSys-2",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Fitness-Center OACtrl-3","NoEconomizer","New",424.4,"Fitness-Center AirSys-3",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"

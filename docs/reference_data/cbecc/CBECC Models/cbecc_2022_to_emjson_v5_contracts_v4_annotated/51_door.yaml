@@ -1,0 +1,76 @@
+# Doors: same parenting/reference semantics as windows.
+object: DoorInstance
+source_paths:
+  cib22:
+    preferred: "/CBECCProject/Geometry//ResExtWall/Doors/ResDoor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Door']/ResDoor"
+  cibd22x:
+    preferred: "/CBECCProject/Geometry//ResExtWall/Doors/ResDoor"
+    alternate: "/CBECCProject/Geometry//ResZn/Surface[SurfaceType='Door']/ResDoor"
+precedence: prefer_preferred_path
+cardinality: { min: 0, max: "inf" }
+identity:
+  key: ["Name"]
+  scope: "within_parent_surface"
+references:
+  - field: construction_type_ref
+    target_catalog: "construction_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+  - field: parent_surface_ref
+    target_collection: "surfaces"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-REF-UNRESOLVED" }
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: width_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Width/text()"}]
+      cibd22x: [{xpath:"Width/text()"}]
+  - name: height_ft
+    type: float
+    units: "ft"
+    required: false
+    source:
+      cib22: [{xpath:"Height/text()"}]
+      cibd22x: [{xpath:"Height/text()"}]
+  - name: area_ft2
+    type: float
+    units: "ft2"
+    required: false
+    source:
+      cib22: [{xpath:"Area/text()"}]
+      cibd22x: [{xpath:"Area/text()"}]
+    normalize:
+      compute_if_missing: "width_ft * height_ft"
+      on_compute: { action:"warn", code:"W-NORMALIZED-AREA" }
+  - name: construction_type_ref
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath:"ConstructionTypeRef/text()"}]
+      cibd22x: [{ xpath:"ConstructionTypeRef/text()"}]
+  - name: parent_surface_ref
+    type: string
+    required: true
+    source:
+      cib22:
+        - { xpath:"ancestor::ResExtWall[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+      cibd22x:
+        - { xpath:"ancestor::ResExtWall[1]/Name/text()" }
+        - { xpath:"ancestor::Surface[1]/Name/text()" }
+merge_policy:
+  dedupe_key: ["parent_surface_ref","name"]
+  provenance_field: "_source"
+  provenance_values:
+    preferred: "nested_doors"
+    alternate: "flat_doors"

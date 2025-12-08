@@ -1,0 +1,45 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"Inverter-Rm_L01 AirSys","SZHP","New",1,24.4146,18000,58,737.264,423.333,18000,95,737.264,635,26.009,0,0,"Inverter-Rm_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"Inverter-Rm_L01 TrmlUnit","Uncontrolled","New",1,"Inverter-Rm_L01 AirSys",1,"Inverter-Rm_L01",-99996,-99996,635,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"Inverter-Rm_L01 ClgCoil","DirectExpansion","New","Electric","Inverter-Rm_L01 AirSys",1,"n/a",18000,18779.6,"NONE","NONE",-99996,"Air",1,21.5,14,13,-99996,-99996,-99996,0.210053,1,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"Inverter-Rm_L01 HtgCoil","HeatPump","New","Electric","Inverter-Rm_L01 AirSys",1,"n/a",18000,17220.4,"NONE","NONE",-99996,"Air",1,13,8,4.6,-99996,0.181962,0,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"Inverter-Rm_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","Inverter-Rm_L01 AirSys",1,"n/a",635,-99996,0.65,"StaticPressure",0.0153954,0.1,0.0200855,0.5,"InAirStream",0.9
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"Inverter-Rm_L01 OACtrl","NoEconomizer","New",0,"Inverter-Rm_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"

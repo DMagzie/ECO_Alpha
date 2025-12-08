@@ -1,0 +1,28 @@
+# Handler hint: Create exactly one Project record; name is required.
+object: Project
+source_paths:
+  cib22:
+    - "/CBECCProject/Project"   # exact element path
+  cibd22x:
+    - "/CBECCProject/Project"
+precedence: first                # first and only
+cardinality: { min: 1, max: "inf" }  # allow multiple project blocks but use identity to dedupe
+identity:
+  key: ["Name"]                 # use Name as global key
+  scope: "global"
+fields:
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{ xpath: "Name/text()" }]
+      cibd22x: [{ xpath: "Name/text()" }]
+    diagnostics:
+      on_missing: { action: "error", code: "E-PROJ-NAME-MISSING", xpath: "/CBECCProject/Project/Name" }
+  - name: description
+    type: string
+    required: false
+    default: null
+    source:
+      cib22: [{ xpath: "Description/text()" }]
+      cibd22x: [{ xpath: "Description/text()" }]

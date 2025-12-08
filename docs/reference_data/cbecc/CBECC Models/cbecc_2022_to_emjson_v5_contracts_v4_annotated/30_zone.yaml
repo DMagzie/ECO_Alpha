@@ -1,0 +1,77 @@
+# Handler hint: zones are created before surfaces and systems.
+# Identity: prefer @id; fallback to Name for lookups.
+object: ResZone
+source_paths:
+  cib22:
+    - "/CBECCProject/Geometry//ResZn"
+  cibd22x:
+    - "/CBECCProject/Geometry//ResZn"
+precedence: first
+cardinality: { min: 1, max: "inf" }
+identity:
+  key: ["@id","Name"]
+  scope: "global"
+references:
+  - field: du_type_ref              # generator: resolve against du_types
+    target_catalog: "du_types"
+    lookup_order: ["@id","Name"]
+    on_unresolved: { action:"error", code:"E-ZONE-DUTYPE-REF" }
+fields:
+  - name: id
+    type: string
+    required: false
+    source:
+      cib22: [{xpath:"@id"}]
+      cibd22x: [{xpath:"@id"}]
+  - name: name
+    type: string
+    required: true
+    source:
+      cib22: [{xpath:"Name/text()"}]
+      cibd22x: [{xpath:"Name/text()"}]
+  - name: type
+    type: enum
+    required: true
+    source:
+      cib22: [{ xpath:"ZoneType/text()" }]
+      cibd22x: [{ xpath:"ZoneType/text()" }]
+    enum_map:                      # CLOSED; update only via spec change
+      "Conditioned": "conditioned"
+      "Unconditioned": "unconditioned"
+      "Garage": "garage"
+      "Crawlspace": "crawlspace"
+      "Attic": "attic"
+      "Other": "other"
+    diagnostics:
+      on_unknown_token: { action:"error", code:"E-ENUM-BADTOKEN", field:"type", xpath:"//ResZn/ZoneType" }
+  - name: floor_area
+    type: float
+    units: "ft2"
+    required: true
+    source:
+      cib22: [{xpath:"FloorArea/text()"}]
+      cibd22x: [{xpath:"FloorArea/text()"}]
+    diagnostics:
+      on_missing: {action:"error", code:"E-ZONE-NO-AREA", xpath:"//ResZn/FloorArea" }
+  - name: volume
+    type: float
+    units: "ft3"
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"Volume/text()"}]
+      cibd22x: [{xpath:"Volume/text()"}]
+  - name: du_type_ref
+    type: string
+    required: false
+    default: null
+    source:
+      cib22: [{xpath:"DUTypeRef/text()"}]
+      cibd22x: [{xpath:"DUTypeRef/text()"}]
+  - name: multiplier
+    type: float
+    required: false
+    default: 1.0
+    source:
+      cib22: [{xpath:"Multiplier/text()"}]
+      cibd22x: [{xpath:"Multiplier/text()"}]

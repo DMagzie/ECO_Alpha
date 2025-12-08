@@ -1,0 +1,1339 @@
+{
+    "type": "Model",
+    "identifier": "Multi_Room_Radiance_House",
+    "display_name": "Multi_Room_Radiance_House",
+    "units": "Meters",
+    "properties": {
+        "type": "ModelProperties",
+        "energy": {
+            "type": "ModelEnergyProperties",
+            "construction_sets": [],
+            "constructions": [],
+            "materials": [],
+            "hvacs": [],
+            "program_types": [],
+            "schedules": [],
+            "schedule_type_limits": []
+        },
+        "radiance": {
+            "type": "ModelRadianceProperties",
+            "modifier_sets": [
+                {
+                    "type": "ModifierSetAbridged",
+                    "identifier": "Attic_Modifier_Set",
+                    "wall_set": {
+                        "interior_modifier": null,
+                        "exterior_modifier": null,
+                        "type": "WallModifierSetAbridged"
+                    },
+                    "floor_set": {
+                        "interior_modifier": null,
+                        "exterior_modifier": null,
+                        "type": "FloorModifierSetAbridged"
+                    },
+                    "roof_ceiling_set": {
+                        "interior_modifier": null,
+                        "exterior_modifier": "PolyIso",
+                        "type": "RoofCeilingModifierSetAbridged"
+                    },
+                    "aperture_set": {
+                        "interior_modifier": null,
+                        "skylight_modifier": null,
+                        "operable_modifier": null,
+                        "type": "ApertureModifierSetAbridged",
+                        "window_modifier": null
+                    },
+                    "door_set": {
+                        "overhead_modifier": null,
+                        "exterior_glass_modifier": null,
+                        "interior_glass_modifier": null,
+                        "interior_modifier": null,
+                        "exterior_modifier": null,
+                        "type": "DoorModifierSetAbridged"
+                    },
+                    "shade_set": {
+                        "interior_modifier": null,
+                        "exterior_modifier": null,
+                        "type": "ShadeModifierSetAbridged"
+                    },
+                    "air_boundary_modifier": null
+                }
+            ],
+            "modifiers": [
+                {
+                    "modifier": null,
+                    "type": "Plastic",
+                    "identifier": "PolyIso",
+                    "r_reflectance": 0.45,
+                    "g_reflectance": 0.45,
+                    "b_reflectance": 0.45,
+                    "specularity": 0.0,
+                    "roughness": 0.0,
+                    "dependencies": []
+                },
+                {
+                    "modifier": null,
+                    "type": "Glass",
+                    "identifier": "Triple_Pane_0.35",
+                    "r_transmissivity": 0.38172294125333217,
+                    "g_transmissivity": 0.38172294125333217,
+                    "b_transmissivity": 0.38172294125333217,
+                    "refraction_index": null,
+                    "dependencies": []
+                }
+            ]
+        }
+    },
+    "rooms": [
+        {
+            "type": "Room",
+            "identifier": "First_Floor",
+            "display_name": "First_Floor",
+            "properties": {
+                "type": "RoomPropertiesAbridged",
+                "energy": {
+                    "type": "RoomEnergyPropertiesAbridged"
+                },
+                "radiance": {
+                    "type": "RoomRadiancePropertiesAbridged"
+                }
+            },
+            "faces": [
+                {
+                    "type": "Face",
+                    "identifier": "First_Floor_Bottom",
+                    "display_name": "First_Floor_Bottom",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                0.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                0.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Floor",
+                    "boundary_condition": {
+                        "type": "Ground"
+                    }
+                },
+                {
+                    "type": "Face",
+                    "identifier": "First_Floor_Front",
+                    "display_name": "First_Floor_Front",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                10.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                0.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                0.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                3.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "First_Floor_Front_Glz0",
+                            "display_name": "First_Floor_Front_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged",
+                                    "modifier": "Triple_Pane_0.35"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        7.23606797749979,
+                                        10.0,
+                                        2.170820393249937
+                                    ],
+                                    [
+                                        7.23606797749979,
+                                        10.0,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        2.76393202250021,
+                                        10.0,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        2.76393202250021,
+                                        10.0,
+                                        2.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "First_Floor_Right",
+                    "display_name": "First_Floor_Right",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                10.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                0.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                3.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "First_Floor_Right_Glz0",
+                            "display_name": "First_Floor_Right_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged",
+                                    "modifier": "Triple_Pane_0.35"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        10.0,
+                                        2.76393202250021,
+                                        2.170820393249937
+                                    ],
+                                    [
+                                        10.0,
+                                        2.76393202250021,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        10.0,
+                                        7.23606797749979,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        10.0,
+                                        7.23606797749979,
+                                        2.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "First_Floor_Back",
+                    "display_name": "First_Floor_Back",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                3.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "First_Floor_Back_Glz0",
+                            "display_name": "First_Floor_Back_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged",
+                                    "modifier": "Triple_Pane_0.35"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        2.76393202250021,
+                                        0.0,
+                                        2.170820393249937
+                                    ],
+                                    [
+                                        2.76393202250021,
+                                        0.0,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        7.23606797749979,
+                                        0.0,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        7.23606797749979,
+                                        0.0,
+                                        2.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "First_Floor_Left",
+                    "display_name": "First_Floor_Left",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                0.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                3.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "First_Floor_Left_Glz0",
+                            "display_name": "First_Floor_Left_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged",
+                                    "modifier": "Triple_Pane_0.35"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        0.0,
+                                        7.23606797749979,
+                                        2.170820393249937
+                                    ],
+                                    [
+                                        0.0,
+                                        7.23606797749979,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        0.0,
+                                        2.76393202250021,
+                                        0.8291796067500631
+                                    ],
+                                    [
+                                        0.0,
+                                        2.76393202250021,
+                                        2.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "First_Floor_Top",
+                    "display_name": "First_Floor_Top",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                10.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                3.0
+                            ]
+                        ]
+                    },
+                    "face_type": "RoofCeiling",
+                    "boundary_condition": {
+                        "type": "Surface",
+                        "boundary_condition_objects": [
+                            "Second_Floor_Bottom",
+                            "Second_Floor"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Room",
+            "identifier": "Second_Floor",
+            "display_name": "Second_Floor",
+            "properties": {
+                "type": "RoomPropertiesAbridged",
+                "energy": {
+                    "type": "RoomEnergyPropertiesAbridged"
+                },
+                "radiance": {
+                    "type": "RoomRadiancePropertiesAbridged"
+                }
+            },
+            "faces": [
+                {
+                    "type": "Face",
+                    "identifier": "Second_Floor_Bottom",
+                    "display_name": "Second_Floor_Bottom",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                3.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Floor",
+                    "boundary_condition": {
+                        "type": "Surface",
+                        "boundary_condition_objects": [
+                            "First_Floor_Top",
+                            "First_Floor"
+                        ]
+                    }
+                },
+                {
+                    "type": "Face",
+                    "identifier": "Second_Floor_Front",
+                    "display_name": "Second_Floor_Front",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                10.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                6.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "Second_Floor_Front_Glz0",
+                            "display_name": "Second_Floor_Front_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        7.23606797749979,
+                                        10.0,
+                                        5.170820393249937
+                                    ],
+                                    [
+                                        7.23606797749979,
+                                        10.0,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        2.76393202250021,
+                                        10.0,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        2.76393202250021,
+                                        10.0,
+                                        5.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "Second_Floor_Right",
+                    "display_name": "Second_Floor_Right",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                10.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                6.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "Second_Floor_Right_Glz0",
+                            "display_name": "Second_Floor_Right_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        10.0,
+                                        2.76393202250021,
+                                        5.170820393249937
+                                    ],
+                                    [
+                                        10.0,
+                                        2.76393202250021,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        10.0,
+                                        7.23606797749979,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        10.0,
+                                        7.23606797749979,
+                                        5.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "Second_Floor_Back",
+                    "display_name": "Second_Floor_Back",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                6.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "Second_Floor_Back_Glz0",
+                            "display_name": "Second_Floor_Back_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        2.76393202250021,
+                                        0.0,
+                                        5.170820393249937
+                                    ],
+                                    [
+                                        2.76393202250021,
+                                        0.0,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        7.23606797749979,
+                                        0.0,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        7.23606797749979,
+                                        0.0,
+                                        5.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "Second_Floor_Left",
+                    "display_name": "Second_Floor_Left",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                3.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                6.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    },
+                    "apertures": [
+                        {
+                            "type": "Aperture",
+                            "identifier": "Second_Floor_Left_Glz0",
+                            "display_name": "Second_Floor_Left_Glz0",
+                            "properties": {
+                                "type": "AperturePropertiesAbridged",
+                                "energy": {
+                                    "type": "ApertureEnergyPropertiesAbridged"
+                                },
+                                "radiance": {
+                                    "type": "ApertureRadiancePropertiesAbridged"
+                                }
+                            },
+                            "geometry": {
+                                "type": "Face3D",
+                                "boundary": [
+                                    [
+                                        0.0,
+                                        7.23606797749979,
+                                        5.170820393249937
+                                    ],
+                                    [
+                                        0.0,
+                                        7.23606797749979,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        0.0,
+                                        2.76393202250021,
+                                        3.829179606750063
+                                    ],
+                                    [
+                                        0.0,
+                                        2.76393202250021,
+                                        5.170820393249937
+                                    ]
+                                ]
+                            },
+                            "is_operable": false,
+                            "boundary_condition": {
+                                "type": "Outdoors",
+                                "sun_exposure": true,
+                                "wind_exposure": true,
+                                "view_factor": {
+                                    "type": "Autocalculate"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Face",
+                    "identifier": "Second_Floor_Top",
+                    "display_name": "Second_Floor_Top",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                10.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                6.0
+                            ]
+                        ]
+                    },
+                    "face_type": "RoofCeiling",
+                    "boundary_condition": {
+                        "type": "Surface",
+                        "boundary_condition_objects": [
+                            "AtticFace1",
+                            "Attic"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Room",
+            "identifier": "Attic",
+            "display_name": "Attic",
+            "properties": {
+                "type": "RoomPropertiesAbridged",
+                "energy": {
+                    "type": "RoomEnergyPropertiesAbridged"
+                },
+                "radiance": {
+                    "type": "RoomRadiancePropertiesAbridged",
+                    "modifier_set": "Attic_Modifier_Set"
+                }
+            },
+            "faces": [
+                {
+                    "type": "Face",
+                    "identifier": "AtticFace1",
+                    "display_name": "AtticFace1",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                6.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Floor",
+                    "boundary_condition": {
+                        "type": "Surface",
+                        "boundary_condition_objects": [
+                            "Second_Floor_Top",
+                            "Second_Floor"
+                        ]
+                    }
+                },
+                {
+                    "type": "Face",
+                    "identifier": "AtticFace2",
+                    "display_name": "AtticFace2",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                5.0,
+                                10.0,
+                                9.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                5.0,
+                                0.0,
+                                9.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    }
+                },
+                {
+                    "type": "Face",
+                    "identifier": "AtticFace3",
+                    "display_name": "AtticFace3",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                5.0,
+                                0.0,
+                                9.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                10.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                5.0,
+                                10.0,
+                                9.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    }
+                },
+                {
+                    "type": "Face",
+                    "identifier": "AtticFace4",
+                    "display_name": "AtticFace4",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                0.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                10.0,
+                                0.0,
+                                6.0
+                            ],
+                            [
+                                5.0,
+                                0.0,
+                                9.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    }
+                },
+                {
+                    "type": "Face",
+                    "identifier": "AtticFace5",
+                    "display_name": "AtticFace5",
+                    "properties": {
+                        "type": "FacePropertiesAbridged",
+                        "energy": {
+                            "type": "FaceEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                            "type": "FaceRadiancePropertiesAbridged"
+                        }
+                    },
+                    "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                            [
+                                10.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                0.0,
+                                10.0,
+                                6.0
+                            ],
+                            [
+                                5.0,
+                                10.0,
+                                9.0
+                            ]
+                        ]
+                    },
+                    "face_type": "Wall",
+                    "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                            "type": "Autocalculate"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

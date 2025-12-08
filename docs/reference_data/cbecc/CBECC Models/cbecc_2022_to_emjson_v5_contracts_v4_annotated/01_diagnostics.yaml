@@ -1,0 +1,35 @@
+# Deterministic diagnostics for 2022:
+# - Generators should raise these codes exactly when specified.
+# - Messages accept tokens in {braces} for context.
+kind: diagnostics
+codes:
+  - code: E-PROJ-NAME-MISSING
+    severity: error
+    message: "Project: missing Name at {xpath}"
+  - code: E-LOC-CLIMATEZONE-MISSING
+    severity: error
+    message: "Location: missing ClimateZone at {xpath}"
+  - code: E-ZONE-NO-AREA
+    severity: error
+    message: "Zone {id_or_name}: missing FloorArea at {xpath}"
+  - code: E-ZONE-DUTYPE-REF
+    severity: error
+    message: "Zone {id_or_name}: missing or unresolved DUTypeRef '{value}'"
+  - code: E-SURF-NO-CTYPE
+    severity: error
+    message: "Surface {name}: missing ConstructionTypeRef at {xpath}"
+  - code: E-WIN-NO-TYPE
+    severity: error
+    message: "Window {name}: missing WindowTypeRef at {xpath}"
+  - code: E-REF-UNRESOLVED
+    severity: error
+    message: "Reference {field}='{value}' not found in {target}"
+  - code: E-ENUM-BADTOKEN
+    severity: error
+    message: "Field {field}: illegal token '{value}' at {xpath}"
+  - code: W-ALT-USED
+    severity: warning
+    message: "Used alternate path {path} for {object}"
+  - code: W-NORMALIZED-AREA
+    severity: warning
+    message: "Computed area from width*height for {object} at {xpath}"

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SDDXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RulesetFilename file="T24N_2022.bin"/>
+  <Proj>
+    <Name>Bressi Ranch Apartments</Name>
+    <BldgEngyModelVersion>17</BldgEngyModelVersion>
+    <CreateDate>1733247614</CreateDate>
+    <ModDate>1735678290</ModDate>
+    <RunDate>1735603316</RunDate>
+    <GeometryInpType>Simplified</GeometryInpType>
+    <EffMetric>SEER2/EER2/HSPF2</EffMetric>
+    <StAddress>Gateway Road Carlsbad</StAddress>
+    <City>Carlsbad</City>
+    <State>CA</State>
+    <ZipCode>92009</ZipCode>
+    <DocAuthCompany>VCA Green</DocAuthCompany>
+    <DocAuthAddress>1845 West Orangewood Ave Suite 310</DocAuthAddress>
+    <DocAuthCity>Orange</DocAuthCity>
+    <DocAuthState>CA </DocAuthState>
+    <DocAuthZipCode>92868</DocAuthZipCode>
+    <WeatherStation>MCCLELLAN-PALOMAR</WeatherStation>
+    <ExcptCondNoClgSys>No</ExcptCondNoClgSys>
+    <ExcptCondRtdCap>No</ExcptCondRtdCap>
+    <ExcptCondNarrative>No</ExcptCondNarrative>
+    <SolAccessRfArea>33488</SolAccessRfArea>
+    <ReducedPVReq>1</ReducedPVReq>
+    <RunTitle>Title 24 High Rise Multi Family Compliance</RunTitle>
+    <SoftwareVersion>CBECC 2022.3.1 (1343)</SoftwareVersion>
+    <CompReportPDF>1</CompReportPDF>
+    <ResultsCurrentMessage>(not current)</ResultsCurrentMessage>
+
+
+    <ResProj>
+      <Name>Bressi Ranch Apartments 2</Name>
+      <StdDesignFuel_Ckg>Proposed</StdDesignFuel_Ckg>
+      <StdDesignFuel_Dry>Proposed</StdDesignFuel_Dry>
+      <StdDesignFuel_HVAC>Electricity</StdDesignFuel_HVAC>
+      <StdDesignFuel_DHW>Proposed</StdDesignFuel_DHW>
+      <StdDesignCompactDistrib>0</StdDesignCompactDistrib>
+      <StdDesignDrnWtrHtRecov>0</StdDesignDrnWtrHtRecov>
+      <StdDesignHPWHLocOverride>0</StdDesignHPWHLocOverride>
+      <StdDesignWinPerfAdjust>0</StdDesignWinPerfAdjust>
+      <StdDesignIAQFanPwr>0.35</StdDesignIAQFanPwr>
+    </ResProj>
+
+    <FluidSys>
+      <Name>SHW</Name>
+      <Type>ServiceHotWater</Type>
+      <FluidSeg>
+        <Name>SHWSupply</Name>
+        <Type>PrimarySupply</Type>
+      </FluidSeg>
+      <FluidSeg>
+        <Name>SHWMakeup</Name>
+        <Type>MakeupFluid</Type>
+        <Src>MunicipalWater</Src>
+      </FluidSeg>
+      <WtrHtr>
+        <Name>AO SMITH DEL-30</Name>
+        <FluidSegOutRef>SHWSupply</FluidSegOutRef>
+        <FluidSegMakeupRef>SHWMakeup</FluidSegMakeupRef>
+        <StorCap>30</StorCap>
+        <UEF>0.92</UEF>
+        <RE>0.92</RE>
+        <FirstHrRating>51</FirstHrRating>
+        <FuelSrc>Electricity</FuelSrc>
+        <InpPwr>6</InpPwr>
+      </WtrHtr>
+      <WtrHtr>
+        <Name>AO SMITH DEL-20</Name>
+        <FluidSegOutRef>SHWSupply</FluidSegOutRef>
+        <FluidSegMakeupRef>SHWMakeup</FluidSegMakeupRef>
+        <StorCap>20</StorCap>
+        <UEF>0.92</UEF>
+        <RE>0.92</RE>
+        <FirstHrRating>17</FirstHrRating>
+        <FuelSrc>Electricity</FuelSrc>
+        <InpPwr>6</InpPwr>
+        <IsUEFRtd>1</IsUEFRtd>
+      </WtrHtr>
+      <WtrHtr>
+        <Name>Chronomite 20L/208</Name>
+        <FluidSegOutRef>SHWSupply</FluidSegOutRef>
+        <FluidSegMakeupRef>SHWMakeup</FluidSegMakeupRef>
+        <StorCap>1</StorCap>
+        <UEF>0.99</UEF>
+        <RE>0.99</RE>
+        <FlowRt>0.2</FlowRt>
+        <FuelSrc>Electricity</FuelSrc>
+        <InpPwr>4.16</InpPwr>
+      </WtrHtr>
+      <WtrHtr>
+        <Name>Chronomite 40L/208</Name>
+        <FluidSegOutRef>SHWSupply</FluidSegOutRef>
+        <FluidSegMakeupRef>SHWMakeup</FluidSegMakeupRef>
+        <StorCap>1</StorCap>
+        <UEF>0.99</UEF>
+        <RE>0.99</RE>
+        <FlowRt>0.2</FlowRt>
+        <FuelSrc>Electricity</FuelSrc>
+        <InpPwr>8.32</InpPwr>
+      </WtrHtr>
+    </FluidSys>
+
+  </Proj>
+
+
+  <ResDHWSys>
+    <Name>ResidentialDHWSystem 1</Name>
+    <SystemType>(HERS req'd) Pipe Insulation, All Lines</SystemType>
+    <CentralRecircType>Central with Recirculation</CentralRecircType>
+    <CHPWHLoopTankConfig>Series (Swing)</CHPWHLoopTankConfig>
+    <DHWHeater index="0">94 percent 499000 119-gal</DHWHeater>
+    <DHWHeater index="1">94 percent 399000 119-gal</DHWHeater>
+    <DHWHeater index="2">96 percent 250000 100-gal</DHWHeater>
+    <HeaterMult index="0">4</HeaterMult>
+    <HeaterMult index="1">3</HeaterMult>
+    <HeaterMult index="2">2</HeaterMult>
+  </ResDHWSys>
+  <ResWtrHtr>
+    <Name>94 percent 499000 119-gal</Name>
+    <HeaterElementType>Gas</HeaterElementType>
+    <TankType>Commercial Storage (TE &amp; SBL)</TankType>
+    <InputRating>499000</InputRating>
+    <EnergyFactor>0.94</EnergyFactor>
+    <TankVolume>119</TankVolume>
+    <RecovEff>94</RecovEff>
+  </ResWtrHtr>
+  <ResWtrHtr>
+    <Name>94 percent 399000 119-gal</Name>
+    <HeaterElementType>Gas</HeaterElementType>
+    <TankType>Commercial Storage (TE &amp; SBL)</TankType>
+    <InputRating>399000</InputRating>
+    <EnergyFactor>0.94</EnergyFactor>
+    <TankVolume>119</TankVolume>
+    <RecovEff>94</RecovEff>
+  </ResWtrHtr>
+  <ResWtrHtr>
+    <Name>96 percent 250000 100-gal</Name>
+    <HeaterElementType>Gas</HeaterElementType>
+    <TankType>Commercial Storage (TE &amp; SBL)</TankType>
+    <InputRating>250000</InputRating>
+    <EnergyFactor>0.96</EnergyFactor>
+    <TankVolume>100</TankVolume>
+    <RecovEff>96</RecovEff>
+  </ResWtrHtr>
+</SDDXML>
