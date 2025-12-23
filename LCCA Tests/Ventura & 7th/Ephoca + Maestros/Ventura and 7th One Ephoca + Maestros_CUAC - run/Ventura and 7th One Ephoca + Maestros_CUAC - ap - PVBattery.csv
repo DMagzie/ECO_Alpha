@@ -1,0 +1,30 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  112.1 kWdc PV  /  Battery Energy 121.5 kWh and Power 29.14 kW (Time of Use control)"
+,"Standard Design PV Capacity: 112.1 kWdc  /  Battery Capacity: 121.5 kWh  (power 29.14 kW, Time of Use control)"
+,"User-specified PV array capacity:  350.0 kWdc  (no battery equipment defined)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Corridor_L01","Unconditioned","Corridor Area","Highrise Multifamily",3515,1,,0,,,,,,,,,,0,0,0,
+"Elec Room","Unconditioned","Electrical, Mechanical, Telephone Rooms","Highrise Multifamily",918,1,,0,,,,,,,,,,0,0,0,
+"Trash Room","Unconditioned","Storage","Highrise Multifamily",918,1,,0,,,,,,,,,,0,0,0,
+"Bike Storage","Unconditioned","Storage","Highrise Multifamily",599,1,,0,,,,,,,,,,0,0,0,
+"Fitness","Conditioned","Exercise/Fitness Center and Gymnasium Areas","Highrise Multifamily",855,1,,855,,,,,,,,,,1.88955,2.04867,0.491283,
+"Leasing-Meeting Room-Office","Conditioned","Conference, Multipurpose and Meeting Area","Highrise Multifamily",1018,1,,1018,,,,,,,,,,2.24978,2.43924,0.584943,
+"Community Room","Conditioned","Conference, Multipurpose and Meeting Area","Highrise Multifamily",826,1,,826,,,,,,,,,,1.82546,1.97918,0.47462,
+"Elevator","Unconditioned","All other","none",100,1,,,,,,,,0,,,,0,0,0,
+"Corridor_L02","Unconditioned","Corridor Area","Highrise Multifamily",3515,2,,0,,,,,,,,,,0,0,0,
+"Corridor_L04","Unconditioned","Corridor Area","Highrise Multifamily",3515,1,,0,,,,,,,,,,0,0,0,
+"Dwelling Unit_L01_1BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",2216,1,,2216,,,,,,,4,,,4.89736,5.30977,1.27331,
+"Dwelling Unit_L01_2BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",3228,1,,3228,,,,,,,4,,,7.13388,7.73463,1.85481,
+"Dwelling Unit_L01_3BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",5016,1,,5016,,,,,,,4,,,11.0854,12.0189,2.88219,
+"Dwelling Unit_L02-03_1BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",2216,2,,4432,,,,,,,8,,,9.79472,10.6195,2.54663,
+"Dwelling Unit_L02-03_2BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",4035,2,,8070,,,,,,,10,,,17.8347,19.3366,4.63702,
+"Dwelling Unit_L02-03_3BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",6270,2,,12540,,,,,,,10,,,27.7134,30.0472,7.20548,
+"Dwelling Unit_L04_1BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",2216,1,,2216,,,,,,,4,,,4.89736,5.30977,1.27331,
+"Dwelling Unit_L04_2BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",4035,1,,4035,,,,,,,5,,,8.91735,9.66828,2.31851,
+"Dwelling Unit_L04_3BR","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",6270,1,,6270,,,,,,,5,,,13.8567,15.0236,3.60274,
+,,,,,Sums:,0,50722,0,0,0,0,0,0,54,0,,112.096,121.535,29.1449,
+,,Bldg Cond Area:,50722,,Pcts:,0.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,

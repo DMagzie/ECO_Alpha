@@ -1,0 +1,57 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"GYM_L01 AirSys","SZHP","New",1,855,36000,58,42.1053,400,36000,95,42.1053,1200,1.40351,128.2,0.149942,"Fitness","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Leasing-Meeting Room-Office AirSys (FC1-2)","SZHP","New",1,1018,36000,58,35.3635,400,36000,95,35.3635,1200,1.17878,509,0.5,"Leasing-Meeting Room-Office","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"Community Room AirSys","SZHP","New",1,826,36000,58,43.5835,400,36000,95,43.5835,1200,1.45278,413,0.5,"Leasing-Meeting Room-Office","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"GYM_L01 TrmlUnit","Uncontrolled","New",1,"GYM_L01 AirSys",1,"Fitness",-99996,-99996,1200,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"CLUB/LIBRARY_L01 TrmlUnit","Uncontrolled","New",1,"Leasing-Meeting Room-Office AirSys (FC1-2)",1,"Leasing-Meeting Room-Office",-99996,-99996,1200,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"CLUB/LIBRARY_L01 TrmlUnit-2","Uncontrolled","New",1,"Community Room AirSys",1,"Community Room",-99996,-99996,1200,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"GYM_L01 ClgCoil","DirectExpansion","New","Electric","GYM_L01 AirSys",1,"n/a",36000,37559.2,"NONE","NONE",-99996,"Air",1,13.95,-99996,12.2,-99996,14.1,-99996,0.22655,-999,13.4,13.4,11.7,-99996
+"CLUB/LIBRARY_L01 ClgCoil","DirectExpansion","New","Electric","Leasing-Meeting Room-Office AirSys (FC1-2)",1,"n/a",36000,37559.2,"NONE","NONE",-99996,"Air",1,15.05,-99996,12.2,0,14.1,-99996,0.22655,-999,14.3,14.3,11.7,-99996
+"CLUB/LIBRARY_L01 ClgCoil-2","DirectExpansion","New","Electric","Community Room AirSys",1,"n/a",36000,37559.2,"NONE","NONE",-99996,"Air",1,15.05,-99996,12.2,0,14.1,-99996,0.22655,-999,14.3,14.3,11.7,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"GYM_L01 HtgCoil","HeatPump","New","Electric","GYM_L01 AirSys",1,"n/a",36000,34440.8,"NONE","NONE",-99996,"Air",1,8,-99996,3.4,-99996,0.262161,0,-99996,-99996,-99996,-99996,-99996,-999,6.7,6.7
+"CLUB/LIBRARY_L01 HtgCoil","HeatPump","New","Electric","Leasing-Meeting Room-Office AirSys (FC1-2)",1,"n/a",36000,34440.8,"NONE","NONE",-99996,"Air",1,8.8,-99996,3.4,-99996,0.262161,0,-99996,-99996,-99996,-99996,-99996,-999,7.5,7.5
+"CLUB/LIBRARY_L01 HtgCoil-2","HeatPump","New","Electric","Community Room AirSys",1,"n/a",36000,34440.8,"NONE","NONE",-99996,"Air",1,8.8,-99996,3.4,-99996,0.262161,0,-99996,-99996,-99996,-99996,-99996,-999,7.5,7.5
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"GYM_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","GYM_L01 AirSys",1,"n/a",1200,-99996,0.65,"PowerPerUnitFlow",0.648203,2.22798,0.45,0.5,"InAirStream",0.895
+"CLUB/LIBRARY_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","Leasing-Meeting Room-Office AirSys (FC1-2)",1,"n/a",1200,-99996,0.65,"PowerPerUnitFlow",0.648203,2.22798,0.45,0.5,"InAirStream",0.895
+"CLUB/LIBRARY_L01 SupFan-2","ConstantVolume","New","Centrifugal","AirFoil","Community Room AirSys",1,"n/a",1200,-99996,0.65,"PowerPerUnitFlow",0.648203,2.22798,0.45,0.5,"InAirStream",0.895
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"GYM_L01 OACtrl","NoEconomizer","New",128.2,"GYM_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"CLUB/LIBRARY_L01 OACtrl","NoEconomizer","New",509,"Leasing-Meeting Room-Office AirSys (FC1-2)",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"CLUB/LIBRARY_L01 OACtrl-2","NoEconomizer","New",413,"Community Room AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"

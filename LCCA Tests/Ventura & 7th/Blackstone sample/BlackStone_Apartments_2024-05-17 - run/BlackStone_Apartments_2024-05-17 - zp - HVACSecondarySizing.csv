@@ -1,0 +1,46 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE BlackStone_Apartments_2024-05-1722TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Library_L1 TrmlUnit","Uncontrolled","Library_L1 AirSys","Library_L1",525.000,-99996.000,-99996.000,""
+,"CommunityRoom_L1 TrmlUnit","Uncontrolled","CommunityRoom_L1 AirSys","CommunityRoom_L1",1400.000,-99996.000,-99996.000,""
+,"MeetingRoom_L1 TrmlUnit","Uncontrolled","MeetingRoom_L1 AirSys","MeetingRoom_L1",525.000,-99996.000,-99996.000,""
+,"Office-1_L1 TrmlUnit","Uncontrolled","Office_L1 AirSys","Office-1_L1",525.000,-99996.000,-99996.000,""
+,"Office-2_L1 TrmlUnit","Uncontrolled","Office-2_L1 AirSys","Office-2_L1",525.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE BlackStone_Apartments_2024-05-1722CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Library_L1 ClgCoil","DirectExpansion","Library_L1 AirSys","n/a",18000.000,18779.591,-99996.00000,15.000,11.931,1
+,"CommunityRoom_L1 ClgCoil","DirectExpansion","CommunityRoom_L1 AirSys","n/a",54000.000,56338.773,-99996.00000,15.000,11.931,1
+,"MeetingRoom_L1 ClgCoil","DirectExpansion","MeetingRoom_L1 AirSys","n/a",18000.000,18779.591,-99996.00000,15.000,11.931,1
+,"Office-1_L1 ClgCoil","DirectExpansion","Office_L1 AirSys","n/a",18000.000,18779.591,-99996.00000,15.000,11.931,1
+,"Office-2_L1 ClgCoil","DirectExpansion","Office-2_L1 AirSys","n/a",18000.000,18779.591,-99996.00000,15.000,11.931,1
+ENDTABLE
+TABLE BlackStone_Apartments_2024-05-1722CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Library_L1 HtgCoil","HeatPump","Library_L1 AirSys","n/a",18000.000,17220.409,-99996.00000,-99996.000,-99996.000
+,"CommunityRoom_L1 HtgCoil","HeatPump","CommunityRoom_L1 AirSys","n/a",54000.000,51661.227,-99996.00000,-99996.000,-99996.000
+,"MeetingRoom_L1 HtgCoil","HeatPump","MeetingRoom_L1 AirSys","n/a",18000.000,17220.409,-99996.00000,-99996.000,-99996.000
+,"Office-1_L1 HtgCoil","HeatPump","Office_L1 AirSys","n/a",18000.000,17220.409,-99996.00000,-99996.000,-99996.000
+,"Office-2_L1 HtgCoil","HeatPump","Office-2_L1 AirSys","n/a",18000.000,17220.409,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE BlackStone_Apartments_2024-05-1722Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Library_L1 SupFan","ConstantVolume","Library_L1 AirSys","n/a",525.000,-99996.000,0.650,"PowerPerUnitFlow",2.340,0.298,0.330,"InAirStream",0.900,0.4700
+,"CommunityRoom_L1 SupFan","ConstantVolume","CommunityRoom_L1 AirSys","n/a",1400.000,-99996.000,0.650,"PowerPerUnitFlow",2.639,0.896,1.000,"InAirStream",0.900,0.5300
+,"MeetingRoom_L1 SupFan","ConstantVolume","MeetingRoom_L1 AirSys","n/a",525.000,-99996.000,0.650,"PowerPerUnitFlow",2.340,0.298,0.330,"InAirStream",0.900,0.4700
+,"Office-1_L1 SupFan","ConstantVolume","Office_L1 AirSys","n/a",525.000,-99996.000,0.650,"PowerPerUnitFlow",2.340,0.298,0.330,"InAirStream",0.900,0.4700
+,"Office-2_L1 SupFan","ConstantVolume","Office-2_L1 AirSys","n/a",525.000,-99996.000,0.650,"PowerPerUnitFlow",2.340,0.298,0.330,"InAirStream",0.900,0.4700
+ENDTABLE
+TABLE BlackStone_Apartments_2024-05-1722OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"Library_L1 OACtrl","NoEconomizer","Library_L1 AirSys","UNDEFINED"
+,"CommunityRoom_L1 OACtrl","NoEconomizer","CommunityRoom_L1 AirSys","UNDEFINED"
+,"MeetingRoom_L1 OACtrl","NoEconomizer","MeetingRoom_L1 AirSys","UNDEFINED"
+,"Office-1_L1 OACtrl","NoEconomizer","Office_L1 AirSys","UNDEFINED"
+,"Office-2_L1 OACtrl","NoEconomizer","Office-2_L1 AirSys","UNDEFINED"
+ENDTABLE

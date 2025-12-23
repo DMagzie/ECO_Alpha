@@ -1,0 +1,24 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  112.1 kWdc PV  /  Battery Energy 121.5 kWh and Power 29.14 kW (Time of Use control)"
+,"Standard Design PV Capacity: 112.1 kWdc  /  Battery Capacity: 121.5 kWh  (power 29.14 kW, Time of Use control)"
+,"User-specified PV array capacity:  124.5 kWdc  (no battery equipment defined)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Corridor_L01","Unconditioned","Corridor Area","Highrise Multifamily",3515,1,,0,,,,,,,,,,0,0,0,
+"Elec Room","Unconditioned","Electrical, Mechanical, Telephone Rooms","Highrise Multifamily",918,1,,0,,,,,,,,,,0,0,0,
+"Trash Room","Unconditioned","Storage","Highrise Multifamily",918,1,,0,,,,,,,,,,0,0,0,
+"Bike Storage","Unconditioned","Storage","Highrise Multifamily",599,1,,0,,,,,,,,,,0,0,0,
+"Fitness","Conditioned","Exercise/Fitness Center and Gymnasium Areas","Highrise Multifamily",855,1,,855,,,,,,,,,,1.88955,2.04867,0.491283,
+"Leasing-Meeting Room-Office","Conditioned","Conference, Multipurpose and Meeting Area","Highrise Multifamily",1018,1,,1018,,,,,,,,,,2.24978,2.43924,0.584943,
+"Community Room","Conditioned","Conference, Multipurpose and Meeting Area","Highrise Multifamily",826,1,,826,,,,,,,,,,1.82546,1.97918,0.47462,
+"Elevator","Unconditioned","All other","none",100,1,,,,,,,,0,,,,0,0,0,
+"Corridor_L02","Unconditioned","Corridor Area","Highrise Multifamily",3515,2,,0,,,,,,,,,,0,0,0,
+"Corridor_L04","Unconditioned","Corridor Area","Highrise Multifamily",3515,1,,0,,,,,,,,,,0,0,0,
+"Dwelling Unit_L01","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",10460,1,,10460,,,,,,,12,,,23.1166,25.0633,6.01032,
+"Dwelling Unit_L02-03","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",12521,2,,25042,,,,,,,28,,,55.3428,60.0033,14.3891,
+"Dwelling Unit_L04","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",12521,1,,12521,,,,,,,14,,,27.6714,30.0016,7.19457,
+,,,,,Sums:,0,50722,0,0,0,0,0,0,54,0,,112.096,121.535,29.1449,
+,,Bldg Cond Area:,50722,,Pcts:,0.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,

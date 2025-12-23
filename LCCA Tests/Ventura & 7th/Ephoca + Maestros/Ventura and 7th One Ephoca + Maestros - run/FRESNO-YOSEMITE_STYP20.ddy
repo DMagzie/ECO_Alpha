@@ -1,0 +1,205 @@
+Site:Location,
+  FRESNO YOSEMITE,	!- Location Name
+  36.78,	!- Latitude
+  -119.719,	!- Longitude
+  -8,		!- Time Zone Relative to GMT
+  101.498;	!- Elevation {m}
+
+
+SizingPeriod:DesignDay,
+  FRESNO YOSEMITE Ann Htg 99.6% Condns DB,	!- Name
+  12,	!- Month
+  21,	!- Day of Month
+  WinterDesignDay,	!- Day Type
+  0.3,	!- Maximum Dry-Bulb Temperature {C} [32.5 F]
+  0.0,	!- Daily Dry-Bulb Temperature Range {C}
+  DefaultMultipliers,	!- Dry-Bulb Temperature Range Modifier Type
+  ,	!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,	!- Humidity Condition Type
+  0.3,	!- Wetbulb at Maximum Dry-Bulb {C} [32.5 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100112,	!- Barometric Pressure {Pa} [14.5 PSI]
+  1.7,	!- Wind Speed {m/s} [3.8 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  90,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAEClearSky,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  ,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  ,		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+  0.0;	!- Clearness {0.0 to 1.1}
+
+
+SizingPeriod:DesignDay,
+  FRESNO YOSEMITE  June .4% Condns DB=>MCWB,     !- Name
+   6,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  40.7,	!- Maximum Dry-Bulb Temperature {C} [105.3 F]
+  15.8,	!- Daily Dry-Bulb Temperature Range {C} [28.4 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  21.1,	!- Wetbulb at Maximum Dry-Bulb {C} [69.9 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100112,	!- Barometric Pressure {Pa} [14.5 PSI]
+  1.7,	!- Wind Speed {m/s} [3.8 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  300,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.364,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.399;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  FRESNO YOSEMITE  July .4% Condns DB=>MCWB,     !- Name
+   7,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  41.9,	!- Maximum Dry-Bulb Temperature {C} [107.4 F]
+  16.2,	!- Daily Dry-Bulb Temperature Range {C} [29.1 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  21.5,	!- Wetbulb at Maximum Dry-Bulb {C} [70.7 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100112,	!- Barometric Pressure {Pa} [14.5 PSI]
+  1.7,	!- Wind Speed {m/s} [3.8 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  300,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.383,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.374;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  FRESNO YOSEMITE  August .4% Condns DB=>MCWB,     !- Name
+   8,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  41.3,	!- Maximum Dry-Bulb Temperature {C} [106.3 F]
+  16.3,	!- Daily Dry-Bulb Temperature Range {C} [29.4 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  21.6,	!- Wetbulb at Maximum Dry-Bulb {C} [70.8 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100112,	!- Barometric Pressure {Pa} [14.5 PSI]
+  1.7,	!- Wind Speed {m/s} [3.8 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  300,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.368,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.389;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  FRESNO YOSEMITE  September .4% Condns DB=>MCWB,     !- Name
+   9,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  39.2,	!- Maximum Dry-Bulb Temperature {C} [102.5 F]
+  15.4,	!- Daily Dry-Bulb Temperature Range {C} [27.7 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  20.1,	!- Wetbulb at Maximum Dry-Bulb {C} [68.1 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100112,	!- Barometric Pressure {Pa} [14.5 PSI]
+  1.7,	!- Wind Speed {m/s} [3.8 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  300,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.371,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.391;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  FRESNO YOSEMITE  October .4% Condns DB=>MCWB,     !- Name
+  10,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  34.4,	!- Maximum Dry-Bulb Temperature {C} [94.0 F]
+  13.6,	!- Daily Dry-Bulb Temperature Range {C} [24.5 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  18.6,	!- Wetbulb at Maximum Dry-Bulb {C} [65.5 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100112,	!- Barometric Pressure {Pa} [14.5 PSI]
+  1.7,	!- Wind Speed {m/s} [3.8 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  300,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.39,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.283;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  FRESNO YOSEMITE  November .4% Condns DB=>MCWB,     !- Name
+  11,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  26.5,	!- Maximum Dry-Bulb Temperature {C} [79.7 F]
+  11.0,	!- Daily Dry-Bulb Temperature Range {C} [19.8 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  15.3,	!- Wetbulb at Maximum Dry-Bulb {C} [59.6 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100112,	!- Barometric Pressure {Pa} [14.5 PSI]
+  1.7,	!- Wind Speed {m/s} [3.8 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  300,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.38,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.253;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+

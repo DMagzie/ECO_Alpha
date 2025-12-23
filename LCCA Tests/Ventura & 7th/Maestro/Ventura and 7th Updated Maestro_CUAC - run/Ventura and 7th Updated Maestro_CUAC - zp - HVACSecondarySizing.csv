@@ -1,0 +1,36 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Ventura and 7th Updated Maestro_CUAC22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"GYM_L01 TrmlUnit","Uncontrolled","GYM_L01 AirSys","Fitness",1200.000,-99996.000,-99996.000,""
+,"CLUB/LIBRARY_L01 TrmlUnit","Uncontrolled","Leasing-Meeting Room-Office AirSys (FC1-2)","Leasing-Meeting Room-Office",1200.000,-99996.000,-99996.000,""
+,"CLUB/LIBRARY_L01 TrmlUnit-2","Uncontrolled","Community Room AirSys","Community Room",1200.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"GYM_L01 ClgCoil","DirectExpansion","GYM_L01 AirSys","n/a",36000.000,37559.182,-99996.00000,13.958,12.188,1
+,"CLUB/LIBRARY_L01 ClgCoil","DirectExpansion","Leasing-Meeting Room-Office AirSys (FC1-2)","n/a",36000.000,37559.182,-99996.00000,15.053,12.188,1
+,"CLUB/LIBRARY_L01 ClgCoil-2","DirectExpansion","Community Room AirSys","n/a",36000.000,37559.182,-99996.00000,15.053,12.188,1
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"GYM_L01 HtgCoil","HeatPump","GYM_L01 AirSys","n/a",36000.000,34440.818,-99996.00000,-99996.000,-99996.000
+,"CLUB/LIBRARY_L01 HtgCoil","HeatPump","Leasing-Meeting Room-Office AirSys (FC1-2)","n/a",36000.000,34440.818,-99996.00000,-99996.000,-99996.000
+,"CLUB/LIBRARY_L01 HtgCoil-2","HeatPump","Community Room AirSys","n/a",36000.000,34440.818,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"GYM_L01 SupFan","ConstantVolume","GYM_L01 AirSys","n/a",1200.000,-99996.000,0.650,"PowerPerUnitFlow",2.228,0.648,0.500,"InAirStream",0.895,0.4500
+,"CLUB/LIBRARY_L01 SupFan","ConstantVolume","Leasing-Meeting Room-Office AirSys (FC1-2)","n/a",1200.000,-99996.000,0.650,"PowerPerUnitFlow",2.228,0.648,0.500,"InAirStream",0.895,0.4500
+,"CLUB/LIBRARY_L01 SupFan-2","ConstantVolume","Community Room AirSys","n/a",1200.000,-99996.000,0.650,"PowerPerUnitFlow",2.228,0.648,0.500,"InAirStream",0.895,0.4500
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"GYM_L01 OACtrl","NoEconomizer","GYM_L01 AirSys","UNDEFINED"
+,"CLUB/LIBRARY_L01 OACtrl","NoEconomizer","Leasing-Meeting Room-Office AirSys (FC1-2)","UNDEFINED"
+,"CLUB/LIBRARY_L01 OACtrl-2","NoEconomizer","Community Room AirSys","UNDEFINED"
+ENDTABLE
