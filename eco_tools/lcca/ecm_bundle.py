@@ -120,6 +120,13 @@ class ECMSubcategory(Enum):
     REFRIG_DISPLAY = "display"
     REFRIG_EVAPORATOR = "evaporator"
 
+    # Electrification subcategories (Title 24 2025 focus)
+    ELEC_COOKING = "elec_cooking"
+    ELEC_DRYER = "elec_dryer"
+    ELEC_READY = "elec_ready"
+    ELEC_PANEL = "elec_panel"
+    ELEC_EV_CHARGING = "ev_charging"
+
     # Other subcategories (CEC CASE specific)
     OTHER_COMMERCIAL_KITCHEN = "commercial_kitchen"
     OTHER_POOL_SPA = "pool_spa"
@@ -611,6 +618,7 @@ class ECMLibrary:
         self._load_lighting_templates()
         self._load_controls_templates()
         self._load_refrigeration_templates()
+        self._load_electrification_templates()
 
     def _load_generation_templates(self) -> None:
         """Load generation ECM templates."""
@@ -1184,6 +1192,243 @@ class ECMLibrary:
             vintage=2024,
         )
 
+    def _load_electrification_templates(self) -> None:
+        """
+        Load electrification ECM templates.
+
+        Supports Title 24 2025 requirements for electric-ready buildings
+        and California's gas phase-out initiatives.
+        """
+        # Induction cooking (replacing gas range)
+        self._templates['induction_cooktop'] = ECMTemplate(
+            template_id='induction_cooktop',
+            name_template='Induction Cooktop',
+            category=ECMCategory.PLUGLOAD,
+            subcategory=ECMSubcategory.ELEC_COOKING,
+            description='Induction cooktop replacing gas range',
+            default_cost_per_unit=1200,  # $/unit premium over gas
+            cost_unit='each',
+            default_savings_pct=0.0,  # Energy neutral, fuel switch
+            applicable_building_types=[
+                BuildingType.SINGLE_FAMILY,
+                BuildingType.MULTIFAMILY_LOW,
+                BuildingType.MULTIFAMILY_HIGH,
+            ],
+            useful_life_years=15,
+            source='CEC CASE 2025',
+            vintage=2024,
+        )
+        self._templates['induction_range'] = ECMTemplate(
+            template_id='induction_range',
+            name_template='Induction Range (Full)',
+            category=ECMCategory.PLUGLOAD,
+            subcategory=ECMSubcategory.ELEC_COOKING,
+            description='Full induction range with oven',
+            default_cost_per_unit=2500,  # $/unit
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[
+                BuildingType.SINGLE_FAMILY,
+                BuildingType.MULTIFAMILY_LOW,
+                BuildingType.MULTIFAMILY_HIGH,
+            ],
+            useful_life_years=15,
+            source='CEC CASE 2025',
+            vintage=2024,
+        )
+
+        # Electric dryer (replacing gas)
+        self._templates['electric_dryer'] = ECMTemplate(
+            template_id='electric_dryer',
+            name_template='Electric Dryer',
+            category=ECMCategory.PLUGLOAD,
+            subcategory=ECMSubcategory.ELEC_DRYER,
+            description='Electric dryer replacing gas dryer',
+            default_cost_per_unit=800,  # $/unit
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[
+                BuildingType.SINGLE_FAMILY,
+                BuildingType.MULTIFAMILY_LOW,
+                BuildingType.MULTIFAMILY_HIGH,
+            ],
+            useful_life_years=12,
+            source='Energy Star',
+            vintage=2024,
+        )
+        self._templates['heat_pump_dryer'] = ECMTemplate(
+            template_id='heat_pump_dryer',
+            name_template='Heat Pump Dryer',
+            category=ECMCategory.PLUGLOAD,
+            subcategory=ECMSubcategory.ELEC_DRYER,
+            description='Heat pump dryer (high efficiency)',
+            default_cost_per_unit=1400,  # $/unit premium
+            cost_unit='each',
+            default_savings_pct=0.50,  # 50% more efficient than standard
+            applicable_building_types=[
+                BuildingType.SINGLE_FAMILY,
+                BuildingType.MULTIFAMILY_LOW,
+                BuildingType.MULTIFAMILY_HIGH,
+            ],
+            useful_life_years=15,
+            source='Energy Star',
+            vintage=2024,
+        )
+
+        # Electric-ready infrastructure
+        self._templates['elec_ready_cooking'] = ECMTemplate(
+            template_id='elec_ready_cooking',
+            name_template='Electric-Ready Cooking Infrastructure',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_READY,
+            description='240V circuit for future electric cooking',
+            default_cost_per_unit=500,  # $/unit
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[BuildingType.ALL_RESIDENTIAL],
+            useful_life_years=40,
+            source='CEC CASE 2025',
+            vintage=2024,
+        )
+        self._templates['elec_ready_dryer'] = ECMTemplate(
+            template_id='elec_ready_dryer',
+            name_template='Electric-Ready Dryer Infrastructure',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_READY,
+            description='240V circuit for future electric dryer',
+            default_cost_per_unit=400,  # $/unit
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[BuildingType.ALL_RESIDENTIAL],
+            useful_life_years=40,
+            source='CEC CASE 2025',
+            vintage=2024,
+        )
+        self._templates['elec_ready_hvac'] = ECMTemplate(
+            template_id='elec_ready_hvac',
+            name_template='Electric-Ready HVAC Infrastructure',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_READY,
+            description='Infrastructure for future heat pump conversion',
+            default_cost_per_unit=800,  # $/unit
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[BuildingType.ALL_RESIDENTIAL],
+            useful_life_years=40,
+            source='CEC CASE 2025',
+            vintage=2024,
+        )
+        self._templates['elec_ready_water_heater'] = ECMTemplate(
+            template_id='elec_ready_water_heater',
+            name_template='Electric-Ready Water Heater Infrastructure',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_READY,
+            description='240V/30A circuit for future HPWH',
+            default_cost_per_unit=600,  # $/unit
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[BuildingType.ALL_RESIDENTIAL],
+            useful_life_years=40,
+            source='CEC CASE 2025',
+            vintage=2024,
+        )
+
+        # Panel upgrade
+        self._templates['panel_upgrade_200a'] = ECMTemplate(
+            template_id='panel_upgrade_200a',
+            name_template='Panel Upgrade to 200A',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_PANEL,
+            description='Electrical panel upgrade to 200A for electrification',
+            default_cost_per_unit=3500,  # $/panel
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[BuildingType.SINGLE_FAMILY],
+            useful_life_years=40,
+            source='RSMeans 2024',
+            vintage=2024,
+        )
+        self._templates['panel_upgrade_400a'] = ECMTemplate(
+            template_id='panel_upgrade_400a',
+            name_template='Panel Upgrade to 400A',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_PANEL,
+            description='Electrical panel upgrade to 400A for full electrification + EV',
+            default_cost_per_unit=6000,  # $/panel
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[BuildingType.SINGLE_FAMILY],
+            useful_life_years=40,
+            source='RSMeans 2024',
+            vintage=2024,
+        )
+        self._templates['smart_panel'] = ECMTemplate(
+            template_id='smart_panel',
+            name_template='Smart Electrical Panel',
+            category=ECMCategory.CONTROLS,
+            subcategory=ECMSubcategory.ELEC_PANEL,
+            description='Smart panel with load management (Span, Lumin)',
+            default_cost_per_unit=4500,  # $/panel installed
+            cost_unit='each',
+            default_savings_pct=0.05,  # 5% from load optimization
+            applicable_building_types=[BuildingType.SINGLE_FAMILY],
+            useful_life_years=20,
+            source='Manufacturer Data',
+            vintage=2024,
+        )
+
+        # EV charging infrastructure
+        self._templates['ev_l2_residential'] = ECMTemplate(
+            template_id='ev_l2_residential',
+            name_template='Residential Level 2 EV Charger',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_EV_CHARGING,
+            description='Level 2 (240V) EV charging station',
+            default_cost_per_unit=1500,  # $/charger installed
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[BuildingType.SINGLE_FAMILY],
+            useful_life_years=15,
+            source='NREL',
+            vintage=2024,
+        )
+        self._templates['ev_l2_multifamily'] = ECMTemplate(
+            template_id='ev_l2_multifamily',
+            name_template='Multifamily Level 2 EV Charger',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_EV_CHARGING,
+            description='Level 2 EV charging for multifamily parking',
+            default_cost_per_unit=3500,  # $/charger (includes infrastructure)
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[
+                BuildingType.MULTIFAMILY_LOW,
+                BuildingType.MULTIFAMILY_HIGH,
+            ],
+            useful_life_years=15,
+            source='CEC',
+            vintage=2024,
+        )
+        self._templates['ev_ready_conduit'] = ECMTemplate(
+            template_id='ev_ready_conduit',
+            name_template='EV-Ready Conduit',
+            category=ECMCategory.OTHER,
+            subcategory=ECMSubcategory.ELEC_EV_CHARGING,
+            description='Conduit and panel capacity for future EV charging',
+            default_cost_per_unit=800,  # $/parking space
+            cost_unit='each',
+            default_savings_pct=0.0,
+            applicable_building_types=[
+                BuildingType.MULTIFAMILY_LOW,
+                BuildingType.MULTIFAMILY_HIGH,
+                BuildingType.OFFICE_SMALL,
+                BuildingType.OFFICE_LARGE,
+            ],
+            useful_life_years=40,
+            source='CALGreen',
+            vintage=2024,
+        )
+
     # =========================================================================
     # Public API
     # =========================================================================
@@ -1325,6 +1570,1430 @@ def get_ecm_library() -> ECMLibrary:
     if _ecm_library is None:
         _ecm_library = ECMLibrary()
     return _ecm_library
+
+
+# =============================================================================
+# Measure Interaction Matrix (Feature 2)
+# =============================================================================
+
+class InteractionType(Enum):
+    """Types of interactions between ECMs."""
+    SYNERGY = "synergy"          # ECMs work better together
+    CONFLICT = "conflict"        # ECMs cannot both be applied
+    PREREQUISITE = "prerequisite"  # ECM A requires ECM B
+    EXCLUSIVE = "exclusive"      # Only one of the set can be selected
+    REDUCES = "reduces"          # ECM A reduces effectiveness of ECM B
+
+
+@dataclass
+class MeasureInteraction:
+    """
+    Defines an interaction between two or more ECMs.
+
+    Attributes:
+        ecm_ids: Template IDs of ECMs involved
+        interaction_type: Type of interaction
+        effect: Multiplier or description of effect
+        description: Human-readable explanation
+        bidirectional: Whether interaction applies both ways
+    """
+    ecm_ids: Tuple[str, ...]
+    interaction_type: InteractionType
+    effect: float = 1.0  # Multiplier for synergy/reduction
+    description: str = ""
+    bidirectional: bool = True
+
+
+class MeasureInteractionMatrix:
+    """
+    Tracks interactions between ECMs for validation and optimization.
+
+    Supports:
+    - Conflict detection (invalid combinations)
+    - Synergy identification (enhanced savings)
+    - Prerequisite validation (dependencies)
+    - Exclusive group enforcement (mutually exclusive options)
+
+    Example:
+        >>> matrix = MeasureInteractionMatrix()
+        >>> # Check if combination is valid
+        >>> matrix.validate_combination(['erv_residential', 'central_vent'])
+        (False, ['ERV and central ventilation are mutually exclusive'])
+        >>> # Get synergies for a bundle
+        >>> matrix.get_synergies(['minisplit', 'envelope_upgrade'])
+        [MeasureInteraction(synergy, effect=1.15)]
+    """
+
+    def __init__(self):
+        self._interactions: List[MeasureInteraction] = []
+        self._exclusive_groups: Dict[str, Set[str]] = {}
+        self._prerequisites: Dict[str, Set[str]] = {}
+        self._load_default_interactions()
+
+    def _load_default_interactions(self) -> None:
+        """Load built-in measure interactions."""
+
+        # =====================================================================
+        # Exclusive Groups (only one can be selected)
+        # =====================================================================
+
+        # Ventilation systems are mutually exclusive
+        self._add_exclusive_group('ventilation', [
+            'erv_residential', 'central_vent', 'hrv_residential'
+        ])
+
+        # Heating systems are mutually exclusive
+        self._add_exclusive_group('heating', [
+            'minisplit', 'gshp', 'ashp_ducted', 'vrf', 'gas_furnace_high_eff'
+        ])
+
+        # Water heating systems are mutually exclusive
+        self._add_exclusive_group('dhw', [
+            'hpwh_residential', 'hpwh_commercial', 'solar_thermal',
+            'gas_tankless', 'gas_storage_high_eff'
+        ])
+
+        # Cooking equipment is mutually exclusive
+        self._add_exclusive_group('cooking', [
+            'induction_cooktop', 'induction_range', 'gas_range'
+        ])
+
+        # Panel upgrades are mutually exclusive
+        self._add_exclusive_group('panel', [
+            'panel_upgrade_200a', 'panel_upgrade_400a', 'smart_panel'
+        ])
+
+        # =====================================================================
+        # Prerequisites (ECM A requires ECM B)
+        # =====================================================================
+
+        # HPWH requires electric-ready infrastructure (in new construction)
+        self._add_prerequisite('hpwh_residential', 'elec_ready_water_heater')
+
+        # Mini-split/ASHP may require panel upgrade
+        self._add_prerequisite('minisplit', 'panel_upgrade_200a')
+        self._add_prerequisite('ashp_ducted', 'panel_upgrade_200a')
+
+        # EV charger requires panel capacity
+        self._add_prerequisite('ev_l2_residential', 'panel_upgrade_200a')
+        self._add_prerequisite('ev_l2_multifamily', 'panel_upgrade_400a')
+
+        # Induction cooking requires electric-ready
+        self._add_prerequisite('induction_range', 'elec_ready_cooking')
+
+        # =====================================================================
+        # Synergies (ECMs that work better together)
+        # =====================================================================
+
+        # Mini-split + envelope upgrade = better performance
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('minisplit', 'envelope_upgrade'),
+            interaction_type=InteractionType.SYNERGY,
+            effect=1.15,  # 15% enhanced savings
+            description="Right-sized heat pump with improved envelope",
+        ))
+
+        # PV + battery = enhanced self-consumption
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('pv_rooftop', 'battery_storage'),
+            interaction_type=InteractionType.SYNERGY,
+            effect=1.20,  # 20% better TOU arbitrage
+            description="Battery enables TOU optimization of PV generation",
+        ))
+
+        # ERV + mini-split = reduced HVAC sizing
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('erv_residential', 'minisplit'),
+            interaction_type=InteractionType.SYNERGY,
+            effect=1.10,
+            description="ERV pre-conditions air, reducing heat pump load",
+        ))
+
+        # HPWH + PV = daytime generation matches hot water load
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('hpwh_residential', 'pv_rooftop'),
+            interaction_type=InteractionType.SYNERGY,
+            effect=1.12,
+            description="HPWH can shift load to solar generation hours",
+        ))
+
+        # Smart panel + electrification = load balancing
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('smart_panel', 'minisplit', 'hpwh_residential', 'ev_l2_residential'),
+            interaction_type=InteractionType.SYNERGY,
+            effect=1.08,
+            description="Smart panel prevents demand spikes from stacked loads",
+        ))
+
+        # Cool roof + HVAC upgrade in hot climates
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('cool_roof', 'minisplit'),
+            interaction_type=InteractionType.SYNERGY,
+            effect=1.18,
+            description="Cool roof reduces cooling load for right-sized HP",
+        ))
+
+        # =====================================================================
+        # Reductions (ECM A reduces effectiveness of ECM B)
+        # =====================================================================
+
+        # High-efficiency envelope reduces HVAC savings potential
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('envelope_upgrade', 'minisplit'),
+            interaction_type=InteractionType.REDUCES,
+            effect=0.85,  # HVAC upgrade provides 15% less incremental savings
+            description="Envelope improvements reduce heating/cooling loads, "
+                       "making HVAC efficiency less impactful",
+            bidirectional=False,  # Envelope doesn't reduce, HVAC does
+        ))
+
+        # =====================================================================
+        # Conflicts (cannot both be applied)
+        # =====================================================================
+
+        # ERV and exhaust-only ventilation conflict
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=('erv_residential', 'exhaust_only_vent'),
+            interaction_type=InteractionType.CONFLICT,
+            description="ERV provides balanced ventilation; cannot combine "
+                       "with exhaust-only approach",
+        ))
+
+    def _add_exclusive_group(self, group_name: str, ecm_ids: List[str]) -> None:
+        """Add a mutually exclusive group of ECMs."""
+        self._exclusive_groups[group_name] = set(ecm_ids)
+        # Also add as explicit EXCLUSIVE interactions
+        if len(ecm_ids) >= 2:
+            self._interactions.append(MeasureInteraction(
+                ecm_ids=tuple(ecm_ids),
+                interaction_type=InteractionType.EXCLUSIVE,
+                description=f"Mutually exclusive {group_name} options",
+            ))
+
+    def _add_prerequisite(self, ecm_id: str, requires: str) -> None:
+        """Add a prerequisite relationship."""
+        if ecm_id not in self._prerequisites:
+            self._prerequisites[ecm_id] = set()
+        self._prerequisites[ecm_id].add(requires)
+        self._interactions.append(MeasureInteraction(
+            ecm_ids=(ecm_id, requires),
+            interaction_type=InteractionType.PREREQUISITE,
+            description=f"{ecm_id} may require {requires}",
+            bidirectional=False,
+        ))
+
+    def validate_combination(
+        self,
+        ecm_ids: List[str],
+        strict: bool = False,
+    ) -> Tuple[bool, List[str]]:
+        """
+        Validate that a combination of ECMs is compatible.
+
+        Args:
+            ecm_ids: List of ECM template IDs
+            strict: If True, treat missing prerequisites as errors
+
+        Returns:
+            Tuple of (is_valid, list of warning/error messages)
+        """
+        messages = []
+        is_valid = True
+        ecm_set = set(ecm_ids)
+
+        # Check exclusive groups
+        for group_name, group_ecms in self._exclusive_groups.items():
+            overlap = ecm_set & group_ecms
+            if len(overlap) > 1:
+                is_valid = False
+                messages.append(
+                    f"CONFLICT: Multiple {group_name} options selected: "
+                    f"{sorted(overlap)}. Only one allowed."
+                )
+
+        # Check explicit conflicts
+        for interaction in self._interactions:
+            if interaction.interaction_type == InteractionType.CONFLICT:
+                conflict_set = set(interaction.ecm_ids)
+                if conflict_set <= ecm_set:
+                    is_valid = False
+                    messages.append(
+                        f"CONFLICT: {', '.join(interaction.ecm_ids)} - "
+                        f"{interaction.description}"
+                    )
+
+        # Check prerequisites
+        for ecm_id in ecm_ids:
+            if ecm_id in self._prerequisites:
+                missing = self._prerequisites[ecm_id] - ecm_set
+                for prereq in missing:
+                    msg = f"PREREQUISITE: {ecm_id} may require {prereq}"
+                    if strict:
+                        is_valid = False
+                        messages.append(f"ERROR: {msg}")
+                    else:
+                        messages.append(f"WARNING: {msg}")
+
+        return is_valid, messages
+
+    def get_synergies(self, ecm_ids: List[str]) -> List[MeasureInteraction]:
+        """
+        Get synergistic interactions for a set of ECMs.
+
+        Args:
+            ecm_ids: List of ECM template IDs
+
+        Returns:
+            List of applicable synergy interactions
+        """
+        ecm_set = set(ecm_ids)
+        synergies = []
+
+        for interaction in self._interactions:
+            if interaction.interaction_type == InteractionType.SYNERGY:
+                # Check if all ECMs in the interaction are present
+                if set(interaction.ecm_ids) <= ecm_set:
+                    synergies.append(interaction)
+
+        return synergies
+
+    def get_reductions(self, ecm_ids: List[str]) -> List[MeasureInteraction]:
+        """
+        Get reduction interactions for a set of ECMs.
+
+        These indicate where one ECM reduces effectiveness of another.
+
+        Args:
+            ecm_ids: List of ECM template IDs
+
+        Returns:
+            List of applicable reduction interactions
+        """
+        ecm_set = set(ecm_ids)
+        reductions = []
+
+        for interaction in self._interactions:
+            if interaction.interaction_type == InteractionType.REDUCES:
+                if set(interaction.ecm_ids) <= ecm_set:
+                    reductions.append(interaction)
+
+        return reductions
+
+    def calculate_bundle_factor(self, ecm_ids: List[str]) -> float:
+        """
+        Calculate combined savings factor for a bundle of ECMs.
+
+        Applies synergy bonuses and reduction penalties.
+
+        Args:
+            ecm_ids: List of ECM template IDs
+
+        Returns:
+            Multiplier to apply to total bundle savings
+        """
+        factor = 1.0
+
+        for synergy in self.get_synergies(ecm_ids):
+            # Synergy effects multiply (compound)
+            factor *= synergy.effect
+
+        for reduction in self.get_reductions(ecm_ids):
+            # Reduction effects are also multiplicative
+            factor *= reduction.effect
+
+        return factor
+
+    def get_prerequisites(self, ecm_id: str) -> Set[str]:
+        """Get prerequisites for an ECM."""
+        return self._prerequisites.get(ecm_id, set())
+
+    def get_exclusive_options(self, ecm_id: str) -> Optional[Set[str]]:
+        """Get other ECMs in the same exclusive group."""
+        for group_name, ecms in self._exclusive_groups.items():
+            if ecm_id in ecms:
+                return ecms - {ecm_id}
+        return None
+
+    def list_interactions(
+        self,
+        interaction_type: Optional[InteractionType] = None,
+    ) -> List[MeasureInteraction]:
+        """List all interactions, optionally filtered by type."""
+        if interaction_type is None:
+            return list(self._interactions)
+        return [i for i in self._interactions
+                if i.interaction_type == interaction_type]
+
+    def format_interaction_summary(self, ecm_ids: List[str]) -> str:
+        """Format a summary of interactions for a bundle."""
+        is_valid, messages = self.validate_combination(ecm_ids)
+        synergies = self.get_synergies(ecm_ids)
+        reductions = self.get_reductions(ecm_ids)
+        factor = self.calculate_bundle_factor(ecm_ids)
+
+        lines = [
+            "ECM Interaction Analysis",
+            "=" * 40,
+            f"Bundle: {', '.join(ecm_ids)}",
+            f"Valid: {is_valid}",
+            "",
+        ]
+
+        if messages:
+            lines.append("Messages:")
+            for msg in messages:
+                lines.append(f"  - {msg}")
+            lines.append("")
+
+        if synergies:
+            lines.append(f"Synergies ({len(synergies)}):")
+            for s in synergies:
+                lines.append(f"  + {s.ecm_ids}: {s.description}")
+                lines.append(f"    Effect: {s.effect:.0%} enhanced savings")
+            lines.append("")
+
+        if reductions:
+            lines.append(f"Reductions ({len(reductions)}):")
+            for r in reductions:
+                lines.append(f"  - {r.ecm_ids}: {r.description}")
+                lines.append(f"    Effect: {r.effect:.0%} of base savings")
+            lines.append("")
+
+        lines.append(f"Combined Bundle Factor: {factor:.2%}")
+
+        return "\n".join(lines)
+
+
+# Global interaction matrix instance
+_interaction_matrix: Optional[MeasureInteractionMatrix] = None
+
+
+def get_interaction_matrix() -> MeasureInteractionMatrix:
+    """Get the global measure interaction matrix."""
+    global _interaction_matrix
+    if _interaction_matrix is None:
+        _interaction_matrix = MeasureInteractionMatrix()
+    return _interaction_matrix
+
+
+# =============================================================================
+# Climate-Adaptive Defaults (Feature 4)
+# =============================================================================
+
+class ClimateZoneType(Enum):
+    """California climate zone classifications."""
+    MILD_COASTAL = "mild_coastal"      # CZ 1-5 (moderate heating, minimal cooling)
+    HOT_DRY = "hot_dry"                # CZ 10-15 (high cooling, moderate heating)
+    HOT_HUMID = "hot_humid"            # CZ 6-9 (cooling dominant, some humidity)
+    COLD_MOUNTAIN = "cold_mountain"    # CZ 16 (heating dominant)
+
+
+# Climate zone classifications (based on CEC definitions)
+CLIMATE_ZONE_CLASSIFICATION: Dict[int, ClimateZoneType] = {
+    1: ClimateZoneType.MILD_COASTAL,
+    2: ClimateZoneType.MILD_COASTAL,
+    3: ClimateZoneType.MILD_COASTAL,
+    4: ClimateZoneType.MILD_COASTAL,
+    5: ClimateZoneType.MILD_COASTAL,
+    6: ClimateZoneType.HOT_HUMID,
+    7: ClimateZoneType.HOT_HUMID,
+    8: ClimateZoneType.HOT_HUMID,
+    9: ClimateZoneType.HOT_HUMID,
+    10: ClimateZoneType.HOT_DRY,
+    11: ClimateZoneType.HOT_DRY,
+    12: ClimateZoneType.HOT_DRY,
+    13: ClimateZoneType.HOT_DRY,
+    14: ClimateZoneType.HOT_DRY,
+    15: ClimateZoneType.HOT_DRY,
+    16: ClimateZoneType.COLD_MOUNTAIN,
+}
+
+
+@dataclass
+class ClimateAdaptiveFactors:
+    """
+    Climate-specific adjustment factors for ECM calculations.
+
+    All factors are multipliers (1.0 = no adjustment).
+    """
+    # Energy savings adjustments
+    heating_savings_factor: float = 1.0
+    cooling_savings_factor: float = 1.0
+    pv_generation_factor: float = 1.0
+    erv_effectiveness: float = 1.0
+
+    # Sizing adjustments
+    hvac_sizing_factor: float = 1.0
+
+    # Cost adjustments
+    labor_cost_factor: float = 1.0
+
+    # Annual operating hours
+    heating_hours: float = 1000
+    cooling_hours: float = 500
+
+    # Description
+    zone_type: Optional[ClimateZoneType] = None
+    climate_zone: Optional[int] = None
+
+
+class ClimateAdaptiveDefaults:
+    """
+    Provides climate zone-specific adjustments for ECM parameters.
+
+    California's 16 climate zones have different heating/cooling loads,
+    solar resources, and cost-effectiveness characteristics. This class
+    provides adjustment factors to adapt generic ECM templates.
+
+    Example:
+        >>> cad = ClimateAdaptiveDefaults()
+        >>> factors = cad.get_factors(13)  # Hot-dry zone
+        >>> print(f"PV generation: {factors.pv_generation_factor:.0%}")
+        >>> # Apply to ERV savings
+        >>> erv_savings = base_savings * factors.erv_effectiveness
+    """
+
+    def __init__(self):
+        self._factors: Dict[int, ClimateAdaptiveFactors] = {}
+        self._load_default_factors()
+
+    def _load_default_factors(self) -> None:
+        """Load climate-specific adjustment factors."""
+
+        # CZ 1: Arcata (mild coastal, heating dominant)
+        self._factors[1] = ClimateAdaptiveFactors(
+            heating_savings_factor=1.15,  # More heating savings value
+            cooling_savings_factor=0.50,  # Little cooling needed
+            pv_generation_factor=0.85,    # Overcast/foggy
+            erv_effectiveness=1.20,       # Good for heat recovery
+            hvac_sizing_factor=0.85,      # Smaller AC loads
+            labor_cost_factor=1.00,
+            heating_hours=1800,
+            cooling_hours=100,
+            zone_type=ClimateZoneType.MILD_COASTAL,
+            climate_zone=1,
+        )
+
+        # CZ 2: Santa Rosa (mild, some heating)
+        self._factors[2] = ClimateAdaptiveFactors(
+            heating_savings_factor=1.10,
+            cooling_savings_factor=0.70,
+            pv_generation_factor=0.95,
+            erv_effectiveness=1.15,
+            hvac_sizing_factor=0.90,
+            labor_cost_factor=1.10,
+            heating_hours=1500,
+            cooling_hours=200,
+            zone_type=ClimateZoneType.MILD_COASTAL,
+            climate_zone=2,
+        )
+
+        # CZ 3: Oakland/San Francisco (mild coastal, minimal HVAC)
+        self._factors[3] = ClimateAdaptiveFactors(
+            heating_savings_factor=1.00,
+            cooling_savings_factor=0.40,
+            pv_generation_factor=0.90,
+            erv_effectiveness=1.10,
+            hvac_sizing_factor=0.80,
+            labor_cost_factor=1.20,  # Bay Area premium
+            heating_hours=1200,
+            cooling_hours=50,
+            zone_type=ClimateZoneType.MILD_COASTAL,
+            climate_zone=3,
+        )
+
+        # CZ 4: San Jose/Sunnyvale (mild, more cooling than CZ3)
+        self._factors[4] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.95,
+            cooling_savings_factor=0.80,
+            pv_generation_factor=1.00,
+            erv_effectiveness=1.05,
+            hvac_sizing_factor=0.90,
+            labor_cost_factor=1.20,
+            heating_hours=1100,
+            cooling_hours=300,
+            zone_type=ClimateZoneType.MILD_COASTAL,
+            climate_zone=4,
+        )
+
+        # CZ 5: Santa Maria (coastal, very mild)
+        self._factors[5] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.90,
+            cooling_savings_factor=0.50,
+            pv_generation_factor=0.95,
+            erv_effectiveness=1.00,
+            hvac_sizing_factor=0.85,
+            labor_cost_factor=1.05,
+            heating_hours=1300,
+            cooling_hours=100,
+            zone_type=ClimateZoneType.MILD_COASTAL,
+            climate_zone=5,
+        )
+
+        # CZ 6: Los Angeles Coast (mild, low HVAC loads)
+        self._factors[6] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.80,
+            cooling_savings_factor=0.70,
+            pv_generation_factor=1.00,
+            erv_effectiveness=0.90,
+            hvac_sizing_factor=0.85,
+            labor_cost_factor=1.15,
+            heating_hours=800,
+            cooling_hours=200,
+            zone_type=ClimateZoneType.HOT_HUMID,
+            climate_zone=6,
+        )
+
+        # CZ 7: San Diego (very mild, low HVAC loads)
+        self._factors[7] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.70,
+            cooling_savings_factor=0.60,
+            pv_generation_factor=1.05,
+            erv_effectiveness=0.85,
+            hvac_sizing_factor=0.80,
+            labor_cost_factor=1.10,
+            heating_hours=600,
+            cooling_hours=200,
+            zone_type=ClimateZoneType.HOT_HUMID,
+            climate_zone=7,
+        )
+
+        # CZ 8: El Toro/Fullerton (inland LA, more cooling)
+        self._factors[8] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.85,
+            cooling_savings_factor=0.95,
+            pv_generation_factor=1.05,
+            erv_effectiveness=0.90,
+            hvac_sizing_factor=1.00,
+            labor_cost_factor=1.15,
+            heating_hours=700,
+            cooling_hours=600,
+            zone_type=ClimateZoneType.HOT_HUMID,
+            climate_zone=8,
+        )
+
+        # CZ 9: Pasadena/Burbank (inland valleys, hot summers)
+        self._factors[9] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.90,
+            cooling_savings_factor=1.10,
+            pv_generation_factor=1.05,
+            erv_effectiveness=0.95,
+            hvac_sizing_factor=1.05,
+            labor_cost_factor=1.15,
+            heating_hours=800,
+            cooling_hours=800,
+            zone_type=ClimateZoneType.HOT_HUMID,
+            climate_zone=9,
+        )
+
+        # CZ 10: Riverside/Ontario (hot desert transition)
+        self._factors[10] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.85,
+            cooling_savings_factor=1.20,
+            pv_generation_factor=1.10,
+            erv_effectiveness=0.85,  # ERV less effective in dry heat
+            hvac_sizing_factor=1.10,
+            labor_cost_factor=1.00,
+            heating_hours=700,
+            cooling_hours=1000,
+            zone_type=ClimateZoneType.HOT_DRY,
+            climate_zone=10,
+        )
+
+        # CZ 11: Red Bluff (Central Valley, extreme temps)
+        self._factors[11] = ClimateAdaptiveFactors(
+            heating_savings_factor=1.05,
+            cooling_savings_factor=1.25,
+            pv_generation_factor=1.10,
+            erv_effectiveness=0.95,
+            hvac_sizing_factor=1.15,
+            labor_cost_factor=0.95,
+            heating_hours=1200,
+            cooling_hours=1100,
+            zone_type=ClimateZoneType.HOT_DRY,
+            climate_zone=11,
+        )
+
+        # CZ 12: Sacramento (hot summers, cold winters)
+        self._factors[12] = ClimateAdaptiveFactors(
+            heating_savings_factor=1.00,
+            cooling_savings_factor=1.15,
+            pv_generation_factor=1.10,
+            erv_effectiveness=1.00,
+            hvac_sizing_factor=1.10,
+            labor_cost_factor=1.05,
+            heating_hours=1100,
+            cooling_hours=900,
+            zone_type=ClimateZoneType.HOT_DRY,
+            climate_zone=12,
+        )
+
+        # CZ 13: Fresno (Central Valley, very hot summers)
+        self._factors[13] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.95,
+            cooling_savings_factor=1.30,  # High cooling savings value
+            pv_generation_factor=1.15,    # Excellent solar
+            erv_effectiveness=0.80,       # Less effective in dry heat
+            hvac_sizing_factor=1.20,      # Larger AC loads
+            labor_cost_factor=0.90,
+            heating_hours=900,
+            cooling_hours=1200,
+            zone_type=ClimateZoneType.HOT_DRY,
+            climate_zone=13,
+        )
+
+        # CZ 14: Palmdale/Lancaster (high desert)
+        self._factors[14] = ClimateAdaptiveFactors(
+            heating_savings_factor=1.10,
+            cooling_savings_factor=1.25,
+            pv_generation_factor=1.20,  # Excellent solar
+            erv_effectiveness=0.90,
+            hvac_sizing_factor=1.15,
+            labor_cost_factor=0.95,
+            heating_hours=1300,
+            cooling_hours=1100,
+            zone_type=ClimateZoneType.HOT_DRY,
+            climate_zone=14,
+        )
+
+        # CZ 15: El Centro/Imperial Valley (extreme desert heat)
+        self._factors[15] = ClimateAdaptiveFactors(
+            heating_savings_factor=0.70,
+            cooling_savings_factor=1.40,  # Highest cooling value
+            pv_generation_factor=1.25,    # Excellent solar
+            erv_effectiveness=0.70,       # ERV less useful
+            hvac_sizing_factor=1.30,      # Large AC loads
+            labor_cost_factor=0.90,
+            heating_hours=500,
+            cooling_hours=1500,
+            zone_type=ClimateZoneType.HOT_DRY,
+            climate_zone=15,
+        )
+
+        # CZ 16: Blue Canyon/Mountain (cold, heating dominant)
+        self._factors[16] = ClimateAdaptiveFactors(
+            heating_savings_factor=1.30,  # Highest heating value
+            cooling_savings_factor=0.60,
+            pv_generation_factor=1.05,
+            erv_effectiveness=1.30,       # ERV very effective
+            hvac_sizing_factor=1.20,      # Large heating loads
+            labor_cost_factor=1.10,
+            heating_hours=2500,
+            cooling_hours=300,
+            zone_type=ClimateZoneType.COLD_MOUNTAIN,
+            climate_zone=16,
+        )
+
+    def get_factors(self, climate_zone: int) -> ClimateAdaptiveFactors:
+        """
+        Get adjustment factors for a specific climate zone.
+
+        Args:
+            climate_zone: California climate zone (1-16)
+
+        Returns:
+            ClimateAdaptiveFactors with zone-specific multipliers
+        """
+        if climate_zone not in self._factors:
+            raise ValueError(f"Invalid climate zone: {climate_zone}. Valid: 1-16")
+        return self._factors[climate_zone]
+
+    def get_zone_type(self, climate_zone: int) -> ClimateZoneType:
+        """Get the climate type classification for a zone."""
+        return CLIMATE_ZONE_CLASSIFICATION.get(climate_zone, ClimateZoneType.MILD_COASTAL)
+
+    def adjust_hvac_savings(
+        self,
+        climate_zone: int,
+        heating_savings: float,
+        cooling_savings: float,
+    ) -> Tuple[float, float]:
+        """
+        Adjust HVAC savings for climate zone.
+
+        Args:
+            climate_zone: California climate zone
+            heating_savings: Base heating savings ($)
+            cooling_savings: Base cooling savings ($)
+
+        Returns:
+            Tuple of (adjusted_heating_savings, adjusted_cooling_savings)
+        """
+        factors = self.get_factors(climate_zone)
+        return (
+            heating_savings * factors.heating_savings_factor,
+            cooling_savings * factors.cooling_savings_factor,
+        )
+
+    def adjust_pv_generation(
+        self,
+        climate_zone: int,
+        base_generation_kwh: float,
+    ) -> float:
+        """
+        Adjust PV generation for climate zone.
+
+        Args:
+            climate_zone: California climate zone
+            base_generation_kwh: Base annual generation (kWh)
+
+        Returns:
+            Adjusted annual generation (kWh)
+        """
+        factors = self.get_factors(climate_zone)
+        return base_generation_kwh * factors.pv_generation_factor
+
+    def adjust_erv_effectiveness(
+        self,
+        climate_zone: int,
+        base_savings: float,
+    ) -> float:
+        """
+        Adjust ERV savings for climate zone.
+
+        ERV effectiveness varies significantly by climate:
+        - Very effective in cold/heating-dominant zones
+        - Less effective in hot-dry climates (dry air = less latent recovery)
+
+        Args:
+            climate_zone: California climate zone
+            base_savings: Base ERV savings ($)
+
+        Returns:
+            Adjusted ERV savings ($)
+        """
+        factors = self.get_factors(climate_zone)
+        return base_savings * factors.erv_effectiveness
+
+    def adjust_capex(
+        self,
+        climate_zone: int,
+        base_cost: float,
+    ) -> float:
+        """
+        Adjust capital cost for regional labor rates.
+
+        Args:
+            climate_zone: California climate zone
+            base_cost: Base capital cost ($)
+
+        Returns:
+            Adjusted capital cost ($)
+        """
+        factors = self.get_factors(climate_zone)
+        return base_cost * factors.labor_cost_factor
+
+    def get_recommended_ecms(self, climate_zone: int) -> List[str]:
+        """
+        Get recommended ECMs for a climate zone.
+
+        Returns template IDs of ECMs that are most cost-effective
+        in this climate zone.
+
+        Args:
+            climate_zone: California climate zone
+
+        Returns:
+            List of recommended ECM template IDs
+        """
+        zone_type = self.get_zone_type(climate_zone)
+
+        # Base recommendations for all zones
+        recommended = ['pv_rooftop', 'led_lighting']
+
+        if zone_type == ClimateZoneType.COLD_MOUNTAIN:
+            recommended.extend([
+                'erv_residential',       # Heat recovery very valuable
+                'envelope_upgrade',      # Insulation critical
+                'high_perf_windows',     # Reduce heat loss
+                'ashp_ducted',          # Heat pump for heating
+            ])
+        elif zone_type == ClimateZoneType.HOT_DRY:
+            recommended.extend([
+                'cool_roof',            # Reduce cooling load
+                'minisplit',            # Efficient cooling
+                'evap_cooling',         # Works well in dry climates
+                'exterior_shade',       # Reduce solar gain
+            ])
+        elif zone_type == ClimateZoneType.HOT_HUMID:
+            recommended.extend([
+                'minisplit',            # High SEER
+                'cool_roof',            # Some benefit
+                'hpwh_residential',     # Dehumidifies space
+            ])
+        else:  # MILD_COASTAL
+            recommended.extend([
+                'hpwh_residential',     # Easy electrification win
+                'minisplit',            # Minimal HVAC needs
+                'envelope_upgrade',     # Modest improvements
+            ])
+
+        return recommended
+
+    def format_zone_summary(self, climate_zone: int) -> str:
+        """Format a summary of climate zone characteristics."""
+        factors = self.get_factors(climate_zone)
+        zone_type = self.get_zone_type(climate_zone)
+
+        lines = [
+            f"Climate Zone {climate_zone} Summary",
+            "=" * 40,
+            f"Classification: {zone_type.value.replace('_', ' ').title()}",
+            "",
+            "Adjustment Factors:",
+            f"  Heating savings:  {factors.heating_savings_factor:+.0%}"
+            if factors.heating_savings_factor != 1.0 else "  Heating savings:  baseline",
+            f"  Cooling savings:  {factors.cooling_savings_factor:+.0%}"
+            if factors.cooling_savings_factor != 1.0 else "  Cooling savings:  baseline",
+            f"  PV generation:    {factors.pv_generation_factor:+.0%}"
+            if factors.pv_generation_factor != 1.0 else "  PV generation:    baseline",
+            f"  ERV effectiveness:{factors.erv_effectiveness:+.0%}"
+            if factors.erv_effectiveness != 1.0 else "  ERV effectiveness:baseline",
+            f"  Labor costs:      {factors.labor_cost_factor:+.0%}"
+            if factors.labor_cost_factor != 1.0 else "  Labor costs:      baseline",
+            "",
+            "Annual Operating Hours:",
+            f"  Heating: {factors.heating_hours:.0f} hrs",
+            f"  Cooling: {factors.cooling_hours:.0f} hrs",
+            "",
+            "Recommended ECMs:",
+        ]
+
+        for ecm_id in self.get_recommended_ecms(climate_zone):
+            lines.append(f"  - {ecm_id}")
+
+        return "\n".join(lines)
+
+
+# Global climate adaptive defaults instance
+_climate_defaults: Optional[ClimateAdaptiveDefaults] = None
+
+
+def get_climate_defaults() -> ClimateAdaptiveDefaults:
+    """Get the global climate adaptive defaults instance."""
+    global _climate_defaults
+    if _climate_defaults is None:
+        _climate_defaults = ClimateAdaptiveDefaults()
+    return _climate_defaults
+
+
+# =============================================================================
+# Parametric ECM Support (Feature 5)
+# =============================================================================
+
+@dataclass
+class ParametricRange:
+    """
+    Defines a range for parametric ECM generation.
+
+    Attributes:
+        min_value: Minimum parameter value
+        max_value: Maximum parameter value
+        step: Step size for discrete options (None for continuous)
+        unit: Unit label for display
+    """
+    min_value: float
+    max_value: float
+    step: Optional[float] = None
+    unit: str = ""
+
+    def get_values(self, n_points: int = 10) -> List[float]:
+        """Get a list of values across the range."""
+        if self.step is not None:
+            # Discrete steps
+            values = []
+            current = self.min_value
+            while current <= self.max_value:
+                values.append(current)
+                current += self.step
+            return values
+        else:
+            # Continuous, generate n_points
+            if n_points <= 1:
+                return [self.min_value]
+            step = (self.max_value - self.min_value) / (n_points - 1)
+            return [self.min_value + i * step for i in range(n_points)]
+
+
+@dataclass
+class ParametricECMDefinition:
+    """
+    Defines a parametric ECM with variable sizing/parameters.
+
+    Example:
+        >>> # Define a PV system that can range from 50-500 kW
+        >>> pv_param = ParametricECMDefinition(
+        ...     name_template="PV System ({size:.0f} kW)",
+        ...     category=ECMCategory.GENERATION,
+        ...     parameters={'size': ParametricRange(50, 500, step=50, unit='kW')},
+        ...     capex_formula=lambda p: p['size'] * 1000 * 2.50,
+        ...     generation_formula=lambda p: p['size'] * 1500,
+        ... )
+    """
+    name_template: str
+    category: ECMCategory
+    parameters: Dict[str, ParametricRange]
+    capex_formula: Any  # Callable[[Dict], float]
+    subcategory: Optional[ECMSubcategory] = None
+    generation_formula: Optional[Any] = None  # Callable[[Dict], float]
+    kwh_delta_formula: Optional[Any] = None   # Callable[[Dict], float]
+    therm_delta_formula: Optional[Any] = None  # Callable[[Dict], float]
+    useful_life_years: int = 20
+    description: str = ""
+
+    def generate_ecm(self, param_values: Dict[str, float]) -> ECM:
+        """Generate an ECM instance with specific parameter values."""
+        capex = self.capex_formula(param_values)
+
+        generation = 0.0
+        if self.generation_formula:
+            generation = self.generation_formula(param_values)
+
+        kwh_delta = 0.0
+        if self.kwh_delta_formula:
+            kwh_delta = self.kwh_delta_formula(param_values)
+
+        therm_delta = 0.0
+        if self.therm_delta_formula:
+            therm_delta = self.therm_delta_formula(param_values)
+
+        # Format name with parameter values
+        name = self.name_template.format(**param_values)
+
+        return ECM(
+            name=name,
+            category=self.category,
+            subcategory=self.subcategory,
+            capex=capex,
+            annual_kwh_generation=generation,
+            annual_kwh_delta=kwh_delta,
+            annual_therm_delta=therm_delta,
+            useful_life_years=self.useful_life_years,
+            description=self.description,
+        )
+
+    def generate_all_variants(self, n_points: int = 10) -> List[ECM]:
+        """Generate all ECM variants across parameter ranges."""
+        # For single parameter, simple iteration
+        if len(self.parameters) == 1:
+            param_name = list(self.parameters.keys())[0]
+            param_range = self.parameters[param_name]
+            variants = []
+            for value in param_range.get_values(n_points):
+                variants.append(self.generate_ecm({param_name: value}))
+            return variants
+
+        # For multiple parameters, generate all combinations
+        from itertools import product
+        param_names = list(self.parameters.keys())
+        param_value_lists = [
+            self.parameters[name].get_values(n_points)
+            for name in param_names
+        ]
+
+        variants = []
+        for values in product(*param_value_lists):
+            param_dict = dict(zip(param_names, values))
+            variants.append(self.generate_ecm(param_dict))
+        return variants
+
+
+@dataclass
+class ParametricOptimizationResult:
+    """Result of parametric optimization."""
+    optimal_ecm: ECM
+    optimal_params: Dict[str, float]
+    optimal_npv: float
+    all_variants: List[Tuple[Dict[str, float], ECM, float]]  # (params, ecm, npv)
+    objective: str
+
+
+class ParametricECMOptimizer:
+    """
+    Optimizes parametric ECM sizing for best financial outcome.
+
+    Supports:
+    - NPV maximization
+    - Payback minimization
+    - IRR maximization
+    - Custom objective functions
+
+    Example:
+        >>> optimizer = ParametricECMOptimizer()
+        >>> pv_def = create_parametric_pv(50, 500, step=50)
+        >>> result = optimizer.optimize(
+        ...     pv_def,
+        ...     baseline_scenario,
+        ...     annual_load_kwh=500000,
+        ...     tariff=get_tariff_by_name('SCE-TOU-GS-3'),
+        ... )
+        >>> print(f"Optimal PV: {result.optimal_params['capacity_kw']} kW")
+        >>> print(f"NPV: ${result.optimal_npv:,.0f}")
+    """
+
+    def __init__(self):
+        pass
+
+    def optimize_npv(
+        self,
+        parametric_def: ParametricECMDefinition,
+        baseline_annual_kwh: float,
+        baseline_annual_cost: float,
+        electricity_rate: float = 0.20,
+        discount_rate: float = 0.05,
+        analysis_years: int = 30,
+        n_points: int = 20,
+    ) -> ParametricOptimizationResult:
+        """
+        Find optimal sizing for maximum NPV.
+
+        Args:
+            parametric_def: Parametric ECM definition
+            baseline_annual_kwh: Annual electricity consumption
+            baseline_annual_cost: Annual electricity cost
+            electricity_rate: Average $/kWh for savings
+            discount_rate: Discount rate for NPV
+            analysis_years: Years for NPV calculation
+            n_points: Number of points to evaluate
+
+        Returns:
+            ParametricOptimizationResult with optimal sizing
+        """
+        variants = parametric_def.generate_all_variants(n_points)
+        results = []
+
+        for ecm in variants:
+            # Calculate annual savings
+            if ecm.annual_kwh_generation > 0:
+                # Generation-based (PV)
+                annual_savings = min(
+                    ecm.annual_kwh_generation * electricity_rate,
+                    baseline_annual_cost
+                )
+            elif ecm.get_kwh_impact() < 0:
+                # Efficiency-based
+                annual_savings = abs(ecm.get_kwh_impact()) * electricity_rate
+            else:
+                annual_savings = 0
+
+            # Simple NPV calculation
+            npv = self._calculate_simple_npv(
+                -ecm.net_capex,
+                annual_savings,
+                discount_rate,
+                analysis_years,
+            )
+
+            # Extract params from ECM name (reverse lookup)
+            params = self._extract_params_from_ecm(ecm, parametric_def)
+            results.append((params, ecm, npv))
+
+        # Find optimal
+        results.sort(key=lambda x: x[2], reverse=True)  # Sort by NPV descending
+        optimal = results[0]
+
+        return ParametricOptimizationResult(
+            optimal_ecm=optimal[1],
+            optimal_params=optimal[0],
+            optimal_npv=optimal[2],
+            all_variants=results,
+            objective="maximize_npv",
+        )
+
+    def optimize_payback(
+        self,
+        parametric_def: ParametricECMDefinition,
+        baseline_annual_kwh: float,
+        electricity_rate: float = 0.20,
+        max_payback_years: float = 15.0,
+        n_points: int = 20,
+    ) -> ParametricOptimizationResult:
+        """
+        Find optimal sizing for minimum payback period.
+
+        Only considers variants with payback <= max_payback_years.
+        """
+        variants = parametric_def.generate_all_variants(n_points)
+        results = []
+
+        for ecm in variants:
+            # Calculate annual savings
+            if ecm.annual_kwh_generation > 0:
+                annual_savings = ecm.annual_kwh_generation * electricity_rate
+            elif ecm.get_kwh_impact() < 0:
+                annual_savings = abs(ecm.get_kwh_impact()) * electricity_rate
+            else:
+                continue  # Skip if no savings
+
+            # Calculate payback
+            if annual_savings > 0:
+                payback = ecm.net_capex / annual_savings
+            else:
+                payback = float('inf')
+
+            if payback <= max_payback_years:
+                params = self._extract_params_from_ecm(ecm, parametric_def)
+                # Use negative payback as "value" for sorting (min payback = best)
+                results.append((params, ecm, -payback))
+
+        if not results:
+            raise ValueError(
+                f"No variants meet payback requirement of {max_payback_years} years"
+            )
+
+        results.sort(key=lambda x: x[2], reverse=True)  # Min payback
+        optimal = results[0]
+
+        return ParametricOptimizationResult(
+            optimal_ecm=optimal[1],
+            optimal_params=optimal[0],
+            optimal_npv=-optimal[2],  # Return actual payback
+            all_variants=[(p, e, -v) for p, e, v in results],
+            objective="minimize_payback",
+        )
+
+    def optimize_load_coverage(
+        self,
+        parametric_def: ParametricECMDefinition,
+        target_coverage: float,
+        annual_load_kwh: float,
+        n_points: int = 20,
+    ) -> ParametricOptimizationResult:
+        """
+        Find sizing to achieve target load coverage.
+
+        Args:
+            parametric_def: Parametric ECM definition (PV)
+            target_coverage: Target fraction of load to cover (e.g., 1.0 = 100%)
+            annual_load_kwh: Annual electricity consumption
+            n_points: Number of points to evaluate
+
+        Returns:
+            Result with sizing closest to target coverage
+        """
+        target_generation = annual_load_kwh * target_coverage
+        variants = parametric_def.generate_all_variants(n_points)
+        results = []
+
+        for ecm in variants:
+            if ecm.annual_kwh_generation > 0:
+                coverage = ecm.annual_kwh_generation / annual_load_kwh
+                deviation = abs(coverage - target_coverage)
+                params = self._extract_params_from_ecm(ecm, parametric_def)
+                results.append((params, ecm, -deviation))  # Negative for sorting
+
+        results.sort(key=lambda x: x[2], reverse=True)  # Min deviation
+        optimal = results[0]
+
+        return ParametricOptimizationResult(
+            optimal_ecm=optimal[1],
+            optimal_params=optimal[0],
+            optimal_npv=-optimal[2],  # Return deviation
+            all_variants=[(p, e, -v) for p, e, v in results],
+            objective=f"target_coverage_{target_coverage:.0%}",
+        )
+
+    def _calculate_simple_npv(
+        self,
+        initial: float,
+        annual: float,
+        rate: float,
+        years: int,
+    ) -> float:
+        """Calculate simple NPV with uniform annual cash flows."""
+        npv = initial
+        for year in range(1, years + 1):
+            npv += annual / ((1 + rate) ** year)
+        return npv
+
+    def _extract_params_from_ecm(
+        self,
+        ecm: ECM,
+        parametric_def: ParametricECMDefinition,
+    ) -> Dict[str, float]:
+        """Extract parameter values from ECM (reverse lookup from name/capex)."""
+        # For single-parameter definitions, derive from capex
+        if len(parametric_def.parameters) == 1:
+            param_name = list(parametric_def.parameters.keys())[0]
+            param_range = parametric_def.parameters[param_name]
+
+            # Try each value to find match
+            for value in param_range.get_values(100):
+                test_ecm = parametric_def.generate_ecm({param_name: value})
+                if abs(test_ecm.capex - ecm.capex) < 0.01:
+                    return {param_name: value}
+
+        # Fallback: return empty dict
+        return {}
+
+
+# =============================================================================
+# Parametric ECM Factory Functions
+# =============================================================================
+
+def create_parametric_pv(
+    min_kw: float = 10,
+    max_kw: float = 500,
+    step_kw: Optional[float] = None,
+    cost_per_watt: float = 2.50,
+    kwh_per_kw: float = 1500,
+    itc_pct: float = 0.30,
+) -> ParametricECMDefinition:
+    """
+    Create a parametric PV system definition.
+
+    Args:
+        min_kw: Minimum system size (kW DC)
+        max_kw: Maximum system size (kW DC)
+        step_kw: Step size for discrete options (None for continuous)
+        cost_per_watt: Installed cost ($/W DC)
+        kwh_per_kw: Annual generation per kW (kWh/kW/year)
+        itc_pct: Federal ITC percentage
+
+    Returns:
+        ParametricECMDefinition for PV system
+    """
+    return ParametricECMDefinition(
+        name_template="PV System ({capacity_kw:.0f} kW)",
+        category=ECMCategory.GENERATION,
+        subcategory=ECMSubcategory.PHOTOVOLTAIC,
+        parameters={
+            'capacity_kw': ParametricRange(min_kw, max_kw, step_kw, 'kW')
+        },
+        capex_formula=lambda p: p['capacity_kw'] * 1000 * cost_per_watt * (1 - itc_pct),
+        generation_formula=lambda p: p['capacity_kw'] * kwh_per_kw,
+        useful_life_years=25,
+        description=f"Parametric PV: {min_kw}-{max_kw} kW @ ${cost_per_watt}/W",
+    )
+
+
+def create_parametric_battery(
+    min_kwh: float = 10,
+    max_kwh: float = 500,
+    step_kwh: Optional[float] = None,
+    cost_per_kwh: float = 400,
+    power_ratio: float = 0.25,  # kW per kWh
+) -> ParametricECMDefinition:
+    """
+    Create a parametric battery storage definition.
+
+    Args:
+        min_kwh: Minimum storage capacity (kWh)
+        max_kwh: Maximum storage capacity (kWh)
+        step_kwh: Step size for discrete options
+        cost_per_kwh: Installed cost ($/kWh)
+        power_ratio: Power-to-energy ratio (kW/kWh)
+
+    Returns:
+        ParametricECMDefinition for battery storage
+    """
+    return ParametricECMDefinition(
+        name_template="Battery Storage ({capacity_kwh:.0f} kWh)",
+        category=ECMCategory.STORAGE,
+        subcategory=ECMSubcategory.BATTERY,
+        parameters={
+            'capacity_kwh': ParametricRange(min_kwh, max_kwh, step_kwh, 'kWh')
+        },
+        capex_formula=lambda p: p['capacity_kwh'] * cost_per_kwh,
+        useful_life_years=15,
+        description=f"Parametric battery: {min_kwh}-{max_kwh} kWh @ ${cost_per_kwh}/kWh",
+    )
+
+
+def create_parametric_hvac(
+    min_tons: float = 1,
+    max_tons: float = 20,
+    step_tons: Optional[float] = None,
+    cost_per_ton: float = 3500,
+    seer: float = 20,
+    hspf: float = 10,
+    cooling_load_factor: float = 3000,  # kWh/ton/year baseline
+    heating_load_factor: float = 2000,  # kWh/ton/year baseline
+) -> ParametricECMDefinition:
+    """
+    Create a parametric HVAC system definition.
+
+    Args:
+        min_tons: Minimum capacity (tons)
+        max_tons: Maximum capacity (tons)
+        step_tons: Step size for discrete options
+        cost_per_ton: Installed cost ($/ton)
+        seer: Seasonal Energy Efficiency Ratio
+        hspf: Heating Seasonal Performance Factor
+        cooling_load_factor: Annual cooling load per ton
+        heating_load_factor: Annual heating load per ton
+
+    Returns:
+        ParametricECMDefinition for HVAC system
+    """
+    # Baseline efficiencies (code minimum)
+    baseline_seer = 14
+    baseline_hspf = 8
+
+    def calc_kwh_delta(p: Dict[str, float]) -> float:
+        tons = p['capacity_tons']
+        # Cooling savings
+        baseline_cooling = tons * cooling_load_factor
+        proposed_cooling = baseline_cooling * (baseline_seer / seer)
+        cooling_savings = baseline_cooling - proposed_cooling
+
+        # Heating savings
+        baseline_heating = tons * heating_load_factor
+        proposed_heating = baseline_heating * (baseline_hspf / hspf)
+        heating_savings = baseline_heating - proposed_heating
+
+        return -(cooling_savings + heating_savings)  # Negative = reduction
+
+    return ParametricECMDefinition(
+        name_template="HVAC System ({capacity_tons:.1f} tons)",
+        category=ECMCategory.HVAC,
+        subcategory=ECMSubcategory.HVAC_WHOLE_SYSTEM,
+        parameters={
+            'capacity_tons': ParametricRange(min_tons, max_tons, step_tons, 'tons')
+        },
+        capex_formula=lambda p: p['capacity_tons'] * cost_per_ton,
+        kwh_delta_formula=calc_kwh_delta,
+        useful_life_years=15,
+        description=f"Parametric HVAC: {min_tons}-{max_tons} tons, SEER {seer}",
+    )
+
+
+def format_optimization_result(result: ParametricOptimizationResult) -> str:
+    """Format optimization result as text."""
+    lines = [
+        "Parametric ECM Optimization Result",
+        "=" * 50,
+        f"Objective: {result.objective}",
+        "",
+        "Optimal Configuration:",
+        f"  {result.optimal_ecm.name}",
+        f"  Capex: ${result.optimal_ecm.capex:,.0f}",
+    ]
+
+    if result.optimal_ecm.annual_kwh_generation > 0:
+        lines.append(f"  Generation: {result.optimal_ecm.annual_kwh_generation:,.0f} kWh/yr")
+
+    if result.objective == "maximize_npv":
+        lines.append(f"  NPV: ${result.optimal_npv:,.0f}")
+    elif result.objective == "minimize_payback":
+        lines.append(f"  Payback: {result.optimal_npv:.1f} years")
+    elif "target_coverage" in result.objective:
+        lines.append(f"  Coverage deviation: {result.optimal_npv:.2%}")
+
+    lines.extend([
+        "",
+        "Parameters:",
+    ])
+    for name, value in result.optimal_params.items():
+        lines.append(f"  {name}: {value:.1f}")
+
+    if len(result.all_variants) > 1:
+        lines.extend([
+            "",
+            f"Variants evaluated: {len(result.all_variants)}",
+        ])
+
+    return "\n".join(lines)
 
 
 def analyze_ecm_marginal_value(

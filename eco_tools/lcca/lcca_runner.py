@@ -299,7 +299,7 @@ class LccaRunner:
         if self.outputs.hourly_results_standard:
             standard_path = self.outputs.hourly_results_standard.path
             standard_sim = parse_hourly_results(str(standard_path))
-            self.simulation.baseline = standard_sim.proposed
+            self.simulation.baseline = standard_sim  # Store entire standard simulation
 
         logger.info(f"Parsed simulation: {self.simulation.project_name}")
 
@@ -362,42 +362,49 @@ class LccaRunner:
 
         # Create scenario
         assumptions = ScenarioAssumptions(
-            analysis_period=self.config.analysis_period,
-            discount_rate=self.config.discount_rate,
-            electricity_escalation=self.config.electricity_escalation,
+            analysis_years=self.config.analysis_period,
+            discount_rate_real=self.config.discount_rate,
+            elec_escalation=self.config.electricity_escalation,
             gas_escalation=self.config.gas_escalation,
             inflation_rate=self.config.inflation_rate,
         )
 
         # Run LCCA based on mode
-        if self.config.mode == AnalysisMode.TOU and self.simulation.hourly_proposed:
-            # TOU-native LCCA with hourly data
+        has_baseline = hasattr(self.simulation, 'baseline') and self.simulation.baseline
+
+        if self.config.mode == AnalysisMode.TOU and self.simulation.hourly and has_baseline:
+            # TOU-native LCCA with hourly data (requires baseline for comparison)
             results.lcca_results = self._run_tou_lcca(tariff, assumptions)
         else:
-            # Simple annual LCCA
+            # Simple annual LCCA (single scenario or no hourly data)
             results.lcca_results = self._run_simple_lcca(tariff, assumptions)
 
-        # Generate ECON-1 report
+        # Generate ECON-1 report (needs simple Tariff, not TouTariff)
+        # Use summer rates as representative blended rates
+        simple_tariff = Tariff(
+            name=tariff.name if hasattr(tariff, 'name') else "TOU Rate",
+            utility=tariff.utility if hasattr(tariff, 'utility') else "",
+            elec_rate_per_kwh=tariff.energy_rates.summer_off_peak if tariff.energy_rates else 0.20,
+            gas_rate_per_therm=self.config.gas_rate,
+            demand_rate_per_kw=tariff.demand_rates.summer_on_peak if tariff.demand_rates else 0,
+            tou_enabled=True,
+            on_peak_rate=tariff.energy_rates.summer_on_peak if tariff.energy_rates else 0.35,
+            mid_peak_rate=tariff.energy_rates.summer_mid_peak if tariff.energy_rates else 0.25,
+            off_peak_rate=tariff.energy_rates.summer_off_peak if tariff.energy_rates else 0.15,
+        )
+        # Include baseline if available for ECON-1 comparison
+        baseline_sim = self.simulation.baseline if hasattr(self.simulation, 'baseline') else None
         results.econ1_report = generate_econ1(
-            self.simulation,
-            tariff,
-            self.config.capex,
+            proposed=self.simulation,
+            tariff=simple_tariff,
+            baseline=baseline_sim,
+            incremental_cost=self.config.capex,
         )
 
-        # Calculate savings vs baseline if available
-        if self.simulation.baseline:
-            baseline_scenario = create_baseline_scenario(
-                self.simulation,
-                tariff,
-                assumptions,
-            )
-            results.baseline_lcca = run_lcca(baseline_scenario)
-
-            if results.lcca_results and results.baseline_lcca:
-                results.savings_vs_baseline = (
-                    results.baseline_lcca.lifecycle_cost -
-                    results.lcca_results.lifecycle_cost
-                )
+        # Calculate savings vs baseline if available (from LCCA results)
+        if has_baseline and results.lcca_results:
+            # TOU LCCA already calculated savings - extract from results
+            results.savings_vs_baseline = results.lcca_results.lifecycle_savings
 
         # Generate outputs
         if self.config.output_formats:
@@ -430,26 +437,32 @@ class LccaRunner:
         tariff: TouTariff,
         assumptions: ScenarioAssumptions,
     ) -> LccaResults:
-        """Run TOU-native LCCA with hourly data."""
-        from .calculators import TouLccaScenario
+        """Run TOU-native LCCA with hourly data comparing proposed vs baseline."""
+        from .model import TouLccaScenario
 
-        # Convert hourly energy to usage format
-        hourly_usage = hourly_energy_to_usage(self.simulation.hourly_proposed)
-
-        # Calculate TOU costs
-        tou_breakdown = calculate_tou_costs(hourly_usage, tariff)
-
-        # Create TOU scenario
-        scenario = TouLccaScenario(
-            name=self.simulation.project_name,
-            capex_upfront=self.config.capex - self.config.incentives,
-            annual_tou_cost=tou_breakdown.total_cost,
-            annual_gas_cost=self.simulation.proposed.total_gas_therm * self.config.gas_rate,
-            tariff=tariff,
+        # Create baseline scenario
+        baseline = self.simulation.baseline
+        baseline_scenario = TouLccaScenario(
+            name=f"{baseline.project_name} (Baseline)",
+            hourly_data=baseline.hourly,
+            tou_tariff=tariff,
+            capex_upfront=0,  # Baseline has no incremental cost
+            annual_gas_therms=baseline.annual.total_gas_therm,
             assumptions=assumptions,
         )
 
-        return run_tou_lcca(scenario)
+        # Create proposed scenario
+        proposed_scenario = TouLccaScenario(
+            name=self.simulation.project_name,
+            hourly_data=self.simulation.hourly,
+            tou_tariff=tariff,
+            capex_upfront=self.config.capex - self.config.incentives,
+            annual_gas_therms=self.simulation.annual.total_gas_therm,
+            assumptions=assumptions,
+        )
+
+        # Run TOU LCCA comparison - returns TouLccaResults which extends LccaResults
+        return run_tou_lcca(baseline_scenario, proposed_scenario, assumptions)
 
     def _generate_outputs(self, results: RunnerResults) -> List[Path]:
         """Generate output files."""

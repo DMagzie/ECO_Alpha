@@ -155,14 +155,34 @@ from .ecm_bundle import (
     ECMSubcategory,
     BuildingType,
     CodeBaseline,
+    InteractionType,
+    ClimateZoneType,
     # Data classes
     ECM,
     ECMAnalysisResult,
     ECMBundle,
     ECMTemplate,
+    MeasureInteraction,
+    ClimateAdaptiveFactors,
     # Library
     ECMLibrary,
     get_ecm_library,
+    # Interaction Matrix
+    MeasureInteractionMatrix,
+    get_interaction_matrix,
+    # Climate Adaptive Defaults
+    ClimateAdaptiveDefaults,
+    get_climate_defaults,
+    CLIMATE_ZONE_CLASSIFICATION,
+    # Parametric ECM Support
+    ParametricRange,
+    ParametricECMDefinition,
+    ParametricOptimizationResult,
+    ParametricECMOptimizer,
+    create_parametric_pv,
+    create_parametric_battery,
+    create_parametric_hvac,
+    format_optimization_result,
     # Analysis functions
     analyze_ecm_marginal_value,
     format_ecm_analysis,
@@ -408,14 +428,34 @@ __all__ = [
     "ECMSubcategory",
     "BuildingType",
     "CodeBaseline",
+    "InteractionType",
+    "ClimateZoneType",
     # ECM Bundle - Data classes
     "ECM",
     "ECMAnalysisResult",
     "ECMBundle",
     "ECMTemplate",
+    "MeasureInteraction",
+    "ClimateAdaptiveFactors",
     # ECM Bundle - Library
     "ECMLibrary",
     "get_ecm_library",
+    # ECM Bundle - Interaction Matrix
+    "MeasureInteractionMatrix",
+    "get_interaction_matrix",
+    # ECM Bundle - Climate Adaptive Defaults
+    "ClimateAdaptiveDefaults",
+    "get_climate_defaults",
+    "CLIMATE_ZONE_CLASSIFICATION",
+    # ECM Bundle - Parametric ECM Support
+    "ParametricRange",
+    "ParametricECMDefinition",
+    "ParametricOptimizationResult",
+    "ParametricECMOptimizer",
+    "create_parametric_pv",
+    "create_parametric_battery",
+    "create_parametric_hvac",
+    "format_optimization_result",
     # ECM Bundle - Analysis
     "analyze_ecm_marginal_value",
     "format_ecm_analysis",
