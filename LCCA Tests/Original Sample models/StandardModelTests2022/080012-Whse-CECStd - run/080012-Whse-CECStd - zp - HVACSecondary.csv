@@ -1,0 +1,56 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"Office_SZVAVAC","SZVAVHP","New",1,2549.75,72948.4,55,28.61,423.275,79267.3,95,31.0883,2573.11,1.00916,382.462,0.15,"Zn_Office","NoSATControl",,-99996,,-99996,,"UNDEFINED","WarehouseHVACAvail","CycleOnCallPrimaryZone"
+"FineStorage_HtgVent","HV","New",1,14998.6,0,-99996,0,0,339129,95,22.6108,6148.38,0.409931,2249.78,0.15,"Zn_FineStorage","NoSATControl",,-99996,,-99996,,"UNDEFINED","WarehouseHVACAvail","CycleOnCallPrimaryZone"
+"BulkStorage_HtgVent","HV","New",1,34496.7,0,-99996,0,0,1.45583e+06,95,42.2021,27448.8,0.795694,5174.51,0.15,"Zn_BulkStorage","NoSATControl",,-99996,,-99996,,"UNDEFINED","WarehouseHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"Office_TU","VAVNoReheatBox","New",1,"Office_SZVAVAC",1,"Zn_Office",2549.75,1,2573.11,1286.55,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"FineStorage_TU","Uncontrolled","New",1,"FineStorage_HtgVent",1,"Zn_FineStorage",14998.6,1,6148.38,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BulkStorage_TU","Uncontrolled","New",1,"BulkStorage_HtgVent",1,"Zn_BulkStorage",34496.7,1,27448.8,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"Office_CoilClg","DirectExpansion","New","Electric","Office_SZVAVAC",1,"n/a",72948.4,76107.9,"NONE","NONE",-99996,"Air",2,-99996,-99996,11,11,14.1,14.1,0.255793,1,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"Office_CoilHtg","HeatPump","New","Electric","Office_SZVAVAC",1,"n/a",79267.3,76107.9,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.4,3.4,0.264815,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Office_SuppCoilHtg","Resistance","New","Electric","Office_SZVAVAC",1,"n/a",58979,58979,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"FineStorage_CoilHtg","Furnace","New","Gas","FineStorage_HtgVent",1,"n/a",339129,339129,"NONE","NONE",-99996,"UNDEFINED",1,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,0.81,0.81,1,-99996,-99996
+"BulkStorage_CoilHtg","Furnace","New","Gas","BulkStorage_HtgVent",1,"n/a",1.45583e+06,1.45583e+06,"NONE","NONE",-99996,"UNDEFINED",1,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,0.81,0.81,1,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"Office_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Office_SZVAVAC",1,"n/a",2573.11,1286.55,0.65,"PowerPerUnitFlow",2.29799,3.68359,0.744,3,"InAirStream",0.895
+"FineStorage_SupplyFan","ConstantVolume","New","Centrifugal","AirFoil","FineStorage_HtgVent",1,"n/a",6148.38,-99996,0.65,"PowerPerUnitFlow",4.57582,3.06966,0.62,5,"InAirStream",0.895
+"BulkStorage_SupplyFan","ConstantVolume","New","Centrifugal","AirFoil","BulkStorage_HtgVent",1,"n/a",27448.8,-99996,0.65,"PowerPerUnitFlow",20.8473,3.13261,0.605,25,"InAirStream",0.936
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"Office_OACtrl","FixedDryBulb","New",382.462,"Office_SZVAVAC",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"FineStorage_OACtrl","NoEconomizer","New",2249.78,"FineStorage_HtgVent",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BulkStorage_OACtrl","NoEconomizer","New",5174.51,"BulkStorage_HtgVent",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"

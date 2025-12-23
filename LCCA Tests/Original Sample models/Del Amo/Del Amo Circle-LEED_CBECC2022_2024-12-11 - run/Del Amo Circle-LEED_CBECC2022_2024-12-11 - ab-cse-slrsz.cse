@@ -1,0 +1,2087 @@
+ #define  RunDateFmt  15:10, Wed, Dec 11, 2024
+ #define  RunID               12   // Standard
+ #define  AnalysisType        13   // Proposed and Standard
+ #define  CompCodeBase      2022   // CA2022
+ #define  StdDesignBase     2022   // CA2022
+ #define  StandardsVersion  2023   // Compliance2022
+ #define  DesignRatingBase     0   // n/a
+ #define  ClimateZone          6   // ClimateZone6
+ #define  DD1  Oct 02
+ #define  CD1  Oct 17
+ #define  HD1  Dec 05
+ #define  SEASONCHANGESETPT  60
+ #define  FANVENTLOCKOUTTEMP  68
+ #define  ISSEASONCOOLING  (@weather.taDbAvg07 > SEASONCHANGESETPT)
+ #define  FANVENTAVAIL  (@weather.taDbAvg07 > FANVENTLOCKOUTTEMP)
+ #define  WINDOWVENTAVAIL  (!@Top.autoSizing && ($hour < 24 && ($hour > 12 || $radDiff+$radbeam > .01)))
+ #define  HWUSEF_WD  hourval( 0.014, 0.008, 0.009, 0.011, 0.020, 0.044, 0.089, 0.107, 0.089, 0.066, 0.052, 0.038, 0.036, 0.033, 0.032, 0.026, 0.042, 0.048, 0.052, 0.047, 0.042, 0.039, 0.036, 0.022 )
+ #define  HWUSEF_WE  hourval( 0.018, 0.010, 0.009, 0.008, 0.015, 0.023, 0.026, 0.047, 0.077, 0.083, 0.074, 0.061, 0.051, 0.043, 0.039, 0.039, 0.052, 0.058, 0.056, 0.052, 0.047, 0.044, 0.040, 0.028 )
+ #define  ShwrFLOWF  1
+ #define  ShwrDRAINHREFF  0
+ #define  CwshHOTF  0.22
+ #define  CwshUSEF  2.03
+ #define  FaucHOTF  0.5
+ #define  FaucFlowF  1
+ #define  BathFLOWF  1
+ #define  BathDRAINHREFF  0
+ #define  DwshFLOWF  1
+ #define  Cook_WD       hourval( .005,.004,.004,.004,.004,.014,.019,.025,.026,.022,.021,.029,.035,.032,.034,.052,.115,.193,.180,.098,.042,.020,.012,.010)
+ #define  Cook_WEH      hourval( .005,.004,.003,.003,.003,.005,.010,.027,.048,.048,.046,.055,.063,.059,.062,.068,.091,.139,.129,.072,.032,.014,.009,.005)
+ #define  TV_WD         hourval( .035,.026,.023,.022,.021,.021,.025,.032,.038,.040,.038,.038,.041,.042,.042,.041,.044,.049,.056,.064,.070,.074,.067,.051)
+ #define  TV_WEH        hourval( .035,.027,.022,.021,.020,.020,.022,.029,.037,.043,.042,.039,.040,.042,.045,.048,.051,.052,.056,.061,.065,.069,.064,.050)
+ #define  STB_WD        hourval( .040,.040,.040,.040,.040,.040,.040,.041,.040,.040,.040,.040,.040,.040,.041,.041,.042,.043,.044,.045,.046,.047,.045,.045)
+ #define  STB_WEH       hourval( .041,.041,.040,.041,.040,.040,.040,.040,.041,.042,.042,.041,.041,.041,.041,.042,.042,.043,.044,.044,.045,.045,.044,.039)
+ #define  Comp_WD       hourval( .036,.033,.032,.032,.031,.032,.034,.036,.039,.043,.045,.045,.046,.046,.046,.047,.048,.049,.049,.049,.049,.048,.044,.041)
+ #define  Comp_WEH      hourval( .036,.034,.033,.033,.032,.033,.033,.035,.038,.042,.044,.045,.046,.047,.047,.048,.049,.049,.048,.048,.048,.047,.044,.041)
+ #define  RMEL_WD       hourval( .037,.035,.034,.034,.032,.036,.042,.044,.037,.032,.033,.033,.032,.033,.035,.037,.044,.053,.058,.060,.062,.060,.052,.045)
+ #define  RMEL_WEH      hourval( .037,.035,.034,.034,.032,.036,.042,.044,.037,.032,.033,.033,.032,.033,.035,.037,.044,.053,.058,.060,.062,.060,.052,.045)
+ #define  IntLight_WD   hourval( .023,.019,.015,.017,.021,.031,.042,.041,.034,.029,.027,.025,.021,.021,.021,.026,.031,.044,.084,.117,.113,.096,.063,.039)
+ #define  IntLight_WEH  hourval( .023,.019,.015,.017,.021,.031,.042,.041,.034,.029,.027,.025,.021,.021,.021,.026,.031,.044,.084,.117,.113,.096,.063,.039)
+ #define  ExtLight_WD   hourval( .046,.046,.046,.046,.046,.037,.035,.034,.033,.028,.022,.015,.012,.011,.011,.012,.019,.037,.049,.065,.091,.105,.091,.063)
+ #define  ExtLight_WEH  hourval( .046,.046,.045,.045,.046,.045,.044,.041,.036,.030,.024,.016,.012,.011,.011,.012,.019,.038,.048,.060,.083,.098,.085,.059)
+ #define  Cook_SM    choose1( $month, 1.094,1.065,1.074,0.889,0.891,0.935,0.993,0.92,0.923,0.92,1.128,1.168)
+ #define  TV_SM      choose1( $month, 1.032,.991,.986,.99,.971,.971,1.002,1.013,1.008,1.008,1.02,1.008)
+ #define  STB_SM     choose1( $month, 1.02,.84,.92,.98,.91,.94,1.05,1.06,1.06,1.14,1.03,1.050)
+ #define  Comp_SM    choose1( $month, 0.98,0.87,0.89,1.11,1.14,0.99,1.05,1.01,0.96,0.97,0.99,1.04)
+ #define  Other_SM   choose1( $month,  1.19,1.11,1.02,.93,.84,.8,.82,.88,.98,1.07,1.16,1.2)
+ #define  RefrConst_WD   hourval( -0.5436,-0.3646,-0.4044,-0.3871,-0.5341,-0.7521,-0.3747,0.0041,-0.1293,-0.4644,-0.4800,-0.4351,-0.2195,-0.3301,-0.0919,-0.1686,-0.4819,-0.4731,-0.2223,0.0604,-0.1466,-0.3214,-0.4113,-0.7701)
+ #define  RefrConst_WEH  hourval( -0.3467,-0.2779,-0.2844,-0.2954,-0.4680,-0.5127,-0.7110,-0.5662,0.0463,-0.2995,-0.2388,-0.2646,-0.2905,-0.2730,-0.3306,-0.0031,-0.4356,-0.2580,0.2384,0.1176,-0.0458,-0.0596,-0.5300,0.0197 )
+ #define  RefrTemp_WD    hourval( 0.0195,0.0167,0.0169,0.0165,0.0183,0.0218,0.0178,0.0136,0.0151,0.0189,0.0188,0.0183,0.0156,0.0169,0.0137,0.0149,0.0197,0.0208,0.0184,0.0144,0.0166,0.0184,0.0188,0.0229)
+ #define  RefrTemp_WEH   hourval( 0.0171,0.0156,0.0155,0.0154,0.0175,0.0181,0.0212,0.0201,0.0130,0.0176,0.0165,0.0171,0.0177,0.0176,0.0182,0.0139,0.0197,0.0180,0.0121,0.0135,0.0154,0.0150,0.0205,0.0129)
+ #define  FVCHPC  0.95		// VCHP cooling input energy factor
+ #define  FVCHPH  0.88		// VCHP heating input energy factor
+ #define  NumCntrlWHtrs( s)  tofloat( 1+fix(@DHWSYS[ s].loadMax / (15400. * @DHWSYS[ s].loadMaxDur)))
+ #define  RunFileName  Del Amo Circle-LEED_CBECC2022_2024-12-11 - ab
+
+#include "DHWDU2.txt"
+
+   repHdrL = "Title 24 High Rise Compliance"
+   runTitle = "Title 24 High Rise Compliance  /  Standard  /  Del Amo Circle-LEED_CBECC2022_2024-12-11.cibd22"
+   wfName = "TORRANCE-MUNI-AP_STYP20.epw"
+   ebTolHour = 0.001
+   ebTolDay = 0.001
+   ebTolMon = 0.001
+   ebTolSubHr = 0.001
+   tol = 0.01                           // Endtest convergence tolerance for internal iteration in models
+   jan1DOW = "THU"
+   skyModel = "anisotropic"
+   bldgAzm = 360
+   dt = "YES"
+   heatDsTDbO = 44.4                    // °F
+   coolDsCond = "ClgDC_0p4pct_Aug"
+   ventAvail = zonal
+   nSubSteps = 20
+   wuDays = 30
+   awTrigSlr = 0.1
+   anTolAbs = 0.005
+   anTolRel = 0.0005
+   auszTol = 0.01
+   awTrigT = 3
+   awTrigH = 0.3
+
+ DELETE Report "eb"    // move from end of CSE file
+
+DESCOND   "ClgDC_0p4pct_Aug"  
+   dcDB = 86.2                          // Cooling design dry-bulb temperature, °F
+   dcDay = Aug 21                       // Calendar date for this design cooling conditions
+   dcMCDBR = 14.8                       // Coincident daily dry-bulb range, °F
+   dcMCWB = 67.8                        // Coincident wet-bulb temperature, °F
+   dcMCWBR = 5.9                        // Coincident daily wet-bulb range, °F
+   dcTauB = 0.381                       // ASHRAE beam 'pseudo optical depth'
+   dcTauD = 2.448                       // ASHRAE diffuse 'pseudo optical depth'
+   dcWindSpeed = 5.4                    // Wind speed for design conditions, mph
+
+METER   "MtrElec"  
+
+METER   "MtrElec2"  
+
+METER   "MtrNatGas"  
+
+DHWMETER   "DHWMtrFXMix"  
+
+DHWMETER   "DHWMtrWH"  
+
+DHWSOLARSYS   "dhwss-t24-Std SolarSys"  
+   swElecMtr = "MtrElec"                // electric use meter
+   swTankInsulR = 12                    // tank insulation R value, °F-ft2-h/Btu
+   swTankTEx = ($tDbO + 70) / 2         // temperature surrounding tank, °F
+
+   DHWSOLARCOLLECTOR   "dhwsc-t24-Std SolarSys"  
+      scArea = 40.859764                // area, ft2
+      scMult = 15.14048                 // solar collector multiplier
+      scTilt = 40                       // solar collector tilt (0=H, 90=V), deg
+      scAzm = 180                       // solar collector azimuth (0=N, 90=E, ...), deg
+      scFRUL = -4.125 * 0.17611         // heat removal curve slope
+      scFRTA = 0.758                    // heat removal curve Y-intercept (tau alpha, an optical property of the collector)
+
+DHWSYS   "dhwsys-ResidentialDHWSystem 1"  
+   wsSolarSys = "dhwss-t24-Std SolarSys"    // DHW solar system that feeds this DHWSYS
+   wsTUse = 125                         // Water use temperature (at the point of use), °F
+   wsTSetpoint = 125                    // Setpoint temperature for HPWHs (whHeatSrc = ASHPX), °F
+   wsBranchModel = "DayWaste"           // Model used to simulate DHW branch losses
+   wsShowerDayWasteF = 3                // used to determine ratio of Shower/Faucet water waste
+   wsFaucetDayWasteF = 1                // used to determine ratio of Shower/Faucet water waste
+   wsDayWasteBranchVolF = 1.4 * 19.84 * exp( -0.554 * 7/2)    // Number of branch volumes discarded per day (wsBranchModel = DayWaste) (expression)
+   wsElecMtr = "MtrElec"                // Electric use meter
+   wsFuelMtr = "MtrNatGas"              // Fuel use meter
+   wsFXHwMtr = "DHWMtrFXMix"
+   wsWHHwMtr = "DHWMtrWH"
+   wsCalcMode = "PreRun"                // specifies PreRun vs. Simulate
+
+   DHWHEATER   "dhwhtr1-Std Cntrl Recirc Boiler-user"  
+      whType = "LargeInstantaneous"     // Type of water heater
+      whHeatSrc = "Fuel"                // Fuel source for water heater
+      whMult = 1                        // Water heater multiplier
+      whXBUEndUse = "User2"             // enduse to accumulate ASHPX backup heat elec use
+      whEff = 0.8                       // Water heater efficiency (for large storage & instantaneous), and recovery efficiency for UEF equipment
+      whFuelMtr = "MtrNatGas"           // Fuel use meter
+
+   DHWTANK   "dhwtnk1-Std Cntrl Recirc Boiler-user"  
+      wtMult = 1                        // DHW tank multiplier
+      wtVol = 2894                      // DHW tank volume, gal
+      wtInsulR = 12                     // DHW tank insulation R-value (interior + exterior insulation), ft2-°F/Btuh
+      wtTEx = ($tDbO + 70) / 2          // DHW tank surround temperature (expression), °F
+      wtTTank = 125                     // DHW tank average water temperature, °F
+      wtXLoss = 61.4                    // DHW tank additional heat loss, Btuh
+
+   DHWLOOP   "dhwlp-ResidentialDHWSystem 1"  
+      wlMult = 1                        // DHW loop multiplier
+      wlFlow = 34                       // DHW loop flow (gpm), gpm
+      wlRunF = 1                        // Hourly fraction that recirc is assumed to operate in the DHW loop, frac
+      wlFUA = 2                         // DHW loop imperfect insulation correction factor
+
+      DHWLOOPPUMP   "dhwlppmp-ResidentialDHWSystem 1"  
+         wlpPwr = 104                   // DHW loop pump power (W), W
+         wlpElecMtr = "MtrElec"         // Electric use meter
+
+      DHWLOOPSEG   "dhwlpseg1-ResidentialDHWSystem 1"  
+         wgTy = "Supply"                // DHW loop segment type
+         wgSize = 6                     // DHW loop segment nominal pipe size (diameter), in
+         wgLength = 30.708315           // DHW loop segment length, ft
+         wgInsulThk = 1.5               // DHW loop segment insulation thickness, in
+         wgInsulK = 0.02167             // DHW loop segment insulation conductivity, Btuh-ft/ft2-°F
+         wgFNoDraw = 0.2                // DHW loop segment fraction of hour when no draw flow occurs, frac
+         wgExT = 70                     // ambient temperature around DHW loop segment, °F
+         wgExH = 1.5                    // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+
+      DHWLOOPSEG   "dhwlpseg2-ResidentialDHWSystem 1"  
+         wgTy = "Supply"                // DHW loop segment type
+         wgSize = 6                     // DHW loop segment nominal pipe size (diameter), in
+         wgLength = 212.026784          // DHW loop segment length, ft
+         wgInsulThk = 1.5               // DHW loop segment insulation thickness, in
+         wgInsulK = 0.02167             // DHW loop segment insulation conductivity, Btuh-ft/ft2-°F
+         wgFNoDraw = 0.4                // DHW loop segment fraction of hour when no draw flow occurs, frac
+         wgExT = 70                     // ambient temperature around DHW loop segment, °F
+         wgExH = 1.5                    // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+
+         DHWLOOPBRANCH   "dhwlpbr2-ResidentialDHWSystem 1"  
+            wbMult = 28.571429          // DHW loop branch multiplier
+            wbSize = 1.5                // DHW loop branch nominal pipe size (diameter), in
+            wbLength = 26.708315        // DHW loop branch length, ft
+            wbFlow = 2                  // DHW loop branch flow (gpm), gpm
+            wbInsulThk = 1.5            // DHW loop branch insulation thickness, in
+            wbInsulK = 0.02167          // DHW loop branch insulation conductivity, Btuh-ft/ft2-°F
+            wbExH = 1.5                 // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+            wbExT = 70                  // ambient temperature around DHW loop branch, °F
+            wbFWaste = 1.4 * 19.84 * exp( -0.544 * 3.5 ) * hourval( 0.01, 0.02, 0.05, 0.22, 0.25, 0.22, 0.06, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01)    // DHW loop branch waste factor (expression), vol/hr
+
+      DHWLOOPSEG   "dhwlpseg3-ResidentialDHWSystem 1"  
+         wgTy = "Supply"                // DHW loop segment type
+         wgSize = 3.5                   // DHW loop segment nominal pipe size (diameter), in
+         wgLength = 212.026784          // DHW loop segment length, ft
+         wgInsulThk = 1.5               // DHW loop segment insulation thickness, in
+         wgInsulK = 0.02167             // DHW loop segment insulation conductivity, Btuh-ft/ft2-°F
+         wgFNoDraw = 0.6                // DHW loop segment fraction of hour when no draw flow occurs, frac
+         wgExT = 70                     // ambient temperature around DHW loop segment, °F
+         wgExH = 1.5                    // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+
+         DHWLOOPBRANCH   "dhwlpbr3-ResidentialDHWSystem 1"  
+            wbMult = 28.571429          // DHW loop branch multiplier
+            wbSize = 1.5                // DHW loop branch nominal pipe size (diameter), in
+            wbLength = 26.708315        // DHW loop branch length, ft
+            wbFlow = 2                  // DHW loop branch flow (gpm), gpm
+            wbInsulThk = 1.5            // DHW loop branch insulation thickness, in
+            wbInsulK = 0.02167          // DHW loop branch insulation conductivity, Btuh-ft/ft2-°F
+            wbExH = 1.5                 // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+            wbExT = 70                  // ambient temperature around DHW loop branch, °F
+            wbFWaste = 1.4 * 19.84 * exp( -0.544 * 3.5 ) * hourval( 0.01, 0.02, 0.05, 0.22, 0.25, 0.22, 0.06, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01)    // DHW loop branch waste factor (expression), vol/hr
+
+      DHWLOOPSEG   "dhwlpseg4-ResidentialDHWSystem 1"  
+         wgTy = "Return"                // DHW loop segment type
+         wgSize = 1                     // DHW loop segment nominal pipe size (diameter), in
+         wgLength = 212.026784          // DHW loop segment length, ft
+         wgInsulThk = 1.5               // DHW loop segment insulation thickness, in
+         wgInsulK = 0.02167             // DHW loop segment insulation conductivity, Btuh-ft/ft2-°F
+         wgFNoDraw = 1                  // DHW loop segment fraction of hour when no draw flow occurs, frac
+         wgExT = 70                     // ambient temperature around DHW loop segment, °F
+         wgExH = 1.5                    // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+
+      DHWLOOPSEG   "dhwlpseg5-ResidentialDHWSystem 1"  
+         wgTy = "Return"                // DHW loop segment type
+         wgSize = 1                     // DHW loop segment nominal pipe size (diameter), in
+         wgLength = 212.026784          // DHW loop segment length, ft
+         wgInsulThk = 1.5               // DHW loop segment insulation thickness, in
+         wgInsulK = 0.02167             // DHW loop segment insulation conductivity, Btuh-ft/ft2-°F
+         wgFNoDraw = 1                  // DHW loop segment fraction of hour when no draw flow occurs, frac
+         wgExT = 70                     // ambient temperature around DHW loop segment, °F
+         wgExH = 1.5                    // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+
+      DHWLOOPSEG   "dhwlpseg6-ResidentialDHWSystem 1"  
+         wgTy = "Return"                // DHW loop segment type
+         wgSize = 1                     // DHW loop segment nominal pipe size (diameter), in
+         wgLength = 30.708315           // DHW loop segment length, ft
+         wgInsulThk = 1.5               // DHW loop segment insulation thickness, in
+         wgInsulK = 0.02167             // DHW loop segment insulation conductivity, Btuh-ft/ft2-°F
+         wgFNoDraw = 1                  // DHW loop segment fraction of hour when no draw flow occurs, frac
+         wgExT = 70                     // ambient temperature around DHW loop segment, °F
+         wgExH = 1.5                    // DHW loop pipe exterior surface conductance, Btuh/ft2-°F
+
+DHWSYS   "dhwsys-DwellingUnit 1 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR01                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 1 DU 2"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR02                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 1 DU 3"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR03                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 1 DU 4"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR04                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 1 DU 5"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR05                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 1 DU 6"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR06                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 1 DU 7"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR07                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 2 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR08                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 2 DU 9"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR09                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 2 DU 10"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR10                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 3 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR11                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135053                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 4 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR12                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.13306                     // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 5 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR13                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.132907                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 6 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR01                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.180553                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 7 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR02                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 7 DU 16"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR03                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 8 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR04                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.172525                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 9 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR05                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 9 DU 19"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR06                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 10 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR07                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 10 DU 21"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR08                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 10 DU 22"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR09                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 11 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR10                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 11 DU 24"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR11                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 11 DU 25"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR12                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 11 DU 26"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR13                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 12 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR14                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.155609                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 13 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR14                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 13 DU 29"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR15                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 13 DU 30"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR16                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 13 DU 31"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR17                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 13 DU 32"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR18                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 14 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR19                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.117175                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 15 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR20                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.12001                     // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 15 DU 35"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR21                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.12001                     // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 16 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR22                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.112736                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 17 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR23                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 17 DU 38"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR24                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 17 DU 39"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR25                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 17 DU 40"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR26                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 17 DU 41"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR27                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 17 DU 42"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR28                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 17 DU 43"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR29                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 18 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR30                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 18 DU 45"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR31                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 18 DU 46"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR32                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 18 DU 47"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR33                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 18 DU 48"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR34                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 19 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR35                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135053                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 20 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR15                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.180553                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 21 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR16                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.184722                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 22 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR17                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 22 DU 53"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR18                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 23 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR19                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 23 DU 55"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR20                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 24 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR21                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.172525                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 25 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR22                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 25 DU 58"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR23                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 26 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR24                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 27 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR25                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 27 DU 61"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR26                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 27 DU 62"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR27                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 27 DU 63"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR28                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 28 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR29                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.181668                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 29 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR30                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 29 DU 66"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR31                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 29 DU 67"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR32                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 29 DU 68"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR33                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 30 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR34                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.155609                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 31 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR35                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.160002                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 32 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR36                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.112576                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 33 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR37                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 33 DU 73"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR38                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 33 DU 74"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR39                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 33 DU 75"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR40                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 33 DU 76"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR41                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 34 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR42                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.117175                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 35 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR43                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 35 DU 79"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR44                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 35 DU 80"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR45                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 35 DU 81"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR46                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 35 DU 82"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR47                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 35 DU 83"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR48                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 35 DU 84"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR49                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 36 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR50                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 36 DU 86"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR01                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 36 DU 87"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR02                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 36 DU 88"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR03                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 36 DU 89"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR04                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 37 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR05                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135053                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 38 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR36                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.180553                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 39 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR37                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.184722                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 40 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR38                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 40 DU 94"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR39                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 41 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR40                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 41 DU 96"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR41                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 42 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR42                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.172525                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 43 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR43                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 43 DU 99"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR44                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 44 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR45                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 45 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR46                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 45 DU 102"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR47                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 45 DU 103"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR48                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 45 DU 104"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR49                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 46 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR50                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.181668                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 47 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR01                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 47 DU 107"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR02                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 47 DU 108"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR03                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 47 DU 109"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR04                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 48 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR05                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.155609                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 49 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR06                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.160002                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 50 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR06                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.112576                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 51 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR07                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 51 DU 114"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR08                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 51 DU 115"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR09                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 51 DU 116"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR10                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 51 DU 117"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR11                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 52 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR12                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.117175                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 53 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR13                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 53 DU 120"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR14                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 53 DU 121"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR15                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 53 DU 122"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR16                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 53 DU 123"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR17                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 53 DU 124"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR18                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 53 DU 125"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR19                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 54 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR20                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 54 DU 127"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR21                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 54 DU 128"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR22                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 54 DU 129"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR23                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 54 DU 130"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR24                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 55 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR25                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135053                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 56 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR07                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.180553                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 57 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR08                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.184722                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 58 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR09                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 58 DU 135"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR10                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 59 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR11                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 59 DU 137"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR12                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 60 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR13                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.172525                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 61 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR14                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 61 DU 140"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR15                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 62 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR16                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 63 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR17                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 63 DU 143"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR18                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 63 DU 144"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR19                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 63 DU 145"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR20                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 64 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR21                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.181668                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 65 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR22                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 65 DU 148"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR23                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 65 DU 149"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR24                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 65 DU 150"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR25                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 66 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR26                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.155609                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 67 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR27                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.160002                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 68 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR26                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.112576                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 69 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR27                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 69 DU 155"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR28                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 69 DU 156"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR29                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 69 DU 157"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR30                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 69 DU 158"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR31                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 70 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR32                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.117175                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 71 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR33                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 71 DU 161"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR34                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 71 DU 162"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR35                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 71 DU 163"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR36                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 71 DU 164"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR37                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 71 DU 165"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR38                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 71 DU 166"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR39                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.137799                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 72 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR40                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 72 DU 168"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR41                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 72 DU 169"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR42                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 72 DU 170"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR43                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 72 DU 171"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR44                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135664                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 73 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR45                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.135053                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 74 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR28                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.180553                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 75 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR29                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.184722                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 76 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR30                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 76 DU 176"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR31                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173802                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 77 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR32                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 77 DU 178"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR33                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 78 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR34                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.172525                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 79 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR35                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 79 DU 181"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR36                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173376                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 80 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR37                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.173235                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 81 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR38                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 81 DU 184"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR39                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 81 DU 185"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR40                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 81 DU 186"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR41                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.179014                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 82 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR42                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.181668                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 83 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR43                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 83 DU 189"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR44                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 83 DU 190"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR45                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 83 DU 191"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR46                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.159127                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 84 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR47                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.155609                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 85 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF2BR48                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.160002                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 86 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR46                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.112576                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 87 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR47                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 87 DU 196"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR48                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 87 DU 197"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR49                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 87 DU 198"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR50                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 87 DU 199"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR01                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.119853                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+DHWSYS   "dhwsys-DwellingUnit 88 DU"  
+   wsCentralDHWSYS = "dhwsys-ResidentialDHWSystem 1"    // Central DHWSYS that this DHWSYS provides load info for
+   wsDayUse = DHWMF1BR02                // Day use profile object
+   wsWF = 1                             // Water usage waste factor (applies to both old and new style use/profiles), frac
+   wsSDLM = 1.117175                    // Standard distribution loss multiplier
+   wsDSM = 1                            // Distribution system multiplier
+   wsShowerCount = 1                    // Total number of showers served by this DHWSYS
+   wsBathCount = 1                      // Total number of bathtubs served by this DHWSYS
+
+ verbose = -1          // suppress progress messages
+ RUN                   // perform DHW (or DHWSolar) pre-run calcs
+ UNSET verbose         // re-enable progress messages
+
+EXPORT   "DHWSolarSys Sizing Export"  
+   exType = "UDT"                       // Export type
+   exFreq = "YEAR"                      // Time interval for generating rows of export data
+   exHeader = "YESIFNEW"                // export header which gives the export type, object being exported, time interval, column headings, etc.
+   exFooter = "NO"                      // export footer (choose NO to suppress)
+
+   EXPORTCOL   "ExpCol SlrSysSz-1"  
+      colVal = @Top.runDateTime         // Value to show in this position in each row of export
+      colHead = "TimeStamp"             // Text used for field name in export header
+
+   EXPORTCOL   "ExpCol SlrSysSz-2"  
+      colVal = @Top.wfName              // Value to show in this position in each row of export
+      colHead = "Wthr"                  // Text used for field name in export header
+
+   EXPORTCOL   "ExpCol SlrSysSz-3"  
+      colVal = ClimateZone              // Value to show in this position in each row of export
+      colHead = "CZ"                    // Text used for field name in export header
+
+   EXPORTCOL   "ExpCol SlrSysSz-4"  
+      colVal = @DHWSolarCollector["dhwsc-t24-Std SolarSys"].mult    // Value to show in this position in each row of export
+      colHead = "SCMult"                // Text used for field name in export header
+
+   EXPORTCOL   "ExpCol SlrSysSz-5"  
+      colVal = @DhwSolarSys["dhwss-t24-Std SolarSys"].scAreaTot    // Value to show in this position in each row of export
+      colHead = "Area"                  // Text used for field name in export header
+      colDec = 1                        // Number of digits after decimal point
+
+   EXPORTCOL   "ExpCol SlrSysSz-6"  
+      colVal = @DhwSolarSys["dhwss-t24-Std SolarSys"].tankVol    // Value to show in this position in each row of export
+      colHead = "Vol"                   // Text used for field name in export header
+      colDec = 1                        // Number of digits after decimal point
+
+   EXPORTCOL   "ExpCol SlrSysSz-7"  
+      colVal = @DhwSolarSys["dhwss-t24-Std SolarSys"].SSFAnnual    // Value to show in this position in each row of export
+      colHead = "SSF"                   // Text used for field name in export header
+
+ RUN                   // perform DHWSolar round 2 pre-run calcs
+
+ALTER DHWSOLARSYS   "dhwss-t24-Std SolarSys"  
+ ALTER DHWSOLARCOLLECTOR   "dhwsc-t24-Std SolarSys"  
+   scMult = 22.71072                    // solar collector multiplier (following initial run)
+
+
+ RUN
+ $EOF

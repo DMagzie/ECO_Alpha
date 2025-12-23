@@ -1,0 +1,16 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  61.4 kWdc PV  /  Battery Energy 66.4 kWh and Power 15.90 kW (Time of Use control)"
+,"Standard Design PV Capacity: 61.4 kWdc  /  Battery Capacity: 66.4 kWh  (power 15.90 kW, Time of Use control)"
+,"User-specified PV and Battery:  61.4 kWdc PV  /  67.0 kWh Battery  (15.9/15.9 charge/discharge rate (kW), Time of Use control)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Back_Space","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Warehouse",4089.12,1,,,,,,4089.12,,,,,,1.79921,1.76133,0.413819,
+"Core_Retail","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",17227.4,1,,,,17227.4,,,,,,,,50.1317,54.3534,13.0343,
+"Front_Entry","Unconditioned","Lobby, Main Entry","Retail",129.167,1,,,,0,,,,,,,,0,0,0,
+"Front_Retail","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",1623.3,1,,,,1623.3,,,,,,,,4.7238,5.12159,1.22819,
+"Point_Of_Sale","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",1623.3,1,,,,1623.3,,,,,,,,4.72381,5.1216,1.22819,
+,,,,,Sums:,0,0,0,20474,0,4089.12,0,0,0,0,,61.3786,66.3579,15.9045,
+,,Bldg Cond Area:,24563.1,,Pcts:,0.0,0.0,0.0,83.4,0.0,16.6,0.0,0.0,,0.0,

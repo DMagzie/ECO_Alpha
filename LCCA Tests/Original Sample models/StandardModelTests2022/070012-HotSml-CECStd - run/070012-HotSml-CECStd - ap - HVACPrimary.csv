@@ -1,0 +1,35 @@
+FluidSystems
+,,,,,Controls,,,,,,Supply Side Components,,,Demand Side Components,,,
+Name,Type,Status,Design SupplyT,Design DelT,TempCtrl,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,Num Comps,Total Capacity,Flow Rate,Num Comps,Total Capacity,Sensible Capacity,Flow Rate,
+,,,(degF),(degF),,(degF),(degF),(degF),(degF),(degF),,(Btu/hr),(gpm),,(Btu/hr),(Btu/hr),( gpm),
+"SHWFluidSysGas","ServiceHotWater","New",135,80,"Fixed",135,-99996,-99996,-99996,-99996,0,0,0,0,0,0,0
+"SHWFluidSysElec","ServiceHotWater","New",135,80,"Fixed",135,-99996,-99996,-99996,-99996,0,0,0,0,0,0,0
+"BaseHWSystem","HotWater","New",160,40,"Fixed",160,-99996,-99996,-99996,-99996,2,314642,15.7261,32,367383,0,0
+
+
+Boiler
+Name,Fluid System Name,Status,Type,Fuel,Draft Type,Rated Capacity,AFUE,Thermal Efficiency,Forced Draft Power,Minimum Unload Ratio
+,,,,,,(Btu/h),,,hp
+"Base Blr","BaseHWSystem","New","HotWater","Gas","MechanicalNoncondensing",157321,0.82,0.8225,0.125857,0.25
+"Base Blr-2","BaseHWSystem","New","HotWater","Gas","MechanicalNoncondensing",157321,0.82,0.8225,0.125857,0.25
+
+
+Pump
+Name,Serving Equipment,Status,Count,Operation,Speed Type,Design Flow Rate,Nameplate HP,Power,Power Per Flow,Break Horse Power,Head,Motor Efficiency,Impeller Efficiency,Minimum Flow Rate
+,,,,,,(gpm),(hp),(kW),(W/gpm),(bhp),(ft. H20),,,(gpm)
+"Base HW Pump","Base Blr","New",1,"OnDemand","VariableSpeed",7.86306,0.25,0.149398,19,0.171319,60.3958,0.855,0.7
+"Base HW Pump-2","Base Blr-2","New",1,"OnDemand","VariableSpeed",7.86306,0.25,0.149398,19,0.171319,60.3958,0.855,0.7
+
+
+Water Heater
+,System,,,Water Heater
+Name,System Name,System Type,System Count,Status,Type,Fuel,Count,Thermal Efficiency,StandbyLoss Fraction,Storage Capacity,Rated Capacity,Energy Factor
+,,,,,,,,,,(gal),(Btu/h),
+"WaterHeaterGas","SHWFluidSysGas","ServiceHotWater",1,"New","Conventional","Gas",1,0.8,-99996.000,28.1777,35029.2,0.633
+"WaterHeaterElec","SHWFluidSysElec","ServiceHotWater",1,"New","Conventional","Electricity",1,0.935649,-99996.000,1.82233,29835.7,0.990
+
+
+Residential Water Heater
+,System,,,,Water Heater
+Name,System Name,System Type,System Count,Distribution Type,Status,Type,Fuel,Count,Thermal Efficiency,StandbyLoss Fraction,Storage Capacity,Rated Capacity,Energy Factor,Tank Exterior Insulation Rval,Tank Interior Insulation Rval
+,,,,,,,,,,,(gal),(Btu/h),,(?F-ft2-h/Btu),(?F-ft2-h/Btu)

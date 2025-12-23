@@ -1,0 +1,48 @@
+BuildingStory
+,,Floor Area (including multipliers),,,,,Ventilation (Design),,,Ventilation (For Balance),,,,,,General,,Comm. Kitchen,,Parking Garage,,Laboratory
+Name,Multiplier,Total,Cond. NRes,Cond. Res,Total Cond.,Number,Total,Code Min.,Exhaust,Total,Code Min.,Tot:Min Ratio,Exhaust,Vent:Exh Ratio,Vent Mult.,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust
+,,(ft2),(ft2),(ft2),(ft2),(people),(cfm),(cfm),(cfm),(cfm),(cfm),,(cfm),,,(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"Building Story 1",1,240000.0,240000.0,0.0,240000.0,2136.7,58475,58475,1000,58475,58475,1.000,1000,58.475,1.000,58475,1000,0,0,0,0,0,0
+
+Space
+,,,,,,,Occupancy,,,Ventilation,,Design Input (By Component),,,,,Minimum Req. (By Component),,,,Simulated,,,Exhaust,,,ForBalance
+Name,Story Name,Condg Type,Space Function,Thermal Zone,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Per Space,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,Lab Exh Type,Max Kitchen,Ventilation,Exhaust
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm),,(cfm),(cfm),(cfm)
+"Aisle_1","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Registers/Aisle Zone",11250.0,1,16.7,16.7,93.8,"Maximum","Fixed",15,0.25,0,0,2813,0,0.25,0,2813,0,0.25,2812.5,0,"UNDEFINED",0,2813,0
+"Aisle_2","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Registers/Aisle Zone",11250.0,1,16.7,16.7,93.8,"Maximum","Fixed",15,0.25,0,0,2813,0,0.25,0,2813,0,0.25,2812.5,0,"UNDEFINED",0,2813,0
+"Aisle_3","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Registers/Aisle Zone",11250.0,1,16.7,16.7,93.8,"Maximum","Fixed",15,0.25,0,0,2813,0,0.25,0,2813,0,0.25,2812.5,0,"UNDEFINED",0,2813,0
+"Aisle_4","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Registers/Aisle Zone",11250.0,1,16.7,16.7,93.8,"Maximum","Fixed",15,0.25,0,0,2813,0,0.25,0,2813,0,0.25,2812.5,0,"UNDEFINED",0,2813,0
+"Back_Office","Building Story 1","DirectlyConditioned","Office Area (>250 square feet)","Back_Office Zone",3000.0,1,10.0,10.0,15.0,"Maximum","Fixed",15,0.15,0,0,450,0,0.15,0,450,0,0.15,450,0,"UNDEFINED",0,450,0
+"Back_Shelving/Refrig","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Back_Shelving/Refrig Zone",47000.0,1,16.7,16.7,391.7,"Maximum","Fixed",15,0.25,0,0,11750,0,0.25,0,11750,0,0.25,11750,0,"UNDEFINED",0,11750,0
+"Back_Storage_1","Building Story 1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Back_Storage Zone",13200.0,1,2.0,2.0,13.2,"Maximum","Fixed",15,0.15,0,0,1980,0,0.15,0,1980,0,0.15,1980,0,"UNDEFINED",0,1980,0
+"Back_Storage_2","Building Story 1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Back_Storage Zone",15000.0,1,2.0,2.0,15.0,"Maximum","Fixed",15,0.15,0,0,2250,0,0.15,0,2250,0,0.15,2250,0,"UNDEFINED",0,2250,0
+"Main_Entry","Building Story 1","DirectlyConditioned","Lobby, Main Entry","Main_Entry Zone",6750.0,1,66.7,66.7,225.0,"Maximum","CO2Sensors",14.9993,0.5,0,0,3375,14.9993,0.5,0,3375,14.9993,0.15,3375,0,"UNDEFINED",0,3375,0
+"Registers","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Registers/Aisle Zone",13500.0,1,16.7,16.7,112.5,"Maximum","Fixed",15,0.25,0,0,3375,0,0.25,0,3375,0,0.25,3375,0,"UNDEFINED",0,3375,0
+"Restroom_1","Building Story 1","IndirectlyConditioned","Restrooms","Restroom_1 Zone",3375.0,1,10.0,10.0,16.9,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,0,500,"UNDEFINED",0,0,500
+"Restroom_2","Building Story 1","IndirectlyConditioned","Restrooms","Restroom_2 Zone",3375.0,1,10.0,10.0,16.9,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,0,500,"UNDEFINED",0,0,500
+"Side_Entry_1","Building Story 1","DirectlyConditioned","Lobby, Main Entry","Side_Entry_1 Zone",6750.0,1,66.7,66.7,225.0,"Maximum","CO2Sensors",14.9993,0.5,0,0,3375,14.9993,0.5,0,3375,14.9993,0.15,3375,0,"UNDEFINED",0,3375,0
+"Side_Entry_2","Building Story 1","DirectlyConditioned","Lobby, Main Entry","Side_Entry_2 Zone",6750.0,1,66.7,66.7,225.0,"Maximum","CO2Sensors",14.9993,0.5,0,0,3375,14.9993,0.5,0,3375,14.9993,0.15,3375,0,"UNDEFINED",0,3375,0
+"Side_Shelving_1","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Side_Shelving_West Zone",14625.0,1,16.7,16.7,121.9,"Maximum","Fixed",15,0.25,0,0,3656,0,0.25,0,3656,0,0.25,3656.25,0,"UNDEFINED",0,3656,0
+"Side_Shelving_2","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Side_Shelving_West Zone",14625.0,1,16.7,16.7,121.9,"Maximum","Fixed",15,0.25,0,0,3656,0,0.25,0,3656,0,0.25,3656.25,0,"UNDEFINED",0,3656,0
+"Side_Shelving_3","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Side_Shelving_East Zone",14625.0,1,16.7,16.7,121.9,"Maximum","Fixed",15,0.25,0,0,3656,0,0.25,0,3656,0,0.25,3656.25,0,"UNDEFINED",0,3656,0
+"Side_Shelving_4","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Side_Shelving_East Zone",14625.0,1,16.7,16.7,121.9,"Maximum","Fixed",15,0.25,0,0,3656,0,0.25,0,3656,0,0.25,3656.25,0,"UNDEFINED",0,3656,0
+"Side_Storage_1","Building Story 1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Side_Storage_1 Zone",12800.0,1,2.0,2.0,12.8,"Maximum","Fixed",15,0.15,0,0,1920,0,0.15,0,1920,0,0.15,1920,0,"UNDEFINED",0,1920,0
+"Side_Storage_2","Building Story 1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Side_Storage_2 Zone",5000.0,1,2.0,2.0,5.0,"Maximum","Fixed",15,0.15,0,0,750,0,0.15,0,750,0,0.15,750,0,"UNDEFINED",0,750,0
+
+ThermalZone
+,,,,,,,Occupancy,,,,Ventilation,,Design Value (Total),,,,Minimum Req. (Total),,,,Simulated,,,Exhaust
+Name,Story Name,Type,Ventilation Source,Pri. HVAC System,Ventilation System,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,ExhSysRef,ExhOperMode,ExhCtrlMthd,ExhBalancedSchRef
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm)
+"Back_Office Zone","Building Story 1","Conditioned","Forced","Back_Office_SZVAV","Back_Office_SZVAV",3000.0,1,10.0,10.0,15.0,"Maximum","Fixed",30,0.15,0.36,450,30,0.15,0.36,450,0,0.15,450
+"Back_Shelving/Refrig Zone","Building Story 1","Conditioned","Forced","Back_Shelving/Refrig_SZVAV","Back_Shelving/Refrig_SZVAV",47000.0,1,16.7,16.7,391.7,"Maximum","Fixed",29.994,0.25,0.6,11750,29.994,0.25,0.6,11750,0,0.25,11750
+"Back_Storage Zone","Building Story 1","Conditioned","Forced","Back_Storage_SZVAV","Back_Storage_SZVAV",28200.0,1,2.0,2.0,28.2,"Maximum","Fixed",150,0.15,0.36,4230,150,0.15,0.36,4230,0,0.15,4230
+"Main_Entry Zone","Building Story 1","Conditioned","Forced","Main_Entry_SZVAV","Main_Entry_SZVAV",6750.0,1,66.7,66.7,225.0,"Maximum","CO2Sensors",14.9993,0.5,1.2,3375,14.9993,0.5,1.2,3375,14.9993,0.15,3375
+"Registers/Aisle Zone","Building Story 1","Conditioned","Forced","Registers/Aisle_SZVAV","Registers/Aisle_SZVAV",58500.0,1,16.7,16.7,487.6,"Maximum","Fixed",29.994,0.25,0.6,14625,29.994,0.25,0.6,14625,0,0.25,14625
+"Restroom_1 Zone","Building Story 1","Unconditioned","None","NONE","NONE",3375.0,1,10.0,10.0,16.9,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,500,"Restroom_1_Exhaust","DecoupledFromSystem","ConstantFlowConstantSpeedFan","On"
+"Restroom_2 Zone","Building Story 1","Unconditioned","None","NONE","NONE",3375.0,1,10.0,10.0,16.9,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,500,"Restroom_2_Exhaust","DecoupledFromSystem","ConstantFlowConstantSpeedFan","On"
+"Side_Entry_1 Zone","Building Story 1","Conditioned","Forced","Side_Entry_1_SZVAV","Side_Entry_1_SZVAV",6750.0,1,66.7,66.7,225.0,"Maximum","CO2Sensors",14.9993,0.5,1.2,3375,14.9993,0.5,1.2,3375,14.9993,0.15,3375
+"Side_Entry_2 Zone","Building Story 1","Conditioned","Forced","Side_Entry_2_SZVAV","Side_Entry_2_SZVAV",6750.0,1,66.7,66.7,225.0,"Maximum","CO2Sensors",14.9993,0.5,1.2,3375,14.9993,0.5,1.2,3375,14.9993,0.15,3375
+"Side_Shelving_East Zone","Building Story 1","Conditioned","Forced","Side_Shelving_East_SZVAV","Side_Shelving_East_SZVAV",29250.0,1,16.7,16.7,243.8,"Maximum","Fixed",29.994,0.25,0.6,7313,29.994,0.25,0.6,7313,0,0.25,7313
+"Side_Shelving_West Zone","Building Story 1","Conditioned","Forced","Side_Shelving_West_SZVAV","Side_Shelving_West_SZVAV",29250.0,1,16.7,16.7,243.8,"Maximum","Fixed",29.994,0.25,0.6,7313,29.994,0.25,0.6,7313,0,0.25,7313
+"Side_Storage_1 Zone","Building Story 1","Conditioned","Forced","Side_Storage_1_SZVAV","Side_Storage_1_SZVAV",12800.0,1,2.0,2.0,12.8,"Maximum","Fixed",150,0.15,0.36,1920,150,0.15,0.36,1920,0,0.15,1920
+"Side_Storage_2 Zone","Building Story 1","Conditioned","Forced","Side_Storage_2_SZVAV","Side_Storage_2_SZVAV",5000.0,1,2.0,2.0,5.0,"Maximum","Fixed",150,0.15,0.36,750,150,0.15,0.36,750,0,0.15,750

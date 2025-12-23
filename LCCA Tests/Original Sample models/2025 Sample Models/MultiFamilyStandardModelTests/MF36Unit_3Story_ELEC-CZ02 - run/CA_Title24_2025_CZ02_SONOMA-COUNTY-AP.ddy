@@ -1,0 +1,205 @@
+Site:Location,
+  SONOMA COUNTY AP,	!- Location Name
+  38.504,	!- Latitude
+  -122.81,	!- Longitude
+  -8,		!- Time Zone Relative to GMT
+  34.7472;	!- Elevation {m}
+
+
+SizingPeriod:DesignDay,
+  SONOMA COUNTY AP Ann Htg 99.6% Condns DB,	!- Name
+  12,	!- Month
+  21,	!- Day of Month
+  WinterDesignDay,	!- Day Type
+  -1.5,	!- Maximum Dry-Bulb Temperature {C} [29.3 F]
+  0.0,	!- Daily Dry-Bulb Temperature Range {C}
+  DefaultMultipliers,	!- Dry-Bulb Temperature Range Modifier Type
+  ,	!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,	!- Humidity Condition Type
+  -1.5,	!- Wetbulb at Maximum Dry-Bulb {C} [29.3 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100939,	!- Barometric Pressure {Pa} [14.6 PSI]
+  1.6,	!- Wind Speed {m/s} [3.6 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  300,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAEClearSky,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  ,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  ,		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+  0.0;	!- Clearness {0.0 to 1.1}
+
+
+SizingPeriod:DesignDay,
+  SONOMA COUNTY AP  June .4% Condns DB=>MCWB,     !- Name
+   6,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  36.8,	!- Maximum Dry-Bulb Temperature {C} [98.2 F]
+  16.5,	!- Daily Dry-Bulb Temperature Range {C} [29.7 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  20.1,	!- Wetbulb at Maximum Dry-Bulb {C} [68.2 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100939,	!- Barometric Pressure {Pa} [14.6 PSI]
+  1.6,	!- Wind Speed {m/s} [3.6 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  180,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.349,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.477;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SONOMA COUNTY AP  July .4% Condns DB=>MCWB,     !- Name
+   7,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  37.1,	!- Maximum Dry-Bulb Temperature {C} [98.7 F]
+  16.6,	!- Daily Dry-Bulb Temperature Range {C} [29.9 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  21.2,	!- Wetbulb at Maximum Dry-Bulb {C} [70.1 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100939,	!- Barometric Pressure {Pa} [14.6 PSI]
+  1.6,	!- Wind Speed {m/s} [3.6 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  180,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.352,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.468;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SONOMA COUNTY AP  August .4% Condns DB=>MCWB,     !- Name
+   8,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  36.4,	!- Maximum Dry-Bulb Temperature {C} [97.6 F]
+  16.7,	!- Daily Dry-Bulb Temperature Range {C} [30.0 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  19.9,	!- Wetbulb at Maximum Dry-Bulb {C} [67.8 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100939,	!- Barometric Pressure {Pa} [14.6 PSI]
+  1.6,	!- Wind Speed {m/s} [3.6 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  180,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.335,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.515;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SONOMA COUNTY AP  September .4% Condns DB=>MCWB,     !- Name
+   9,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  36.8,	!- Maximum Dry-Bulb Temperature {C} [98.3 F]
+  17.6,	!- Daily Dry-Bulb Temperature Range {C} [31.6 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  19.3,	!- Wetbulb at Maximum Dry-Bulb {C} [66.7 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100939,	!- Barometric Pressure {Pa} [14.6 PSI]
+  1.6,	!- Wind Speed {m/s} [3.6 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  180,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.334,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.509;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SONOMA COUNTY AP  October .4% Condns DB=>MCWB,     !- Name
+  10,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  33.9,	!- Maximum Dry-Bulb Temperature {C} [93.0 F]
+  16.2,	!- Daily Dry-Bulb Temperature Range {C} [29.2 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  16.9,	!- Wetbulb at Maximum Dry-Bulb {C} [62.5 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100939,	!- Barometric Pressure {Pa} [14.6 PSI]
+  1.6,	!- Wind Speed {m/s} [3.6 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  180,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.32,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.591;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SONOMA COUNTY AP  November .4% Condns DB=>MCWB,     !- Name
+  11,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  26.2,	!- Maximum Dry-Bulb Temperature {C} [79.2 F]
+  12.9,	!- Daily Dry-Bulb Temperature Range {C} [23.3 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  15.9,	!- Wetbulb at Maximum Dry-Bulb {C} [60.6 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  100939,	!- Barometric Pressure {Pa} [14.6 PSI]
+  1.6,	!- Wind Speed {m/s} [3.6 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  180,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.315,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.578;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+

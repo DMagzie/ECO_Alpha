@@ -1,0 +1,35 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 080012-Whse-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Office_TU","VAVNoReheatBox","Office_SZVAVAC","Zn_Office",2573.107,1286.553,-99996.000,""
+,"FineStorage_TU","Uncontrolled","FineStorage_HtgVent","Zn_FineStorage",6148.375,-99996.000,-99996.000,""
+,"BulkStorage_TU","Uncontrolled","BulkStorage_HtgVent","Zn_BulkStorage",27448.850,-99996.000,-99996.000,""
+ENDTABLE
+TABLE 080012-Whse-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Office_CoilClg","DirectExpansion","Office_SZVAVAC","n/a",72948.448,76107.889,-99996.00000,-99996.000,11.000,2
+ENDTABLE
+TABLE 080012-Whse-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Office_CoilHtg","HeatPump","Office_SZVAVAC","n/a",79267.331,76107.890,-99996.00000,-99996.000,-99996.000
+,"Office_SuppCoilHtg","Resistance","Office_SZVAVAC","n/a",58979.038,58979.038,-99996.00000,-99996.000,-99996.000
+,"FineStorage_CoilHtg","Furnace","FineStorage_HtgVent","n/a",339129.050,339129.050,-99996.00000,-99996.000,0.810
+,"BulkStorage_CoilHtg","Furnace","BulkStorage_HtgVent","n/a",1455834.838,1455834.838,-99996.00000,-99996.000,0.810
+ENDTABLE
+TABLE 080012-Whse-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Office_SupplyFan","VariableSpeedDrive","Office_SZVAVAC","n/a",2573.107,1286.553,0.650,"PowerPerUnitFlow",3.684,2.298,3.000,"InAirStream",0.895,0.7440
+,"FineStorage_SupplyFan","ConstantVolume","FineStorage_HtgVent","n/a",6148.375,-99996.000,0.650,"PowerPerUnitFlow",3.070,4.576,5.000,"InAirStream",0.895,0.6200
+,"BulkStorage_SupplyFan","ConstantVolume","BulkStorage_HtgVent","n/a",27448.850,-99996.000,0.650,"PowerPerUnitFlow",3.133,20.847,25.000,"InAirStream",0.936,0.6050
+ENDTABLE
+TABLE 080012-Whse-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"Office_OACtrl","FixedDryBulb","Office_SZVAVAC","Integrated"
+,"FineStorage_OACtrl","NoEconomizer","FineStorage_HtgVent","UNDEFINED"
+,"BulkStorage_OACtrl","NoEconomizer","BulkStorage_HtgVent","UNDEFINED"
+ENDTABLE

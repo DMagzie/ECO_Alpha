@@ -1,0 +1,105 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"ResBaseAirSys_SZHP","SZHP","New",1,91.9124,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,0,-99996,"MPOE_B1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-2","SZHP","New",1,124.999,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,83.6835,-99996,"PET SPA_B1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-3","SZHP","New",1,1011.73,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,669.468,-99996,"Co Work-Lobby_B1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-4","SZHP","New",1,689.158,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,195.15,-99996,"Leasing_B1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-5","SZHP","New",1,389.085,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,133.894,-99996,"Zoom and Meeting_B1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-6","SZHP","New",1,960.898,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,401.681,-99996,"Mail_B1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-7","SZHP","New",1,420.24,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,133.894,-99996,"Office - Elec_B1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-8","SZHP","New",1,1338.36,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,0,-99996,"Mechanical Equipment_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-9","SZHP","New",1,150.102,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,0,-99996,"Elev Mach_L06","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-10","SZHP","New",1,1205.15,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,633.874,-99996,"Club Room_L07","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"ResBaseAirSys_SZHP-11","SZHP","New",1,1524.5,-99996,58,-99996,-99996,-99996,-99996,-99996,0,-99996,867.406,-99996,"Fitness Room_L07","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"ResBaseAirSys TrmlUnit","Uncontrolled","New",1,"ResBaseAirSys_SZHP",1,"MPOE_B1",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-2","Uncontrolled","New",1,"ResBaseAirSys_SZHP-2",1,"PET SPA_B1",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-3","Uncontrolled","New",1,"ResBaseAirSys_SZHP-3",1,"Co Work-Lobby_B1",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-4","Uncontrolled","New",1,"ResBaseAirSys_SZHP-4",1,"Leasing_B1",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-5","Uncontrolled","New",1,"ResBaseAirSys_SZHP-5",1,"Zoom and Meeting_B1",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-6","Uncontrolled","New",1,"ResBaseAirSys_SZHP-6",1,"Mail_B1",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-7","Uncontrolled","New",1,"ResBaseAirSys_SZHP-7",1,"Office - Elec_B1",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-8","Uncontrolled","New",1,"ResBaseAirSys_SZHP-8",1,"Mechanical Equipment_L01",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-9","Uncontrolled","New",1,"ResBaseAirSys_SZHP-9",1,"Elev Mach_L06",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-10","Uncontrolled","New",1,"ResBaseAirSys_SZHP-10",1,"Club Room_L07",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"ResBaseAirSys TrmlUnit-11","Uncontrolled","New",1,"ResBaseAirSys_SZHP-11",1,"Fitness Room_L07",-99996,-99996,-99996,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"ResBaseAirSys_SZHP CoilClg","DirectExpansion","New","Electric","ResBaseAirSys_SZHP",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-2","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-2",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-3","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-3",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-4","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-4",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-5","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-5",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-6","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-6",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-7","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-7",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-8","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-8",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-9","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-9",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-10","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-10",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"ResBaseAirSys_SZHP CoilClg-11","DirectExpansion","New","Electric","ResBaseAirSys_SZHP-11",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"ResBaseAirSys_SZHP CoilHtg","Resistance","New","Electric","ResBaseAirSys_SZHP",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-2","Resistance","New","Electric","ResBaseAirSys_SZHP-2",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-3","Resistance","New","Electric","ResBaseAirSys_SZHP-3",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-4","Resistance","New","Electric","ResBaseAirSys_SZHP-4",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-5","Resistance","New","Electric","ResBaseAirSys_SZHP-5",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-6","Resistance","New","Electric","ResBaseAirSys_SZHP-6",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-7","Resistance","New","Electric","ResBaseAirSys_SZHP-7",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-8","Resistance","New","Electric","ResBaseAirSys_SZHP-8",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-9","Resistance","New","Electric","ResBaseAirSys_SZHP-9",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-10","Resistance","New","Electric","ResBaseAirSys_SZHP-10",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"ResBaseAirSys_SZHP CoilHtg-11","Resistance","New","Electric","ResBaseAirSys_SZHP-11",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"ResBaseAirSys_SZHP SupFan","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-2","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-2",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-3","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-3",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-4","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-4",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-5","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-5",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-6","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-6",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-7","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-7",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-8","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-8",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-9","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-9",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-10","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-10",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"ResBaseAirSys_SZHP SupFan-11","ConstantVolume","New","Centrifugal","AirFoil","ResBaseAirSys_SZHP-11",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"ResBaseAirSys_SZHP OACtrl","NoEconomizer","New",0,"ResBaseAirSys_SZHP",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-2","NoEconomizer","New",83.6835,"ResBaseAirSys_SZHP-2",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-3","NoEconomizer","New",669.468,"ResBaseAirSys_SZHP-3",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-4","NoEconomizer","New",195.15,"ResBaseAirSys_SZHP-4",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-5","NoEconomizer","New",133.894,"ResBaseAirSys_SZHP-5",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-6","NoEconomizer","New",401.681,"ResBaseAirSys_SZHP-6",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-7","NoEconomizer","New",133.894,"ResBaseAirSys_SZHP-7",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-8","NoEconomizer","New",0,"ResBaseAirSys_SZHP-8",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-9","NoEconomizer","New",0,"ResBaseAirSys_SZHP-9",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-10","NoEconomizer","New",633.874,"ResBaseAirSys_SZHP-10",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"ResBaseAirSys_SZHP OACtrl-11","NoEconomizer","New",867.406,"ResBaseAirSys_SZHP-11",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"

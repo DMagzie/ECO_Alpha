@@ -1,0 +1,33 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Jefferson Murrieta Bldg 4B_2025-12-1622TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"ResBaseAirSys TrmlUnit","Uncontrolled","ResBaseAirSys_SZHP","STAIR (LEFT)_L3",204.024,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-2","Uncontrolled","ResBaseAirSys_SZHP-2","STAIR (RIGHT)_L3",184.338,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Jefferson Murrieta Bldg 4B_2025-12-1622CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilClg","DirectExpansion","ResBaseAirSys_SZHP","n/a",7365.878,7684.898,-99996.00000,15.053,11.956,1
+,"ResBaseAirSys_SZHP CoilClg-2","DirectExpansion","ResBaseAirSys_SZHP-2","n/a",6779.406,7073.026,-99996.00000,15.053,11.956,1
+ENDTABLE
+TABLE Jefferson Murrieta Bldg 4B_2025-12-1622CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilHtg","HeatPump","ResBaseAirSys_SZHP","n/a",8003.919,7684.898,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-2","HeatPump","ResBaseAirSys_SZHP-2","n/a",7366.646,7073.026,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP SuppCoilHtg","Resistance","ResBaseAirSys_SZHP","n/a",6765.925,6765.925,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP SuppCoilHtg-2","Resistance","ResBaseAirSys_SZHP-2","n/a",6238.325,6238.325,0.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Jefferson Murrieta Bldg 4B_2025-12-1622Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"ResBaseAirSys_SZHP SupFan","ConstantVolume","ResBaseAirSys_SZHP","n/a",204.024,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.174,0.250,"InAirStream",0.855,0.7440
+,"ResBaseAirSys_SZHP SupFan-2","ConstantVolume","ResBaseAirSys_SZHP-2","n/a",184.338,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.157,0.250,"InAirStream",0.855,0.7440
+ENDTABLE
+TABLE Jefferson Murrieta Bldg 4B_2025-12-1622OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"ResBaseAirSys_SZHP OACtrl","NoEconomizer","ResBaseAirSys_SZHP","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-2","NoEconomizer","ResBaseAirSys_SZHP-2","UNDEFINED"
+ENDTABLE

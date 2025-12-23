@@ -1,0 +1,51 @@
+BuildingStory
+,,Floor Area (including multipliers),,,,,Ventilation (Design),,,Ventilation (For Balance),,,,,,General,,Comm. Kitchen,,Parking Garage,,Laboratory
+Name,Multiplier,Total,Cond. NRes,Cond. Res,Total Cond.,Number,Total,Code Min.,Exhaust,Total,Code Min.,Tot:Min Ratio,Exhaust,Vent:Exh Ratio,Vent Mult.,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust
+,,(ft2),(ft2),(ft2),(ft2),(people),(cfm),(cfm),(cfm),(cfm),(cfm),,(cfm),,,(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"Level 1",1,24412.7,24412.7,0.0,24412.7,442.6,7285,7285,500,7285,7285,1.000,500,14.570,1.000,7285,500,0,0,0,0,0,0
+
+Space
+,,,,,,,Occupancy,,,Ventilation,,Design Input (By Component),,,,,Minimum Req. (By Component),,,,Simulated,,,Exhaust,,,ForBalance
+Name,Story Name,Condg Type,Space Function,Thermal Zone,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Per Space,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,Lab Exh Type,Max Kitchen,Ventilation,Exhaust
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm),,(cfm),(cfm),(cfm)
+"Cafeteria_Spc","Level 1","DirectlyConditioned","Dining Area (Cafeteria/Fast Food)","Common_Cafeteria_Zn",2859.7,1,66.7,66.7,95.3,"Maximum","CO2Sensors",14.9993,0.5,0,0,1430,14.9993,0.5,0,1430,14.9993,0.15,1429.87,0,"UNDEFINED",0,1430,0
+"Lobby_Spc","Level 1","DirectlyConditioned","Corridor Area","Common_Lobby_Zn",678.1,1,10.0,10.0,3.4,"Maximum","Fixed",15,0.15,0,0,102,0,0.15,0,102,0,0.15,101.719,0,"UNDEFINED",0,102,0
+"Main_Corridor_Spc","Level 1","DirectlyConditioned","Corridor Area","Common_Corridor_Zn",1722.2,1,10.0,10.0,8.6,"Maximum","Fixed",15,0.15,0,0,258,0,0.15,0,258,0,0.15,258.334,0,"UNDEFINED",0,258,0
+"Mech/Elec_Spc","Level 1","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms","Common_Mech/Elec_Zn",446.5,1,3.0,3.0,0.7,"Maximum","Fixed",15,0.15,0,0,67,0,0.15,0,67,0,0.15,66.9729,0,"UNDEFINED",0,67,0
+"Office_Spc","Level 1","DirectlyConditioned","Office Area (>250 square feet)","Common_Office_Zn",2201.4,1,10.0,10.0,11.0,"Maximum","Fixed",15,0.15,0,0,330,0,0.15,0,330,0,0.15,330.204,0,"UNDEFINED",0,330,0
+"Restroom_Spc","Level 1","IndirectlyConditioned","Restrooms","Common_Restroom_Zn",1004.6,1,10.0,10.0,5.0,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,0,500,"UNDEFINED",0,0,500
+"Wing1_Corridor_Spc","Level 1","DirectlyConditioned","Corridor Area","Wing1_Corridor_Zn",1722.2,1,10.0,10.0,8.6,"Maximum","Fixed",15,0.15,0,0,258,0,0.15,0,258,0,0.15,258.333,0,"UNDEFINED",0,258,0
+"Wing1_Side1_Class1_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.32,0,"UNDEFINED",0,286,0
+"Wing1_Side1_Class2_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.32,0,"UNDEFINED",0,286,0
+"Wing1_Side1_Class3_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.32,0,"UNDEFINED",0,286,0
+"Wing1_Side1_Class4_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.324,0,"UNDEFINED",0,286,0
+"Wing1_Side2_Class1_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.32,0,"UNDEFINED",0,286,0
+"Wing1_Side2_Class2_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.32,0,"UNDEFINED",0,286,0
+"Wing1_Side2_Class3_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.32,0,"UNDEFINED",0,286,0
+"Wing1_Side2_Class4_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing1_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.324,0,"UNDEFINED",0,286,0
+"Wing2_Corridor_Spc","Level 1","DirectlyConditioned","Corridor Area","Wing2_Corridor_Zn",1722.3,1,10.0,10.0,8.6,"Maximum","Fixed",15,0.15,0,0,258,0,0.15,0,258,0,0.15,258.347,0,"UNDEFINED",0,258,0
+"Wing2_Side1_Class1_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.315,0,"UNDEFINED",0,286,0
+"Wing2_Side1_Class2_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.315,0,"UNDEFINED",0,286,0
+"Wing2_Side1_Class3_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.315,0,"UNDEFINED",0,286,0
+"Wing2_Side1_Class4_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side1_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.319,0,"UNDEFINED",0,286,0
+"Wing2_Side2_Class1_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.322,0,"UNDEFINED",0,286,0
+"Wing2_Side2_Class2_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.322,0,"UNDEFINED",0,286,0
+"Wing2_Side2_Class3_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.322,0,"UNDEFINED",0,286,0
+"Wing2_Side2_Class4_Spc","Level 1","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","Wing2_Side2_Zn",753.5,1,50.0,50.0,18.8,"Maximum","Fixed",15,0.38,0,0,286,0,0.38,0,286,0,0.38,286.325,0,"UNDEFINED",0,286,0
+
+ThermalZone
+,,,,,,,Occupancy,,,,Ventilation,,Design Value (Total),,,,Minimum Req. (Total),,,,Simulated,,,Exhaust
+Name,Story Name,Type,Ventilation Source,Pri. HVAC System,Ventilation System,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,ExhSysRef,ExhOperMode,ExhCtrlMthd,ExhBalancedSchRef
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm)
+"Common_Restroom_Zn","Level 1","Unconditioned","None","NONE","NONE",1004.6,1,10.0,10.0,5.0,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,500,"Common_Restroom-Exhaust","DecoupledFromSystem","ConstantFlowConstantSpeedFan","On"
+"Common_Mech/Elec_Zn","Level 1","Conditioned","Forced","Common_Mech/Elec-SZAC-Sys","Common_Mech/Elec-SZAC-Sys",446.5,1,3.0,3.0,0.7,"Maximum","Fixed",100,0.15,0.609598,67,100,0.15,0.609598,67,0,0.15,67
+"Wing1_Side1_Zn","Level 1","Conditioned","Forced","Wing1_Side1-SZAC-Sys (x4)","Wing1_Side1-SZAC-Sys (x4)",3013.9,1,50.0,50.0,75.3,"Maximum","Fixed",15.2,0.38,1.54433,1145,15.2,0.38,1.54433,1145,0,0.38,1145
+"Wing1_Corridor_Zn","Level 1","Conditioned","Forced","Wing1_Corridor-SZAC-Sys","Wing1_Corridor-SZAC-Sys",1722.2,1,10.0,10.0,8.6,"Maximum","Fixed",30,0.15,0.609598,258,30,0.15,0.609598,258,0,0.15,258
+"Wing1_Side2_Zn","Level 1","Conditioned","Forced","Wing1_Side2-SZAC-Sys (x4)","Wing1_Side2-SZAC-Sys (x4)",3013.9,1,50.0,50.0,75.3,"Maximum","Fixed",15.2,0.38,1.54433,1145,15.2,0.38,1.54433,1145,0,0.38,1145
+"Common_Lobby_Zn","Level 1","Conditioned","Forced","Common_Lobby-SZAC-Sys","Common_Lobby-SZAC-Sys",678.1,1,10.0,10.0,3.4,"Maximum","Fixed",30,0.15,0.609602,102,30,0.15,0.609602,102,0,0.15,102
+"Common_Corridor_Zn","Level 1","Conditioned","Forced","Common_Corridor-SZAC-Sys","Common_Corridor-SZAC-Sys",1722.2,1,10.0,10.0,8.6,"Maximum","Fixed",30,0.15,0.6096,258,30,0.15,0.6096,258,0,0.15,258
+"Wing2_Side1_Zn","Level 1","Conditioned","Forced","Wing2_Side1-SZAC-Sys (x4)","Wing2_Side1-SZAC-Sys (x4)",3013.9,1,50.0,50.0,75.3,"Maximum","Fixed",15.2,0.38,1.5443,1145,15.2,0.38,1.5443,1145,0,0.38,1145
+"Wing2_Corridor_Zn","Level 1","Conditioned","Forced","Wing2_Corridor-SZAC-Sys","Wing2_Corridor-SZAC-Sys",1722.3,1,10.0,10.0,8.6,"Maximum","Fixed",30,0.15,0.609631,258,30,0.15,0.609631,258,0,0.15,258
+"Wing2_Side2_Zn","Level 1","Conditioned","Forced","Wing2_Side2-SZAC-Sys (x4)","Wing2_Side2-SZAC-Sys (x4)",3013.9,1,50.0,50.0,75.3,"Maximum","Fixed",15.2,0.38,1.54434,1145,15.2,0.38,1.54434,1145,0,0.38,1145
+"Common_Office_Zn","Level 1","Conditioned","Forced","Common_Office-SZAC-Sys","Common_Office-SZAC-Sys",2201.4,1,10.0,10.0,11.0,"Maximum","Fixed",30,0.15,0.6096,330,30,0.15,0.6096,330,0,0.15,330
+"Common_Cafeteria_Zn","Level 1","Conditioned","Forced","Common_Cafeteria-SZVAVAC-Sys","Common_Cafeteria-SZVAVAC-Sys",2859.7,1,66.7,66.7,95.3,"Maximum","CO2Sensors",14.9993,0.5,2.03201,1430,14.9993,0.5,2.03201,1430,14.9993,0.15,1430

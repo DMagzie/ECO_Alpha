@@ -1,0 +1,29 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  167.9 kWdc PV  /  Battery Energy 296.8 kWh and Power 70.50 kW (Time of Use control)"
+,"Standard Design PV Capacity: 167.9 kWdc  /  Battery Capacity: 296.8 kWh  (power 70.50 kW, Time of Use control)"
+,"User-specified PV and Battery:  167.9 kWdc PV  /  296.8 kWh Battery  (70.5/70.5 charge/discharge rate (kW), Time of Use control)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Core_bottom","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",10586.7,1,,,10586.7,,,,,,,,,33.1364,58.5991,13.9173,
+"Perimeter_bot_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2231.76,1,,,2231.76,,,,,,,,,6.98541,12.3531,2.93387,
+"Perimeter_bot_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1412.9,1,,,1412.9,,,,,,,,,4.42238,7.82062,1.8574,
+"Perimeter_bot_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2231.76,1,,,2231.76,,,,,,,,,6.98541,12.3531,2.93387,
+"Perimeter_bot_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1412.8,1,,,1412.8,,,,,,,,,4.42206,7.82007,1.85727,
+"FirstFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area","none",0,1,,,,,,,,0,,,,0,0,0,
+"Core_mid","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",10586.7,1,,,10586.7,,,,,,,,,33.1364,58.5991,13.9173,
+"Perimeter_mid_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2231.76,1,,,2231.76,,,,,,,,,6.98541,12.3531,2.93387,
+"Perimeter_mid_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1412.9,1,,,1412.9,,,,,,,,,4.42238,7.82062,1.8574,
+"Perimeter_mid_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2231.76,1,,,2231.76,,,,,,,,,6.98541,12.3531,2.93387,
+"Perimeter_mid_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1412.8,1,,,1412.8,,,,,,,,,4.42206,7.82007,1.85727,
+"MidFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area","none",0,1,,,,,,,,0,,,,0,0,0,
+"Core_top","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",10586.7,1,,,10586.7,,,,,,,,,33.1364,58.5991,13.9173,
+"Perimeter_top_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2231.76,1,,,2231.76,,,,,,,,,6.98541,12.3531,2.93387,
+"Perimeter_top_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1412.9,1,,,1412.9,,,,,,,,,4.42238,7.82062,1.8574,
+"Perimeter_top_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2231.76,1,,,2231.76,,,,,,,,,6.98541,12.3531,2.93387,
+"Perimeter_top_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1412.8,1,,,1412.8,,,,,,,,,4.42206,7.82007,1.85727,
+"TopFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area","none",0,1,,,,,,,,0,,,,0,0,0,
+,,,,,Sums:,0,0,53627.8,0,0,0,0,0,0,0,,167.855,296.838,70.4991,
+,,Bldg Cond Area:,53627.8,,Pcts:,0.0,0.0,100.0,0.0,0.0,0.0,0.0,0.0,,0.0,

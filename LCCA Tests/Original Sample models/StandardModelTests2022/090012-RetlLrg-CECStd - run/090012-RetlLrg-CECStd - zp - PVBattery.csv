@@ -1,0 +1,31 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  585.4 kWdc PV  /  Battery Energy 639.0 kWh and Power 153.11 kW (Time of Use control)"
+,"Standard Design PV Capacity: 585.4 kWdc  /  Battery Capacity: 639.0 kWh  (power 153.11 kW, Time of Use control)"
+,"User-specified PV and Battery:  585.4 kWdc PV  /  639.0 kWh Battery  (153.1/153.1 charge/discharge rate (kW), Time of Use control)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Aisle_1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",11250,1,,,,11250,,,,,,,,32.7375,35.4943,8.51175,
+"Aisle_2","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",11250,1,,,,11250,,,,,,,,32.7375,35.4943,8.51175,
+"Aisle_3","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",11250,1,,,,11250,,,,,,,,32.7375,35.4943,8.51175,
+"Aisle_4","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",11250,1,,,,11250,,,,,,,,32.7375,35.4943,8.51175,
+"Back_Office","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",3000,1,,,3000,,,,,,,,,9.39,16.6055,3.9438,
+"Back_Shelving/Refrig","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",47000,1,,,,47000,,,,,,,,136.77,148.287,35.5602,
+"Back_Storage_1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Warehouse",13200,1,,,,,,13200,,,,,,5.808,5.68573,1.33584,
+"Back_Storage_2","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Warehouse",15000,1,,,,,,15000,,,,,,6.6,6.46105,1.518,
+"Main_Entry","DirectlyConditioned","Lobby, Main Entry","Retail",6750,1,,,,6750,,,,,,,,19.6425,21.2966,5.10705,
+"Registers","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",13500,1,,,,13500,,,,,,,,39.285,42.5932,10.2141,
+"Restroom_1","IndirectlyConditioned","Restrooms","Retail",3375,1,,,,3375,,,,,,,,9.82125,10.6483,2.55353,
+"Restroom_2","IndirectlyConditioned","Restrooms","Retail",3375,1,,,,3375,,,,,,,,9.82125,10.6483,2.55353,
+"Side_Entry_1","DirectlyConditioned","Lobby, Main Entry","Retail",6750,1,,,,6750,,,,,,,,19.6425,21.2966,5.10705,
+"Side_Entry_2","DirectlyConditioned","Lobby, Main Entry","Retail",6750,1,,,,6750,,,,,,,,19.6425,21.2966,5.10705,
+"Side_Shelving_1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",14625,1,,,,14625,,,,,,,,42.5588,46.1426,11.0653,
+"Side_Shelving_2","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",14625,1,,,,14625,,,,,,,,42.5588,46.1426,11.0653,
+"Side_Shelving_3","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",14625,1,,,,14625,,,,,,,,42.5588,46.1426,11.0653,
+"Side_Shelving_4","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Retail",14625,1,,,,14625,,,,,,,,42.5588,46.1426,11.0653,
+"Side_Storage_1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Warehouse",12800,1,,,,,,12800,,,,,,5.632,5.51343,1.29536,
+"Side_Storage_2","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Warehouse",5000,1,,,,,,5000,,,,,,2.2,2.15368,0.506,
+,,,,,Sums:,0,0,3000,191000,0,46000,0,0,0,0,,585.44,639.034,153.11,
+,,Bldg Cond Area:,240000,,Pcts:,0.0,0.0,1.3,79.6,0.0,19.2,0.0,0.0,,0.0,

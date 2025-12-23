@@ -1,0 +1,29 @@
+PV Array & Battery Report
+,"PV Capacity required based on Prescriptive tables:  62.5 kWdc  (no prescriptive battery requirement)"
+,"Standard Design PV Capacity: 62.5 kWdc  /  (no battery)"
+,"User-specified PV array capacity:  77.6 kWdc  (no battery equipment defined)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Breezeway-1_L01","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",429.88,1,,,,,,,0,,,,,0,0,0,
+"Breezeway-2_L01","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",429.88,1,,,,,,,0,,,,,0,0,0,
+"Breezeway-3_L01","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",401.24,1,,,,,,,0,,,,,0,0,0,
+"Electric-Rm__L01","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",234.31,1,,,,,,,0,,,,,0,0,0,
+"Garage 1_L01","Unconditioned","Parking Garage Area (Parking Zone and Ramps)","none",4466.5,1,,,,,,,,0,,,,0,0,0,
+"Garage 2_L01","Unconditioned","Parking Garage Area (Parking Zone and Ramps)","none",730.589,1,,,,,,,,0,,,,0,0,0,
+"Inverter-Rm_L01","Conditioned","Electrical, Mechanical, Telephone Rooms","Other",24.4146,1,,,,,,,24.4146,,,,,0,0,0,
+"Breezeway-1_L02","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",405,1,,,,,,,0,,,,,0,0,0,
+"Breezeway-2_L02","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",412.349,1,,,,,,,0,,,,,0,0,0,
+"Breezeway-3_L02","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",397.638,1,,,,,,,0,,,,,0,0,0,
+"Breezeway-1_L03","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",405,1,,,,,,,0,,,,,0,0,0,
+"Breezeway-2_L03","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",412.472,1,,,,,,,0,,,,,0,0,0,
+"Breezeway-3_L03","Unconditioned","Unoccupied-Include in Gross Floor Area","Other",412.413,1,,,,,,,0,,,,,0,0,0,
+"Res_West Facing_L01","Conditioned",,,5492,1,,,,,,,,,8,5492,,14.7235,0,0,
+"Res_West Facing_L02","Conditioned",,,4718,1,,,,,,,,,6,4718,,11.4182,0,0,
+"Res_East Facing_L02","Conditioned",,,6420,1,,,,,,,,,6,6420,,12.4853,0,0,
+"Res_West Facing_L03","Conditioned",,,4718,1,,,,,,,,,6,4718,,11.4182,0,0,
+"Res_East Facing_L03","Conditioned",,,6420,1,,,,,,,,,6,6420,,12.4853,0,0,
+,,,,,Sums:,0,0,0,0,0,0,24.4146,0,32,27768,,62.5305,0,0,
+,,Bldg Cond Area:,27792.4,,Pcts:,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.0,,99.9,

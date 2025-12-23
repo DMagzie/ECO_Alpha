@@ -1,0 +1,479 @@
+General Information
+Project Address,City,ZipCode,ClimateZone,Compliance Software,Compliance Manager,RulesetFile Name,Compliance Type
+" - specify - "," - specify - ",95814,"ClimateZone12","CBECC 2022.3.2 (1369)","BEMCmpMgr 2022.3.2-SP1 (8964)","CA 2022 Nonresidential, Vers. 1.0 Alpha (T24N_2022.bin)","NewComplete"
+
+No. of Thermal Zones,No. of Thermal Zones (cond),No. of Air Systems,No. of Zonal Systems,No. of Terminal Units
+13,11,11,0,38
+
+No. of Stories
+Total,New,Existing,Altered
+1,1,0,0
+
+No. of Above Grade Stories
+Total,New,Existing,Altered
+1,1,0,0
+
+No. of Dwelling Units (Conditioned)
+Total,New,Existing,Altered
+0,0,0,0
+
+NonRes Floor Area (Conditioned)
+Total,New,Existing,Altered
+1,1,0,0
+
+Res Floor Area (Conditioned)
+Total,New,Existing,Altered
+0,0,0,0
+
+,Conditioned Floor Area
+Total Floor Area,Total,New,Existing,Altered
+240000,240000,0,0,0
+
+
+
+Building Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+50000.00,15000.00,10000.00,15000.00,10000.00
+
+Building New Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+50000.00,15000.00,10000.00,15000.00,10000.00
+Building Existing or Altered Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Building Window Area,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+5880.02,0.00,420.00,5040.01,420.00
+
+Building New Window Area on New Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+5880.02,0.00,420.00,5040.01,420.00
+Building New Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+Building Existing or Altered Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Window to Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.1176,0.0000,0.0420,0.3360,0.0420
+
+New Window to New Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.1176,0.0000,0.0420,0.3360,0.0420
+New Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+Existing or Altered Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+
+
+Skylight to Roof Ratio (SRR),Display Perimeter\SRR,West,Total
+(frac.),(ft),(ft)
+0.0141,0.00,0.00
+
+New Skylight to New Roof Ratio (SRR)
+(frac.)
+0.0141
+New Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000
+Existing or Altered Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000
+
+
+
+Exterior Roofs
+,,,,,,,,,,,,Aged Thermal Emittance,,ThrmlAbs,,Aged Solar Reflectance,,SolAbs,
+Name,Status,Name,Occupancy Classification,Conditioning Status,Assigned Occ Class (Ref),Area,Tilt,Slope Category,Cons Name,Construction Type,U-Factor,Roof,Cons,Roof,Cons,Roof,Cons,Roof,Cons
+,,,,,,(ft2),(deg),,,,(Btu/h-?F-ft2),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),
+"Surface 62","New","Aisle_1","Nonresidential","DirectlyConditioned","NonResidential",11250.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 68","New","Aisle_2","Nonresidential","DirectlyConditioned","NonResidential",11250.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 74","New","Aisle_3","Nonresidential","DirectlyConditioned","NonResidential",11250.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 81","New","Aisle_4","Nonresidential","DirectlyConditioned","NonResidential",11250.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 138","New","Back_Office","Nonresidential","DirectlyConditioned","NonResidential",3000.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 114","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned","NonResidential",47000.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 126","New","Back_Storage_1","Nonresidential","DirectlyConditioned","NonResidential",13200.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 132","New","Back_Storage_2","Nonresidential","DirectlyConditioned","NonResidential",15000.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 18","New","Main_Entry","Nonresidential","DirectlyConditioned","NonResidential",6750.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 48","New","Registers","Nonresidential","DirectlyConditioned","NonResidential",13500.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 12","New","Restroom_1","Nonresidential","IndirectlyConditioned","NonResidential",3375.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 24","New","Restroom_2","Nonresidential","IndirectlyConditioned","NonResidential",3375.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 6","New","Side_Entry_1","Nonresidential","DirectlyConditioned","NonResidential",6750.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 30","New","Side_Entry_2","Nonresidential","DirectlyConditioned","NonResidential",6750.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 88","New","Side_Shelving_1","Nonresidential","DirectlyConditioned","NonResidential",14625.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 37","New","Side_Shelving_2","Nonresidential","DirectlyConditioned","NonResidential",14625.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 95","New","Side_Shelving_3","Nonresidential","DirectlyConditioned","NonResidential",14625.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 55","New","Side_Shelving_4","Nonresidential","DirectlyConditioned","NonResidential",14625.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 102","New","Side_Storage_1","Nonresidential","DirectlyConditioned","NonResidential",12800.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+"Surface 139","New","Side_Storage_2","Nonresidential","DirectlyConditioned","NonResidential",5000.00,0,"Low","FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",-99996.000,0.85,0.85,0.75,0.75,0.63,0.63,0.37,0.37
+
+
+
+Exterior Wall
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Building Type,Area,Azimuth,Cons Name,Construction Type,U Factor,Window Area
+,,,,,,(ft2),(deg),,,(Btu/h-?F-ft2),(ft2)
+"Surface 134","New","Back_Office","Nonresidential","DirectlyConditioned","NonResidential",1500.00,90,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 137","New","Back_Office","Nonresidential","DirectlyConditioned","NonResidential",1250.00,0,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 122","New","Back_Storage_1","Nonresidential","DirectlyConditioned","NonResidential",5500.00,0,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 131","New","Back_Storage_2","Nonresidential","DirectlyConditioned","NonResidential",6250.00,0,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 16","New","Main_Entry","Nonresidential","DirectlyConditioned","NonResidential",3750.00,180,"MetalFrameWallU055","MetalFrameWall",-99996.000,1680.00
+"Surface 10","New","Restroom_1","Nonresidential","IndirectlyConditioned","NonResidential",1875.00,180,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 20","New","Restroom_2","Nonresidential","IndirectlyConditioned","NonResidential",1875.00,180,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 4","New","Side_Entry_1","Nonresidential","DirectlyConditioned","NonResidential",3750.00,180,"MetalFrameWallU055","MetalFrameWall",-99996.000,1680.00
+"Surface 5","New","Side_Entry_1","Nonresidential","DirectlyConditioned","NonResidential",1125.00,270,"MetalFrameWallU055","MetalFrameWall",-99996.000,420.00
+"Surface 26","New","Side_Entry_2","Nonresidential","DirectlyConditioned","NonResidential",3750.00,180,"MetalFrameWallU055","MetalFrameWall",-99996.000,1680.00
+"Surface 29","New","Side_Entry_2","Nonresidential","DirectlyConditioned","NonResidential",1125.00,90,"MetalFrameWallU055","MetalFrameWall",-99996.000,420.00
+"Surface 85","New","Side_Shelving_1","Nonresidential","DirectlyConditioned","NonResidential",2437.50,270,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 32","New","Side_Shelving_2","Nonresidential","DirectlyConditioned","NonResidential",2437.50,270,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 90","New","Side_Shelving_3","Nonresidential","DirectlyConditioned","NonResidential",2437.50,90,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 53","New","Side_Shelving_4","Nonresidential","DirectlyConditioned","NonResidential",2437.50,90,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 101","New","Side_Storage_1","Nonresidential","DirectlyConditioned","NonResidential",4000.00,270,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 97","New","Side_Storage_1","Nonresidential","DirectlyConditioned","NonResidential",2000.00,0,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+"Surface 118","New","Side_Storage_2","Nonresidential","DirectlyConditioned","NonResidential",2500.00,90,"MetalFrameWallU055","MetalFrameWall",-99996.000,0.00
+
+
+
+Underground Floor
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Slab Type,Area,Exposed Perimeter,Cons Name,Slab Insulation Orientation,Overall 'F' Factor
+,,,,,(Heated/Unheated),(ft2),(ft),,,(Btu/h-?F-ft2)
+"Surface 56","New","Aisle_1","Nonresidential","DirectlyConditioned","UNDEFINED",11250.00,0.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 63","New","Aisle_2","Nonresidential","DirectlyConditioned","UNDEFINED",11250.00,0.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 69","New","Aisle_3","Nonresidential","DirectlyConditioned","UNDEFINED",11250.00,0.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 75","New","Aisle_4","Nonresidential","DirectlyConditioned","UNDEFINED",11250.00,0.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 133","New","Back_Office","Nonresidential","DirectlyConditioned","UNDEFINED",3000.00,110.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 103","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned","UNDEFINED",47000.00,0.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 121","New","Back_Storage_1","Nonresidential","DirectlyConditioned","UNDEFINED",13200.00,220.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 127","New","Back_Storage_2","Nonresidential","DirectlyConditioned","UNDEFINED",15000.00,250.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 13","New","Main_Entry","Nonresidential","DirectlyConditioned","UNDEFINED",6750.00,150.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 38","New","Registers","Nonresidential","DirectlyConditioned","UNDEFINED",13500.00,0.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 7","New","Restroom_1","Nonresidential","IndirectlyConditioned","UNDEFINED",3375.00,75.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 19","New","Restroom_2","Nonresidential","IndirectlyConditioned","UNDEFINED",3375.00,75.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 1","New","Side_Entry_1","Nonresidential","DirectlyConditioned","UNDEFINED",6750.00,195.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 25","New","Side_Entry_2","Nonresidential","DirectlyConditioned","UNDEFINED",6750.00,195.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 82","New","Side_Shelving_1","Nonresidential","DirectlyConditioned","UNDEFINED",14625.00,97.50,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 31","New","Side_Shelving_2","Nonresidential","DirectlyConditioned","UNDEFINED",14625.00,97.50,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 89","New","Side_Shelving_3","Nonresidential","DirectlyConditioned","UNDEFINED",14625.00,97.50,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 49","New","Side_Shelving_4","Nonresidential","DirectlyConditioned","UNDEFINED",14625.00,97.50,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 96","New","Side_Storage_1","Nonresidential","DirectlyConditioned","UNDEFINED",12800.00,240.00,"SlabOnOrBelowGradeF073","None",0.730
+"Surface 115","New","Side_Storage_2","Nonresidential","DirectlyConditioned","UNDEFINED",5000.00,100.00,"SlabOnOrBelowGradeF073","None",0.730
+
+
+
+Window
+,,,,Exterior Wall,Window
+Name,Status,Occupancy Classification,Conditioning Status,Name,Area,Azimuth,Product Type,Cert Method,Cons Name,Frame Type,Glazing Type,U Factor,SHGC,Visual Transmittance, U Factor Simulated,Inside Convection Coefficient
+,,,,,(ft2),(Deg),,,,,,(Btu/h-?F-ft2),,,(Btu/h-?F-ft2),(Btu/h-?F-ft2)
+"Sub Surface 198","New","Nonresidential","DirectlyConditioned","Surface 16",1680.00,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"Sub Surface 199","New","Nonresidential","DirectlyConditioned","Surface 4",1680.00,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"Sub Surface 200","New","Nonresidential","DirectlyConditioned","Surface 5",420.00,270,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"Sub Surface 202","New","Nonresidential","DirectlyConditioned","Surface 26",1680.00,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"Sub Surface 201","New","Nonresidential","DirectlyConditioned","Surface 29",420.00,90,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+
+
+
+Skylight
+,,Space,,Exterior Roof,,,Skylight
+Name,Status,Occupancy Classification,Conditioning Status,Name,Area,Tilt,Cons Name,Curb,Glazing,U Factor,SHGC,Visual Transmittance, U Factor Simulated,Inside Convection Coefficient
+,,,,,(ft2),(Deg),,,,(Btu/h-?F-ft2),,,(Btu/h-?F-ft2),(Btu/h-?F-ft2)
+"Sub Surface 31","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 32","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 33","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 34","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 35","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 36","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 37","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 38","New","Nonresidential","DirectlyConditioned","Surface 62",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 189","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 190","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 191","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 192","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 193","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 194","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 195","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 196","New","Nonresidential","DirectlyConditioned","Surface 68",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 151","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 152","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 153","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 154","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 155","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 156","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 157","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 158","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 159","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 160","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 161","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 162","New","Nonresidential","DirectlyConditioned","Surface 74",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 127","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 128","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 129","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 130","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 131","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 132","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 133","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 134","New","Nonresidential","DirectlyConditioned","Surface 81",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 100","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 101","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 102","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 103","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 104","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 105","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 106","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 107","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 108","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 109","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 110","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 111","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 112","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 113","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 114","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 115","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 116","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 117","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 118","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 119","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 120","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 121","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 122","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 123","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 124","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 125","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 126","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 82","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 83","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 84","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 85","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 86","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 87","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 88","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 89","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 90","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 91","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 92","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 93","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 94","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 95","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 96","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 97","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 98","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 99","New","Nonresidential","DirectlyConditioned","Surface 114",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 175","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 176","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 177","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 178","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 179","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 180","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 181","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 182","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 183","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 184","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 185","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 186","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 187","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 188","New","Nonresidential","DirectlyConditioned","Surface 126",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 135","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 136","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 137","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 138","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 139","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 140","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 141","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 142","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 143","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 144","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 145","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 146","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 147","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 148","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 149","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 150","New","Nonresidential","DirectlyConditioned","Surface 132",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 222","New","Nonresidential","DirectlyConditioned","Surface 18",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 223","New","Nonresidential","DirectlyConditioned","Surface 18",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 224","New","Nonresidential","DirectlyConditioned","Surface 18",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 225","New","Nonresidential","DirectlyConditioned","Surface 18",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 226","New","Nonresidential","DirectlyConditioned","Surface 18",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 42","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 43","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 44","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 45","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 46","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 47","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 48","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 49","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 50","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 51","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 52","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 53","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 54","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 55","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 56","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 57","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 58","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 59","New","Nonresidential","DirectlyConditioned","Surface 48",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 227","New","Nonresidential","DirectlyConditioned","Surface 6",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 228","New","Nonresidential","DirectlyConditioned","Surface 6",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 229","New","Nonresidential","DirectlyConditioned","Surface 6",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 230","New","Nonresidential","DirectlyConditioned","Surface 6",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 231","New","Nonresidential","DirectlyConditioned","Surface 6",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 218","New","Nonresidential","DirectlyConditioned","Surface 30",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 219","New","Nonresidential","DirectlyConditioned","Surface 30",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 220","New","Nonresidential","DirectlyConditioned","Surface 30",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Skylt Sub Surface 221","New","Nonresidential","DirectlyConditioned","Surface 30",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 16","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 17","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 18","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 19","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 20","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 21","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 22","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 23","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 24","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 25","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 26","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 27","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 28","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 29","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 30","New","Nonresidential","DirectlyConditioned","Surface 88",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 1","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 10","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 11","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 12","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 13","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 14","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 15","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 2","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 3","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 4","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 5","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 6","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 7","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 8","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 9","New","Nonresidential","DirectlyConditioned","Surface 37",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 163","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 164","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 165","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 166","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 167","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 168","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 169","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 170","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 171","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 172","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 173","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 174","New","Nonresidential","DirectlyConditioned","Surface 95",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 60","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 61","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 62","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 63","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 64","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 65","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 66","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 67","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 68","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 69","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 70","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 71","New","Nonresidential","DirectlyConditioned","Surface 55",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 72","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 73","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 74","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 75","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 76","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 77","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 78","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 79","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 80","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 81","New","Nonresidential","DirectlyConditioned","Surface 102",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 197","New","Nonresidential","DirectlyConditioned","Surface 139",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 39","New","Nonresidential","DirectlyConditioned","Surface 139",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 40","New","Nonresidential","DirectlyConditioned","Surface 139",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+"Sub Surface 41","New","Nonresidential","DirectlyConditioned","Surface 139",16.00,0,"Base_AllCZ_Skylt-Gl-CurbMntU58","CurbMounted","Glass",0.580,0.25,0.49,0.58000,-99996.00000
+
+
+
+Interior Wall
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Area,Azimuth,Cons Name,Construction Type,U Factor
+,,,,,(ft2),(deg),,,(Btu/h-?F-ft2)
+"Surface 57","New","Aisle_1","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 58","New","Aisle_1","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 59","New","Aisle_1","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 60","New","Aisle_1","Nonresidential","DirectlyConditioned",1312.50,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 61","New","Aisle_1","Nonresidential","DirectlyConditioned",2437.50,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 64","New","Aisle_2","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 65","New","Aisle_2","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 66","New","Aisle_2","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 70","New","Aisle_3","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 71","New","Aisle_3","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 72","New","Aisle_3","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 76","New","Aisle_4","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 78","New","Aisle_4","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 79","New","Aisle_4","Nonresidential","DirectlyConditioned",2437.50,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 80","New","Aisle_4","Nonresidential","DirectlyConditioned",1312.50,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 135","New","Back_Office","Nonresidential","DirectlyConditioned",1250.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 136","New","Back_Office","Nonresidential","DirectlyConditioned",1500.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 104","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned",2500.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 105","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned",2500.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 110","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned",1750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 111","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned",2500.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 112","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned",5500.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 113","New","Back_Shelving/Refrig","Nonresidential","DirectlyConditioned",6250.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 123","New","Back_Storage_1","Nonresidential","DirectlyConditioned",1500.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 125","New","Back_Storage_1","Nonresidential","DirectlyConditioned",1500.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 14","New","Main_Entry","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 15","New","Main_Entry","Nonresidential","DirectlyConditioned",1125.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 17","New","Main_Entry","Nonresidential","DirectlyConditioned",1125.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 39","New","Registers","Nonresidential","DirectlyConditioned",1125.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 44","New","Registers","Nonresidential","DirectlyConditioned",1125.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 45","New","Registers","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 47","New","Registers","Nonresidential","DirectlyConditioned",1875.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 11","New","Restroom_1","Nonresidential","IndirectlyConditioned",1125.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 23","New","Restroom_2","Nonresidential","IndirectlyConditioned",1125.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 2","New","Side_Entry_1","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 28","New","Side_Entry_2","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 84","New","Side_Shelving_1","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 86","New","Side_Shelving_1","Nonresidential","DirectlyConditioned",2000.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 91","New","Side_Shelving_3","Nonresidential","DirectlyConditioned",3750.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+"Surface 94","New","Side_Shelving_3","Nonresidential","DirectlyConditioned",1250.00,-99996,"MetalFrameWallInterior","UNDEFINED",-99996.000
+
+
+
+Construction Assembly
+Name,Surface Type,Material Layer 1,Material Layer 2,Material Layer 3,Material Layer 4,Material Layer 5, Material Layer 6, Material Layer 7, Material Layer 8, Material Layer 9, Material Layer 10
+"SlabOnOrBelowGradeF073","UndergroundFloor","","","","","","","","","",""
+"MetalFrameWallU055","ExteriorWall","Stucco - 7/8 in.","Compliance Insulation R14.60","Compliance Insulation R1.41","Compliance Insulation R0.02","Compliance Insulation R0.02","Air - Metal Wall Framing - 16 or 24 in. OC","Gypsum Board - 1/2 in.","","",""
+"MetalFrameWallInterior","InteriorWall","Gypsum Board - 5/8 in.","Air - Metal Wall Framing - 16 or 24 in. OC","Gypsum Board - 5/8 in.","","","","","","",""
+"FlatNonresWoodFramingAndOtherRoofU034","Roof","Metal Standing Seam - 1/16 in.","Compliance Insulation R28.63","","","","","","","",""
+
+
+
+Construction Materials
+Name,Code Item,Type,R-value,Thickness,Frame Type,Frame Configuration,Frame Depth, Frame Cavity Insulation(for composite material)
+,,,(?F-ft2-h/Btuh),(in),,,,(?F-ft2-h/Btuh)
+"Stucco - 7/8 in.","Stucco - 7/8 in.","Plastering Materials",0.180,0.880,"- specify -","- specify -","- specify -",0.000
+"Air - Metal Wall Framing - 16 or 24 in. OC","Air - Metal Wall Framing - 16 or 24 in. OC","Air",0.650,5.500,"- specify -","- specify -","- specify -",0.000
+"Gypsum Board - 1/2 in.","Gypsum Board - 1/2 in.","Bldg Board and Siding",0.450,0.500,"- specify -","- specify -","- specify -",0.000
+"Metal Standing Seam - 1/16 in.","Metal Standing Seam - 1/16 in.","Roofing",0.000,0.063,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R28.63","Compliance Insulation R28.63","Insulation Board",28.630,4.569,"- specify -","- specify -","- specify -",0.000
+"Gypsum Board - 5/8 in.","Gypsum Board - 5/8 in.","Bldg Board and Siding",0.560,0.630,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R14.60","Compliance Insulation R14.60","Insulation Board",14.600,2.330,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R1.41","Compliance Insulation R1.41","Insulation Board",1.410,0.225,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R0.02","Compliance Insulation R0.02","Insulation Board",0.020,0.003,"- specify -","- specify -","- specify -",0.000

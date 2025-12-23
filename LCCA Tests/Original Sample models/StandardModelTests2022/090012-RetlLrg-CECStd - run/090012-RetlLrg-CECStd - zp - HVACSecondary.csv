@@ -1,0 +1,127 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"Back_Office_SZVAV","SZVAVHP","New",1,3000,100747,55,33.5823,423.275,109474,95,36.4913,3553.64,1.18455,450,0.15,"Back_Office Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Back_Shelving/Refrig_SZVAV","SZVAVHP","New",8,47000,179845,55,30.612,424.627,195424,95,33.2636,6363.94,1.08322,1468.75,0.25,"Back_Shelving/Refrig Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Back_Storage_SZVAV","SZVAVHP","New",4,28200,129861,55,18.42,423.275,141110,95,20.0156,4580.59,0.649729,1057.5,0.15,"Back_Storage Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Main_Entry_SZVAV","SZVAVHP","New",2,6750,136580,55,40.4681,423.275,148410,95,43.9735,4817.57,1.42743,1687.5,0.5,"Main_Entry Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Registers/Aisle_SZVAV","SZVAVHP","New",8,58500,234778,55,32.1064,424.627,255114,95,34.8874,8307.75,1.1361,1828.13,0.25,"Registers/Aisle Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Side_Entry_1_SZVAV","SZVAVHP","New",2,6750,140784,55,41.7136,407.299,152978,95,45.3269,4778.42,1.41583,1687.5,0.5,"Side_Entry_1 Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Side_Entry_2_SZVAV","SZVAVHP","New",2,6750,145936,55,43.2402,408.529,158577,95,46.9858,4968.26,1.47208,1687.5,0.5,"Side_Entry_2 Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Side_Shelving_East_SZVAV","SZVAVHP","New",4,29250,231908,55,31.714,424.627,251997,95,34.4611,8206.22,1.12222,1828.13,0.25,"Side_Shelving_East Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Side_Shelving_West_SZVAV","SZVAVHP","New",4,29250,230878,55,31.5731,424.627,250877,95,34.308,8169.76,1.11723,1828.13,0.25,"Side_Shelving_West Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Side_Storage_1_SZVAV","SZVAVHP","New",2,12800,118539,55,18.5217,460.472,128807,95,20.126,4548.64,0.710726,960,0.15,"Side_Storage_1 Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+"Side_Storage_2_SZVAV","SZVAVHP","New",1,5000,133104,55,26.6207,423.275,144633,95,28.9266,4694.96,0.938991,750,0.15,"Side_Storage_2 Zone","NoSATControl",,-99996,,-99996,,"UNDEFINED","RetailHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+ZoneSystems
+,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,Availability Schedule
+,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),( cfm/ft2),,,,,,,,,,
+"Restroom_1_Exhaust","Exhaust",1,0,0,-99996,0,0,0,-99996,0,0,0,0,0,"NONE","NoSATControl","RetailHVACAvail"
+"Restroom_2_Exhaust","Exhaust",1,0,0,-99996,0,0,0,-99996,0,0,0,0,0,"NONE","NoSATControl","RetailHVACAvail"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"Back_Office_TU","VAVNoReheatBox","New",1,"Back_Office_SZVAV",1,"Back_Office Zone",3000,1,3553.64,1776.82,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Back_Shelving/Refrig_TU","VAVNoReheatBox","New",1,"Back_Shelving/Refrig_SZVAV",8,"Back_Shelving/Refrig Zone",47000,8,6363.94,3181.97,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Back_Storage_TU","VAVNoReheatBox","New",1,"Back_Storage_SZVAV",4,"Back_Storage Zone",28200,4,4580.59,2290.29,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Main_Entry_TU","VAVNoReheatBox","New",1,"Main_Entry_SZVAV",2,"Main_Entry Zone",6750,2,4817.57,2408.78,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Registers/Aisle_TU","VAVNoReheatBox","New",1,"Registers/Aisle_SZVAV",8,"Registers/Aisle Zone",58500,8,8307.75,4153.88,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Side_Entry_1_TU","VAVNoReheatBox","New",1,"Side_Entry_1_SZVAV",2,"Side_Entry_1 Zone",6750,2,4778.42,2389.21,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Side_Entry_2_TU","VAVNoReheatBox","New",1,"Side_Entry_2_SZVAV",2,"Side_Entry_2 Zone",6750,2,4968.26,2484.13,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Side_Shelving_East_TU","VAVNoReheatBox","New",1,"Side_Shelving_East_SZVAV",4,"Side_Shelving_East Zone",29250,4,8206.22,4103.11,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Side_Shelving_West_TU","VAVNoReheatBox","New",1,"Side_Shelving_West_SZVAV",4,"Side_Shelving_West Zone",29250,4,8169.76,4084.88,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Side_Storage_1_TU","VAVNoReheatBox","New",1,"Side_Storage_1_SZVAV",2,"Side_Storage_1 Zone",12800,2,4548.64,2274.32,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Side_Storage_2_TU","VAVNoReheatBox","New",1,"Side_Storage_2_SZVAV",1,"Side_Storage_2 Zone",5000,1,4694.96,2347.48,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"Back_Office_CoilClg","DirectExpansion","New","Electric","Back_Office_SZVAV",1,"n/a",100747,105110,"NONE","NONE",-99996,"Air",2,-99996,-99996,11,11,14.1,14.1,0.255793,1,-99996,-99996,-99996,-99996
+"Back_Shelving/Refrig_CoilClg","DirectExpansion","New","Electric","Back_Shelving/Refrig_SZVAV",8,"n/a",179845,187635,"NONE","NONE",-99996,"Air",2,-99996,-99996,10.6,10.6,13.5,13.5,0.267012,1,-99996,-99996,-99996,-99996
+"Back_Storage_CoilClg","DirectExpansion","New","Electric","Back_Storage_SZVAV",4,"n/a",129861,135486,"NONE","NONE",-99996,"Air",2,-99996,-99996,11,11,14.1,14.1,0.255793,1,-99996,-99996,-99996,-99996
+"Main_Entry_CoilClg","DirectExpansion","New","Electric","Main_Entry_SZVAV",2,"n/a",136580,142495,"NONE","NONE",-99996,"Air",2,-99996,-99996,10.6,10.6,13.5,13.5,0.267012,1,-99996,-99996,-99996,-99996
+"Registers/Aisle_CoilClg","DirectExpansion","New","Electric","Registers/Aisle_SZVAV",8,"n/a",234778,244946,"NONE","NONE",-99996,"Air",2,-99996,-99996,10.6,10.6,13.5,13.5,0.267012,1,-99996,-99996,-99996,-99996
+"Side_Entry_1_CoilClg","DirectExpansion","New","Electric","Side_Entry_1_SZVAV",2,"n/a",140784,146881,"NONE","NONE",-99996,"Air",2,-99996,-99996,10.6,10.6,13.5,13.5,0.267012,1,-99996,-99996,-99996,-99996
+"Side_Entry_2_CoilClg","DirectExpansion","New","Electric","Side_Entry_2_SZVAV",2,"n/a",145936,152256,"NONE","NONE",-99996,"Air",2,-99996,-99996,10.6,10.6,13.5,13.5,0.267012,1,-99996,-99996,-99996,-99996
+"Side_Shelving_East_CoilClg","DirectExpansion","New","Electric","Side_Shelving_East_SZVAV",4,"n/a",231908,241952,"NONE","NONE",-99996,"Air",2,-99996,-99996,10.6,10.6,13.5,13.5,0.267012,1,-99996,-99996,-99996,-99996
+"Side_Shelving_West_CoilClg","DirectExpansion","New","Electric","Side_Shelving_West_SZVAV",4,"n/a",230878,240877,"NONE","NONE",-99996,"Air",2,-99996,-99996,10.6,10.6,13.5,13.5,0.267012,1,-99996,-99996,-99996,-99996
+"Side_Storage_1_CoilClg","DirectExpansion","New","Electric","Side_Storage_1_SZVAV",2,"n/a",118539,123673,"NONE","NONE",-99996,"Air",2,-99996,-99996,11,11,14.1,14.1,0.255793,1,-99996,-99996,-99996,-99996
+"Side_Storage_2_CoilClg","DirectExpansion","New","Electric","Side_Storage_2_SZVAV",1,"n/a",133104,138868,"NONE","NONE",-99996,"Air",2,-99996,-99996,11,11,14.1,14.1,0.255793,1,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"Back_Office_CoilHtg","HeatPump","New","Electric","Back_Office_SZVAV",1,"n/a",109474,105110,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.4,3.4,0.264815,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Back_Office_SuppCoilHtg","Resistance","New","Electric","Back_Office_SZVAV",1,"n/a",78025.4,78025.4,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Back_Shelving/Refrig_CoilHtg","HeatPump","New","Electric","Back_Shelving/Refrig_SZVAV",8,"n/a",195424,187635,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.3,3.3,0.274097,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Back_Shelving/Refrig_SuppCoilHtg","Resistance","New","Electric","Back_Shelving/Refrig_SZVAV",8,"n/a",173622,173622,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Back_Storage_CoilHtg","HeatPump","New","Electric","Back_Storage_SZVAV",4,"n/a",141110,135486,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.4,3.4,0.264815,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Back_Storage_SuppCoilHtg","Resistance","New","Electric","Back_Storage_SZVAV",4,"n/a",125236,125236,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Main_Entry_CoilHtg","HeatPump","New","Electric","Main_Entry_SZVAV",2,"n/a",148410,142495,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.3,3.3,0.274097,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Main_Entry_SuppCoilHtg","Resistance","New","Electric","Main_Entry_SZVAV",2,"n/a",159522,159522,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Registers/Aisle_CoilHtg","HeatPump","New","Electric","Registers/Aisle_SZVAV",8,"n/a",255114,244946,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.3,3.3,0.274097,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Registers/Aisle_SuppCoilHtg","Resistance","New","Electric","Registers/Aisle_SZVAV",8,"n/a",222330,222330,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Entry_1_CoilHtg","HeatPump","New","Electric","Side_Entry_1_SZVAV",2,"n/a",152978,146881,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.3,3.3,0.274097,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Entry_1_SuppCoilHtg","Resistance","New","Electric","Side_Entry_1_SZVAV",2,"n/a",158917,158917,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Entry_2_CoilHtg","HeatPump","New","Electric","Side_Entry_2_SZVAV",2,"n/a",158577,152256,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.3,3.3,0.274097,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Entry_2_SuppCoilHtg","Resistance","New","Electric","Side_Entry_2_SZVAV",2,"n/a",161864,161864,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Shelving_East_CoilHtg","HeatPump","New","Electric","Side_Shelving_East_SZVAV",4,"n/a",251997,241952,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.3,3.3,0.274097,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Shelving_East_SuppCoilHtg","Resistance","New","Electric","Side_Shelving_East_SZVAV",4,"n/a",221196,221196,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Shelving_West_CoilHtg","HeatPump","New","Electric","Side_Shelving_West_SZVAV",4,"n/a",250877,240877,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.3,3.3,0.274097,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Shelving_West_SuppCoilHtg","Resistance","New","Electric","Side_Shelving_West_SZVAV",4,"n/a",220730,220730,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Storage_1_CoilHtg","HeatPump","New","Electric","Side_Storage_1_SZVAV",2,"n/a",128807,123673,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.4,3.4,0.264815,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Storage_1_SuppCoilHtg","Resistance","New","Electric","Side_Storage_1_SZVAV",2,"n/a",113091,113091,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Storage_2_CoilHtg","HeatPump","New","Electric","Side_Storage_2_SZVAV",1,"n/a",144633,138868,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.4,3.4,0.264815,17,35,-99996,-99996,-99996,-99996,1,-99996,-99996
+"Side_Storage_2_SuppCoilHtg","Resistance","New","Electric","Side_Storage_2_SZVAV",1,"n/a",110849,110849,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"Back_Office_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Back_Office_SZVAV",1,"n/a",3553.64,1776.82,0.65,"PowerPerUnitFlow",3.17369,3.68359,0.744,5,"InAirStream",0.895
+"Back_Shelving/Refrig_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Back_Shelving/Refrig_SZVAV",8,"n/a",6363.94,3181.97,0.65,"PowerPerUnitFlow",5.63537,3.65239,0.72,7.5,"InAirStream",0.917
+"Back_Storage_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Back_Storage_SZVAV",4,"n/a",4580.59,2290.29,0.65,"PowerPerUnitFlow",4.09083,3.68359,0.744,5,"InAirStream",0.895
+"Main_Entry_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Main_Entry_SZVAV",2,"n/a",4817.57,2408.78,0.65,"PowerPerUnitFlow",4.30247,3.68359,0.744,5,"InAirStream",0.895
+"Registers/Aisle_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Registers/Aisle_SZVAV",8,"n/a",8307.75,4153.88,0.65,"PowerPerUnitFlow",7.35664,3.65239,0.72,7.5,"InAirStream",0.917
+"Side_Entry_1_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Side_Entry_1_SZVAV",2,"n/a",4778.42,2389.21,0.65,"PowerPerUnitFlow",4.26751,3.68359,0.744,5,"InAirStream",0.895
+"Side_Entry_2_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Side_Entry_2_SZVAV",2,"n/a",4968.26,2484.13,0.65,"PowerPerUnitFlow",4.43705,3.68359,0.744,5,"InAirStream",0.895
+"Side_Shelving_East_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Side_Shelving_East_SZVAV",4,"n/a",8206.22,4103.11,0.65,"PowerPerUnitFlow",7.26673,3.65239,0.72,7.5,"InAirStream",0.917
+"Side_Shelving_West_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Side_Shelving_West_SZVAV",4,"n/a",8169.76,4084.88,0.65,"PowerPerUnitFlow",7.23444,3.65239,0.72,7.5,"InAirStream",0.917
+"Side_Storage_1_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Side_Storage_1_SZVAV",2,"n/a",4548.64,2274.32,0.65,"PowerPerUnitFlow",4.0623,3.68359,0.744,5,"InAirStream",0.895
+"Side_Storage_2_SupplyFan","VariableSpeedDrive","New","Centrifugal","AirFoil","Side_Storage_2_SZVAV",1,"n/a",4694.96,2347.48,0.65,"PowerPerUnitFlow",4.19297,3.68359,0.744,5,"InAirStream",0.895
+"Restroom_1_ExhaustFan","ConstantVolume","New","Centrifugal","AirFoil","Restroom_1_Exhaust",1,"UNDEFINED",500,-99996,0.65,"PowerPerUnitFlow",0.114673,0.945957,0.2,0.125,"InAirStream",0.855
+"Restroom_2_ExhaustFan","ConstantVolume","New","Centrifugal","AirFoil","Restroom_2_Exhaust",1,"UNDEFINED",500,-99996,0.65,"PowerPerUnitFlow",0.114673,0.945957,0.2,0.125,"InAirStream",0.855
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"Back_Office_OACtrl","FixedDryBulb","New",450,"Back_Office_SZVAV",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Back_Shelving/Refrig_OACtrl","FixedDryBulb","New",1468.75,"Back_Shelving/Refrig_SZVAV",8,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Back_Storage_OACtrl","FixedDryBulb","New",1057.5,"Back_Storage_SZVAV",4,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Main_Entry_OACtrl","FixedDryBulb","New",1687.5,"Main_Entry_SZVAV",2,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Registers/Aisle_OACtrl","FixedDryBulb","New",1828.13,"Registers/Aisle_SZVAV",8,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Side_Entry_1_OACtrl","FixedDryBulb","New",1687.5,"Side_Entry_1_SZVAV",2,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Side_Entry_2_OACtrl","FixedDryBulb","New",1687.5,"Side_Entry_2_SZVAV",2,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Side_Shelving_East_OACtrl","FixedDryBulb","New",1828.13,"Side_Shelving_East_SZVAV",4,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Side_Shelving_West_OACtrl","FixedDryBulb","New",1828.13,"Side_Shelving_West_SZVAV",4,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Side_Storage_1_OACtrl","FixedDryBulb","New",960,"Side_Storage_1_SZVAV",2,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Side_Storage_2_OACtrl","FixedDryBulb","New",750,"Side_Storage_2_SZVAV",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"

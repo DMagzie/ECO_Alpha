@@ -1,0 +1,87 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 010012-SchSml-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"BaseVAVNoReheatTrmlUnit","Uncontrolled","BaseAirSys7or3b","Common_Mech/Elec_Zn",558.332,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-2","Uncontrolled","BaseAirSys7or3b-2","Wing1_Side1_Zn",904.231,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-3","Uncontrolled","BaseAirSys7or3b-3","Wing1_Corridor_Zn",960.931,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-4","Uncontrolled","BaseAirSys7or3b-4","Wing1_Side2_Zn",710.965,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-5","Uncontrolled","BaseAirSys7or3b-5","Common_Lobby_Zn",595.875,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-6","Uncontrolled","BaseAirSys7or3b-6","Common_Corridor_Zn",990.010,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-7","Uncontrolled","BaseAirSys7or3b-7","Wing2_Side1_Zn",889.525,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-8","Uncontrolled","BaseAirSys7or3b-8","Wing2_Corridor_Zn",967.313,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-9","Uncontrolled","BaseAirSys7or3b-9","Wing2_Side2_Zn",749.512,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-10","Uncontrolled","BaseAirSys7or3b-10","Common_Office_Zn",2052.387,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-11","VAVNoReheatBox","BaseAirSys7or3b-11","Common_Cafeteria_Zn",3335.225,1667.613,-99996.000,""
+ENDTABLE
+TABLE 010012-SchSml-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys7or3b CoilClg","DirectExpansion","BaseAirSys7or3b","n/a",15828.891,16514.450,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-2","DirectExpansion","BaseAirSys7or3b-2","n/a",27478.480,28668.590,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-3","DirectExpansion","BaseAirSys7or3b-3","n/a",27242.719,28422.618,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-4","DirectExpansion","BaseAirSys7or3b-4","n/a",20156.096,21029.068,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-5","DirectExpansion","BaseAirSys7or3b-5","n/a",16893.238,17624.894,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-6","DirectExpansion","BaseAirSys7or3b-6","n/a",34897.144,36408.560,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-7","DirectExpansion","BaseAirSys7or3b-7","n/a",27111.923,28286.157,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-8","DirectExpansion","BaseAirSys7or3b-8","n/a",27423.646,28611.381,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-9","DirectExpansion","BaseAirSys7or3b-9","n/a",21248.916,22169.219,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-10","DirectExpansion","BaseAirSys7or3b-10","n/a",60369.802,62984.454,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-11","DirectExpansion","BaseAirSys7or3b-11","n/a",94554.758,98649.982,-99996.00000,-99996.000,11.000,2
+ENDTABLE
+TABLE 010012-SchSml-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys7or3b CoilHtg","HeatPump","BaseAirSys7or3b","n/a",17200.009,16514.450,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-2","HeatPump","BaseAirSys7or3b-2","n/a",29858.700,28668.590,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-3","HeatPump","BaseAirSys7or3b-3","n/a",29602.516,28422.618,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-4","HeatPump","BaseAirSys7or3b-4","n/a",21902.041,21029.068,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-5","HeatPump","BaseAirSys7or3b-5","n/a",18356.550,17624.894,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-6","HeatPump","BaseAirSys7or3b-6","n/a",37919.976,36408.560,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-7","HeatPump","BaseAirSys7or3b-7","n/a",29460.391,28286.157,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-8","HeatPump","BaseAirSys7or3b-8","n/a",29799.116,28611.381,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-9","HeatPump","BaseAirSys7or3b-9","n/a",23089.523,22169.219,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-10","HeatPump","BaseAirSys7or3b-10","n/a",65599.107,62984.454,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-11","HeatPump","BaseAirSys7or3b-11","n/a",102745.206,98649.982,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg","Resistance","BaseAirSys7or3b","n/a",11907.162,11907.162,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-2","Resistance","BaseAirSys7or3b-2","n/a",28339.491,28339.491,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-3","Resistance","BaseAirSys7or3b-3","n/a",27763.275,27763.275,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-4","Resistance","BaseAirSys7or3b-4","n/a",25398.225,25398.225,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-5","Resistance","BaseAirSys7or3b-5","n/a",14248.500,14248.500,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-6","Resistance","BaseAirSys7or3b-6","n/a",28260.088,28260.088,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-7","Resistance","BaseAirSys7or3b-7","n/a",28115.216,28115.216,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-8","Resistance","BaseAirSys7or3b-8","n/a",27860.950,27860.950,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-9","Resistance","BaseAirSys7or3b-9","n/a",25984.959,25984.959,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-10","Resistance","BaseAirSys7or3b-10","n/a",48082.200,48082.200,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-11","Resistance","BaseAirSys7or3b-11","n/a",123557.000,123557.000,0.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE 010012-SchSml-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"BaseSys7or3b SupFan","ConstantVolume","BaseAirSys7or3b","n/a",558.332,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.476,0.500,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-2","ConstantVolume","BaseAirSys7or3b-2","n/a",904.231,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.771,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-3","ConstantVolume","BaseAirSys7or3b-3","n/a",960.931,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.820,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-4","ConstantVolume","BaseAirSys7or3b-4","n/a",710.965,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.607,0.750,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-5","ConstantVolume","BaseAirSys7or3b-5","n/a",595.875,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.508,0.750,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-6","ConstantVolume","BaseAirSys7or3b-6","n/a",990.010,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.845,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-7","ConstantVolume","BaseAirSys7or3b-7","n/a",889.525,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.759,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-8","ConstantVolume","BaseAirSys7or3b-8","n/a",967.313,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.825,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-9","ConstantVolume","BaseAirSys7or3b-9","n/a",749.512,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.639,0.750,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-10","ConstantVolume","BaseAirSys7or3b-10","n/a",2052.387,-99996.000,0.650,"PowerPerUnitFlow",3.560,1.772,2.000,"InAirStream",0.865,0.7440
+,"BaseSys7or3b SupFan-11","VariableSpeedDrive","BaseAirSys7or3b-11","n/a",3335.225,1667.613,0.650,"PowerPerUnitFlow",3.684,2.979,3.000,"InAirStream",0.895,0.7440
+ENDTABLE
+TABLE 010012-SchSml-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"BaseSys7or3b OACtrl","NoEconomizer","BaseAirSys7or3b","UNDEFINED"
+,"BaseSys7or3b OACtrl-2","NoEconomizer","BaseAirSys7or3b-2","UNDEFINED"
+,"BaseSys7or3b OACtrl-3","NoEconomizer","BaseAirSys7or3b-3","UNDEFINED"
+,"BaseSys7or3b OACtrl-4","NoEconomizer","BaseAirSys7or3b-4","UNDEFINED"
+,"BaseSys7or3b OACtrl-5","NoEconomizer","BaseAirSys7or3b-5","UNDEFINED"
+,"BaseSys7or3b OACtrl-6","FixedDryBulb","BaseAirSys7or3b-6","Integrated"
+,"BaseSys7or3b OACtrl-7","NoEconomizer","BaseAirSys7or3b-7","UNDEFINED"
+,"BaseSys7or3b OACtrl-8","NoEconomizer","BaseAirSys7or3b-8","UNDEFINED"
+,"BaseSys7or3b OACtrl-9","NoEconomizer","BaseAirSys7or3b-9","UNDEFINED"
+,"BaseSys7or3b OACtrl-10","FixedDryBulb","BaseAirSys7or3b-10","Integrated"
+,"BaseSys7or3b OACtrl-11","FixedDryBulb","BaseAirSys7or3b-11","Integrated"
+ENDTABLE

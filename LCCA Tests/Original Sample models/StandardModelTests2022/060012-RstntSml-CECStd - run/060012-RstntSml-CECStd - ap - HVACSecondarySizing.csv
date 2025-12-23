@@ -1,0 +1,32 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 060012-RstntSml-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Dining TerminalUnit","Uncontrolled","DiningSZAC","Dining Thermal Zone",1379.956,-99996.000,-99996.000,""
+,"Kitchen TerminalUnit","VAVNoReheatBox","KitchenMUA","Kitchen Thermal Zone",2000.000,2000.000,-99996.000,""
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Dining CoilClg","DirectExpansion","DiningSZAC","n/a",56685.884,59140.984,-99996.00000,14.000,11.407,1
+,"Kitchen CoilClg","DirectExpansion","KitchenMUA","n/a",82156.057,85714.286,-99996.00000,-99996.000,11.000,2
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Dining CoilHtg","Furnace","DiningSZAC","n/a",51553.200,51553.200,-99996.00000,0.810,0.815
+,"Kitchen CoilHtg","Furnace","KitchenMUA","n/a",85915.063,85915.063,-99996.00000,0.810,0.815
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Dining Fan","ConstantVolume","DiningSZAC","n/a",1379.956,-99996.000,0.650,"PowerPerUnitFlow",3.838,1.284,1.500,"InAirStream",0.865,0.8020
+,"Kitchen Fan","VariableSpeedDrive","KitchenMUA","n/a",2000.000,2000.000,0.650,"PowerPerUnitFlow",3.838,1.861,2.000,"InAirStream",0.865,0.8020
+,"KitchExh Fan","ConstantVolume","KitchenExhaust","UNDEFINED",2400.000,-99996.000,0.500,"StaticPressure",2.393,1.810,2.000,"InAirStream",0.865,0.6500
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"DiningOAControl","FixedDryBulb","DiningSZAC","Integrated"
+,"Kitchen OAControl","FixedDryBulb","KitchenMUA","Integrated"
+ENDTABLE

@@ -1,0 +1,88 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 010012-SchSml-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Common_Mech/Elec_TU","Uncontrolled","Common_Mech/Elec-SZAC-Sys","Common_Mech/Elec_Zn",558.332,-99996.000,-99996.000,""
+,"Wing1_Side1_TU","Uncontrolled","Wing1_Side1-SZAC-Sys (x4)","Wing1_Side1_Zn",904.231,-99996.000,-99996.000,""
+,"Wing1_Corridor_TU","Uncontrolled","Wing1_Corridor-SZAC-Sys","Wing1_Corridor_Zn",960.931,-99996.000,-99996.000,""
+,"Wing1_Side2_TU","Uncontrolled","Wing1_Side2-SZAC-Sys (x4)","Wing1_Side2_Zn",710.965,-99996.000,-99996.000,""
+,"Common_Lobby_TU","Uncontrolled","Common_Lobby-SZAC-Sys","Common_Lobby_Zn",595.875,-99996.000,-99996.000,""
+,"Common_Corridor_TU","Uncontrolled","Common_Corridor-SZAC-Sys","Common_Corridor_Zn",990.010,-99996.000,-99996.000,""
+,"Wing2_Side1_TU","Uncontrolled","Wing2_Side1-SZAC-Sys (x4)","Wing2_Side1_Zn",889.525,-99996.000,-99996.000,""
+,"Wing2_Corridor_TU","Uncontrolled","Wing2_Corridor-SZAC-Sys","Wing2_Corridor_Zn",967.313,-99996.000,-99996.000,""
+,"Wing2_Side2_TU","Uncontrolled","Wing2_Side2-SZAC-Sys (x4)","Wing2_Side2_Zn",749.512,-99996.000,-99996.000,""
+,"Common_Office_TU","Uncontrolled","Common_Office-SZAC-Sys","Common_Office_Zn",2052.387,-99996.000,-99996.000,""
+,"Common_Cafeteria_TU","VAVNoReheatBox","Common_Cafeteria-SZVAVAC-Sys","Common_Cafeteria_Zn",3335.225,1667.612,-99996.000,""
+ENDTABLE
+TABLE 010012-SchSml-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Common_Mech/Elec_CoilClg","DirectExpansion","Common_Mech/Elec-SZAC-Sys","n/a",15828.891,16514.450,-99996.00000,14.000,11.407,1
+,"Wing1_Side1_CoilClg","DirectExpansion","Wing1_Side1-SZAC-Sys (x4)","n/a",27478.480,28668.590,-99996.00000,14.000,11.407,1
+,"Wing1_Corridor_CoilClg","DirectExpansion","Wing1_Corridor-SZAC-Sys","n/a",27242.719,28422.618,-99996.00000,14.000,11.407,1
+,"Wing1_Side2_CoilClg","DirectExpansion","Wing1_Side2-SZAC-Sys (x4)","n/a",20156.096,21029.069,-99996.00000,14.000,11.407,1
+,"Common_Lobby_CoilClg","DirectExpansion","Common_Lobby-SZAC-Sys","n/a",16893.238,17624.894,-99996.00000,14.000,11.407,1
+,"Common_Corridor_CoilClg","DirectExpansion","Common_Corridor-SZAC-Sys","n/a",34897.144,36408.560,-99996.00000,14.000,11.407,1
+,"Wing2_Side1_CoilClg","DirectExpansion","Wing2_Side1-SZAC-Sys (x4)","n/a",27111.923,28286.157,-99996.00000,14.000,11.407,1
+,"Wing2_Corridor_CoilClg","DirectExpansion","Wing2_Corridor-SZAC-Sys","n/a",27423.646,28611.381,-99996.00000,14.000,11.407,1
+,"Wing2_Side2_CoilClg","DirectExpansion","Wing2_Side2-SZAC-Sys (x4)","n/a",21248.916,22169.219,-99996.00000,14.000,11.407,1
+,"Common_Office_CoilClg","DirectExpansion","Common_Office-SZAC-Sys","n/a",60369.802,62984.455,-99996.00000,14.000,11.407,1
+,"Common_Cafeteria_CoilClg","DirectExpansion","Common_Cafeteria-SZVAVAC-Sys","n/a",94554.758,98649.982,-99996.00000,-99996.000,11.000,2
+ENDTABLE
+TABLE 010012-SchSml-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Common_Mech/Elec_CoilHtg","HeatPump","Common_Mech/Elec-SZAC-Sys","n/a",17200.009,16514.450,-99996.00000,-99996.000,-99996.000
+,"Common_Mech/Elec_SuppCoilHtg","Resistance","Common_Mech/Elec-SZAC-Sys","n/a",11907.162,11907.162,-99996.00000,-99996.000,-99996.000
+,"Wing1_Side1_CoilHtg","HeatPump","Wing1_Side1-SZAC-Sys (x4)","n/a",29858.700,28668.590,-99996.00000,-99996.000,-99996.000
+,"Wing1_Side1_SuppCoilHtg","Resistance","Wing1_Side1-SZAC-Sys (x4)","n/a",28339.491,28339.491,-99996.00000,-99996.000,-99996.000
+,"Wing1_Corridor_CoilHtg","HeatPump","Wing1_Corridor-SZAC-Sys","n/a",29602.516,28422.617,-99996.00000,-99996.000,-99996.000
+,"Wing1_Corridor_SuppCoilHtg","Resistance","Wing1_Corridor-SZAC-Sys","n/a",27763.275,27763.275,-99996.00000,-99996.000,-99996.000
+,"Wing1_Side2_CoilHtg","HeatPump","Wing1_Side2-SZAC-Sys (x4)","n/a",21902.041,21029.068,-99996.00000,-99996.000,-99996.000
+,"Wing1_Side2_SuppCoilHtg","Resistance","Wing1_Side2-SZAC-Sys (x4)","n/a",25398.225,25398.225,-99996.00000,-99996.000,-99996.000
+,"Common_Lobby_CoilHtg","HeatPump","Common_Lobby-SZAC-Sys","n/a",18356.550,17624.894,-99996.00000,-99996.000,-99996.000
+,"Common_Lobby_SuppCoilHtg","Resistance","Common_Lobby-SZAC-Sys","n/a",14248.500,14248.500,-99996.00000,-99996.000,-99996.000
+,"Common_Corridor_CoilHtg","HeatPump","Common_Corridor-SZAC-Sys","n/a",37919.976,36408.560,-99996.00000,-99996.000,-99996.000
+,"Common_Corridor_SuppCoilHtg","Resistance","Common_Corridor-SZAC-Sys","n/a",28260.088,28260.088,-99996.00000,-99996.000,-99996.000
+,"Wing2_Side1_CoilHtg","HeatPump","Wing2_Side1-SZAC-Sys (x4)","n/a",29460.391,28286.157,-99996.00000,-99996.000,-99996.000
+,"Wing2_Side1_SuppCoilHtg","Resistance","Wing2_Side1-SZAC-Sys (x4)","n/a",28115.216,28115.216,-99996.00000,-99996.000,-99996.000
+,"Wing2_Corridor_CoilHtg","HeatPump","Wing2_Corridor-SZAC-Sys","n/a",29799.116,28611.381,-99996.00000,-99996.000,-99996.000
+,"Wing2_Corridor_SuppCoilHtg","Resistance","Wing2_Corridor-SZAC-Sys","n/a",27860.950,27860.950,-99996.00000,-99996.000,-99996.000
+,"Wing2_Side2_CoilHtg","HeatPump","Wing2_Side2-SZAC-Sys (x4)","n/a",23089.523,22169.220,-99996.00000,-99996.000,-99996.000
+,"Wing2_Side2_SuppCoilHtg","Resistance","Wing2_Side2-SZAC-Sys (x4)","n/a",25984.959,25984.959,-99996.00000,-99996.000,-99996.000
+,"Common_Office_CoilHtg","HeatPump","Common_Office-SZAC-Sys","n/a",65599.107,62984.454,-99996.00000,-99996.000,-99996.000
+,"Common_Office_SuppCoilHtg","Resistance","Common_Office-SZAC-Sys","n/a",48082.200,48082.200,-99996.00000,-99996.000,-99996.000
+,"Common_Cafeteria_CoilHtg","HeatPump","Common_Cafeteria-SZVAVAC-Sys","n/a",102745.206,98649.982,-99996.00000,-99996.000,-99996.000
+,"Common_Cafeteria_SuppCoilHtg","Resistance","Common_Cafeteria-SZVAVAC-Sys","n/a",123557.000,123557.000,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE 010012-SchSml-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Common_Mech/Elec_Fan","ConstantVolume","Common_Mech/Elec-SZAC-Sys","n/a",558.332,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.476,0.500,"InAirStream",0.855,0.7440
+,"Wing1_Side1_Fan","ConstantVolume","Wing1_Side1-SZAC-Sys (x4)","n/a",904.231,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.771,1.000,"InAirStream",0.855,0.7440
+,"Wing1_Corridor_Fan","ConstantVolume","Wing1_Corridor-SZAC-Sys","n/a",960.931,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.820,1.000,"InAirStream",0.855,0.7440
+,"Wing1_Side2_Fan","ConstantVolume","Wing1_Side2-SZAC-Sys (x4)","n/a",710.965,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.607,0.750,"InAirStream",0.855,0.7440
+,"Common_Lobby_Fan","ConstantVolume","Common_Lobby-SZAC-Sys","n/a",595.875,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.508,0.750,"InAirStream",0.855,0.7440
+,"Common_Corridor_Fan","ConstantVolume","Common_Corridor-SZAC-Sys","n/a",990.010,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.845,1.000,"InAirStream",0.855,0.7440
+,"Wing2_Side1_Fan","ConstantVolume","Wing2_Side1-SZAC-Sys (x4)","n/a",889.525,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.759,1.000,"InAirStream",0.855,0.7440
+,"Wing2_Corridor_Fan","ConstantVolume","Wing2_Corridor-SZAC-Sys","n/a",967.313,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.825,1.000,"InAirStream",0.855,0.7440
+,"Wing2_Side2_Fan","ConstantVolume","Wing2_Side2-SZAC-Sys (x4)","n/a",749.512,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.639,0.750,"InAirStream",0.855,0.7440
+,"Common_Office_Fan","ConstantVolume","Common_Office-SZAC-Sys","n/a",2052.387,-99996.000,0.650,"PowerPerUnitFlow",3.560,1.772,2.000,"InAirStream",0.865,0.7440
+,"Common_Cafeteria_Fan","VariableSpeedDrive","Common_Cafeteria-SZVAVAC-Sys","n/a",3335.225,1667.612,0.650,"PowerPerUnitFlow",3.684,2.979,3.000,"InAirStream",0.895,0.7440
+,"Common_Restroom_Fan-Exhaust","ConstantVolume","Common_Restroom-Exhaust","UNDEFINED",500.000,-99996.000,0.650,"PowerPerUnitFlow",0.946,0.115,0.125,"InAirStream",0.855,0.2000
+ENDTABLE
+TABLE 010012-SchSml-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"Common_Mech/Elec_OACtrl","NoEconomizer","Common_Mech/Elec-SZAC-Sys","UNDEFINED"
+,"Wing1_Side1_OACtrl","NoEconomizer","Wing1_Side1-SZAC-Sys (x4)","UNDEFINED"
+,"Wing1_Corridor_OACtrl","NoEconomizer","Wing1_Corridor-SZAC-Sys","UNDEFINED"
+,"Wing1_Side2_OACtrl","NoEconomizer","Wing1_Side2-SZAC-Sys (x4)","UNDEFINED"
+,"Common_Lobby_OACtrl","NoEconomizer","Common_Lobby-SZAC-Sys","UNDEFINED"
+,"Common_Corridor_OACtrl","FixedDryBulb","Common_Corridor-SZAC-Sys","Integrated"
+,"Wing2_Side1_OACtrl","NoEconomizer","Wing2_Side1-SZAC-Sys (x4)","UNDEFINED"
+,"Wing2_Corridor_OACtrl","NoEconomizer","Wing2_Corridor-SZAC-Sys","UNDEFINED"
+,"Wing2_Side2_OACtrl","NoEconomizer","Wing2_Side2-SZAC-Sys (x4)","UNDEFINED"
+,"Common_Office_OACtrl","FixedDryBulb","Common_Office-SZAC-Sys","Integrated"
+,"Common_Cafeteria_OACtrl","FixedDryBulb","Common_Cafeteria-SZVAVAC-Sys","Integrated"
+ENDTABLE

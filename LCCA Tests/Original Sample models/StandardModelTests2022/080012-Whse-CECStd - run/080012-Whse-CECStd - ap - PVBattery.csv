@@ -1,0 +1,14 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  29.8 kWdc PV  /  Battery Energy 35.4 kWh and Power 8.36 kW (Time of Use control)"
+,"Standard Design PV Capacity: 29.8 kWdc  /  Battery Capacity: 35.4 kWh  (power 8.36 kW, Time of Use control)"
+,"User-specified PV and Battery:  29.8 kWdc PV  /  35.4 kWh Battery  (8.4/8.4 charge/discharge rate (kW), Time of Use control)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Spc_Office","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2549.75,1,,,2549.75,,,,,,,,,7.98072,14.1133,3.3519,
+"Spc_FineStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Warehouse",14998.6,1,,,,,,14998.6,,,,,,6.59937,6.46043,1.51785,
+"Spc_BulkStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Warehouse",34496.7,1,,,,,,34496.7,,,,,,15.1786,14.859,3.49107,
+,,,,,Sums:,0,0,2549.75,0,0,49495.3,0,0,0,0,,29.7586,35.4327,8.36082,
+,,Bldg Cond Area:,52045,,Pcts:,0.0,0.0,4.9,0.0,0.0,95.1,0.0,0.0,,0.0,

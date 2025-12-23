@@ -1,0 +1,56 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"DOAS-A1-A2","PVAV","New",1,15583,409200,55,26.2593,183.284,259322,60,16.6413,6250,0.401077,2337.46,0.15,"NONE","Fixed",55,-99996,-99996,-99996,-99996,"SingleMaximum","OfficeHVACAvail","CycleOnCallAnyZone"
+"DOAS-A3-A4","PVAV","New",1,25643.4,279200,55,10.8878,317.622,225202,60,8.78205,7390,0.288183,3846.52,0.15,"NONE","Fixed",55,-99996,-99996,-99996,-99996,"SingleMaximum","OfficeHVACAvail","CycleOnCallAnyZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"TU_Corridor_L01_DOAS-A1-A2","VAVNoReheatBox","New",1,"DOAS-A1-A2",1,"TZ-Corridor_L01",2441.37,1,1700,366,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU_Corridor_L02_DOAS-A1-A2","VAVNoReheatBox","New",1,"DOAS-A1-A2",1,"TZ-Corridor_L02",5364.23,1,5559,834,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU_Corridor_L03_DOAS-A1-A2","VAVNoReheatBox","New",1,"DOAS-A1-A2",1,"TZ-Corridor_L03",7777.45,1,10525,1579,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU_Corridor_L04","VAVNoReheatBox","New",1,"DOAS-A3-A4",1,"TZ-Corridor_L04",6365.7,1,9395,1409,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU_Corridor_L05","VAVNoReheatBox","New",1,"DOAS-A3-A4",1,"TZ-Corridor_L05",6425.88,1,9144,1372,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU_Corridor_L06","VAVNoReheatBox","New",1,"DOAS-A3-A4",1,"TZ-Corridor_L06",6425.93,1,9144,1372,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU-Corridor_L07","VAVNoReheatBox","New",1,"DOAS-A3-A4",1,"TZ-Corridor_L07",6425.93,1,9144,1372,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"CC_DOAS-A1-A2","DirectExpansion","New","Electric","DOAS-A1-A2",1,"UNDEFINED",409200,426923,"NONE","NONE",-99996,"Air",1,-99996,-99996,11,10,13.2,13.2,0.255793,1,-99996,-99996,-99996,-99996
+"CC_DOAS-A1-A2-2","DirectExpansion","New","Electric","DOAS-A3-A4",1,"UNDEFINED",279200,291292,"NONE","NONE",-99996,"Air",1,-99996,-99996,11,10,13.2,13.2,0.255793,1,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"CH_DOAS-A1-A2","Resistance","New","Electric","DOAS-A1-A2",1,"UNDEFINED",259322,259322,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"CH_DOAS-A3-A4","Resistance","New","Electric","DOAS-A3-A4",1,"UNDEFINED",225202,225202,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"Fan_DOAS-A1-A2","VariableSpeedDrive","New","Centrifugal","AirFoil","DOAS-A1-A2",1,"UNDEFINED",6250,1461,0.65,"StaticPressure",2.12142,1.4,0.281197,2.5,"InAirStream",0.9
+"Fan_DOAS-A1-A2-2","VariableSpeedDrive","New","Centrifugal","AirFoil","DOAS-A3-A4",1,"UNDEFINED",7390,2866,0.65,"StaticPressure",2.50837,1.4,0.281197,3,"InAirStream",0.9
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"OAC_DOAS-A1-A2","FixedDryBulb","New",2337.46,"DOAS-A1-A2",1,"NonIntegrated",1,73,-99996,50,"FollowHVACAvailability",0,"NONE"
+"OAC_DOAS-A1-A2-2","FixedDryBulb","New",3846.52,"DOAS-A3-A4",1,"NonIntegrated",1,73,-99996,50,"FollowHVACAvailability",0,"NONE"

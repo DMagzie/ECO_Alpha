@@ -1,0 +1,21 @@
+BuildingStory
+,,Floor Area (including multipliers),,,,,Ventilation (Design),,,Ventilation (For Balance),,,,,,General,,Comm. Kitchen,,Parking Garage,,Laboratory
+Name,Multiplier,Total,Cond. NRes,Cond. Res,Total Cond.,Number,Total,Code Min.,Exhaust,Total,Code Min.,Tot:Min Ratio,Exhaust,Vent:Exh Ratio,Vent Mult.,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust
+,,(ft2),(ft2),(ft2),(ft2),(people),(cfm),(cfm),(cfm),(cfm),(cfm),,(cfm),,,(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"Building Story 1",1,52045.0,52045.0,0.0,52045.0,62.2,7807,7807,0,7807,7807,1.000,0,1.000,1.000,7807,0,0,0,0,0,0,0
+
+Space
+,,,,,,,Occupancy,,,Ventilation,,Design Input (By Component),,,,,Minimum Req. (By Component),,,,Simulated,,,Exhaust,,,ForBalance
+Name,Story Name,Condg Type,Space Function,Thermal Zone,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Per Space,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,Lab Exh Type,Max Kitchen,Ventilation,Exhaust
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm),,(cfm),(cfm),(cfm)
+"Spc_Office","Building Story 1","DirectlyConditioned","Office Area (>250 square feet)","Zn_Office",2549.7,1,10.0,10.0,12.7,"Maximum","Fixed",0,0.15,0,0,382,0,0.15,0,382,0,0.15,-99996,0,"UNDEFINED",0,382,0
+"Spc_FineStorage","Building Story 1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Zn_FineStorage",14998.6,1,2.0,2.0,15.0,"Maximum","Fixed",0,0.15,0,0,2250,0,0.15,0,2250,0,0.15,-99996,0,"UNDEFINED",0,2250,0
+"Spc_BulkStorage","Building Story 1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Zn_BulkStorage",34496.7,1,2.0,2.0,34.5,"Maximum","Fixed",0,0.15,0,0,5175,0,0.15,0,5175,0,0.15,-99996,0,"UNDEFINED",0,5175,0
+
+ThermalZone
+,,,,,,,Occupancy,,,,Ventilation,,Design Value (Total),,,,Minimum Req. (Total),,,,Simulated,,,Exhaust
+Name,Story Name,Type,Ventilation Source,Pri. HVAC System,Ventilation System,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,ExhSysRef,ExhOperMode,ExhCtrlMthd,ExhBalancedSchRef
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm)
+"Zn_Office","Building Story 1","Conditioned","Forced","BaseAirSys7or3b","BaseAirSys7or3b",2549.7,1,10.0,10.0,12.7,"Maximum","Fixed",30,0.15,0.642888,382,30,0.15,0.642888,382,0,0.15,-99996
+"Zn_FineStorage","Building Story 1","Conditioned","Forced","BaseAirSys9","BaseAirSys9",14998.6,1,2.0,2.0,15.0,"Maximum","Fixed",150,0.15,0.321445,2250,150,0.15,0.321445,2250,0,0.15,-99996
+"Zn_BulkStorage","Building Story 1","Conditioned","Forced","BaseAirSys9-2","BaseAirSys9-2",34496.7,1,2.0,2.0,34.5,"Maximum","Fixed",150,0.15,0.321445,5175,150,0.15,0.321445,5175,0,0.15,-99996

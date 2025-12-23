@@ -1,0 +1,45 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 050012-RetlMed-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Back_Space_TU","VAVNoReheatBox","Back_Space-SZVAVAC","Back_Space Thermal Zone",3097.180,1548.590,-99996.000,""
+,"Core_Retail_TU","VAVNoReheatBox","Core_Retail-SZVAVAC","Core_Retail Thermal Zone",4043.010,2021.505,-99996.000,""
+,"Front_Retail_TU","Uncontrolled","Front_Retail-SZAC","Front_Retail Thermal Zone",1973.181,-99996.000,-99996.000,""
+,"Point_Of_Sale_TU","Uncontrolled","Point_Of_Sale-SZAC","Point_Of_Sale Thermal Zone",1965.046,-99996.000,-99996.000,""
+ENDTABLE
+TABLE 050012-RetlMed-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Back_Space_CoilClg","DirectExpansion","Back_Space-SZVAVAC","n/a",79162.875,82591.467,-99996.00000,-99996.000,11.000,2
+,"Core_Retail_CoilClg","DirectExpansion","Core_Retail-SZVAVAC","n/a",114620.690,119584.981,-99996.00000,-99996.000,11.000,2
+,"Front_Retail_CoilClg","DirectExpansion","Front_Retail-SZAC","n/a",61668.414,64339.310,-99996.00000,14.000,11.407,1
+,"Point_Of_Sale_CoilClg","DirectExpansion","Point_Of_Sale-SZAC","n/a",61723.724,64397.016,-99996.00000,14.000,11.407,1
+ENDTABLE
+TABLE 050012-RetlMed-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Back_Space_CoilHtg","HeatPump","Back_Space-SZVAVAC","n/a",86020.059,82591.467,-99996.00000,-99996.000,-99996.000
+,"Back_Space_SuppCoilHtg","Resistance","Back_Space-SZVAVAC","n/a",65229.463,65229.463,-99996.00000,-99996.000,-99996.000
+,"Core_Retail_CoilHtg","HeatPump","Core_Retail-SZVAVAC","n/a",124549.273,119584.982,-99996.00000,-99996.000,-99996.000
+,"Core_Retail_SuppCoilHtg","Resistance","Core_Retail-SZVAVAC","n/a",117498.625,117498.625,-99996.00000,-99996.000,-99996.000
+,"Front_Retail_CoilHtg","HeatPump","Front_Retail-SZAC","n/a",67010.207,64339.311,-99996.00000,-99996.000,-99996.000
+,"Front_Retail_SuppCoilHtg","Resistance","Front_Retail-SZAC","n/a",50685.775,50685.775,-99996.00000,-99996.000,-99996.000
+,"Point_Of_Sale_CoilHtg","HeatPump","Point_Of_Sale-SZAC","n/a",67070.308,64397.016,-99996.00000,-99996.000,-99996.000
+,"Point_Of_Sale_SuppCoilHtg","Resistance","Point_Of_Sale-SZAC","n/a",50562.063,50562.063,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE 050012-RetlMed-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Back_Space_Fan","VariableSpeedDrive","Back_Space-SZVAVAC","n/a",3097.180,1548.590,0.650,"PowerPerUnitFlow",3.684,2.766,3.000,"InAirStream",0.895,0.7440
+,"Core_Retail_Fan","VariableSpeedDrive","Core_Retail-SZVAVAC","n/a",4043.010,2021.505,0.650,"PowerPerUnitFlow",3.684,3.611,5.000,"InAirStream",0.895,0.7440
+,"Front_Retail_Fan","ConstantVolume","Front_Retail-SZAC","n/a",1973.181,-99996.000,0.650,"PowerPerUnitFlow",3.560,1.703,2.000,"InAirStream",0.865,0.7440
+,"Point_Of_Sale_Fan","ConstantVolume","Point_Of_Sale-SZAC","n/a",1965.046,-99996.000,0.650,"PowerPerUnitFlow",3.560,1.696,2.000,"InAirStream",0.865,0.7440
+ENDTABLE
+TABLE 050012-RetlMed-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"Back_Space_OACtrl","FixedDryBulb","Back_Space-SZVAVAC","Integrated"
+,"Core_Retail_OACtrl","FixedDryBulb","Core_Retail-SZVAVAC","Integrated"
+,"Front_Retail_OACtrl","FixedDryBulb","Front_Retail-SZAC","Integrated"
+,"Point_Of_Sale_OACtrl","FixedDryBulb","Point_Of_Sale-SZAC","Integrated"
+ENDTABLE

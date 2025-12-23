@@ -1,0 +1,127 @@
+Space Interior Loads Electric Use Report
+,,,,,Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,
+Space,,,,,Interior Lighting,,,,Interior Lighting,,,,Receptacle,,,,Process,,,,Commercial Refrigeration,,,
+Name,Conditioning Type,Space Function,Floor Area,Multiplier,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,
+,,,(ft2),,(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),
+"Basement Spc","DirectlyConditioned","Office Area (>250 square feet)",38353,1,0.6,"OfficeLights",2253.1,51847.9,,,,,1.5,"OfficeReceptacle",2855.5,164275,,,,,,,,,
+"Core_bottom","DirectlyConditioned","Office Area (>250 square feet)",27257.6,1,0.6,"OfficeLights",2253.1,36848.5,,,,,1.5,"OfficeReceptacle",2855.5,116751,,,,,,,,,
+"GroundFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0,1,,,,,,,,,,,,,,,,,,,,,
+"Perimeter_bot_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.61,1,0.6,"OfficeLights",2253.1,4560.65,,,,,1.5,"OfficeReceptacle",2855.5,14450,,,,,,,,,
+"Perimeter_bot_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.05,1,0.6,"OfficeLights",2253.1,2939.01,,,,,1.5,"OfficeReceptacle",2855.5,9312,,,,,,,,,
+"Perimeter_bot_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.64,1,0.6,"OfficeLights",2253.1,4560.68,,,,,1.5,"OfficeReceptacle",2855.5,14450.1,,,,,,,,,
+"Perimeter_bot_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.04,1,0.6,"OfficeLights",2253.1,2938.99,,,,,1.5,"OfficeReceptacle",2855.5,9311.94,,,,,,,,,
+"Core_mid","DirectlyConditioned","Office Area (>250 square feet)",27257.6,5,0.6,"OfficeLights",2253.1,184243,,,,,1.5,"OfficeReceptacle",2855.5,583756,,,,,,,,,
+"MidFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0,5,,,,,,,,,,,,,,,,,,,,,
+"Perimeter_mid_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.61,5,0.6,"OfficeLights",2253.1,22803.3,,,,,1.5,"OfficeReceptacle",2855.5,72250.1,,,,,,,,,
+"Perimeter_mid_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.05,5,0.6,"OfficeLights",2253.1,14695.1,,,,,1.5,"OfficeReceptacle",2855.5,46560,,,,,,,,,
+"Perimeter_mid_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.64,5,0.6,"OfficeLights",2253.1,22803.4,,,,,1.5,"OfficeReceptacle",2855.5,72250.6,,,,,,,,,
+"Perimeter_mid_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.04,5,0.6,"OfficeLights",2253.1,14695,,,,,1.5,"OfficeReceptacle",2855.5,46559.7,,,,,,,,,
+"Core_hi","DirectlyConditioned","Office Area (>250 square feet)",27257.6,5,0.6,"OfficeLights",2253.1,184243,,,,,1.5,"OfficeReceptacle",2855.5,583756,,,,,,,,,
+"HiFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0,5,,,,,,,,,,,,,,,,,,,,,
+"Perimeter_hi_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.61,5,0.6,"OfficeLights",2253.1,22803.3,,,,,1.5,"OfficeReceptacle",2855.5,72250.1,,,,,,,,,
+"Perimeter_hi_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.05,5,0.6,"OfficeLights",2253.1,14695.1,,,,,1.5,"OfficeReceptacle",2855.5,46560,,,,,,,,,
+"Perimeter_hi_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.64,5,0.6,"OfficeLights",2253.1,22803.4,,,,,1.5,"OfficeReceptacle",2855.5,72250.6,,,,,,,,,
+"Perimeter_hi_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.04,5,0.6,"OfficeLights",2253.1,14695,,,,,1.5,"OfficeReceptacle",2855.5,46559.7,,,,,,,,,
+"Core_top","DirectlyConditioned","Office Area (>250 square feet)",27257.6,1,0.6,"OfficeLights",2253.1,36848.5,,,,,1.5,"OfficeReceptacle",2855.5,116751,,,,,,,,,
+"Perimeter_top_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.61,1,0.6,"OfficeLights",2253.1,4560.65,,,,,1.5,"OfficeReceptacle",2855.5,14450,,,,,,,,,
+"Perimeter_top_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.05,1,0.6,"OfficeLights",2253.1,2939.01,,,,,1.5,"OfficeReceptacle",2855.5,9312,,,,,,,,,
+"Perimeter_top_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.64,1,0.6,"OfficeLights",2253.1,4560.68,,,,,1.5,"OfficeReceptacle",2855.5,14450.1,,,,,,,,,
+"Perimeter_top_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.04,1,0.6,"OfficeLights",2253.1,2938.99,,,,,1.5,"OfficeReceptacle",2855.5,9311.94,,,,,,,,,
+"TopFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0,1,,,,,,,,,,,,,,,,,,,,,
+
+
+
+Space Loads Report
+Space,,,,,,Occupancy,,,,,Service Hot Water,,Ventilation,,,,,,Infiltration,,,Thermal Zone
+Name,Conditioning Type,Space Function,Floor Area,Story Name,Multiplier,Density,Number,Schedule Name,Sensible Heat Rate,Latent Heat Rate,SHW Use, Schedule Name,Prop. DsgnVentPerArea,Prop. DsgnVentPerPerson,Code VentPerArea,Code VentPerPerson,Sim. Area Flow,Sim. Person Flow,Method,Schedule Name,Design Infiltration Rate,Clg Tstat Sch, Htg Tstat Sch
+,,,(ft2),,,(ppl/1000ft2),(people),,(Btu/h-person),(Btu/h-person),(gal/person),,(cfm/ft2),(cfm/person),(cfm/ft2),(cfm/person),(cfm),(cfm),,,(cfm/ft2)
+"Basement Spc","DirectlyConditioned","Office Area (>250 square feet)",38352.9744,"Basement",1,5,191.765,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,5752.95,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Core_bottom","DirectlyConditioned","Office Area (>250 square feet)",27257.6404,"GroundFloor",1,5,136.288,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,4088.65,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"GroundFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0.0000,"GroundFloor",1,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"NONE","NONE"
+"Perimeter_bot_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.6127,"GroundFloor",1,5,16.8681,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.042,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_bot_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.0503,"GroundFloor",1,5,10.8703,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.108,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_bot_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.6351,"GroundFloor",1,5,16.8682,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.045,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_bot_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.0359,"GroundFloor",1,5,10.8702,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.105,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Core_mid","DirectlyConditioned","Office Area (>250 square feet)",27257.6404,"MidFloor",5,5,136.288,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,4088.65,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"MidFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0.0000,"MidFloor",5,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"NONE","NONE"
+"Perimeter_mid_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.6127,"MidFloor",5,5,16.8681,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.042,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_mid_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.0503,"MidFloor",5,5,10.8703,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.108,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_mid_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.6351,"MidFloor",5,5,16.8682,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.045,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_mid_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.0359,"MidFloor",5,5,10.8702,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.105,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Core_hi","DirectlyConditioned","Office Area (>250 square feet)",27257.6404,"HiFloor",5,5,136.288,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,4088.65,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"HiFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0.0000,"HiFloor",5,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"NONE","NONE"
+"Perimeter_hi_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.6127,"HiFloor",5,5,16.8681,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.042,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_hi_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.0503,"HiFloor",5,5,10.8703,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.108,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_hi_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.6351,"HiFloor",5,5,16.8682,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.045,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_hi_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.0359,"HiFloor",5,5,10.8702,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.105,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Core_top","DirectlyConditioned","Office Area (>250 square feet)",27257.6404,"TopFloor",1,5,136.288,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,4088.65,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_top_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",3373.6127,"TopFloor",1,5,16.8681,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.042,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_top_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",2174.0503,"TopFloor",1,5,10.8703,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.108,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_top_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",3373.6351,"TopFloor",1,5,16.8682,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,506.045,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_top_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",2174.0359,"TopFloor",1,5,10.8702,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,326.105,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"TopFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area",0.0000,"TopFloor",1,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"NONE","NONE"
+
+
+
+Space Interior Lighting Report
+Space,,,,,Regulated,,,,,,,,,,,Non-Regulated
+Name,Conditioning Type,Space Function,Lighting Status,Floor Area,Lighting Specification Method,Installed Power,Schedule Name,Schedule,Lighting System Count,Lighting Control Credit,General Lighting Power,Area Category Allowances,Tailored Allowances,Simulated Power,Simulated LPD,Power,Schedule Name,Schedule,LPD
+,,,,(ft2),,(Watts),,(FLH),,(Watts),(Watts),(Watts),(Watts),(Watts),(Watts/ft2),(Watts),,(FLH),(Watts/ft2),
+"Basement Spc","DirectlyConditioned","Office Area (>250 square feet)","New",38353,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,23011.8,0,0,23011.8,0.60
+"Core_bottom","DirectlyConditioned","Office Area (>250 square feet)","New",27257.6,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,16354.6,0,0,16354.6,0.60
+"GroundFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+"Perimeter_bot_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","New",3373.61,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.17,0,0,2024.17,0.60
+"Perimeter_bot_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","New",2174.05,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.43,0,0,1304.43,0.60
+"Perimeter_bot_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","New",3373.64,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.18,0,0,2024.18,0.60
+"Perimeter_bot_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","New",2174.04,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.42,0,0,1304.42,0.60
+"Core_mid","DirectlyConditioned","Office Area (>250 square feet)","New",27257.6,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,16354.6,0,0,16354.6,0.60
+"MidFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+"Perimeter_mid_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","New",3373.61,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.17,0,0,2024.17,0.60
+"Perimeter_mid_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","New",2174.05,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.43,0,0,1304.43,0.60
+"Perimeter_mid_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","New",3373.64,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.18,0,0,2024.18,0.60
+"Perimeter_mid_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","New",2174.04,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.42,0,0,1304.42,0.60
+"Core_hi","DirectlyConditioned","Office Area (>250 square feet)","New",27257.6,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,16354.6,0,0,16354.6,0.60
+"HiFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+"Perimeter_hi_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","New",3373.61,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.17,0,0,2024.17,0.60
+"Perimeter_hi_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","New",2174.05,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.43,0,0,1304.43,0.60
+"Perimeter_hi_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","New",3373.64,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.18,0,0,2024.18,0.60
+"Perimeter_hi_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","New",2174.04,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.42,0,0,1304.42,0.60
+"Core_top","DirectlyConditioned","Office Area (>250 square feet)","New",27257.6,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,16354.6,0,0,16354.6,0.60
+"Perimeter_top_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","New",3373.61,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.17,0,0,2024.17,0.60
+"Perimeter_top_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","New",2174.05,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.43,0,0,1304.43,0.60
+"Perimeter_top_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","New",3373.64,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,2024.18,0,0,2024.18,0.60
+"Perimeter_top_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","New",2174.04,"AreaCategoryMethod",0,"OfficeLights",2253.1,-99996,0,1304.42,0,0,1304.42,0.60
+"TopFloor_Plenum","Plenum","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+
+
+
+Space Daylighting,,,,,,,,,,,,,,,,,,,,,,,,,
+Name,SpcFunc,FlrArea,DayltgCtrlType,MandMinDaylitArea,MinDimLtgFrac,MinDimPwrFrac,NumOfCtrlSteps,SkylitDaylitArea,SkylitDayltgCtrlLtgPwr,SkylitDayltgCtrlLtgFrac,SkylitDayltgIllumSetpt,SkylitDayltgIllumSetptAdjFac,SkylitDayltgAdjIllumSetpt,,PriSideDayltgRefPtCoord[1],PriSideDayltgRefPtCoord[2],PriSideDayltgRefPtCoord[3],PriSideDaylitArea,PriSideDayltgCtrlLtgPwr,PriSideDayltgCtrlLtgFrac,PriSideDayltgIllumSetpt,PriSideDayltgIllumSetptAdjFac,PriSideDayltgAdjIllumSetpt,,SecSideDayltgRefPtCoord[1],SecSideDayltgRefPtCoord[2],SecSideDayltgRefPtCoord[3],SecSideDaylitArea,SecSideDayltgCtrlLtgPwr,SecSideDayltgCtrlLtgFrac,SecSideDayltgIllumSetpt,SecSideDayltgIllumSetptAdjFac,SecSideDayltgAdjIllumSetpt
+Space,,,,,,,,Skylit Zone,,,,,,,Primary Sidelit Daylit Zone,,,,,,,,,,Secondary Sidelit Daylit Zone,,,,,,
+Name,Space Function,Floor Area,Control Type,MinDayltg per 140.3c,Min. Dim. Ltg. Frac.,Min Dim. Pwr. Frac.,Switched # Ctrl. Steps,Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point
+,,(ft2),,(ft2),,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux)
+"Basement Spc","Office Area (>250 square feet)",38353,"None",-99996,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,1150
+"Core_bottom","Office Area (>250 square feet)",27257.6,"None",-99996,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,1150
+"GroundFloor_Plenum","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0
+"Perimeter_bot_ZN_1","Office Area (>250 square feet)",3373.61,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,8.2021,2.5,1901.25,1140.75,0.563566,287.5,-99996,287.5,,119.93,14.75,2.5,1471.25,882.747,0.436104,287.5,-99996,1150
+"Perimeter_bot_ZN_2","Office Area (>250 square feet)",2174.05,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,231.651,79.951,2.5,1239.29,743.575,0.570039,287.5,-99996,287.5,,225.083,79.9535,2.5,934.46,560.676,0.429824,287.5,-99996,1150
+"Perimeter_bot_ZN_3","Office Area (>250 square feet)",3373.64,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,151.7,2.5,1901.25,1140.75,0.563563,287.5,-99996,287.5,,119.93,145.167,2.5,1471.25,882.747,0.436101,287.5,-99996,1150
+"Perimeter_bot_ZN_4","Office Area (>250 square feet)",2174.04,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,8.2021,79.951,2.5,1245.27,747.164,0.572793,287.5,-99996,287.5,,14.75,79.9535,2.5,928.476,557.086,0.427075,287.5,-99996,1150
+"Core_mid","Office Area (>250 square feet)",27257.6,"None",-99996,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,1150
+"MidFloor_Plenum","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0
+"Perimeter_mid_ZN_1","Office Area (>250 square feet)",3373.61,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,8,67.5,1854.67,1112.8,0.549757,287.5,-99996,287.5,,119.924,14.75,67.5,1517.83,910.7,0.449913,287.5,-99996,1150
+"Perimeter_mid_ZN_2","Office Area (>250 square feet)",2174.05,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,231.853,79.951,67.5,1215.33,729.2,0.559018,287.5,-99996,287.5,,225.083,79.9477,67.5,958.417,575.05,0.440844,287.5,-99996,1150
+"Perimeter_mid_ZN_3","Office Area (>250 square feet)",3373.64,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,151.902,67.5,1854.67,1112.8,0.549753,287.5,-99996,287.5,,119.924,145.167,67.5,1517.83,910.7,0.44991,287.5,-99996,1150
+"Perimeter_mid_ZN_4","Office Area (>250 square feet)",2174.04,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,8,79.951,67.5,1215.33,729.2,0.559022,287.5,-99996,287.5,,14.75,79.9476,67.5,958.417,575.05,0.440847,287.5,-99996,1150
+"Core_hi","Office Area (>250 square feet)",27257.6,"None",-99996,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,1150
+"HiFloor_Plenum","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0
+"Perimeter_hi_ZN_1","Office Area (>250 square feet)",3373.61,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,8,132.5,1854.67,1112.8,0.549757,287.5,-99996,287.5,,119.924,14.75,132.5,1517.83,910.7,0.449913,287.5,-99996,1150
+"Perimeter_hi_ZN_2","Office Area (>250 square feet)",2174.05,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,231.853,79.951,132.5,1215.33,729.2,0.559018,287.5,-99996,287.5,,225.083,79.9477,132.5,958.417,575.05,0.440844,287.5,-99996,1150
+"Perimeter_hi_ZN_3","Office Area (>250 square feet)",3373.64,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,151.902,132.5,1854.67,1112.8,0.549753,287.5,-99996,287.5,,119.924,145.167,132.5,1517.83,910.7,0.44991,287.5,-99996,1150
+"Perimeter_hi_ZN_4","Office Area (>250 square feet)",2174.04,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,8,79.951,132.5,1215.33,729.2,0.559022,287.5,-99996,287.5,,14.75,79.9476,132.5,958.417,575.05,0.440847,287.5,-99996,1150
+"Core_top","Office Area (>250 square feet)",27257.6,"None",-99996,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,1150
+"Perimeter_top_ZN_1","Office Area (>250 square feet)",3373.61,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,8,145.5,1854.67,1112.8,0.549757,287.5,-99996,287.5,,119.924,14.75,145.5,1517.83,910.7,0.449913,287.5,-99996,1150
+"Perimeter_top_ZN_2","Office Area (>250 square feet)",2174.05,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,231.853,79.951,145.5,1215.33,729.2,0.559018,287.5,-99996,287.5,,225.083,79.9477,145.5,958.417,575.05,0.440844,287.5,-99996,1150
+"Perimeter_top_ZN_3","Office Area (>250 square feet)",3373.64,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,119.926,151.902,145.5,1854.67,1112.8,0.549753,287.5,-99996,287.5,,119.924,145.167,145.5,1517.83,910.7,0.44991,287.5,-99996,1150
+"Perimeter_top_ZN_4","Office Area (>250 square feet)",2174.04,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,8,79.951,145.5,1215.33,729.2,0.559022,287.5,-99996,287.5,,14.75,79.9476,145.5,958.417,575.05,0.440847,287.5,-99996,1150
+"TopFloor_Plenum","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0

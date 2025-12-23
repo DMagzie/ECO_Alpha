@@ -1,0 +1,51 @@
+Space Interior Loads Electric Use Report
+,,,,,Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,
+Space,,,,,Interior Lighting,,,,Interior Lighting,,,,Receptacle,,,,Process,,,,Commercial Refrigeration,,,
+Name,Conditioning Type,Space Function,Floor Area,Multiplier,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,
+,,,(ft2),,(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),
+"Perimeter_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",1221.17,1,0.6,"OfficeLights",2253.1,1650.85,,,,,1.5,"OfficeReceptacle",2855.5,5230.56,,,,,,,,,
+"Perimeter_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",724.411,1,0.6,"OfficeLights",2253.1,979.302,,,,,1.5,"OfficeReceptacle",2855.5,3102.83,,,,,,,,,
+"Perimeter_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",1221.17,1,0.6,"OfficeLights",2253.1,1650.85,,,,,1.5,"OfficeReceptacle",2855.5,5230.56,,,,,,,,,
+"Perimeter_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",724.411,1,0.6,"OfficeLights",2253.1,979.302,,,,,1.5,"OfficeReceptacle",2855.5,3102.83,,,,,,,,,
+"Core_ZN","DirectlyConditioned","Office Area (>250 square feet)",1610.9,1,0.6,"OfficeLights",2253.1,2177.71,,,,,1.5,"OfficeReceptacle",2855.5,6899.89,,,,,,,,,
+"Attic","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0,1,,,,,,,,,,,,,,,,,,,,,
+
+
+
+Space Loads Report
+Space,,,,,,Occupancy,,,,,Service Hot Water,,Ventilation,,,,,,Infiltration,,,Thermal Zone
+Name,Conditioning Type,Space Function,Floor Area,Story Name,Multiplier,Density,Number,Schedule Name,Sensible Heat Rate,Latent Heat Rate,SHW Use, Schedule Name,Prop. DsgnVentPerArea,Prop. DsgnVentPerPerson,Code VentPerArea,Code VentPerPerson,Sim. Area Flow,Sim. Person Flow,Method,Schedule Name,Design Infiltration Rate,Clg Tstat Sch, Htg Tstat Sch
+,,,(ft2),,,(ppl/1000ft2),(people),,(Btu/h-person),(Btu/h-person),(gal/person),,(cfm/ft2),(cfm/person),(cfm/ft2),(cfm/person),(cfm),(cfm),,,(cfm/ft2)
+"Perimeter_ZN_1","DirectlyConditioned","Office Area (>250 square feet)",1221.1664,"Building Story 1",1,5,6.10583,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,183.175,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_ZN_2","DirectlyConditioned","Office Area (>250 square feet)",724.4111,"Building Story 1",1,5,3.62206,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,108.662,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_ZN_3","DirectlyConditioned","Office Area (>250 square feet)",1221.1664,"Building Story 1",1,5,6.10583,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,183.175,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Perimeter_ZN_4","DirectlyConditioned","Office Area (>250 square feet)",724.4111,"Building Story 1",1,5,3.62206,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,108.662,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Core_ZN","DirectlyConditioned","Office Area (>250 square feet)",1610.8997,"Building Story 1",1,5,8.0545,"OfficeOccupancy",250,200,0.18,"OfficeServiceHotWater",0.15,30,0.15,30,241.635,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Attic","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0.0000,"Building Story 1",1,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"NONE","NONE"
+
+
+
+Space Interior Lighting Report
+Space,,,,,Regulated,,,,,,,,Non-Regulated
+Name,Conditioning Type,Space Function,Lighting Status,Floor Area,Lighting Specification Method,Installed Power,Schedule Name,Schedule,Lighting System Count,Lighting Control Credit,Simulated Power,Simulated LPD,Power,Schedule Name,Schedule,LPD
+,,,,(ft2),,(Watts),,(FLH),,(Watts),(Watts),(Watts/ft2),(Watts),,(FLH),(Watts/ft2),
+"Perimeter_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","New",1221.17,"AreaCategoryMethod",732.7,"OfficeLights",2253.1,-99996,0,732.7,0.60
+"Perimeter_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","New",724.411,"AreaCategoryMethod",434.647,"OfficeLights",2253.1,-99996,0,434.647,0.60
+"Perimeter_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","New",1221.17,"AreaCategoryMethod",732.7,"OfficeLights",2253.1,-99996,0,732.7,0.60
+"Perimeter_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","New",724.411,"AreaCategoryMethod",434.647,"OfficeLights",2253.1,-99996,0,434.647,0.60
+"Core_ZN","DirectlyConditioned","Office Area (>250 square feet)","New",1610.9,"AreaCategoryMethod",966.54,"OfficeLights",2253.1,-99996,0,966.54,0.60
+"Attic","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+
+
+
+Space Daylighting,,,,,,,,,,,,,,,,,,,,,,,,,
+Name,SpcFunc,FlrArea,DayltgCtrlType,MandMinDaylitArea,MinDimLtgFrac,MinDimPwrFrac,NumOfCtrlSteps,SkylitDaylitArea,SkylitDayltgCtrlLtgPwr,SkylitDayltgCtrlLtgFrac,SkylitDayltgIllumSetpt,SkylitDayltgIllumSetptAdjFac,SkylitDayltgAdjIllumSetpt,,PriSideDayltgRefPtCoord[1],PriSideDayltgRefPtCoord[2],PriSideDayltgRefPtCoord[3],PriSideDaylitArea,PriSideDayltgCtrlLtgPwr,PriSideDayltgCtrlLtgFrac,PriSideDayltgIllumSetpt,PriSideDayltgIllumSetptAdjFac,PriSideDayltgAdjIllumSetpt,,SecSideDayltgRefPtCoord[1],SecSideDayltgRefPtCoord[2],SecSideDayltgRefPtCoord[3],SecSideDaylitArea,SecSideDayltgCtrlLtgPwr,SecSideDayltgCtrlLtgFrac,SecSideDayltgIllumSetpt,SecSideDayltgIllumSetptAdjFac,SecSideDayltgAdjIllumSetpt
+Space,,,,,,,,Skylit Zone,,,,,,,Primary Sidelit Daylit Zone,,,,,,,,,,Secondary Sidelit Daylit Zone,,,,,,
+Name,Space Function,Floor Area,Control Type,MinDayltg per 140.3c,Min. Dim. Ltg. Frac.,Min Dim. Pwr. Frac.,Switched # Ctrl. Steps,Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point
+,,(ft2),,(ft2),,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux)
+"Perimeter_ZN_1","Office Area (>250 square feet)",1221.17,"Continuous",0,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,37.8445,7.95276,2.5,620.658,372.395,0.50825,287.5,-99996,287.5,,37.8445,15.9055,2.5,496.3,297.78,0.406414,287.5,-99996,1150
+"Perimeter_ZN_2","Office Area (>250 square feet)",724.411,"Continuous",0,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,82.8937,37.8445,2.5,389.789,233.874,0.538078,287.5,-99996,287.5,,74.941,37.8445,2.5,263.944,158.367,0.364357,287.5,-99996,1150
+"Perimeter_ZN_3","Office Area (>250 square feet)",1221.17,"Continuous",0,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,37.8445,52.6115,2.5,612.2,367.32,0.501324,287.5,-99996,287.5,,37.8445,44.6588,2.5,487.841,292.705,0.399488,287.5,-99996,1150
+"Perimeter_ZN_4","Office Area (>250 square feet)",724.411,"Continuous",0,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,7.95276,37.8445,2.5,389.95,233.97,0.538299,287.5,-99996,287.5,,15.9055,37.8445,2.5,265.483,159.29,0.366481,287.5,-99996,1150
+"Core_ZN","Office Area (>250 square feet)",1610.9,"None",0,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,287.5,,-99996,-99996,-99996,0,0,0,287.5,-99996,1150
+"Attic","Unoccupied-Exclude from Gross Floor Area",0,"None",0,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0

@@ -1,0 +1,99 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"AS-HFC-1000","SZHP","New",1,844.4,30000,58,35.5282,168.8,29800,95,35.2913,422,0.499763,422.2,0.5,"STORAGE/SMART LOCKERS_L1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"HFC-600_L1","SZHP","New",1,884.5,18000,58,20.3505,528,17800,95,20.1244,792,0.895421,132.6,0.149915,"FACILITIES_L1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"CLUB ROOM/LOUNGE AirSys","SZHP","New",3,815.526,48000,58,176.573,33.975,54000,95,198.645,135.9,0.499923,135.9,0.499923,"CLUB ROOM/LOUNGE_L5","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"DOG WASH_L1 AirSys","SZHP","New",1,507.056,18000,58,35.499,50.6667,17800,95,35.1046,76,0.149885,76,0.149885,"DOG WASH_L1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"MAKER ROOM_L1 AirSys","SZHP","New",1,70.0393,18000,58,256.999,7,17800,95,254.143,10.5,0.149916,10.5,0.149916,"MAKER ROOM_L1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"FITNESS CTR_L4 AirSys","SZHP","New",2,1880.69,48000,58,51.0451,35.2625,54000,95,57.4257,141.05,0.149998,141.05,0.149998,"FITNESS CTR_L4","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"YOGA RM_L4 AirSys","SZHP","New",1,307.754,24000,58,77.9844,23.05,23700,95,77.0096,46.1,0.149795,46.1,0.149795,"YOGA RM_L4","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"GAME RM_L4 AirSys","SZHP","New",2,1055.5,36000,58,68.2141,87.95,36800,95,69.73,263.85,0.499953,263.85,0.499953,"GAME RM_L4","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"CLUB ROOM/LOUNGE AirSys 10","SZHP","New",2,2497.77,48000,58,38.4343,156.113,54000,95,43.2386,624.45,0.500006,624.45,0.500006,"CLUB ROOM/LOUNGE_L4","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"MAIN LOBBY/LEASI AirSys","SZHP","New",1,674.631,48000,58,71.15,84.325,54000,95,80.0438,337.3,0.499977,337.3,0.499977,"MAIN LOBBY/LEASING_L1","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"TU-HFC-1000_STORAGE","Uncontrolled","New",1,"AS-HFC-1000",1,"STORAGE/SMART LOCKERS_L1",-99996,-99996,422,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU_FACILITIES_L1","Uncontrolled","New",1,"HFC-600_L1",1,"FACILITIES_L1",-99996,-99996,792,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"CLUB ROOM/LOUNGE TrmlUnit","Uncontrolled","New",1,"CLUB ROOM/LOUNGE AirSys",3,"CLUB ROOM/LOUNGE_L5",-99996,-99996,135.9,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"TU_DOG WASH_L1","Uncontrolled","New",1,"DOG WASH_L1 AirSys",1,"DOG WASH_L1",-99996,-99996,76,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"MAKER ROOM_L1 TrmlUnit","Uncontrolled","New",1,"MAKER ROOM_L1 AirSys",1,"MAKER ROOM_L1",-99996,-99996,10.5,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"FITNESS CTR_L4 TrmlUnit","Uncontrolled","New",1,"FITNESS CTR_L4 AirSys",2,"FITNESS CTR_L4",-99996,-99996,141.05,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"YOGA RM_L4 TrmlUnit","Uncontrolled","New",1,"YOGA RM_L4 AirSys",1,"YOGA RM_L4",-99996,-99996,46.1,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"GAME RM_L4 TrmlUnit","Uncontrolled","New",1,"GAME RM_L4 AirSys",2,"GAME RM_L4",-99996,-99996,263.85,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"CLUB ROOM/LOUNGE TrmlUnit 10","Uncontrolled","New",1,"CLUB ROOM/LOUNGE AirSys 10",2,"CLUB ROOM/LOUNGE_L4",-99996,-99996,624.45,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"MAIN LOBBY/LEASI TrmlUnit","Uncontrolled","New",1,"MAIN LOBBY/LEASI AirSys",1,"MAIN LOBBY/LEASING_L1",-99996,-99996,337.3,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"HP-4_CLG","DirectExpansion","New","Electric","AS-HFC-1000",1,"n/a",30000,31299.3,"NONE","NONE",-99996,"Air",1,15.85,-99996,13,-99996,-99996,-99996,0.210053,1,15.2,13.4,12.5,-99996
+"FACILITIES_L1 ClgCoil","DirectExpansion","New","Electric","HFC-600_L1",1,"n/a",18000,18779.6,"NONE","NONE",-99996,"Air",1,15.85,-99996,12.5,-99996,-99996,-99996,0.220116,1,15.2,13.4,12,-99996
+"CLUB ROOM/LOUNGE ClgCoil","DirectExpansion","New","Electric","CLUB ROOM/LOUNGE AirSys",3,"n/a",48000,50078.9,"NONE","NONE",-99996,"Air",1,17.2,-99996,9.15,-99996,-99996,-99996,0.315904,1,16.5,13.4,8.8,-99996
+"DOG WASH_L1 ClgCoil-2","DirectExpansion","New","Electric","DOG WASH_L1 AirSys",1,"n/a",18000,18779.6,"NONE","NONE",-99996,"Air",1,15.85,-99996,12.5,-99996,-99996,-99996,0.220116,1,15.2,13.4,12,-99996
+"MAKER ROOM_L1 ClgCoil","DirectExpansion","New","Electric","MAKER ROOM_L1 AirSys",1,"n/a",18000,18779.6,"NONE","NONE",-99996,"Air",1,15.85,-99996,12.5,-99996,-99996,-99996,0.220116,1,15.2,13.4,12,-99996
+"FITNESS CTR_L4 ClgCoil","DirectExpansion","New","Electric","FITNESS CTR_L4 AirSys",2,"n/a",48000,50078.9,"NONE","NONE",-99996,"Air",1,17.2,-99996,9.15,-99996,-99996,-99996,0.315904,1,16.5,13.4,8.8,-99996
+"YOGA RM_L4 ClgCoil","DirectExpansion","New","Electric","YOGA RM_L4 AirSys",1,"n/a",24000,25039.5,"NONE","NONE",-99996,"Air",1,16.15,-99996,12.5,-99996,-99996,-99996,0.220116,1,15.5,13.4,12,-99996
+"GAME RM_L4 ClgCoil","DirectExpansion","New","Electric","GAME RM_L4 AirSys",2,"n/a",36000,37559.2,"NONE","NONE",-99996,"Air",1,15.85,-99996,13,-99996,-99996,-99996,0.210053,1,15.2,13.4,12.5,-99996
+"CLUB ROOM/LOUNGE ClgCoil 10","DirectExpansion","New","Electric","CLUB ROOM/LOUNGE AirSys 10",2,"n/a",48000,50078.9,"NONE","NONE",-99996,"Air",1,17.2,-99996,9.15,-99996,-99996,-99996,0.315904,1,16.5,13.4,8.8,-99996
+"MAIN LOBBY/LEASI ClgCoil","DirectExpansion","New","Electric","MAIN LOBBY/LEASI AirSys",1,"n/a",48000,50078.9,"NONE","NONE",-99996,"Air",1,17.2,-99996,9.15,-99996,-99996,-99996,0.315904,1,16.5,13.4,8.8,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"HP-4_HTG","HeatPump","New","Electric","AS-HFC-1000",1,"n/a",29800,28500.7,"NONE","NONE",-99996,"Air",1,9.3,-99996,2.2,-99996,0.429679,0,-99996,-99996,-99996,-99996,-99996,1,7.8,6.7
+"FACILITIES_L1 HtgCoil","HeatPump","New","Electric","HFC-600_L1",1,"n/a",17800,17020.4,"NONE","NONE",-99996,"Air",1,9.5,-99996,3.6,-99996,0.244698,0,-99996,-99996,-99996,-99996,-99996,1,8,6.7
+"CLUB ROOM/LOUNGE HtgCoil","HeatPump","New","Electric","CLUB ROOM/LOUNGE AirSys",3,"n/a",54000,51921.1,"NONE","NONE",-99996,"Air",1,10.95,-99996,10.2,-99996,0.0619249,0,-99996,-99996,-99996,-99996,-99996,1,9.2,6.7
+"DOG WASH_L1 HtgCoil-2","HeatPump","New","Electric","DOG WASH_L1 AirSys",1,"n/a",17800,17020.4,"NONE","NONE",-99996,"Air",1,9.5,-99996,3.6,-99996,0.244698,0,-99996,-99996,-99996,-99996,-99996,1,8,6.7
+"MAKER ROOM_L1 HtgCoil","HeatPump","New","Electric","MAKER ROOM_L1 AirSys",1,"n/a",17800,17020.4,"NONE","NONE",-99996,"Air",1,9.5,-99996,3.6,-99996,0.244698,0,-99996,-99996,-99996,-99996,-99996,1,8,6.7
+"FITNESS CTR_L4 HtgCoil","HeatPump","New","Electric","FITNESS CTR_L4 AirSys",2,"n/a",54000,51921.1,"NONE","NONE",-99996,"Air",1,10.95,-99996,10.2,-99996,0.0619249,0,-99996,-99996,-99996,-99996,-99996,1,9.2,6.7
+"YOGA RM_L4 HtgCoil","HeatPump","New","Electric","YOGA RM_L4 AirSys",1,"n/a",23700,22660.5,"NONE","NONE",-99996,"Air",1,9.5,-99996,3.6,-99996,0.244649,0,-99996,-99996,-99996,-99996,-99996,1,8,6.7
+"GAME RM_L4 HtgCoil","HeatPump","New","Electric","GAME RM_L4 AirSys",2,"n/a",36800,35240.8,"NONE","NONE",-99996,"Air",1,9.3,-99996,3.55,-99996,0.24991,0,-99996,-99996,-99996,-99996,-99996,1,7.8,6.7
+"CLUB ROOM/LOUNGE HtgCoil 10","HeatPump","New","Electric","CLUB ROOM/LOUNGE AirSys 10",2,"n/a",54000,51921.1,"NONE","NONE",-99996,"Air",1,10.95,-99996,10.2,-99996,0.0619249,0,-99996,-99996,-99996,-99996,-99996,1,9.2,6.7
+"MAIN LOBBY/LEASI HtgCoil","HeatPump","New","Electric","MAIN LOBBY/LEASI AirSys",1,"n/a",54000,51921.1,"NONE","NONE",-99996,"Air",1,10.95,-99996,10.2,-99996,0.0619249,0,-99996,-99996,-99996,-99996,-99996,1,9.2,6.7
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"HFC-1000 Fan","ConstantVolume","New","Centrifugal","AirFoil","AS-HFC-1000",1,"n/a",422,-99996,0.65,"BrakeHorsePower",0.333,3.25472,0.69218,0.5,"InAirStream",0.85
+"FACILITIES_L1 SupFan","ConstantVolume","New","Centrifugal","AirFoil","HFC-600_L1",1,"n/a",792,-99996,0.65,"BrakeHorsePower",0.333,1.73421,0.366656,0.5,"InAirStream",0.855
+"CLUB ROOM/LOUNGE SupFan","ConstantVolume","New","Centrifugal","AirFoil","CLUB ROOM/LOUNGE AirSys",3,"n/a",135.9,-99996,0.65,"BrakeHorsePower",0.333,10.1066,2.1368,0.5,"InAirStream",0.855
+"DOG WASH_L1 SupFan-2","ConstantVolume","New","Centrifugal","AirFoil","DOG WASH_L1 AirSys",1,"n/a",76,-99996,0.65,"BrakeHorsePower",0.333,18.0722,3.82094,0.5,"InAirStream",0.855
+"MAKER ROOM_L1 SupFan","ConstantVolume","New","Centrifugal","AirFoil","MAKER ROOM_L1 AirSys",1,"n/a",10.5,-99996,0.65,"BrakeHorsePower",0.333,130.809,27.6563,0.5,"InAirStream",0.855
+"FITNESS CTR_L4 SupFan","ConstantVolume","New","Centrifugal","AirFoil","FITNESS CTR_L4 AirSys",2,"n/a",141.05,-99996,0.65,"BrakeHorsePower",0.333,9.73761,2.05878,0.5,"InAirStream",0.855
+"YOGA RM_L4 SupFan","ConstantVolume","New","Centrifugal","AirFoil","YOGA RM_L4 AirSys",1,"n/a",46.1,-99996,0.65,"BrakeHorsePower",0.125,11.1838,2.36455,0.25,"InAirStream",0.855
+"GAME RM_L4 SupFan","ConstantVolume","New","Centrifugal","AirFoil","GAME RM_L4 AirSys",2,"n/a",263.85,-99996,0.65,"BrakeHorsePower",0.333,5.20557,1.10059,0.5,"InAirStream",0.855
+"CLUB ROOM/LOUNGE SupFan 11","ConstantVolume","New","Centrifugal","AirFoil","CLUB ROOM/LOUNGE AirSys 10",2,"n/a",624.45,-99996,0.65,"BrakeHorsePower",1,6.60517,1.3965,1.5,"InAirStream",0.855
+"MAIN LOBBY/LEASI SupFan","ConstantVolume","New","Centrifugal","AirFoil","MAIN LOBBY/LEASI AirSys",1,"n/a",337.3,-99996,0.65,"BrakeHorsePower",0.75,9.1712,1.93903,1,"InAirStream",0.855
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"OA-HFC-1000","NoEconomizer","New",422.2,"AS-HFC-1000",1,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"FACILITIES_L1 OACtrl","NoEconomizer","New",132.6,"HFC-600_L1",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"CLUB ROOM/LOUNGE OACtrl","NoEconomizer","New",135.9,"CLUB ROOM/LOUNGE AirSys",3,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"CLUB ROOM/LOUNGE OACtrl-2","NoEconomizer","New",76,"DOG WASH_L1 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"MAKER ROOM_L1 OACtrl","NoEconomizer","New",10.5,"MAKER ROOM_L1 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"FITNESS CTR_L4 OACtrl","NoEconomizer","New",141.05,"FITNESS CTR_L4 AirSys",2,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"YOGA RM_L4 OACtrl","NoEconomizer","New",46.1,"YOGA RM_L4 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"GAME RM_L4 OACtrl","NoEconomizer","New",263.85,"GAME RM_L4 AirSys",2,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"CLUB ROOM/LOUNGE OACtrl 10","NoEconomizer","New",624.45,"CLUB ROOM/LOUNGE AirSys 10",2,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"
+"MAIN LOBBY/LEASI OACtrl","NoEconomizer","New",337.3,"MAIN LOBBY/LEASI AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"Constant",-99996,"NONE"

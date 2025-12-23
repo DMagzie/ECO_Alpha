@@ -1,0 +1,51 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 020012-OffSml-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"BaseVAVNoReheatTrmlUnit","Uncontrolled","BaseAirSys7or3b","Core_ZN Thermal Zone",1095.007,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-2","Uncontrolled","BaseAirSys7or3b-2","Perimeter_ZN_1 Thermal Zone",1069.608,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-3","Uncontrolled","BaseAirSys7or3b-3","Perimeter_ZN_2 Thermal Zone",622.640,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-4","Uncontrolled","BaseAirSys7or3b-4","Perimeter_ZN_3 Thermal Zone",904.348,-99996.000,-99996.000,""
+,"BaseVAVNoReheatTrmlUnit-5","Uncontrolled","BaseAirSys7or3b-5","Perimeter_ZN_4 Thermal Zone",708.001,-99996.000,-99996.000,""
+ENDTABLE
+TABLE 020012-OffSml-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys7or3b CoilClg","DirectExpansion","BaseAirSys7or3b","n/a",31043.827,32388.354,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-2","DirectExpansion","BaseAirSys7or3b-2","n/a",32730.731,34148.319,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-3","DirectExpansion","BaseAirSys7or3b-3","n/a",18143.205,18928.999,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-4","DirectExpansion","BaseAirSys7or3b-4","n/a",31066.664,32412.180,-99996.00000,14.000,11.407,1
+,"BaseSys7or3b CoilClg-5","DirectExpansion","BaseAirSys7or3b-5","n/a",22001.427,22954.322,-99996.00000,14.000,11.407,1
+ENDTABLE
+TABLE 020012-OffSml-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys7or3b CoilHtg","HeatPump","BaseAirSys7or3b","n/a",33732.881,32388.354,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-2","HeatPump","BaseAirSys7or3b-2","n/a",35565.906,34148.319,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-3","HeatPump","BaseAirSys7or3b-3","n/a",19714.792,18928.999,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-4","HeatPump","BaseAirSys7or3b-4","n/a",33757.696,32412.180,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b CoilHtg-5","HeatPump","BaseAirSys7or3b-5","n/a",23907.217,22954.322,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg","Resistance","BaseAirSys7or3b","n/a",28885.200,28885.200,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-2","Resistance","BaseAirSys7or3b-2","n/a",25607.775,25607.775,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-3","Resistance","BaseAirSys7or3b-3","n/a",14967.338,14967.338,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-4","Resistance","BaseAirSys7or3b-4","n/a",23091.338,23091.338,0.00000,-99996.000,-99996.000
+,"BaseSys7or3b SuppCoilHtg-5","Resistance","BaseAirSys7or3b-5","n/a",16257.037,16257.037,0.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE 020012-OffSml-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"BaseSys7or3b SupFan","ConstantVolume","BaseAirSys7or3b","n/a",1095.007,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.934,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-2","ConstantVolume","BaseAirSys7or3b-2","n/a",1069.608,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.913,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-3","ConstantVolume","BaseAirSys7or3b-3","n/a",622.640,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.531,0.750,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-4","ConstantVolume","BaseAirSys7or3b-4","n/a",904.348,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.772,1.000,"InAirStream",0.855,0.7440
+,"BaseSys7or3b SupFan-5","ConstantVolume","BaseAirSys7or3b-5","n/a",708.001,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.604,0.750,"InAirStream",0.855,0.7440
+ENDTABLE
+TABLE 020012-OffSml-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"BaseSys7or3b OACtrl","NoEconomizer","BaseAirSys7or3b","UNDEFINED"
+,"BaseSys7or3b OACtrl-2","NoEconomizer","BaseAirSys7or3b-2","UNDEFINED"
+,"BaseSys7or3b OACtrl-3","NoEconomizer","BaseAirSys7or3b-3","UNDEFINED"
+,"BaseSys7or3b OACtrl-4","NoEconomizer","BaseAirSys7or3b-4","UNDEFINED"
+,"BaseSys7or3b OACtrl-5","NoEconomizer","BaseAirSys7or3b-5","UNDEFINED"
+ENDTABLE

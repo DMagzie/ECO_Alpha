@@ -1,0 +1,27 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Jefferson Murrieta_Bldg 2C_2025-12-1722TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"ResBaseAirSys TrmlUnit","Uncontrolled","ResBaseAirSys_SZHP","Fitness_L1",1200.703,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 2C_2025-12-1722CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilClg","DirectExpansion","ResBaseAirSys_SZHP","n/a",49322.533,51458.721,-99996.00000,15.053,11.956,1
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 2C_2025-12-1722CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilHtg","HeatPump","ResBaseAirSys_SZHP","n/a",53594.910,51458.721,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP SuppCoilHtg","Resistance","ResBaseAirSys_SZHP","n/a",46594.875,46594.875,0.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 2C_2025-12-1722Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"ResBaseAirSys_SZHP SupFan","ConstantVolume","ResBaseAirSys_SZHP","n/a",1200.703,-99996.000,0.650,"PowerPerUnitFlow",3.560,1.036,1.500,"InAirStream",0.865,0.7440
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 2C_2025-12-1722OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"ResBaseAirSys_SZHP OACtrl","FixedDryBulb","ResBaseAirSys_SZHP","Integrated"
+ENDTABLE

@@ -1,0 +1,35 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  43.1 kWdc PV  /  Battery Energy 83.5 kWh and Power 19.55 kW (Time of Use control)"
+,"Standard Design PV Capacity: 43.1 kWdc  /  Battery Capacity: 83.5 kWh  (power 19.55 kW, Time of Use control)"
+,"User-specified PV and Battery:  43.1 kWdc PV  /  83.5 kWh Battery  (19.5/19.5 charge/discharge rate (kW), Time of Use control)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Cafeteria_Spc","DirectlyConditioned","Dining Area (Cafeteria/Fast Food)","School",2859.73,1,,,,,2859.73,,,,,,,4.66137,9.17553,2.14423,
+"Lobby_Spc","DirectlyConditioned","Corridor Area","School",678.128,1,,,,,678.128,,,,,,,1.10535,2.17579,0.50846,
+"Main_Corridor_Spc","DirectlyConditioned","Corridor Area","School",1722.23,1,,,,,1722.23,,,,,,,2.80723,5.52582,1.29133,
+"Mech/Elec_Spc","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms","School",446.486,1,,,,,446.486,,,,,,,0.727772,1.43256,0.334775,
+"Office_Spc","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",2201.36,1,,,2201.36,,,,,,,,,6.89026,12.1849,2.89391,
+"Restroom_Spc","IndirectlyConditioned","Restrooms","School",1004.6,1,,,,,1004.6,,,,,,,1.6375,3.22328,0.753249,
+"Wing1_Corridor_Spc","DirectlyConditioned","Corridor Area","School",1722.22,1,,,,,1722.22,,,,,,,2.80722,5.5258,1.29132,
+"Wing1_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.474,1,,,,,753.474,,,,,,,1.22816,2.41754,0.564955,
+"Wing1_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.474,1,,,,,753.474,,,,,,,1.22816,2.41754,0.564955,
+"Wing1_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.474,1,,,,,753.474,,,,,,,1.22816,2.41754,0.564955,
+"Wing1_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.484,1,,,,,753.484,,,,,,,1.22818,2.41757,0.564962,
+"Wing1_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.474,1,,,,,753.474,,,,,,,1.22816,2.41754,0.564955,
+"Wing1_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.474,1,,,,,753.474,,,,,,,1.22816,2.41754,0.564955,
+"Wing1_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.474,1,,,,,753.474,,,,,,,1.22816,2.41754,0.564955,
+"Wing1_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.484,1,,,,,753.484,,,,,,,1.22818,2.41757,0.564962,
+"Wing2_Corridor_Spc","DirectlyConditioned","Corridor Area","School",1722.32,1,,,,,1722.32,,,,,,,2.80737,5.52609,1.29139,
+"Wing2_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.461,1,,,,,753.461,,,,,,,1.22814,2.4175,0.564945,
+"Wing2_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.461,1,,,,,753.461,,,,,,,1.22814,2.4175,0.564945,
+"Wing2_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.461,1,,,,,753.461,,,,,,,1.22814,2.4175,0.564945,
+"Wing2_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.47,1,,,,,753.47,,,,,,,1.22816,2.41753,0.564952,
+"Wing2_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.478,1,,,,,753.478,,,,,,,1.22817,2.41755,0.564958,
+"Wing2_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.478,1,,,,,753.478,,,,,,,1.22817,2.41755,0.564958,
+"Wing2_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.478,1,,,,,753.478,,,,,,,1.22817,2.41755,0.564958,
+"Wing2_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","School",753.487,1,,,,,753.487,,,,,,,1.22818,2.41758,0.564964,
+,,,,,Sums:,0,0,2201.36,0,22211.3,0,0,0,0,0,,43.0947,83.4504,19.5479,
+,,Bldg Cond Area:,24412.7,,Pcts:,0.0,0.0,9.0,0.0,91.0,0.0,0.0,0.0,,0.0,

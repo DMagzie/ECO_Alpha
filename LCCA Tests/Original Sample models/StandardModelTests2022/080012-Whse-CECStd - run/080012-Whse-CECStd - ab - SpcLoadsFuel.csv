@@ -1,0 +1,8 @@
+Space Interior Loads Fuel Use Report
+,,,,Non-Regulated,,,Non-Regulated,,,
+,,,,Equipment,,,Process,,,
+,,Floor Area,,Power Density,Schedule,Fuel Use,Power Density,Schedule,Fuel Use,
+Space Name,Conditioning Type,(ft2),Mult,(Btuh/ft2),(FLH),(therms),(Btuh/ft2),(FLH),(therms),
+"Spc_Office","DirectlyConditioned",2549.75,1,,,,,,,
+"Spc_FineStorage","DirectlyConditioned",14998.6,1,,,,,,,
+"Spc_BulkStorage","DirectlyConditioned",34496.7,1,,,,,,,

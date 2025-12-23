@@ -1,0 +1,105 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"BaseAirSys7or3b","SZVAVHP","New",1,446.486,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,66.9729,-99996,"Common_Mech/Elec_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-2","SZVAVHP","New",4,3013.91,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,286.321,-99996,"Wing1_Side1_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-3","SZVAVHP","New",1,1722.22,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,258.333,-99996,"Wing1_Corridor_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-4","SZVAVHP","New",4,3013.91,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,286.321,-99996,"Wing1_Side2_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-5","SZVAVHP","New",1,678.128,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,101.719,-99996,"Common_Lobby_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-6","SZVAVHP","New",1,1722.23,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,258.334,-99996,"Common_Corridor_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-7","SZVAVHP","New",4,3013.85,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,286.316,-99996,"Wing2_Side1_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-8","SZVAVHP","New",1,1722.32,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,258.347,-99996,"Wing2_Corridor_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-9","SZVAVHP","New",4,3013.92,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,286.322,-99996,"Wing2_Side2_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-10","SZVAVHP","New",1,2201.36,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,330.204,-99996,"Common_Office_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"BaseAirSys7or3b-11","SZVAVHP","New",1,2859.73,-99996,55,-99996,-99996,-99996,95,-99996,0,-99996,1429.87,-99996,"Common_Cafeteria_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"BaseVAVNoReheatTrmlUnit","VAVNoReheatBox","New",1,"BaseAirSys7or3b",1,"Common_Mech/Elec_Zn",446.486,1,-99996,66.9729,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-2","VAVNoReheatBox","New",1,"BaseAirSys7or3b-2",4,"Wing1_Side1_Zn",3013.91,4,-99996,286.321,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-3","VAVNoReheatBox","New",1,"BaseAirSys7or3b-3",1,"Wing1_Corridor_Zn",1722.22,1,-99996,258.333,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-4","VAVNoReheatBox","New",1,"BaseAirSys7or3b-4",4,"Wing1_Side2_Zn",3013.91,4,-99996,286.321,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-5","VAVNoReheatBox","New",1,"BaseAirSys7or3b-5",1,"Common_Lobby_Zn",678.128,1,-99996,101.719,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-6","VAVNoReheatBox","New",1,"BaseAirSys7or3b-6",1,"Common_Corridor_Zn",1722.23,1,-99996,258.334,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-7","VAVNoReheatBox","New",1,"BaseAirSys7or3b-7",4,"Wing2_Side1_Zn",3013.85,4,-99996,286.316,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-8","VAVNoReheatBox","New",1,"BaseAirSys7or3b-8",1,"Wing2_Corridor_Zn",1722.32,1,-99996,258.347,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-9","VAVNoReheatBox","New",1,"BaseAirSys7or3b-9",4,"Wing2_Side2_Zn",3013.92,4,-99996,286.322,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-10","VAVNoReheatBox","New",1,"BaseAirSys7or3b-10",1,"Common_Office_Zn",2201.36,1,-99996,330.204,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVNoReheatTrmlUnit-11","VAVNoReheatBox","New",1,"BaseAirSys7or3b-11",1,"Common_Cafeteria_Zn",2859.73,1,-99996,1429.87,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"BaseSys7or3b CoilClg","DirectExpansion","New","Electric","BaseAirSys7or3b",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-2","DirectExpansion","New","Electric","BaseAirSys7or3b-2",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-3","DirectExpansion","New","Electric","BaseAirSys7or3b-3",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-4","DirectExpansion","New","Electric","BaseAirSys7or3b-4",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-5","DirectExpansion","New","Electric","BaseAirSys7or3b-5",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-6","DirectExpansion","New","Electric","BaseAirSys7or3b-6",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-7","DirectExpansion","New","Electric","BaseAirSys7or3b-7",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-8","DirectExpansion","New","Electric","BaseAirSys7or3b-8",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-9","DirectExpansion","New","Electric","BaseAirSys7or3b-9",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-10","DirectExpansion","New","Electric","BaseAirSys7or3b-10",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+"BaseSys7or3b CoilClg-11","DirectExpansion","New","Electric","BaseAirSys7or3b-11",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"Air",1,-99996,-99996,-99996,-99996,-99996,-99996,0.333333,1,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"BaseSys7or3b CoilHtg","Resistance","New","Electric","BaseAirSys7or3b",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-2","Resistance","New","Electric","BaseAirSys7or3b-2",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-3","Resistance","New","Electric","BaseAirSys7or3b-3",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-4","Resistance","New","Electric","BaseAirSys7or3b-4",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-5","Resistance","New","Electric","BaseAirSys7or3b-5",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-6","Resistance","New","Electric","BaseAirSys7or3b-6",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-7","Resistance","New","Electric","BaseAirSys7or3b-7",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-8","Resistance","New","Electric","BaseAirSys7or3b-8",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-9","Resistance","New","Electric","BaseAirSys7or3b-9",4,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-10","Resistance","New","Electric","BaseAirSys7or3b-10",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+"BaseSys7or3b CoilHtg-11","Resistance","New","Electric","BaseAirSys7or3b-11",1,"n/a",-99996,-99996,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,1,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"BaseSys7or3b SupFan","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-2","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-2",4,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-3","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-3",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-4","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-4",4,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-5","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-5",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-6","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-6",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-7","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-7",4,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-8","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-8",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-9","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-9",4,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-10","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-10",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+"BaseSys7or3b SupFan-11","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys7or3b-11",1,"n/a",0,-99996,1,"PowerPerUnitFlow",0,0,0,-99996,"InAirStream",1
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"BaseSys7or3b OACtrl","NoEconomizer","New",66.9729,"BaseAirSys7or3b",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-2","NoEconomizer","New",286.321,"BaseAirSys7or3b-2",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-3","NoEconomizer","New",258.333,"BaseAirSys7or3b-3",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-4","NoEconomizer","New",286.321,"BaseAirSys7or3b-4",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-5","NoEconomizer","New",101.719,"BaseAirSys7or3b-5",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-6","NoEconomizer","New",258.334,"BaseAirSys7or3b-6",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-7","NoEconomizer","New",286.316,"BaseAirSys7or3b-7",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-8","NoEconomizer","New",258.347,"BaseAirSys7or3b-8",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-9","NoEconomizer","New",286.322,"BaseAirSys7or3b-9",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-10","NoEconomizer","New",330.204,"BaseAirSys7or3b-10",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"BaseSys7or3b OACtrl-11","NoEconomizer","New",1429.87,"BaseAirSys7or3b-11",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"

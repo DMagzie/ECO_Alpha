@@ -1,0 +1,14 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  1.1 kWdc PV  /  Battery Energy 1.1 kWh and Power 0.25 kW (Time of Use control)"
+,"No Standard Design PV/Battery to be included in analysis"
+,"User-specified PV and Battery will not be included in analysis due to reduced PV requirement of 0 kWdc"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Attic Space","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","none",0,1,,,,,,,,0,,,,0,0,0,
+"Dining","DirectlyConditioned","Dining Area (Cafeteria/Fast Food)","Other",1250.46,1,,,,,,,1250.46,,,,,0.550202,0.538619,0.126547,
+"Kitchen","DirectlyConditioned","Kitchen/Food Preparation Area","Other",1250.46,1,,,,,,,1250.46,,,,,0.550202,0.538619,0.126547,
+,,,,,Sums:,0,0,0,0,0,0,2500.92,0,0,0,,1.1004,1.07724,0.253093,
+,,Bldg Cond Area:,2500.92,,Pcts:,0.0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,,0.0,

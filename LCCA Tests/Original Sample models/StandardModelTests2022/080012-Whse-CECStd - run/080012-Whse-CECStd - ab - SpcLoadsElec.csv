@@ -1,0 +1,39 @@
+Space Interior Loads Electric Use Report
+,,,,,Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,
+Space,,,,,Interior Lighting,,,,Interior Lighting,,,,Receptacle,,,,Process,,,,Commercial Refrigeration,,,
+Name,Conditioning Type,Space Function,Floor Area,Multiplier,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,
+,,,(ft2),,(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),
+"Spc_Office","DirectlyConditioned","Office Area (>250 square feet)",2549.75,1,0.6,"WarehouseLights",1686.55,2580.17,,,,,1.5,"WarehouseReceptacle",2489.75,9522.36,,,,,,,,,
+"Spc_FineStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)",14998.6,1,0.4,"WarehouseLights",1686.55,10118.3,,,,,0.2,"WarehouseReceptacle",2489.75,7468.54,,,,,,,,,
+"Spc_BulkStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)",34496.7,1,0.4,"WarehouseLights",1686.55,23272.2,,,,,0.2,"WarehouseReceptacle",2489.75,17177.6,,,,,,,,,
+
+
+
+Space Loads Report
+Space,,,,,,Occupancy,,,,,Service Hot Water,,Ventilation,,,,,,Infiltration,,,Thermal Zone
+Name,Conditioning Type,Space Function,Floor Area,Story Name,Multiplier,Density,Number,Schedule Name,Sensible Heat Rate,Latent Heat Rate,SHW Use, Schedule Name,Prop. DsgnVentPerArea,Prop. DsgnVentPerPerson,Code VentPerArea,Code VentPerPerson,Sim. Area Flow,Sim. Person Flow,Method,Schedule Name,Design Infiltration Rate,Clg Tstat Sch, Htg Tstat Sch
+,,,(ft2),,,(ppl/1000ft2),(people),,(Btu/h-person),(Btu/h-person),(gal/person),,(cfm/ft2),(cfm/person),(cfm/ft2),(cfm/person),(cfm),(cfm),,,(cfm/ft2)
+"Spc_Office","DirectlyConditioned","Office Area (>250 square feet)",2549.7495,"Building Story 1",1,5,12.7487,"WarehouseOccupancy",250,200,0.18,"WarehouseServiceHotWater",0.15,30,0.15,30,382.462,0,"FlowExteriorWallArea","WarehouseInfiltration",0.2352,"WarehouseClgSetpt","WarehouseHtgSetpt"
+"Spc_FineStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)",14998.5650,"Building Story 1",1,1,14.9986,"WarehouseOccupancy",275,475,0.18,"WarehouseServiceHotWater",0.15,150,0.15,150,2249.78,0,"FlowExteriorWallArea","WarehouseInfiltration",0.2352,"NONE","WarehouseHtgSetpt"
+"Spc_BulkStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)",34496.7251,"Building Story 1",1,1,34.4967,"WarehouseOccupancy",275,475,0.18,"WarehouseServiceHotWater",0.15,150,0.15,150,5174.51,0,"FlowExteriorWallArea","WarehouseInfiltration",0.2352,"NONE","WarehouseHtgSetpt"
+
+
+
+Space Interior Lighting Report
+Space,,,,,Regulated,,,,,,,,,,,Non-Regulated
+Name,Conditioning Type,Space Function,Lighting Status,Floor Area,Lighting Specification Method,Installed Power,Schedule Name,Schedule,Lighting System Count,Lighting Control Credit,General Lighting Power,Area Category Allowances,Tailored Allowances,Simulated Power,Simulated LPD,Power,Schedule Name,Schedule,LPD
+,,,,(ft2),,(Watts),,(FLH),,(Watts),(Watts),(Watts),(Watts),(Watts),(Watts/ft2),(Watts),,(FLH),(Watts/ft2),
+"Spc_Office","DirectlyConditioned","Office Area (>250 square feet)","New",2549.75,"AreaCategoryMethod",0,"WarehouseLights",1686.55,-99996,0,1529.85,0,0,1529.85,0.60
+"Spc_FineStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","New",14998.6,"AreaCategoryMethod",0,"WarehouseLights",1686.55,-99996,0,5999.43,0,0,5999.43,0.40
+"Spc_BulkStorage","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","New",34496.7,"AreaCategoryMethod",0,"WarehouseLights",1686.55,-99996,0,13798.7,0,0,13798.7,0.40
+
+
+
+Space Daylighting,,,,,,,,,,,,,,,,,,,,,,,,,
+Name,SpcFunc,FlrArea,DayltgCtrlType,MandMinDaylitArea,MinDimLtgFrac,MinDimPwrFrac,NumOfCtrlSteps,SkylitDaylitArea,SkylitDayltgCtrlLtgPwr,SkylitDayltgCtrlLtgFrac,SkylitDayltgIllumSetpt,SkylitDayltgIllumSetptAdjFac,SkylitDayltgAdjIllumSetpt,,PriSideDayltgRefPtCoord[1],PriSideDayltgRefPtCoord[2],PriSideDayltgRefPtCoord[3],PriSideDaylitArea,PriSideDayltgCtrlLtgPwr,PriSideDayltgCtrlLtgFrac,PriSideDayltgIllumSetpt,PriSideDayltgIllumSetptAdjFac,PriSideDayltgAdjIllumSetpt,,SecSideDayltgRefPtCoord[1],SecSideDayltgRefPtCoord[2],SecSideDayltgRefPtCoord[3],SecSideDaylitArea,SecSideDayltgCtrlLtgPwr,SecSideDayltgCtrlLtgFrac,SecSideDayltgIllumSetpt,SecSideDayltgIllumSetptAdjFac,SecSideDayltgAdjIllumSetpt
+Space,,,,,,,,Skylit Zone,,,,,,,Primary Sidelit Daylit Zone,,,,,,,,,,Secondary Sidelit Daylit Zone,,,,,,
+Name,Space Function,Floor Area,Control Type,MinDayltg per 140.3c,Min. Dim. Ltg. Frac.,Min Dim. Pwr. Frac.,Switched # Ctrl. Steps,Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point
+,,(ft2),,(ft2),,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux)
+"Spc_Office","Office Area (>250 square feet)",2549.75,"Continuous",-99996,0.1,0.1,-99996,0,0,0,287.5,-99996,287.5,,-8.00294,-21.169,2.5,538.667,323.2,0.211263,287.5,-99996,287.5,,-16.0059,-8.82957,2.5,421.333,252.8,0.165245,287.5,-99996,1150
+"Spc_FineStorage","Storage, Commercial/Industrial (Warehouse)",14998.6,"Continuous",-99996,0.1,0.1,-99996,10730.4,4292.17,0.71543,175,-99996,175,,-99996,-99996,-99996,0,0,0,175,-99996,262.5,,-99996,-99996,-99996,0,0,0,175,-99996,350
+"Spc_BulkStorage","Storage, Commercial/Industrial (Warehouse)",34496.7,"Continuous",-99996,0.1,0.1,-99996,34387.5,13755,0.996834,175,-99996,175,,-99996,-99996,-99996,0,0,0,175,-99996,262.5,,-99996,-99996,-99996,0,0,0,175,-99996,350

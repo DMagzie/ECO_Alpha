@@ -1,0 +1,20 @@
+AirSystems
+,,Fan Capacity,,,,Fan Pwr (Design),,,,,Fan Pwr Ratio,,,,Fan Pwr Adj
+System Name,Type,Supply Fan Capacity,Return Fan Capacity,Relief Fan Capacity,Exhaust Fan Capacity,Supply Fan Pwr,Return Fan Pwr,Relief Fan Pwr,Exhaust Fan Pwr,Total System Fan Pwr,Supply Fan Pwr Ratio,Return Fan Pwr Ratio,Relief Fan Pwr Ratio,Exhaust Fan Pwr Ratio,Total Exhaust Fan Pwr Adj,Total NonExhaust Fan Pwr Adj,Total System Fan Pwr Adj,Fully Ducted Exhaust Pressure Drop Adj,Exhaust Filter Pressure Drop Adj,Biosafety Cabinet Pressure Drop Adj,Fully Ducted Return Pressure Drop Adj,MERV16 Filter Pressure Drop Adj,Air Cleaner Pressure Drop Adj,Fully Ducted Exhaust Design Flow,Exhaust Filter Design Flow,Biosafety Design Flow,Fully Ducted Return Design Flow,MERV16 Filter Design Flow,Air Cleaner Design Flow
+,,(cfm),(cfm),(cfm),(cfm),(kW),(kW),(kW),(kW),(kW),(frac),(frac),(frac),(frac),(kW),(kW),(kW),(inH2O),(inH2O),(inH2O),(inH2O),(inH2O),(inH2O),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"BaseAirSys7or3b","SZHP",1095.0,0.0,0.0,0.0,0.815,0.000,0.000,0.000,0.815,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,0,0.000,0.000,0.000,0.000,0.000,0.000
+"BaseAirSys7or3b-2","SZHP",1069.6,0.0,0.0,0.0,0.796,0.000,0.000,0.000,0.796,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,0,0.000,0.000,0.000,0.000,0.000,0.000
+"BaseAirSys7or3b-3","SZHP",622.6,0.0,0.0,0.0,0.463,0.000,0.000,0.000,0.463,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,0,0.000,0.000,0.000,0.000,0.000,0.000
+"BaseAirSys7or3b-4","SZHP",904.3,0.0,0.0,0.0,0.673,0.000,0.000,0.000,0.673,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,0,0.000,0.000,0.000,0.000,0.000,0.000
+"BaseAirSys7or3b-5","SZHP",708.0,0.0,0.0,0.0,0.527,0.000,0.000,0.000,0.527,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,0,0.000,0.000,0.000,0.000,0.000,0.000
+
+Thermal Zone
+,,,,,,Fan Capacity,,,Fan Flow Ratio,,,Fan Pwr,,,,,Fan Pwr Adj
+Name,Pri HVAC Sys,Vent Sys,Exhaust Sys,Floor Area,Multiplier,Pri. System Flow,Ventilation System Flow,Exhaust Flow,Zone Pri-Air-Flow-to-Sys Flow Ratio,Zone Vent-to-Sys-Air Flow Ratio,Zone Exh-to-Sys Flow Ratio,Prop Supply Fan Pwr,Prop Return Fan Pwr,Prop Relief Fan Pwr,Prop Exhaust Fan Pwr,Total Prop Fan Pwr,Total Exhaust Fan Pwr Adj,Total NonExhaust Fan Pwr Adj,Total Fan Pwr Adj,Fully Ducted Exhaust Pwr Adj,Exhaust Filter Fan Pwr Adj,Biosafety Cabinet Fan Pwr Adj,Fully Ducted Return Fan Pwr Adj,MERV16 Fan Pwr Adj,Air Cleaner Fan Pwr Adj,Exhaust Fan Motor BHP
+,,,,(ft2),,(cfm),(cfm),(cfm),(frac),(frac),(frac),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW)
+"Attic Thermal Zone","NONE","NONE","NONE",0.0,1,0.0,0.0,0.0,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"Core_ZN Thermal Zone","BaseAirSys7or3b","BaseAirSys7or3b","NONE",1610.9,1,1095.0,1095.0,0.0,1.000,0.000,0.000,0.815,0.000,0.000,0.000,0.815,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"Perimeter_ZN_1 Thermal Zone","BaseAirSys7or3b-2","BaseAirSys7or3b-2","NONE",1221.2,1,1069.6,1069.6,0.0,1.000,0.000,0.000,0.796,0.000,0.000,0.000,0.796,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"Perimeter_ZN_2 Thermal Zone","BaseAirSys7or3b-3","BaseAirSys7or3b-3","NONE",724.4,1,622.6,622.6,0.0,1.000,0.000,0.000,0.463,0.000,0.000,0.000,0.463,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"Perimeter_ZN_3 Thermal Zone","BaseAirSys7or3b-4","BaseAirSys7or3b-4","NONE",1221.2,1,904.3,904.3,0.0,1.000,0.000,0.000,0.673,0.000,0.000,0.000,0.673,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"Perimeter_ZN_4 Thermal Zone","BaseAirSys7or3b-5","BaseAirSys7or3b-5","NONE",724.4,1,708.0,708.0,0.0,1.000,0.000,0.000,0.527,0.000,0.000,0.000,0.527,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000

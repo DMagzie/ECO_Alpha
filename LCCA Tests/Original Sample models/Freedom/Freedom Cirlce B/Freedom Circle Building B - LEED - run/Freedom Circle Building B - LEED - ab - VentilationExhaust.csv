@@ -1,0 +1,35 @@
+BuildingStory
+,,Floor Area (including multipliers),,,,,Ventilation (Design),,,Ventilation (For Balance),,,,,,General,,Comm. Kitchen,,Parking Garage,,Laboratory
+Name,Multiplier,Total,Cond. NRes,Cond. Res,Total Cond.,Number,Total,Code Min.,Exhaust,Total,Code Min.,Tot:Min Ratio,Exhaust,Vent:Exh Ratio,Vent Mult.,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust
+,,(ft2),(ft2),(ft2),(ft2),(people),(cfm),(cfm),(cfm),(cfm),(cfm),,(cfm),,,(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"Corridor_L01",1,5245.0,5245.0,0.0,5245.0,26.2,787,787,0,787,787,1.000,0,1.000,1.000,787,0,0,0,0,0,0,0
+"Corridor_L02",1,7266.4,7266.4,0.0,7266.4,36.3,1090,1090,0,1090,1090,1.000,0,1.000,1.000,1090,0,0,0,0,0,0,0
+"Corridor_L03",1,10334.4,10334.4,0.0,10334.4,51.7,1550,1550,0,1550,1550,1.000,0,1.000,1.000,1550,0,0,0,0,0,0,0
+"Corridor_L04",1,8678.7,8678.7,0.0,8678.7,43.4,1302,1302,0,1302,1302,1.000,0,1.000,1.000,1302,0,0,0,0,0,0,0
+"Corridor_L05",1,8294.3,8294.3,0.0,8294.3,41.5,1244,1244,0,1244,1244,1.000,0,1.000,1.000,1244,0,0,0,0,0,0,0
+"Corridor_L06",1,8294.3,8294.3,0.0,8294.3,41.5,1244,1244,0,1244,1244,1.000,0,1.000,1.000,1244,0,0,0,0,0,0,0
+"Corridor_L07",1,8294.3,8294.3,0.0,8294.3,41.5,1244,1244,0,1244,1244,1.000,0,1.000,1.000,1244,0,0,0,0,0,0,0
+
+Space
+,,,,,,,Occupancy,,,Ventilation,,Design Input (By Component),,,,,Minimum Req. (By Component),,,,Simulated,,,Exhaust,,,ForBalance
+Name,Story Name,Condg Type,Space Function,Thermal Zone,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Per Space,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,Lab Exh Type,Max Kitchen,Ventilation,Exhaust
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm),,(cfm),(cfm),(cfm)
+"CORRIDOR 1_L01","Corridor_L01","DirectlyConditioned","Corridor Area","TZ-Corridor_L01",5245.0,1,10.0,10.0,26.2,"Maximum","Fixed",0,0.15,0,0,787,0,0.15,0,787,0,0.15,786.75,0,"UNDEFINED",0,787,0
+"CORRIDOR 1_L02","Corridor_L02","DirectlyConditioned","Corridor Area","TZ-Corridor_L02",7266.4,1,10.0,10.0,36.3,"Maximum","Fixed",0,0.15,0,0,1090,0,0.15,0,1090,0,0.15,1089.95,0,"UNDEFINED",0,1090,0
+"CORRIDOR 1_L03","Corridor_L03","DirectlyConditioned","Corridor Area","TZ-Corridor_L03",10334.4,1,10.0,10.0,51.7,"Maximum","Fixed",0,0.15,0,0,1550,0,0.15,0,1550,0,0.15,1550.16,0,"UNDEFINED",0,1550,0
+"CORRIDOR 1_L04","Corridor_L04","DirectlyConditioned","Corridor Area","TZ-Corridor_L04",8678.7,1,10.0,10.0,43.4,"Maximum","Fixed",0,0.15,0,0,1302,0,0.15,0,1302,0,0.15,1301.81,0,"UNDEFINED",0,1302,0
+"CORRIDOR 1_L05","Corridor_L05","DirectlyConditioned","Corridor Area","TZ-Corridor_L05",8294.3,1,10.0,10.0,41.5,"Maximum","Fixed",0,0.15,0,0,1244,0,0.15,0,1244,0,0.15,1244.14,0,"UNDEFINED",0,1244,0
+"CORRIDOR 1_L06","Corridor_L06","DirectlyConditioned","Corridor Area","TZ-Corridor_L06",8294.3,1,10.0,10.0,41.5,"Maximum","Fixed",0,0.15,0,0,1244,0,0.15,0,1244,0,0.15,1244.14,0,"UNDEFINED",0,1244,0
+"CORRIDOR 1_L07","Corridor_L07","DirectlyConditioned","Corridor Area","TZ-Corridor_L07",8294.3,1,10.0,10.0,41.5,"Maximum","Fixed",0,0.15,0,0,1244,0,0.15,0,1244,0,0.15,1244.14,0,"UNDEFINED",0,1244,0
+
+ThermalZone
+,,,,,,,Occupancy,,,,Ventilation,,Design Value (Total),,,,Minimum Req. (Total),,,,Simulated,,,Exhaust
+Name,Story Name,Type,Ventilation Source,Pri. HVAC System,Ventilation System,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,ExhSysRef,ExhOperMode,ExhCtrlMthd,ExhBalancedSchRef
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm)
+"TZ-Corridor_L01","Corridor_L01","Conditioned","Forced","BaseAirSys6","BaseAirSys6",5245.0,1,10.0,10.0,26.2,"Maximum","Fixed",30,0.15,0.9,787,30,0.15,0.9,787,0,0.15,787
+"TZ-Corridor_L02","Corridor_L02","Conditioned","Forced","BaseAirSys6-2","BaseAirSys6-2",7266.4,1,10.0,10.0,36.3,"Maximum","Fixed",30,0.15,0.75,1090,30,0.15,0.75,1090,0,0.15,1090
+"TZ-Corridor_L03","Corridor_L03","Conditioned","Forced","BaseAirSys6-3","BaseAirSys6-3",10334.4,1,10.0,10.0,51.7,"Maximum","Fixed",30,0.15,0.818182,1550,30,0.15,0.818182,1550,0,0.15,1550
+"TZ-Corridor_L04","Corridor_L04","Conditioned","Forced","BaseAirSys6-4","BaseAirSys6-4",8678.7,1,10.0,10.0,43.4,"Maximum","Fixed",30,0.15,0.850396,1302,30,0.15,0.850396,1302,0,0.15,1302
+"TZ-Corridor_L05","Corridor_L05","Conditioned","Forced","BaseAirSys6-5","BaseAirSys6-5",8294.3,1,10.0,10.0,41.5,"Maximum","Fixed",30,0.15,0.850396,1244,30,0.15,0.850396,1244,0,0.15,1244
+"TZ-Corridor_L06","Corridor_L06","Conditioned","Forced","BaseAirSys6-6","BaseAirSys6-6",8294.3,1,10.0,10.0,41.5,"Maximum","Fixed",30,0.15,0.850396,1244,30,0.15,0.850396,1244,0,0.15,1244
+"TZ-Corridor_L07","Corridor_L07","Conditioned","Forced","BaseAirSys6-7","BaseAirSys6-7",8294.3,1,10.0,10.0,41.5,"Maximum","Fixed",30,0.15,0.776981,1244,30,0.15,0.776981,1244,0,0.15,1244

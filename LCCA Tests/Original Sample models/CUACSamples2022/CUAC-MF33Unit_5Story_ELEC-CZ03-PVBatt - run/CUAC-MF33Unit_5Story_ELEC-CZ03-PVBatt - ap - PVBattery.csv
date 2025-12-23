@@ -1,0 +1,44 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  46.8 kWdc PV  /  Battery Energy 50.7 kWh and Power 12.17 kW (Time of Use control)"
+,"Standard Design PV Capacity: 46.8 kWdc  /  Battery Capacity: 50.7 kWh  (power 12.17 kW, Time of Use control)"
+,"User-specified PV and Battery:  85.0 kWdc PV  /  50.7 kWh Battery  (12.2/12.2 charge/discharge rate (kW), Time of Use control)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"S-1-2-BD-699 1-R-2","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",762,1,,762,,,,,,,1,,,1.38684,1.50363,0.360578,
+"S-5-3-BD-971 2-F-2","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",1057,1,,1057,,,,,,,1,,,1.92374,2.08574,0.500172,
+"S-9-1-BD-520 3-F-2","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",583,1,,583,,,,,,,1,,,1.06106,1.15041,0.275876,
+"S-13-1-BD-503 4-F-2","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-15-2-BD-875 5-F-2","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",952,1,,952,,,,,,,1,,,1.73264,1.87855,0.450486,
+"S-21-3-BD-918 7-B-2","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",997,1,,997,,,,,,,1,,,1.81454,1.96734,0.47178,
+"S-2-2-BD-699 1-R-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",762,1,,762,,,,,,,1,,,1.38684,1.50363,0.360578,
+"S-6-3-BD-971 2-F-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",1057,1,,1057,,,,,,,1,,,1.92374,2.08574,0.500172,
+"S-10-1-BD-520 3-F-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",583,1,,583,,,,,,,1,,,1.06106,1.15041,0.275876,
+"S-14-1-BD-504 4-F-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",576,1,,576,,,,,,,1,,,1.04832,1.1366,0.272563,
+"S-16-2-BD-875 5-F-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",952,1,,952,,,,,,,1,,,1.73264,1.87855,0.450486,
+"S-19-1-BD-505 6-L-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",574,1,,574,,,,,,,1,,,1.04468,1.13265,0.271617,
+"S-22-3-BD-918 7-B-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",997,1,,997,,,,,,,1,,,1.81454,1.96734,0.47178,
+"S-25-1-BD-501 8-B-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-28-1-BD-503 9-B-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-31-1-BD-503 10-B-3","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-3-2-BD-699 1-R-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",762,1,,762,,,,,,,1,,,1.38684,1.50363,0.360578,
+"S-7-3-BD-977 2-F-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",1047,1,,1047,,,,,,,1,,,1.90554,2.06601,0.49544,
+"S-11-3-BD-1053 3-F-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",1142,1,,1142,,,,,,,1,,,2.07844,2.25347,0.540394,
+"S-17-2-BD-868 5-F-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",952,1,,952,,,,,,,1,,,1.73264,1.87855,0.450486,
+"S-20-1-BD-505 6-L-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",574,1,,574,,,,,,,1,,,1.04468,1.13265,0.271617,
+"S-23-3-BD-918 7-B-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",997,1,,997,,,,,,,1,,,1.81454,1.96734,0.47178,
+"S-26-1-BD-503 8-B-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-29-1-BD-503 9-B-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-32-1-BD-503 10-B-4","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-4-2-BD-699 1-R-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",762,1,,762,,,,,,,1,,,1.38684,1.50363,0.360578,
+"S-8-3-BD-977 2-F-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",1047,1,,1047,,,,,,,1,,,1.90554,2.06601,0.49544,
+"S-12-3-BD-1040 3-F-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",1150,1,,1150,,,,,,,1,,,2.093,2.26925,0.54418,
+"S-18-2-BD-870 5-F-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",938,1,,938,,,,,,,1,,,1.70716,1.85092,0.443862,
+"S-24-2-BD-797 7-B-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",878,1,,878,,,,,,,1,,,1.59796,1.73253,0.41547,
+"S-27-1-BD-503 8-B-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-30-1-BD-503 9-B-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+"S-33-1-BD-503 10-B-5","Conditioned","High-Rise Residential Living Spaces","Highrise Multifamily",561,1,,561,,,,,,,1,,,1.02102,1.107,0.265465,
+,,,,,Sums:,0,25711,0,0,0,0,0,0,33,0,,46.794,50.7346,12.1664,
+,,Bldg Cond Area:,25711,,Pcts:,0.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,

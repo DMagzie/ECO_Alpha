@@ -1,0 +1,91 @@
+#,MeterName,EndUseType,SpecificEndUse,FuelType,Frequency
+0,"Cogeneration:Electricity","Cogeneration","","Electricity","Hourly",error retrieving TimeSeries
+0,"InteriorEquipment:NaturalGas","InteriorEquipment","","Gas","Hourly",error retrieving TimeSeries
+0,"ExteriorLights:Coal","ExteriorLights","","not found","Hourly",unknown
+0,"InteriorEquipment:DistrictHeating","InteriorEquipment","","DistrictHeating","Hourly",unknown
+0,"Electricity:Facility","enduse uninitialized","","Electricity","Hourly",unknown
+1,"InteriorLights:Electricity","InteriorLights","","Electricity","Hourly",success,2.08127e+12
+1,"ExteriorLights:Electricity","ExteriorLights","","Electricity","Hourly",error retrieving TimeSeries
+2,"InteriorEquipment:Electricity","InteriorEquipment","","Electricity","Hourly",success,7.68809e+12
+2,"ExteriorEquipment:Electricity","ExteriorEquipment","","Electricity","Hourly",error retrieving TimeSeries
+3,"Fans:Electricity","Fans","","Electricity","Hourly",success,9.8961e+11
+4,"Pumps:Electricity","Pumps","","Electricity","Hourly",success,3.26164e+11
+5,"Heating:Electricity","Heating","","Electricity","Hourly",success,6.82313e+08
+6,"Cooling:Electricity","Cooling","","Electricity","Hourly",success,1.03608e+12
+7,"HeatRejection:Electricity","HeatRejection","","Electricity","Hourly",success,1.27206e+11
+7,"Humidifier:Electricity","Humidifier","","Electricity","Hourly",error retrieving TimeSeries
+8,"HeatRecovery:Electricity","HeatRecovery","","Electricity","Hourly",success,0
+9,"WaterSystems:Electricity","WaterSystems","","Electricity","Hourly",success,4.74734e+11
+9,"Refrigeration:Electricity","Refrigeration","","Electricity","Hourly",error retrieving TimeSeries
+9,"NaturalGas:Facility","enduse uninitialized","","Gas","Hourly",unknown
+9,"InteriorLights:NaturalGas","InteriorLights","","Gas","Hourly",error retrieving TimeSeries
+9,"ExteriorLights:NaturalGas","ExteriorLights","","Gas","Hourly",error retrieving TimeSeries
+9,"ExteriorEquipment:NaturalGas","ExteriorEquipment","","Gas","Hourly",error retrieving TimeSeries
+9,"Fans:NaturalGas","Fans","","Gas","Hourly",error retrieving TimeSeries
+9,"Pumps:NaturalGas","Pumps","","Gas","Hourly",error retrieving TimeSeries
+10,"Heating:NaturalGas","Heating","","Gas","Hourly",success,2.53412e+12
+10,"Cooling:NaturalGas","Cooling","","Gas","Hourly",error retrieving TimeSeries
+10,"HeatRejection:NaturalGas","HeatRejection","","Gas","Hourly",error retrieving TimeSeries
+10,"Humidifier:NaturalGas","Humidifier","","Gas","Hourly",error retrieving TimeSeries
+10,"HeatRecovery:NaturalGas","HeatRecovery","","Gas","Hourly",error retrieving TimeSeries
+10,"WaterSystems:NaturalGas","WaterSystems","","Gas","Hourly",error retrieving TimeSeries
+10,"Cogeneration:NaturalGas","Cogeneration","","Gas","Hourly",error retrieving TimeSeries
+10,"Refrigeration:NaturalGas","Refrigeration","","Gas","Hourly",error retrieving TimeSeries
+10,"Coal:Facility","enduse uninitialized","","not found","Hourly",unknown
+10,"InteriorLights:Coal","InteriorLights","","not found","Hourly",unknown
+10,"InteriorEquipment:Coal","InteriorEquipment","","not found","Hourly",unknown
+10,"ExteriorEquipment:Coal","ExteriorEquipment","","not found","Hourly",unknown
+10,"Fans:Coal","Fans","","not found","Hourly",unknown
+10,"Pumps:Coal","Pumps","","not found","Hourly",unknown
+10,"Heating:Coal","Heating","","not found","Hourly",unknown
+10,"Cooling:Coal","Cooling","","not found","Hourly",unknown
+10,"HeatRejection:Coal","HeatRejection","","not found","Hourly",unknown
+10,"Humidifier:Coal","Humidifier","","not found","Hourly",unknown
+10,"HeatRecovery:Coal","HeatRecovery","","not found","Hourly",unknown
+10,"WaterSystems:Coal","WaterSystems","","not found","Hourly",unknown
+10,"Cogeneration:Coal","Cogeneration","","not found","Hourly",unknown
+10,"Refrigeration:Coal","Refrigeration","","not found","Hourly",unknown
+10,"DistrictCooling:Facility","enduse uninitialized","","DistrictCooling","Hourly",unknown
+10,"InteriorLights:DistrictCooling","InteriorLights","","DistrictCooling","Hourly",unknown
+10,"ExteriorLights:DistrictCooling","ExteriorLights","","DistrictCooling","Hourly",unknown
+10,"InteriorEquipment:DistrictCooling","InteriorEquipment","","DistrictCooling","Hourly",unknown
+10,"ExteriorEquipment:DistrictCooling","ExteriorEquipment","","DistrictCooling","Hourly",unknown
+10,"Fans:DistrictCooling","Fans","","DistrictCooling","Hourly",unknown
+10,"Pumps:DistrictCooling","Pumps","","DistrictCooling","Hourly",unknown
+10,"Heating:DistrictCooling","Heating","","DistrictCooling","Hourly",unknown
+10,"Cooling:DistrictCooling","Cooling","","DistrictCooling","Hourly",unknown
+10,"HeatRejection:DistrictCooling","HeatRejection","","DistrictCooling","Hourly",unknown
+10,"Humidifier:DistrictCooling","Humidifier","","DistrictCooling","Hourly",unknown
+10,"HeatRecovery:DistrictCooling","HeatRecovery","","DistrictCooling","Hourly",unknown
+10,"WaterSystems:DistrictCooling","WaterSystems","","DistrictCooling","Hourly",unknown
+10,"Cogeneration:DistrictCooling","Cogeneration","","DistrictCooling","Hourly",unknown
+10,"Refrigeration:DistrictCooling","Refrigeration","","DistrictCooling","Hourly",unknown
+10,"DistrictHeating:Facility","enduse uninitialized","","DistrictHeating","Hourly",unknown
+10,"InteriorLights:DistrictHeating","InteriorLights","","DistrictHeating","Hourly",unknown
+10,"ExteriorLights:DistrictHeating","ExteriorLights","","DistrictHeating","Hourly",unknown
+10,"ExteriorEquipment:DistrictHeating","ExteriorEquipment","","DistrictHeating","Hourly",unknown
+10,"Fans:DistrictHeating","Fans","","DistrictHeating","Hourly",unknown
+10,"Pumps:DistrictHeating","Pumps","","DistrictHeating","Hourly",unknown
+10,"Heating:DistrictHeating","Heating","","DistrictHeating","Hourly",unknown
+10,"Cooling:DistrictHeating","Cooling","","DistrictHeating","Hourly",unknown
+10,"HeatRejection:DistrictHeating","HeatRejection","","DistrictHeating","Hourly",unknown
+10,"Humidifier:DistrictHeating","Humidifier","","DistrictHeating","Hourly",unknown
+10,"HeatRecovery:DistrictHeating","HeatRecovery","","DistrictHeating","Hourly",unknown
+10,"WaterSystems:DistrictHeating","WaterSystems","","DistrictHeating","Hourly",unknown
+10,"Cogeneration:DistrictHeating","Cogeneration","","DistrictHeating","Hourly",unknown
+10,"Refrigeration:DistrictHeating","Refrigeration","","DistrictHeating","Hourly",unknown
+11,"Receptacle:InteriorEquipment:Electricity","InteriorEquipment","Receptacle","Electricity","Hourly",success,7.68809e+12
+11,"Process:InteriorEquipment:Electricity","InteriorEquipment","Process","Electricity","Hourly",error retrieving TimeSeries
+11,"Refrig:InteriorEquipment:Electricity","InteriorEquipment","Refrig","Electricity","Hourly",error retrieving TimeSeries
+11,"Internal Transport:InteriorEquipment:Electricity","InteriorEquipment","Internal Transport","Electricity","Hourly",error retrieving TimeSeries
+11,"Receptacle:ExteriorEquipment:Electricity","not found","Receptacle","Electricity","Hourly",unknown
+11,"Process:ExteriorEquipment:Electricity","not found","Process","Electricity","Hourly",unknown
+11,"Refrig:ExteriorEquipment:Electricity","not found","Refrig","Electricity","Hourly",unknown
+11,"Receptacle:InteriorEquipment:NaturalGas","InteriorEquipment","Receptacle","Gas","Hourly",error retrieving TimeSeries
+11,"Process:InteriorEquipment:NaturalGas","InteriorEquipment","Process","Gas","Hourly",error retrieving TimeSeries
+11,"Receptacle:ExteriorEquipment:NaturalGas","not found","Receptacle","Gas","Hourly",unknown
+11,"Process:ExteriorEquipment:NaturalGas","not found","Process","Gas","Hourly",unknown
+12,"ComplianceLtg:InteriorLights:Electricity","InteriorLights","ComplianceLtg","Electricity","Hourly",success,2.08127e+12
+12,"NonComplianceLtg:InteriorLights:Electricity","InteriorLights","NonComplianceLtg","Electricity","Hourly",error retrieving TimeSeries
+12,"Reg Ltg:ExteriorLights:Electricity","not found","Reg Ltg","Electricity","Hourly",unknown
+12,"NonReg Ltg:ExteriorLights:Electricity","not found","NonReg Ltg","Electricity","Hourly",unknown

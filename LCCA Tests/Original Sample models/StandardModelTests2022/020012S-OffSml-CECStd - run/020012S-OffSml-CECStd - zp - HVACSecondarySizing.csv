@@ -1,0 +1,51 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 020012S-OffSml-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"CoreZn TU","Uncontrolled","CoreZnPSZ AirSys","Core_ZN Thermal Zone",1097.680,-99996.000,-99996.000,""
+,"Perim1 TU","Uncontrolled","Perim1ZnPSZ AirSys","Perimeter_ZN_1 Thermal Zone",1100.900,-99996.000,-99996.000,""
+,"Perim2 TU","Uncontrolled","Perim2ZnPSZ AirSys","Perimeter_ZN_2 Thermal Zone",635.418,-99996.000,-99996.000,""
+,"Perim3 TU","Uncontrolled","Perim3ZnPSZ AirSys","Perimeter_ZN_3 Thermal Zone",901.915,-99996.000,-99996.000,""
+,"Perim4 TU","Uncontrolled","Perim4ZnPSZ AirSys","Perimeter_ZN_4 Thermal Zone",723.479,-99996.000,-99996.000,""
+ENDTABLE
+TABLE 020012S-OffSml-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"CoreZnCoolingCoil","DirectExpansion","CoreZnPSZ AirSys","n/a",31119.800,32467.617,-99996.00000,14.000,11.407,1
+,"Perim1ZnCoolingCoil","DirectExpansion","Perim1ZnPSZ AirSys","n/a",33542.100,34994.829,-99996.00000,14.000,11.407,1
+,"Perim2ZnCoolingCoil","DirectExpansion","Perim2ZnPSZ AirSys","n/a",18962.900,19784.195,-99996.00000,14.000,11.407,1
+,"Perim3ZnCoolingCoil","DirectExpansion","Perim3ZnPSZ AirSys","n/a",30839.300,32174.969,-99996.00000,14.000,11.407,1
+,"Perim4ZnCoolingCoil","DirectExpansion","Perim4ZnPSZ AirSys","n/a",22403.200,23373.496,-99996.00000,14.000,11.407,1
+ENDTABLE
+TABLE 020012S-OffSml-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"CoreZnHeatingCoil","HeatPump","CoreZnPSZ AirSys","n/a",33815.400,32467.583,-99996.00000,-99996.000,-99996.000
+,"CoreZnSupplyHeatingCoil","Resistance","CoreZnPSZ AirSys","n/a",28958.300,28958.300,-99996.00000,-99996.000,-99996.000
+,"Perim1ZnHeatingCoil","HeatPump","Perim1ZnPSZ AirSys","n/a",36447.500,34994.771,-99996.00000,-99996.000,-99996.000
+,"Perim1ZnSupplyHeatingCoil","Resistance","Perim1ZnPSZ AirSys","n/a",26083.500,26083.500,-99996.00000,-99996.000,-99996.000
+,"Perim2ZnHeatingCoil","HeatPump","Perim2ZnPSZ AirSys","n/a",20605.500,19784.205,-99996.00000,-99996.000,-99996.000
+,"Perim2ZnSupplyHeatingCoil","Resistance","Perim2ZnPSZ AirSys","n/a",15205.100,15205.100,-99996.00000,-99996.000,-99996.000
+,"Perim3ZnHeatingCoil","HeatPump","Perim3ZnPSZ AirSys","n/a",33510.600,32174.931,-99996.00000,-99996.000,-99996.000
+,"Perim3ZnSupplyHeatingCoil","Resistance","Perim3ZnPSZ AirSys","n/a",23053.600,23053.600,-99996.00000,-99996.000,-99996.000
+,"Perim4ZnHeatingCoil","HeatPump","Perim4ZnPSZ AirSys","n/a",24343.800,23373.504,-99996.00000,-99996.000,-99996.000
+,"Perim4ZnSupplyHeatingCoil","Resistance","Perim4ZnPSZ AirSys","n/a",16545.900,16545.900,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE 020012S-OffSml-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"CoreZnSupplyFan","ConstantVolume","CoreZnPSZ AirSys","n/a",1097.680,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.937,1.000,"InAirStream",0.855,0.7440
+,"Perim1ZnSupplyFan","ConstantVolume","Perim1ZnPSZ AirSys","n/a",1100.900,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.939,1.000,"InAirStream",0.855,0.7440
+,"Perim2ZnSupplyFan","ConstantVolume","Perim2ZnPSZ AirSys","n/a",635.418,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.542,0.750,"InAirStream",0.855,0.7440
+,"Perim3ZnSupplyFan","ConstantVolume","Perim3ZnPSZ AirSys","n/a",901.915,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.769,1.000,"InAirStream",0.855,0.7440
+,"Perim4ZnSupplyFan","ConstantVolume","Perim4ZnPSZ AirSys","n/a",723.479,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.617,0.750,"InAirStream",0.855,0.7440
+ENDTABLE
+TABLE 020012S-OffSml-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"CoreZnOAControl","NoEconomizer","CoreZnPSZ AirSys","UNDEFINED"
+,"Perime1OAControl","FixedDryBulb","Perim1ZnPSZ AirSys","Integrated"
+,"Perim2OAControl","NoEconomizer","Perim2ZnPSZ AirSys","UNDEFINED"
+,"Perim3 OAControl","NoEconomizer","Perim3ZnPSZ AirSys","UNDEFINED"
+,"Perim4 OAControl","NoEconomizer","Perim4ZnPSZ AirSys","UNDEFINED"
+ENDTABLE

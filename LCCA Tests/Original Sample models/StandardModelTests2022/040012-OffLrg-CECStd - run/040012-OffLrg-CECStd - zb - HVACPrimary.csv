@@ -1,0 +1,41 @@
+FluidSystems
+,,,,,Controls,,,,,,Supply Side Components,,,Demand Side Components,,,
+Name,Type,Status,Design SupplyT,Design DelT,TempCtrl,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,Num Comps,Total Capacity,Flow Rate,Num Comps,Total Capacity,Sensible Capacity,Flow Rate,
+,,,(degF),(degF),,(degF),(degF),(degF),(degF),(degF),,(Btu/hr),(gpm),,(Btu/hr),(Btu/hr),( gpm),
+"NonResBaseElecSHWSystem","ServiceHotWater","New",135,80,"Fixed",135,-99996,-99996,-99996,-99996,0,0,0,0,0,0,0
+"BaseHWSystem","HotWater","New",160,40,"Fixed",160,-99996,-99996,-99996,-99996,1,5.364e+06,0,0,-99996,0,0
+"BaseCWSystem","CondenserWater","New",82.1,10,"Fixed",70,-99996,-99996,-99996,-99996,1,1.07655e+07,0,1,0,0,0
+"BaseChWSystem","ChilledWater","New",44,20,"OutsideAirReset",-99996,54,60,44,80,1,8.84584e+06,0,0,-99996,0,0
+
+
+Boiler
+Name,Fluid System Name,Status,Type,Fuel,Draft Type,Rated Capacity,AFUE,Thermal Efficiency,Forced Draft Power,Minimum Unload Ratio
+,,,,,,(Btu/h),,,hp
+"Base Blr","BaseHWSystem","New","HotWater","Gas","MechanicalNoncondensing",5.364e+06,-99996,0.9,11.9661,0.25
+
+
+Chiller
+Name,Fluid System Name,Status,Type,Fuel,Condenser Type,Rated Capacity,EER,COP,KW/ton,IPLV,Unloading Ratio,Min. Part-Load Ratio
+,,,,,,(Btu/h),,,,,,
+"Base Chlr","BaseChWSystem","New","Centrifugal","Electric","Fluid",8.84584e+06,-99996,5.06043,0.695,-99996,0.15,0.15
+
+
+Cooling Tower
+Name,Fluid System Name,Status,Type,Rated Capacity,Number of Cells,Tower Air flow,Fan Type,Total Fan HP,Condenser Water Flow Rate,Capacity Control,Low Speed Air Flow Ratio, Minimum Speed Ratio
+,,,,,(Btu/h),cfm,,hp,gpm,,,,
+"Base Tower","BaseCWSystem","New","OpenTower",1.07655e+07,1,-99996,"Axial",-99996,-99996,"VariableSpeedDrive",0.5,0.5
+
+
+Pump
+Name,Serving Equipment,Status,Count,Operation,Speed Type,Design Flow Rate,Nameplate HP,Power,Power Per Flow,Break Horse Power,Head,Motor Efficiency,Impeller Efficiency,Minimum Flow Rate
+,,,,,,(gpm),(hp),(kW),(W/gpm),(bhp),(ft. H20),,,(gpm)
+"Base HW Pump","Base Blr","New",1,"OnDemand","VariableSpeed",272.534,-99996,-99996,-99996,0,0,1,1
+"Base CW Pump","BaseCWPriRetSeg","New",1,"OnDemand","ConstantSpeed",2601.96,-99996,-99996,-99996,0,0,1,1
+"Base ChW Pump","Base Chlr","New",1,"OnDemand","VariableSpeed",1081.56,-99996,-99996,-99996,0,0,1,1
+
+
+Water Heater
+,System,,,Water Heater
+Name,System Name,System Type,System Count,Status,Type,Fuel,Count,Thermal Efficiency,StandbyLoss Fraction,Storage Capacity,Rated Capacity,Energy Factor
+,,,,,,,,,,(gal),(Btu/h),
+"NonResBaseElecWaterHeater","NonResBaseElecSHWSystem","ServiceHotWater",1,"New","Conventional","Electricity",1,1,0.005,179.492,178509,-99996.000

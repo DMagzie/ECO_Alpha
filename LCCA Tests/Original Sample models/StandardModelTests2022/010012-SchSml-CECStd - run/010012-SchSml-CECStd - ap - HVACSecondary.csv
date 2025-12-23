@@ -1,0 +1,125 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"Common_Mech/Elec-SZAC-Sys","SZHP","New",1,446.486,15828.9,55,35.4521,423.276,17200,95,38.5231,558.332,1.2505,66.9729,0.15,"Common_Mech/Elec_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Wing1_Side1-SZAC-Sys (x4)","SZHP","New",4,3013.91,27478.5,55,36.4689,394.883,29858.7,95,39.6279,904.231,1.20008,286.321,0.38,"Wing1_Side1_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Wing1_Corridor-SZAC-Sys","SZHP","New",1,1722.22,27242.7,55,15.8183,423.275,29602.5,95,17.1885,960.931,0.55796,258.333,0.15,"Wing1_Corridor_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Wing1_Side2-SZAC-Sys (x4)","SZHP","New",4,3013.91,20156.1,55,26.7508,423.275,21902,95,29.068,710.965,0.943579,286.321,0.38,"Wing1_Side2_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Common_Lobby-SZAC-Sys","SZHP","New",1,678.128,16893.2,55,24.9116,423.276,18356.5,95,27.0695,595.875,0.878706,101.719,0.15,"Common_Lobby_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Common_Corridor-SZAC-Sys","SZHP","New",1,1722.23,34897.1,55,20.2628,340.432,37920,95,22.018,990.01,0.574842,258.334,0.15,"Common_Corridor_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Wing2_Side1-SZAC-Sys (x4)","SZHP","New",4,3013.85,27111.9,55,35.9831,393.712,29460.4,95,39.1,889.525,1.18058,286.316,0.38,"Wing2_Side1_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Wing2_Corridor-SZAC-Sys","SZHP","New",1,1722.32,27423.6,55,15.9225,423.275,29799.1,95,17.3018,967.313,0.561635,258.347,0.15,"Wing2_Corridor_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Wing2_Side2-SZAC-Sys (x4)","SZHP","New",4,3013.92,21248.9,55,28.201,423.275,23089.5,95,30.6438,749.512,0.994734,286.322,0.38,"Wing2_Side2_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Common_Office-SZAC-Sys","SZHP","New",1,2201.36,60369.8,55,27.4239,407.963,65599.1,95,29.7994,2052.39,0.932327,330.204,0.15,"Common_Office_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+"Common_Cafeteria-SZVAVAC-Sys","SZVAVHP","New",1,2859.73,94554.8,55,33.0642,423.275,102745,95,35.9282,3335.22,1.16627,1429.87,0.5,"Common_Cafeteria_Zn","NoSATControl",,-99996,,-99996,,"UNDEFINED","SchoolHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+ZoneSystems
+,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,Availability Schedule
+,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),( cfm/ft2),,,,,,,,,,
+"Common_Restroom-Exhaust","Exhaust",1,0,0,-99996,0,0,0,-99996,0,0,0,0,0,"NONE","NoSATControl","SchoolHVACAvail"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"Common_Mech/Elec_TU","Uncontrolled","New",1,"Common_Mech/Elec-SZAC-Sys",1,"Common_Mech/Elec_Zn",446.486,1,558.332,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Wing1_Side1_TU","Uncontrolled","New",1,"Wing1_Side1-SZAC-Sys (x4)",4,"Wing1_Side1_Zn",3013.91,4,904.231,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Wing1_Corridor_TU","Uncontrolled","New",1,"Wing1_Corridor-SZAC-Sys",1,"Wing1_Corridor_Zn",1722.22,1,960.931,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Wing1_Side2_TU","Uncontrolled","New",1,"Wing1_Side2-SZAC-Sys (x4)",4,"Wing1_Side2_Zn",3013.91,4,710.965,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Common_Lobby_TU","Uncontrolled","New",1,"Common_Lobby-SZAC-Sys",1,"Common_Lobby_Zn",678.128,1,595.875,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Common_Corridor_TU","Uncontrolled","New",1,"Common_Corridor-SZAC-Sys",1,"Common_Corridor_Zn",1722.23,1,990.01,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Wing2_Side1_TU","Uncontrolled","New",1,"Wing2_Side1-SZAC-Sys (x4)",4,"Wing2_Side1_Zn",3013.85,4,889.525,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Wing2_Corridor_TU","Uncontrolled","New",1,"Wing2_Corridor-SZAC-Sys",1,"Wing2_Corridor_Zn",1722.32,1,967.313,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Wing2_Side2_TU","Uncontrolled","New",1,"Wing2_Side2-SZAC-Sys (x4)",4,"Wing2_Side2_Zn",3013.92,4,749.512,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Common_Office_TU","Uncontrolled","New",1,"Common_Office-SZAC-Sys",1,"Common_Office_Zn",2201.36,1,2052.39,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"Common_Cafeteria_TU","VAVNoReheatBox","New",1,"Common_Cafeteria-SZVAVAC-Sys",1,"Common_Cafeteria_Zn",2859.73,1,3335.22,1667.61,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"Common_Mech/Elec_CoilClg","DirectExpansion","New","Electric","Common_Mech/Elec-SZAC-Sys",1,"n/a",15828.9,16514.4,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Wing1_Side1_CoilClg","DirectExpansion","New","Electric","Wing1_Side1-SZAC-Sys (x4)",4,"n/a",27478.5,28668.6,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Wing1_Corridor_CoilClg","DirectExpansion","New","Electric","Wing1_Corridor-SZAC-Sys",1,"n/a",27242.7,28422.6,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Wing1_Side2_CoilClg","DirectExpansion","New","Electric","Wing1_Side2-SZAC-Sys (x4)",4,"n/a",20156.1,21029.1,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Common_Lobby_CoilClg","DirectExpansion","New","Electric","Common_Lobby-SZAC-Sys",1,"n/a",16893.2,17624.9,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Common_Corridor_CoilClg","DirectExpansion","New","Electric","Common_Corridor-SZAC-Sys",1,"n/a",34897.1,36408.6,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Wing2_Side1_CoilClg","DirectExpansion","New","Electric","Wing2_Side1-SZAC-Sys (x4)",4,"n/a",27111.9,28286.2,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Wing2_Corridor_CoilClg","DirectExpansion","New","Electric","Wing2_Corridor-SZAC-Sys",1,"n/a",27423.6,28611.4,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Wing2_Side2_CoilClg","DirectExpansion","New","Electric","Wing2_Side2-SZAC-Sys (x4)",4,"n/a",21248.9,22169.2,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Common_Office_CoilClg","DirectExpansion","New","Electric","Common_Office-SZAC-Sys",1,"n/a",60369.8,62984.5,"NONE","NONE",-99996,"Air",1,14,14,11.4,-99996,-99996,-99996,0.245361,-999,-99996,-99996,-99996,-99996
+"Common_Cafeteria_CoilClg","DirectExpansion","New","Electric","Common_Cafeteria-SZVAVAC-Sys",1,"n/a",94554.8,98650,"NONE","NONE",-99996,"Air",2,-99996,-99996,11,11,14.1,14.1,0.255793,-999,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"Common_Mech/Elec_CoilHtg","HeatPump","New","Electric","Common_Mech/Elec-SZAC-Sys",1,"n/a",17200,16514.5,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Mech/Elec_SuppCoilHtg","Resistance","New","Electric","Common_Mech/Elec-SZAC-Sys",1,"n/a",11907.2,11907.2,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing1_Side1_CoilHtg","HeatPump","New","Electric","Wing1_Side1-SZAC-Sys (x4)",4,"n/a",29858.7,28668.6,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing1_Side1_SuppCoilHtg","Resistance","New","Electric","Wing1_Side1-SZAC-Sys (x4)",4,"n/a",28339.5,28339.5,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing1_Corridor_CoilHtg","HeatPump","New","Electric","Wing1_Corridor-SZAC-Sys",1,"n/a",29602.5,28422.6,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing1_Corridor_SuppCoilHtg","Resistance","New","Electric","Wing1_Corridor-SZAC-Sys",1,"n/a",27763.3,27763.3,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing1_Side2_CoilHtg","HeatPump","New","Electric","Wing1_Side2-SZAC-Sys (x4)",4,"n/a",21902,21029.1,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing1_Side2_SuppCoilHtg","Resistance","New","Electric","Wing1_Side2-SZAC-Sys (x4)",4,"n/a",25398.2,25398.2,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Lobby_CoilHtg","HeatPump","New","Electric","Common_Lobby-SZAC-Sys",1,"n/a",18356.5,17624.9,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Lobby_SuppCoilHtg","Resistance","New","Electric","Common_Lobby-SZAC-Sys",1,"n/a",14248.5,14248.5,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Corridor_CoilHtg","HeatPump","New","Electric","Common_Corridor-SZAC-Sys",1,"n/a",37920,36408.6,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Corridor_SuppCoilHtg","Resistance","New","Electric","Common_Corridor-SZAC-Sys",1,"n/a",28260.1,28260.1,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing2_Side1_CoilHtg","HeatPump","New","Electric","Wing2_Side1-SZAC-Sys (x4)",4,"n/a",29460.4,28286.2,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing2_Side1_SuppCoilHtg","Resistance","New","Electric","Wing2_Side1-SZAC-Sys (x4)",4,"n/a",28115.2,28115.2,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing2_Corridor_CoilHtg","HeatPump","New","Electric","Wing2_Corridor-SZAC-Sys",1,"n/a",29799.1,28611.4,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing2_Corridor_SuppCoilHtg","Resistance","New","Electric","Wing2_Corridor-SZAC-Sys",1,"n/a",27861,27861,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing2_Side2_CoilHtg","HeatPump","New","Electric","Wing2_Side2-SZAC-Sys (x4)",4,"n/a",23089.5,22169.2,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Wing2_Side2_SuppCoilHtg","Resistance","New","Electric","Wing2_Side2-SZAC-Sys (x4)",4,"n/a",25985,25985,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Office_CoilHtg","HeatPump","New","Electric","Common_Office-SZAC-Sys",1,"n/a",65599.1,62984.5,"NONE","NONE",-99996,"Air",1,8,8,3.2,-99996,0.28396,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Office_SuppCoilHtg","Resistance","New","Electric","Common_Office-SZAC-Sys",1,"n/a",48082.2,48082.2,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Cafeteria_CoilHtg","HeatPump","New","Electric","Common_Cafeteria-SZVAVAC-Sys",1,"n/a",102745,98650,"NONE","NONE",-99996,"Air",1,-99996,-99996,3.4,3.4,0.264815,17,35,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"Common_Cafeteria_SuppCoilHtg","Resistance","New","Electric","Common_Cafeteria-SZVAVAC-Sys",1,"n/a",123557,123557,"NONE","NONE",-99996,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"Common_Mech/Elec_Fan","ConstantVolume","New","Centrifugal","AirFoil","Common_Mech/Elec-SZAC-Sys",1,"n/a",558.332,-99996,0.65,"PowerPerUnitFlow",0.476349,3.51896,0.744,0.5,"InAirStream",0.855
+"Wing1_Side1_Fan","ConstantVolume","New","Centrifugal","AirFoil","Wing1_Side1-SZAC-Sys (x4)",4,"n/a",904.231,-99996,0.65,"PowerPerUnitFlow",0.771458,3.51896,0.744,1,"InAirStream",0.855
+"Wing1_Corridor_Fan","ConstantVolume","New","Centrifugal","AirFoil","Wing1_Corridor-SZAC-Sys",1,"n/a",960.931,-99996,0.65,"PowerPerUnitFlow",0.819833,3.51896,0.744,1,"InAirStream",0.855
+"Wing1_Side2_Fan","ConstantVolume","New","Centrifugal","AirFoil","Wing1_Side2-SZAC-Sys (x4)",4,"n/a",710.965,-99996,0.65,"PowerPerUnitFlow",0.606571,3.51896,0.744,0.75,"InAirStream",0.855
+"Common_Lobby_Fan","ConstantVolume","New","Centrifugal","AirFoil","Common_Lobby-SZAC-Sys",1,"n/a",595.875,-99996,0.65,"PowerPerUnitFlow",0.50838,3.51896,0.744,0.75,"InAirStream",0.855
+"Common_Corridor_Fan","ConstantVolume","New","Centrifugal","AirFoil","Common_Corridor-SZAC-Sys",1,"n/a",990.01,-99996,0.65,"PowerPerUnitFlow",0.844642,3.51896,0.744,1,"InAirStream",0.855
+"Wing2_Side1_Fan","ConstantVolume","New","Centrifugal","AirFoil","Wing2_Side1-SZAC-Sys (x4)",4,"n/a",889.525,-99996,0.65,"PowerPerUnitFlow",0.758912,3.51896,0.744,1,"InAirStream",0.855
+"Wing2_Corridor_Fan","ConstantVolume","New","Centrifugal","AirFoil","Wing2_Corridor-SZAC-Sys",1,"n/a",967.313,-99996,0.65,"PowerPerUnitFlow",0.825278,3.51896,0.744,1,"InAirStream",0.855
+"Wing2_Side2_Fan","ConstantVolume","New","Centrifugal","AirFoil","Wing2_Side2-SZAC-Sys (x4)",4,"n/a",749.512,-99996,0.65,"PowerPerUnitFlow",0.639458,3.51896,0.744,0.75,"InAirStream",0.855
+"Common_Office_Fan","ConstantVolume","New","Centrifugal","AirFoil","Common_Office-SZAC-Sys",1,"n/a",2052.39,-99996,0.65,"PowerPerUnitFlow",1.77151,3.56012,0.744,2,"InAirStream",0.865
+"Common_Cafeteria_Fan","VariableSpeedDrive","New","Centrifugal","AirFoil","Common_Cafeteria-SZVAVAC-Sys",1,"n/a",3335.22,1667.61,0.65,"PowerPerUnitFlow",2.97862,3.68359,0.744,3,"InAirStream",0.895
+"Common_Restroom_Fan-Exhaust","ConstantVolume","New","Centrifugal","AirFoil","Common_Restroom-Exhaust",1,"UNDEFINED",500,-99996,0.65,"PowerPerUnitFlow",0.114673,0.945957,0.2,0.125,"InAirStream",0.855
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"Common_Mech/Elec_OACtrl","NoEconomizer","New",66.9729,"Common_Mech/Elec-SZAC-Sys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Wing1_Side1_OACtrl","NoEconomizer","New",286.321,"Wing1_Side1-SZAC-Sys (x4)",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Wing1_Corridor_OACtrl","NoEconomizer","New",258.333,"Wing1_Corridor-SZAC-Sys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Wing1_Side2_OACtrl","NoEconomizer","New",286.321,"Wing1_Side2-SZAC-Sys (x4)",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Common_Lobby_OACtrl","NoEconomizer","New",101.719,"Common_Lobby-SZAC-Sys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Common_Corridor_OACtrl","FixedDryBulb","New",258.334,"Common_Corridor-SZAC-Sys",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Wing2_Side1_OACtrl","NoEconomizer","New",286.316,"Wing2_Side1-SZAC-Sys (x4)",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Wing2_Corridor_OACtrl","NoEconomizer","New",258.347,"Wing2_Corridor-SZAC-Sys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Wing2_Side2_OACtrl","NoEconomizer","New",286.322,"Wing2_Side2-SZAC-Sys (x4)",4,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"Common_Office_OACtrl","FixedDryBulb","New",330.204,"Common_Office-SZAC-Sys",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"Common_Cafeteria_OACtrl","FixedDryBulb","New",1429.87,"Common_Cafeteria-SZVAVAC-Sys",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"

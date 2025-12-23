@@ -1,0 +1,62 @@
+Space Interior Loads Electric Use Report
+,,,,,Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,
+Space,,,,,Interior Lighting,,,,Interior Lighting,,,,Receptacle,,,,Process,,,,Commercial Refrigeration,,,
+Name,Conditioning Type,Space Function,Floor Area,Multiplier,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,
+,,,(ft2),,(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),
+"Corridor_L01","DirectlyConditioned","Corridor Area",1700.45,1,0.4,"OfficeLights",2253.1,1532.51,,,,,,,,,,,,,,,,,
+"Corridor_L02","DirectlyConditioned","Corridor Area",5558.58,1,0.4,"OfficeLights",2253.1,5009.61,,,,,,,,,,,,,,,,,
+"Corridor_L03","DirectlyConditioned","Corridor Area",10524.8,1,0.4,"OfficeLights",2253.1,9485.37,,,,,,,,,,,,,,,,,
+"Corridor_L04","DirectlyConditioned","Corridor Area",9395.42,1,0.4,"OfficeLights",2253.1,8467.53,,,,,,,,,,,,,,,,,
+"Corridor_L05","DirectlyConditioned","Corridor Area",9144.47,1,0.4,"OfficeLights",2253.1,8241.36,,,,,,,,,,,,,,,,,
+"Corridor_L06","DirectlyConditioned","Corridor Area",9144.47,1,0.4,"OfficeLights",2253.1,8241.36,,,,,,,,,,,,,,,,,
+"Corridor_L07","DirectlyConditioned","Corridor Area",9144.47,1,0.4,"OfficeLights",2253.1,8241.36,,,,,,,,,,,,,,,,,
+
+
+
+Space Loads Report
+Space,,,,,,Occupancy,,,,,Service Hot Water,,Ventilation,,,,,,Infiltration,,,Thermal Zone
+Name,Conditioning Type,Space Function,Floor Area,Story Name,Multiplier,Density,Number,Schedule Name,Sensible Heat Rate,Latent Heat Rate,SHW Use, Schedule Name,Prop. DsgnVentPerArea,Prop. DsgnVentPerPerson,Code VentPerArea,Code VentPerPerson,Sim. Area Flow,Sim. Person Flow,Method,Schedule Name,Design Infiltration Rate,Clg Tstat Sch, Htg Tstat Sch
+,,,(ft2),,,(ppl/1000ft2),(people),,(Btu/h-person),(Btu/h-person),(gal/person),,(cfm/ft2),(cfm/person),(cfm/ft2),(cfm/person),(cfm),(cfm),,,(cfm/ft2)
+"Corridor_L01","DirectlyConditioned","Corridor Area",1700.4500,"Corridor_Level_01",1,5,8.50225,"OfficeOccupancy",250,250,0,"OfficeServiceHotWater",0.15,30,0.15,30,255.067,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Corridor_L02","DirectlyConditioned","Corridor Area",5558.5800,"Corridor_Level_02",1,5,27.7929,"OfficeOccupancy",250,250,0,"OfficeServiceHotWater",0.15,30,0.15,30,833.787,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Corridor_L03","DirectlyConditioned","Corridor Area",10524.8000,"Corridor_Level_03",1,5,52.624,"OfficeOccupancy",250,250,0,"OfficeServiceHotWater",0.15,30,0.15,30,1578.72,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Corridor_L04","DirectlyConditioned","Corridor Area",9395.4200,"Corridor_Level_04",1,5,46.9771,"OfficeOccupancy",250,250,0,"OfficeServiceHotWater",0.15,30,0.15,30,1409.31,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Corridor_L05","DirectlyConditioned","Corridor Area",9144.4700,"Corridor_Level_05",1,5,45.7223,"OfficeOccupancy",250,250,0,"OfficeServiceHotWater",0.15,30,0.15,30,1371.67,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Corridor_L06","DirectlyConditioned","Corridor Area",9144.4700,"Corridor_Level_06",1,5,45.7223,"OfficeOccupancy",250,250,0,"OfficeServiceHotWater",0.15,30,0.15,30,1371.67,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+"Corridor_L07","DirectlyConditioned","Corridor Area",9144.4700,"Corridor_Level_07",1,5,45.7223,"OfficeOccupancy",250,250,0,"OfficeServiceHotWater",0.15,30,0.15,30,1371.67,0,"FlowExteriorWallArea","OfficeInfiltration",0.2352,"OfficeClgSetpt","OfficeHtgSetpt"
+
+
+
+Space Interior Lighting Report
+Space,,,,,Regulated,,,,,,,,,,,Non-Regulated
+Name,Conditioning Type,Space Function,Lighting Status,Floor Area,Lighting Specification Method,Installed Power,Schedule Name,Schedule,Lighting System Count,Lighting Control Credit,General Lighting Power,Area Category Allowances,Tailored Allowances,Simulated Power,Simulated LPD,Power,Schedule Name,Schedule,LPD
+,,,,(ft2),,(Watts),,(FLH),,(Watts),(Watts),(Watts),(Watts),(Watts),(Watts/ft2),(Watts),,(FLH),(Watts/ft2),
+"Corridor_L01","DirectlyConditioned","Corridor Area","New",1700.45,"AreaCategoryMethod",0,"OfficeLights",2253.1,1,0,680.18,0,0,680.18,0.40
+"Corridor_L02","DirectlyConditioned","Corridor Area","New",5558.58,"AreaCategoryMethod",0,"OfficeLights",2253.1,1,0,2223.43,0,0,2223.43,0.40
+"Corridor_L03","DirectlyConditioned","Corridor Area","New",10524.8,"AreaCategoryMethod",0,"OfficeLights",2253.1,1,0,4209.92,0,0,4209.92,0.40
+"Corridor_L04","DirectlyConditioned","Corridor Area","New",9395.42,"AreaCategoryMethod",0,"OfficeLights",2253.1,1,0,3758.17,0,0,3758.17,0.40
+"Corridor_L05","DirectlyConditioned","Corridor Area","New",9144.47,"AreaCategoryMethod",0,"OfficeLights",2253.1,1,0,3657.79,0,0,3657.79,0.40
+"Corridor_L06","DirectlyConditioned","Corridor Area","New",9144.47,"AreaCategoryMethod",0,"OfficeLights",2253.1,1,0,3657.79,0,0,3657.79,0.40
+"Corridor_L07","DirectlyConditioned","Corridor Area","New",9144.47,"AreaCategoryMethod",0,"OfficeLights",2253.1,1,0,3657.79,0,0,3657.79,0.40
+"Lighting_Corridor_L01","Corridor_L01","Corridor Area",1700.45,14,"AreaCategoryMethod","",0,1427.5,1427.5,"- none specified -",0,0,"GeneralAllowance","GeneralAllowance",0,0
+"Lighting_Corridor_L02","Corridor_L02","Corridor Area",5558.58,12,"AreaCategoryMethod","",0,1593,1593,"- none specified -",0,0,"GeneralAllowance","GeneralAllowance",0,0
+"Lighting_Corridor_L03","Corridor_L03","Corridor Area",10524.8,12,"AreaCategoryMethod","",0,3477,3477,"- none specified -",0,0,"GeneralAllowance","GeneralAllowance",0,0
+"Lighting_Corridor_L04","Corridor_L04","Corridor Area",9395.42,11,"AreaCategoryMethod","",0,3349,3349,"- none specified -",0,0,"GeneralAllowance","GeneralAllowance",0,0
+"Lighting_Corridor_L05","Corridor_L05","Corridor Area",9144.47,10.5833,"AreaCategoryMethod","",0,3256,3256,"- none specified -",0,0,"GeneralAllowance","GeneralAllowance",0,0
+"Lighting_Corridor_L06","Corridor_L06","Corridor Area",9144.47,10.5833,"AreaCategoryMethod","",0,3256,3256,"- none specified -",0,0,"GeneralAllowance","GeneralAllowance",0,0
+"Lighting_Corridor_L07","Corridor_L07","Corridor Area",9144.47,10.5833,"AreaCategoryMethod","",0,3256,3256,"- none specified -",0,0,"GeneralAllowance","GeneralAllowance",0,0
+
+
+
+Space Daylighting,,,,,,,,,,,,,,,,,,,,,,,,,
+Name,SpcFunc,FlrArea,DayltgCtrlType,MandMinDaylitArea,MinDimLtgFrac,MinDimPwrFrac,NumOfCtrlSteps,SkylitDaylitArea,SkylitDayltgCtrlLtgPwr,SkylitDayltgCtrlLtgFrac,SkylitDayltgIllumSetpt,SkylitDayltgIllumSetptAdjFac,SkylitDayltgAdjIllumSetpt,,PriSideDayltgRefPtCoord[1],PriSideDayltgRefPtCoord[2],PriSideDayltgRefPtCoord[3],PriSideDaylitArea,PriSideDayltgCtrlLtgPwr,PriSideDayltgCtrlLtgFrac,PriSideDayltgIllumSetpt,PriSideDayltgIllumSetptAdjFac,PriSideDayltgAdjIllumSetpt,,SecSideDayltgRefPtCoord[1],SecSideDayltgRefPtCoord[2],SecSideDayltgRefPtCoord[3],SecSideDaylitArea,SecSideDayltgCtrlLtgPwr,SecSideDayltgCtrlLtgFrac,SecSideDayltgIllumSetpt,SecSideDayltgIllumSetptAdjFac,SecSideDayltgAdjIllumSetpt
+Space,,,,,,,,Skylit Zone,,,,,,,Primary Sidelit Daylit Zone,,,,,,,,,,Secondary Sidelit Daylit Zone,,,,,,
+Name,Space Function,Floor Area,Control Type,MinDayltg per 140.3c,Min. Dim. Ltg. Frac.,Min Dim. Pwr. Frac.,Switched # Ctrl. Steps,Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point
+,,(ft2),,(ft2),,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux)
+"Corridor_L01","Corridor Area",1700.45,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Corridor_L02","Corridor Area",5558.58,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Corridor_L03","Corridor Area",10524.8,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Corridor_L04","Corridor Area",9395.42,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Corridor_L05","Corridor Area",9144.47,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Corridor_L06","Corridor Area",9144.47,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Corridor_L07","Corridor Area",9144.47,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150

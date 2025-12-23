@@ -1,0 +1,11 @@
+Space Interior Loads Fuel Use Report
+,,,,Non-Regulated,,,Non-Regulated,,,
+,,,,Equipment,,,Process,,,
+,,Floor Area,,Power Density,Schedule,Fuel Use,Power Density,Schedule,Fuel Use,
+Space Name,Conditioning Type,(ft2),Mult,(Btuh/ft2),(FLH),(therms),(Btuh/ft2),(FLH),(therms),
+"Perimeter_ZN_1","DirectlyConditioned",1221.17,1,,,,,,,
+"Perimeter_ZN_2","DirectlyConditioned",724.411,1,,,,,,,
+"Perimeter_ZN_3","DirectlyConditioned",1221.17,1,,,,,,,
+"Perimeter_ZN_4","DirectlyConditioned",724.411,1,,,,,,,
+"Core_ZN","DirectlyConditioned",1610.9,1,,,,,,,
+"Attic","IndirectlyConditioned",0,1,,,,,,,

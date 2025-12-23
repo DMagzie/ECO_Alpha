@@ -1,0 +1,18 @@
+AirSystems
+,,Fan Capacity,,,,Fan Pwr (Design),,,,,Fan Pwr Ratio,,,,Fan Pwr Adj
+System Name,Type,Supply Fan Capacity,Return Fan Capacity,Relief Fan Capacity,Exhaust Fan Capacity,Supply Fan Pwr,Return Fan Pwr,Relief Fan Pwr,Exhaust Fan Pwr,Total System Fan Pwr,Supply Fan Pwr Ratio,Return Fan Pwr Ratio,Relief Fan Pwr Ratio,Exhaust Fan Pwr Ratio,Total Exhaust Fan Pwr Adj,Total NonExhaust Fan Pwr Adj,Total System Fan Pwr Adj,Fully Ducted Exhaust Pressure Drop Adj,Exhaust Filter Pressure Drop Adj,Biosafety Cabinet Pressure Drop Adj,Fully Ducted Return Pressure Drop Adj,MERV16 Filter Pressure Drop Adj,Air Cleaner Pressure Drop Adj,Fully Ducted Exhaust Design Flow,Exhaust Filter Design Flow,Biosafety Design Flow,Fully Ducted Return Design Flow,MERV16 Filter Design Flow,Air Cleaner Design Flow
+,,(cfm),(cfm),(cfm),(cfm),(kW),(kW),(kW),(kW),(kW),(frac),(frac),(frac),(frac),(kW),(kW),(kW),(inH2O),(inH2O),(inH2O),(inH2O),(inH2O),(inH2O),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"DOAS-A1-A2","PVAV",6250.0,0.0,0.0,0.0,1.757,0.000,0.000,0.000,1.757,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,0,0.000,0.000,0.000,0.000,0.000,0.000
+"DOAS-A3-A4","PVAV",7390.0,0.0,0.0,0.0,2.078,0.000,0.000,0.000,2.078,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,0,0.000,0.000,0.000,0.000,0.000,0.000
+
+Thermal Zone
+,,,,,,Fan Capacity,,,Fan Flow Ratio,,,Fan Pwr,,,,,Fan Pwr Adj
+Name,Pri HVAC Sys,Vent Sys,Exhaust Sys,Floor Area,Multiplier,Pri. System Flow,Ventilation System Flow,Exhaust Flow,Zone Pri-Air-Flow-to-Sys Flow Ratio,Zone Vent-to-Sys-Air Flow Ratio,Zone Exh-to-Sys Flow Ratio,Prop Supply Fan Pwr,Prop Return Fan Pwr,Prop Relief Fan Pwr,Prop Exhaust Fan Pwr,Total Prop Fan Pwr,Total Exhaust Fan Pwr Adj,Total NonExhaust Fan Pwr Adj,Total Fan Pwr Adj,Fully Ducted Exhaust Pwr Adj,Exhaust Filter Fan Pwr Adj,Biosafety Cabinet Fan Pwr Adj,Fully Ducted Return Fan Pwr Adj,MERV16 Fan Pwr Adj,Air Cleaner Fan Pwr Adj,Exhaust Fan Motor BHP
+,,,,(ft2),,(cfm),(cfm),(cfm),(frac),(frac),(frac),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW),(kW)
+"TZ-Corridor_L01","DOAS-A1-A2","DOAS-A1-A2","NONE",1700.5,1,597.4,597.6,0.0,0.096,0.000,0.000,0.168,0.000,0.000,0.000,0.168,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"TZ-Corridor_L02","DOAS-A1-A2","DOAS-A1-A2","NONE",5558.6,1,1953.7,1953.5,0.0,0.313,0.000,0.000,0.549,0.000,0.000,0.000,0.549,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"TZ-Corridor_L03","DOAS-A1-A2","DOAS-A1-A2","NONE",10524.8,1,3698.9,3698.9,0.0,0.592,0.000,0.000,1.040,0.000,0.000,0.000,1.040,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"TZ-Corridor_L04","DOAS-A3-A4","DOAS-A3-A4","NONE",9395.4,1,1885.3,1885.3,0.0,0.255,0.000,0.000,0.530,0.000,0.000,0.000,0.530,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"TZ-Corridor_L05","DOAS-A3-A4","DOAS-A3-A4","NONE",9144.5,1,1834.9,1834.9,0.0,0.248,0.000,0.000,0.516,0.000,0.000,0.000,0.516,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"TZ-Corridor_L06","DOAS-A3-A4","DOAS-A3-A4","NONE",9144.5,1,1834.9,1834.9,0.0,0.248,0.000,0.000,0.516,0.000,0.000,0.000,0.516,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000
+"TZ-Corridor_L07","DOAS-A3-A4","DOAS-A3-A4","NONE",9144.5,1,1834.9,1834.9,0.0,0.248,0.000,0.000,0.516,0.000,0.000,0.000,0.516,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000

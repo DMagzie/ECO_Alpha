@@ -1,0 +1,27 @@
+BuildingStory
+,,Floor Area (including multipliers),,,,,Ventilation (Design),,,Ventilation (For Balance),,,,,,General,,Comm. Kitchen,,Parking Garage,,Laboratory
+Name,Multiplier,Total,Cond. NRes,Cond. Res,Total Cond.,Number,Total,Code Min.,Exhaust,Total,Code Min.,Tot:Min Ratio,Exhaust,Vent:Exh Ratio,Vent Mult.,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust
+,,(ft2),(ft2),(ft2),(ft2),(people),(cfm),(cfm),(cfm),(cfm),(cfm),,(cfm),,,(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"Building Story 1",1,5502.1,5502.1,0.0,5502.1,27.5,825,825,0,825,825,1.000,0,1.000,1.000,825,0,0,0,0,0,0,0
+
+Space
+,,,,,,,Occupancy,,,Ventilation,,Design Input (By Component),,,,,Minimum Req. (By Component),,,,Simulated,,,Exhaust,,,ForBalance
+Name,Story Name,Condg Type,Space Function,Thermal Zone,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Per Space,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,Lab Exh Type,Max Kitchen,Ventilation,Exhaust
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm),,(cfm),(cfm),(cfm)
+"Perimeter_ZN_1","Building Story 1","DirectlyConditioned","Office Area (>250 square feet)","Perimeter_ZN_1 Thermal Zone",1221.2,1,10.0,10.0,6.1,"Maximum","Fixed",0,0.15,0,0,183,0,0.15,0,183,0,0.15,183.175,0,"UNDEFINED",0,183,0
+"Perimeter_ZN_2","Building Story 1","DirectlyConditioned","Office Area (>250 square feet)","Perimeter_ZN_2 Thermal Zone",724.4,1,10.0,10.0,3.6,"Maximum","Fixed",0,0.15,0,0,109,0,0.15,0,109,0,0.15,108.662,0,"UNDEFINED",0,109,0
+"Perimeter_ZN_3","Building Story 1","DirectlyConditioned","Office Area (>250 square feet)","Perimeter_ZN_3 Thermal Zone",1221.2,1,10.0,10.0,6.1,"Maximum","Fixed",0,0.15,0,0,183,0,0.15,0,183,0,0.15,183.175,0,"UNDEFINED",0,183,0
+"Perimeter_ZN_4","Building Story 1","DirectlyConditioned","Office Area (>250 square feet)","Perimeter_ZN_4 Thermal Zone",724.4,1,10.0,10.0,3.6,"Maximum","Fixed",0,0.15,0,0,109,0,0.15,0,109,0,0.15,108.662,0,"UNDEFINED",0,109,0
+"Core_ZN","Building Story 1","DirectlyConditioned","Office Area (>250 square feet)","Core_ZN Thermal Zone",1610.9,1,10.0,10.0,8.1,"Maximum","Fixed",0,0.15,0,0,242,0,0.15,0,242,0,0.15,241.635,0,"UNDEFINED",0,242,0
+"Attic","Building Story 1","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","Attic Thermal Zone",0.0,1,0.0,0.0,0.0,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,0,0,"UNDEFINED",0,0,0
+
+ThermalZone
+,,,,,,,Occupancy,,,,Ventilation,,Design Value (Total),,,,Minimum Req. (Total),,,,Simulated,,,Exhaust
+Name,Story Name,Type,Ventilation Source,Pri. HVAC System,Ventilation System,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,ExhSysRef,ExhOperMode,ExhCtrlMthd,ExhBalancedSchRef
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm)
+"Attic Thermal Zone","Building Story 1","Unconditioned","None","NONE","NONE",0.0,1,0.0,0.0,0.0,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0
+"Core_ZN Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b","BaseAirSys7or3b",1610.9,1,10.0,10.0,8.1,"Maximum","Fixed",30,0.15,0.9,242,30,0.15,0.9,242,0,0.15,242
+"Perimeter_ZN_1 Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b-2","BaseAirSys7or3b-2",1221.2,1,10.0,10.0,6.1,"Maximum","Fixed",30,0.15,0.9,183,30,0.15,0.9,183,0,0.15,183
+"Perimeter_ZN_2 Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b-3","BaseAirSys7or3b-3",724.4,1,10.0,10.0,3.6,"Maximum","Fixed",30,0.15,0.9,109,30,0.15,0.9,109,0,0.15,109
+"Perimeter_ZN_3 Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b-4","BaseAirSys7or3b-4",1221.2,1,10.0,10.0,6.1,"Maximum","Fixed",30,0.15,0.9,183,30,0.15,0.9,183,0,0.15,183
+"Perimeter_ZN_4 Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b-5","BaseAirSys7or3b-5",724.4,1,10.0,10.0,3.6,"Maximum","Fixed",30,0.15,0.9,109,30,0.15,0.9,109,0,0.15,109

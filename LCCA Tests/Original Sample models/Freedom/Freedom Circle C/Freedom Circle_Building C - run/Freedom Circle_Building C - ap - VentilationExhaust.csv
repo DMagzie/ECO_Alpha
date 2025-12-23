@@ -1,0 +1,35 @@
+BuildingStory
+,,Floor Area (including multipliers),,,,,Ventilation (Design),,,Ventilation (For Balance),,,,,,General,,Comm. Kitchen,,Parking Garage,,Laboratory
+Name,Multiplier,Total,Cond. NRes,Cond. Res,Total Cond.,Number,Total,Code Min.,Exhaust,Total,Code Min.,Tot:Min Ratio,Exhaust,Vent:Exh Ratio,Vent Mult.,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust
+,,(ft2),(ft2),(ft2),(ft2),(people),(cfm),(cfm),(cfm),(cfm),(cfm),,(cfm),,,(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"Corridor Level_L01",1,2441.4,2441.4,0.0,2441.4,12.2,366,366,0,366,366,1.000,0,1.000,1.000,366,0,0,0,0,0,0,0
+"Corridor Level_L02",1,5364.2,5364.2,0.0,5364.2,26.8,805,805,0,805,805,1.000,0,1.000,1.000,805,0,0,0,0,0,0,0
+"Corridor Level_L03",1,7777.4,7777.4,0.0,7777.4,38.9,1167,1167,0,1167,1167,1.000,0,1.000,1.000,1167,0,0,0,0,0,0,0
+"Corridor Level_L04",1,6365.7,6365.7,0.0,6365.7,31.8,955,955,0,955,955,1.000,0,1.000,1.000,955,0,0,0,0,0,0,0
+"Corridor Level_L05",1,6425.9,6425.9,0.0,6425.9,32.1,964,964,0,964,964,1.000,0,1.000,1.000,964,0,0,0,0,0,0,0
+"Corridor Level_L06",1,6425.9,6425.9,0.0,6425.9,32.1,964,964,0,964,964,1.000,0,1.000,1.000,964,0,0,0,0,0,0,0
+"Corridor Level_L07",1,6425.9,6425.9,0.0,6425.9,32.1,964,964,0,964,964,1.000,0,1.000,1.000,964,0,0,0,0,0,0,0
+
+Space
+,,,,,,,Occupancy,,,Ventilation,,Design Input (By Component),,,,,Minimum Req. (By Component),,,,Simulated,,,Exhaust,,,ForBalance
+Name,Story Name,Condg Type,Space Function,Thermal Zone,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Per Space,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,Lab Exh Type,Max Kitchen,Ventilation,Exhaust
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm),,(cfm),(cfm),(cfm)
+"Corridor_L01","Corridor Level_L01","DirectlyConditioned","Corridor Area","TZ-Corridor_L01",2441.4,1,10.0,10.0,12.2,"Maximum","Fixed",0,0.15,0,0,366,0,0.15,0,366,0,0.15,366.205,0,"UNDEFINED",0,366,0
+"Corridor_L02","Corridor Level_L02","DirectlyConditioned","Corridor Area","TZ-Corridor_L02",5364.2,1,10.0,10.0,26.8,"Maximum","Fixed",0,0.15,0,0,805,0,0.15,0,805,0,0.15,804.634,0,"UNDEFINED",0,805,0
+"Corridor_L03","Corridor Level_L03","DirectlyConditioned","Corridor Area","TZ-Corridor_L03",7777.4,1,10.0,10.0,38.9,"Maximum","Fixed",0,0.15,0,0,1167,0,0.15,0,1167,0,0.15,1166.62,0,"UNDEFINED",0,1167,0
+"Corridor_L04","Corridor Level_L04","DirectlyConditioned","Corridor Area","TZ-Corridor_L04",6365.7,1,10.0,10.0,31.8,"Maximum","Fixed",0,0.15,0,0,955,0,0.15,0,955,0,0.15,954.855,0,"UNDEFINED",0,955,0
+"Corridor_L05","Corridor Level_L05","DirectlyConditioned","Corridor Area","TZ-Corridor_L05",6425.9,1,10.0,10.0,32.1,"Maximum","Fixed",0,0.15,0,0,964,0,0.15,0,964,0,0.15,963.882,0,"UNDEFINED",0,964,0
+"Corridor_L06","Corridor Level_L06","DirectlyConditioned","Corridor Area","TZ-Corridor_L06",6425.9,1,10.0,10.0,32.1,"Maximum","Fixed",0,0.15,0,0,964,0,0.15,0,964,0,0.15,963.889,0,"UNDEFINED",0,964,0
+"Corridor_L07","Corridor Level_L07","DirectlyConditioned","Corridor Area","TZ-Corridor_L07",6425.9,1,10.0,10.0,32.1,"Maximum","Fixed",0,0.15,0,0,964,0,0.15,0,964,0,0.15,963.889,0,"UNDEFINED",0,964,0
+
+ThermalZone
+,,,,,,,Occupancy,,,,Ventilation,,Design Value (Total),,,,Minimum Req. (Total),,,,Simulated,,,Exhaust
+Name,Story Name,Type,Ventilation Source,Pri. HVAC System,Ventilation System,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,ExhSysRef,ExhOperMode,ExhCtrlMthd,ExhBalancedSchRef
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm)
+"TZ-Corridor_L01","Corridor Level_L01","Conditioned","Forced","DOAS-A1-A2","DOAS-A1-A2",2441.4,1,10.0,10.0,12.2,"Maximum","Fixed",30,0.15,0.642857,366,30,0.15,0.642857,366,0,0.15,366
+"TZ-Corridor_L02","Corridor Level_L02","Conditioned","Forced","DOAS-A1-A2","DOAS-A1-A2",5364.2,1,10.0,10.0,26.8,"Maximum","Fixed",30,0.15,0.75,805,30,0.15,0.75,805,0,0.15,805
+"TZ-Corridor_L03","Corridor Level_L03","Conditioned","Forced","DOAS-A1-A2","DOAS-A1-A2",7777.4,1,10.0,10.0,38.9,"Maximum","Fixed",30,0.15,0.818182,1167,30,0.15,0.818182,1167,0,0.15,1167
+"TZ-Corridor_L04","Corridor Level_L04","Conditioned","Forced","DOAS-A3-A4","DOAS-A3-A4",6365.7,1,10.0,10.0,31.8,"Maximum","Fixed",30,0.15,0.850396,955,30,0.15,0.850396,955,0,0.15,955
+"TZ-Corridor_L05","Corridor Level_L05","Conditioned","Forced","DOAS-A3-A4","DOAS-A3-A4",6425.9,1,10.0,10.0,32.1,"Maximum","Fixed",30,0.15,0.850396,964,30,0.15,0.850396,964,0,0.15,964
+"TZ-Corridor_L06","Corridor Level_L06","Conditioned","Forced","DOAS-A3-A4","DOAS-A3-A4",6425.9,1,10.0,10.0,32.1,"Maximum","Fixed",30,0.15,0.850396,964,30,0.15,0.850396,964,0,0.15,964
+"TZ-Corridor_L07","Corridor Level_L07","Conditioned","Forced","DOAS-A3-A4","DOAS-A3-A4",6425.9,1,10.0,10.0,32.1,"Maximum","Fixed",30,0.15,0.850396,964,30,0.15,0.850396,964,0,0.15,964

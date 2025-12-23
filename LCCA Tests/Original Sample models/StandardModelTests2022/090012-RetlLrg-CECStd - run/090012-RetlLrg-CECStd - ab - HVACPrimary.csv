@@ -1,0 +1,43 @@
+FluidSystems
+,,,,,Controls,,,,,,Supply Side Components,,,Demand Side Components,,,
+Name,Type,Status,Design SupplyT,Design DelT,TempCtrl,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,Num Comps,Total Capacity,Flow Rate,Num Comps,Total Capacity,Sensible Capacity,Flow Rate,
+,,,(degF),(degF),,(degF),(degF),(degF),(degF),(degF),,(Btu/hr),(gpm),,(Btu/hr),(Btu/hr),( gpm),
+"NonResBaseElecSHWSystem","ServiceHotWater","New",135,80,"Fixed",135,-99996,-99996,-99996,-99996,0,0,0,0,0,0,0
+"BaseHWSystem","HotWater","New",160,40,"Fixed",160,-99996,-99996,-99996,-99996,2,20,0.00099962,0,0,0,0
+"BaseCWSystem","CondenserWater","New",82.1,10,"Fixed",70,-99996,-99996,-99996,-99996,1,12.2179,0.0024534,1,12.2178,0,0.00244263
+"BaseChWSystem","ChilledWater","New",44,20,"OutsideAirReset",-99996,54,60,44,80,1,10,0.00099962,0,0,0,0
+
+
+Boiler
+Name,Fluid System Name,Status,Type,Fuel,Draft Type,Rated Capacity,AFUE,Thermal Efficiency,Forced Draft Power,Minimum Unload Ratio
+,,,,,,(Btu/h),,,hp
+"Base Blr","BaseHWSystem","New","HotWater","Gas","MechanicalNoncondensing",10,0.82,0.8225,8e-06,0.25
+"Base Blr-2","BaseHWSystem","New","HotWater","Gas","MechanicalNoncondensing",10,0.82,0.8225,8e-06,0.25
+
+
+Chiller
+Name,Fluid System Name,Status,Type,Fuel,Condenser Type,Rated Capacity,EER,COP,KW/ton,IPLV,Unloading Ratio,Min. Part-Load Ratio
+,,,,,,(Btu/h),,,,,,
+"Base Chlr","BaseChWSystem","New","Screw","Electric","Fluid",10,-99996,4.50897,0.78,-99996,0.15,0.15
+
+
+Cooling Tower
+Name,Fluid System Name,Status,Type,Rated Capacity,Number of Cells,Tower Air flow,Fan Type,Total Fan HP,Condenser Water Flow Rate,Capacity Control,Low Speed Air Flow Ratio, Minimum Speed Ratio
+,,,,,(Btu/h),cfm,,hp,gpm,,,,
+"Base Tower","BaseCWSystem","New","OpenTower",12.2179,1,0.242422,"Axial",5.82756e-05,0.0024534,"VariableSpeedDrive",0.5,0.5
+
+
+Pump
+Name,Serving Equipment,Status,Count,Operation,Speed Type,Design Flow Rate,Nameplate HP,Power,Power Per Flow,Break Horse Power,Head,Motor Efficiency,Impeller Efficiency,Minimum Flow Rate
+,,,,,,(gpm),(hp),(kW),(W/gpm),(bhp),(ft. H20),,,(gpm)
+"Base HW Pump","Base Blr","New",1,"OnDemand","VariableSpeed",0.00049981,0.083,9.49639e-06,19,1.08898e-05,60.3958,0.855,0.7
+"Base CW Pump","BaseCWPriRetSeg","New",1,"OnDemand","ConstantSpeed",0.0024534,0.083,3.47318e-05,14.1566,3.98279e-05,45,0.855,0.7
+"Base ChW Pump","Base Chlr","New",1,"OnDemand","VariableSpeed",0.00099962,0.083,1.25789e-05,12.5837,1.44245e-05,40,0.855,0.7
+"Base HW Pump-2","Base Blr-2","New",1,"OnDemand","VariableSpeed",0.00049981,0.083,9.49639e-06,19,1.08898e-05,60.3958,0.855,0.7
+
+
+Water Heater
+,System,,,Water Heater
+Name,System Name,System Type,System Count,Status,Type,Fuel,Count,Thermal Efficiency,StandbyLoss Fraction,Storage Capacity,Rated Capacity,Energy Factor
+,,,,,,,,,,(gal),(Btu/h),
+"NonResBaseElecWaterHeater","NonResBaseElecSHWSystem","ServiceHotWater",1,"New","Conventional","Electricity",1,1,0.005,127.113,126417,-99996.000

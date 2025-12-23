@@ -1,0 +1,25 @@
+BuildingStory
+,,Floor Area (including multipliers),,,,,Ventilation (Design),,,Ventilation (For Balance),,,,,,General,,Comm. Kitchen,,Parking Garage,,Laboratory
+Name,Multiplier,Total,Cond. NRes,Cond. Res,Total Cond.,Number,Total,Code Min.,Exhaust,Total,Code Min.,Tot:Min Ratio,Exhaust,Vent:Exh Ratio,Vent Mult.,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust,Vent,Exhaust
+,,(ft2),(ft2),(ft2),(ft2),(people),(cfm),(cfm),(cfm),(cfm),(cfm),,(cfm),,,(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm),(cfm)
+"Building Story 1",1,24692.3,24563.1,0.0,24563.1,179.0,5732,5732,0,5732,5732,1.000,0,1.000,1.000,5732,0,0,0,0,0,0,0
+
+Space
+,,,,,,,Occupancy,,,Ventilation,,Design Input (By Component),,,,,Minimum Req. (By Component),,,,Simulated,,,Exhaust,,,ForBalance
+Name,Story Name,Condg Type,Space Function,Thermal Zone,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Per Space,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,Lab Exh Type,Max Kitchen,Ventilation,Exhaust
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm),,(cfm),(cfm),(cfm)
+"Back_Space","Building Story 1","DirectlyConditioned","Storage, Commercial/Industrial (Warehouse)","Back_Space Thermal Zone",4089.1,1,2.0,2.0,4.1,"Maximum","Fixed",0,0.15,0,0,613,0,0.15,0,613,0,0.15,613.368,0,"UNDEFINED",0,613,0
+"Core_Retail","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Core_Retail Thermal Zone",17227.4,1,16.7,16.7,143.6,"Maximum","Fixed",0,0.25,0,0,4307,0,0.25,0,4307,0,0.25,4306.85,0,"UNDEFINED",0,4307,0
+"Front_Entry","Building Story 1","Unconditioned","Lobby, Main Entry","Front_Entry Thermal Zone",129.2,1,66.7,66.7,4.3,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0,0,0,"UNDEFINED",0,0,0
+"Front_Retail","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Front_Retail Thermal Zone",1623.3,1,16.7,16.7,13.5,"Maximum","Fixed",0,0.25,0,0,406,0,0.25,0,406,0,0.25,405.824,0,"UNDEFINED",0,406,0
+"Point_Of_Sale","Building Story 1","DirectlyConditioned","Retail Sales Area (Retail Merchandise Sales)","Point_Of_Sale Thermal Zone",1623.3,1,16.7,16.7,13.5,"Maximum","Fixed",0,0.25,0,0,406,0,0.25,0,406,0,0.25,405.825,0,"UNDEFINED",0,406,0
+
+ThermalZone
+,,,,,,,Occupancy,,,,Ventilation,,Design Value (Total),,,,Minimum Req. (Total),,,,Simulated,,,Exhaust
+Name,Story Name,Type,Ventilation Source,Pri. HVAC System,Ventilation System,Floor Area,Multiplier,Design,Minimum,Number,Spec. Method,Control,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Per Volume,Calculated Flow,Per Occupant,Per Area,Calculated Flow,Calculated Flow,ExhSysRef,ExhOperMode,ExhCtrlMthd,ExhBalancedSchRef
+,,,,,(ft2),,(ppl/1000ft2),(ppl/1000ft2),(people),,,,(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(ACH),(cfm),(cfm/person),(cfm/ft2),(cfm),(cfm)
+"Back_Space Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b","BaseAirSys7or3b",4089.1,1,2.0,2.0,4.1,"Maximum","Fixed",150,0.15,0.450002,613,150,0.15,0.450002,613,0,0.15,613
+"Core_Retail Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b-2","BaseAirSys7or3b-2",17227.4,1,16.7,16.7,143.6,"Maximum","Fixed",29.994,0.25,0.749998,4307,29.994,0.25,0.749998,4307,0,0.25,4307
+"Front_Entry Thermal Zone","Building Story 1","Unconditioned","None","NONE","NONE",129.2,1,66.7,66.7,4.3,"NoVentilation","UNDEFINED",0,0,0,0,0,0,0,0,0,0,0
+"Front_Retail Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b-3","BaseAirSys7or3b-3",1623.3,1,16.7,16.7,13.5,"Maximum","Fixed",29.994,0.25,0.749997,406,29.994,0.25,0.749997,406,0,0.25,406
+"Point_Of_Sale Thermal Zone","Building Story 1","Conditioned","Forced","BaseAirSys7or3b-4","BaseAirSys7or3b-4",1623.3,1,16.7,16.7,13.5,"Maximum","Fixed",29.994,0.25,0.749999,406,29.994,0.25,0.749999,406,0,0.25,406

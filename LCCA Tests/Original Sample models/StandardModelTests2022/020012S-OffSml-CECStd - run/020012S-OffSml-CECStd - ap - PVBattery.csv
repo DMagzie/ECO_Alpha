@@ -1,0 +1,17 @@
+PV Array & Battery Report
+,"PV and Battery required based on Prescriptive tables:  17.2 kWdc PV  /  Battery Energy 30.5 kWh and Power 7.23 kW (Time of Use control)"
+,"Standard Design PV Capacity: 17.2 kWdc  /  Battery Capacity: 30.5 kWh  (power 7.23 kW, Time of Use control)"
+,"User-specified PV and Battery:  17.2 kWdc PV  /  30.5 kWh Battery  (7.2/7.2 charge/discharge rate (kW), Time of Use control)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,Grocery,Highrise Multifamily,"Office, Financial, Unleased Tenant",Retail,School,Warehouse,Other,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"Perimeter_ZN_1","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1221.17,1,,,1221.17,,,,,,,,,3.82226,6.75937,1.60535,
+"Perimeter_ZN_2","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",724.411,1,,,724.411,,,,,,,,,2.26741,4.00973,0.952311,
+"Perimeter_ZN_3","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1221.17,1,,,1221.17,,,,,,,,,3.82226,6.75937,1.60535,
+"Perimeter_ZN_4","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",724.411,1,,,724.411,,,,,,,,,2.26741,4.00973,0.952311,
+"Core_ZN","DirectlyConditioned","Office Area (>250 square feet)","Office, Financial, Unleased Tenant",1610.9,1,,,1610.9,,,,,,,,,5.04212,8.91659,2.11769,
+"Attic","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","none",0,1,,,,,,,,0,,,,0,0,0,
+,,,,,Sums:,0,0,5502.06,0,0,0,0,0,0,0,,17.2215,30.4548,7.23301,
+,,Bldg Cond Area:,5502.06,,Pcts:,0.0,0.0,100.0,0.0,0.0,0.0,0.0,0.0,,0.0,

@@ -1,0 +1,36 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Freedom Circle_Building C22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"TU_Corridor_L01_DOAS-A1-A2","VAVNoReheatBox","DOAS-A1-A2","TZ-Corridor_L01",1700.000,366.000,-99996.000,""
+,"TU_Corridor_L02_DOAS-A1-A2","VAVNoReheatBox","DOAS-A1-A2","TZ-Corridor_L02",5559.000,834.000,-99996.000,""
+,"TU_Corridor_L03_DOAS-A1-A2","VAVNoReheatBox","DOAS-A1-A2","TZ-Corridor_L03",10525.000,1579.000,-99996.000,""
+,"TU_Corridor_L04","VAVNoReheatBox","DOAS-A3-A4","TZ-Corridor_L04",9395.000,1409.000,-99996.000,""
+,"TU_Corridor_L05","VAVNoReheatBox","DOAS-A3-A4","TZ-Corridor_L05",9144.000,1372.000,-99996.000,""
+,"TU_Corridor_L06","VAVNoReheatBox","DOAS-A3-A4","TZ-Corridor_L06",9144.000,1372.000,-99996.000,""
+,"TU-Corridor_L07","VAVNoReheatBox","DOAS-A3-A4","TZ-Corridor_L07",9144.000,1372.000,-99996.000,""
+ENDTABLE
+TABLE Freedom Circle_Building C22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"CC_DOAS-A1-A2","DirectExpansion","DOAS-A1-A2","UNDEFINED",409200.000,426922.700,-99996.00000,-99996.000,11.000,1
+,"CC_DOAS-A1-A2-2","DirectExpansion","DOAS-A3-A4","UNDEFINED",279200.000,291292.321,-99996.00000,-99996.000,11.000,1
+ENDTABLE
+TABLE Freedom Circle_Building C22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"CH_DOAS-A1-A2","Resistance","DOAS-A1-A2","UNDEFINED",259322.000,259322.000,-99996.00000,-99996.000,-99996.000
+,"CH_DOAS-A3-A4","Resistance","DOAS-A3-A4","UNDEFINED",225202.000,225202.000,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Freedom Circle_Building C22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Fan_DOAS-A1-A2","VariableSpeedDrive","DOAS-A1-A2","UNDEFINED",6250.000,1461.000,0.650,"StaticPressure",1.400,2.121,2.500,"InAirStream",0.900,0.2812
+,"Fan_DOAS-A1-A2-2","VariableSpeedDrive","DOAS-A3-A4","UNDEFINED",7390.000,2866.000,0.650,"StaticPressure",1.400,2.508,3.000,"InAirStream",0.900,0.2812
+ENDTABLE
+TABLE Freedom Circle_Building C22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"OAC_DOAS-A1-A2","FixedDryBulb","DOAS-A1-A2","NonIntegrated"
+,"OAC_DOAS-A1-A2-2","FixedDryBulb","DOAS-A3-A4","NonIntegrated"
+ENDTABLE

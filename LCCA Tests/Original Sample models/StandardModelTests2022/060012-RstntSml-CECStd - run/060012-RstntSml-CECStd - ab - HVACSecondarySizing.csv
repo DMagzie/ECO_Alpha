@@ -1,0 +1,31 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 060012-RstntSml-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"BaseVAVNoReheatTrmlUnit","Uncontrolled","BaseAirSys7or3a","Dining Thermal Zone",1379.956,-99996.000,-99996.000,""
+,"BaseUnctrl TrmlUnit","VAVNoReheatBox","BaseAirSys13","Kitchen Thermal Zone",2000.000,2000.000,-99996.000,""
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys7or3a CoilClg","DirectExpansion","BaseAirSys7or3a","n/a",56685.884,59140.984,-99996.00000,14.000,11.407,1
+,"BaseSys13 CoilClg","DirectExpansion","BaseAirSys13","n/a",82156.057,85714.286,-99996.00000,-99996.000,11.000,2
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys7or3a CoilHtg","Furnace","BaseAirSys7or3a","n/a",51553.200,51553.200,0.00000,0.810,0.815
+,"BaseSys13 CoilHtg","Furnace","BaseAirSys13","n/a",85915.063,85915.063,0.00000,0.810,0.815
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"BaseSys7or3a SupFan","ConstantVolume","BaseAirSys7or3a","n/a",1379.956,-99996.000,0.650,"PowerPerUnitFlow",3.838,1.284,1.500,"InAirStream",0.865,0.8020
+,"BaseSys13 SupFan","VariableSpeedDrive","BaseAirSys13","n/a",2000.000,2000.000,0.650,"PowerPerUnitFlow",3.838,1.861,2.000,"InAirStream",0.865,0.8020
+ENDTABLE
+TABLE 060012-RstntSml-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"BaseSys7or3a OACtrl","FixedDryBulb","BaseAirSys7or3a","Integrated"
+,"BaseSys13 OACtrl","FixedDryBulb","BaseAirSys13","Integrated"
+ENDTABLE

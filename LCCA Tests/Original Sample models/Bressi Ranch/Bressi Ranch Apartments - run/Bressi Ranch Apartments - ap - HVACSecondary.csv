@@ -1,0 +1,69 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"SFC-7_Leasing_L01 AirSys","SZHP","New",1,2180.17,57900,58,26.5576,414.508,57700,95,26.4658,2000,0.91736,327,0.149988,"Leasing_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"SFC-5_Mail-Parcel_L01 AirSys","SZHP","New",1,1771.09,40600,58,22.9237,413.793,42600,95,24.053,1400,0.790474,885.5,0.499975,"Mail-Parcel_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"SFC-5_Co-Working_L01 AirSys","SZHP","New",2,1174.52,40600,58,69.1346,413.793,42600,95,72.5403,1400,2.38395,88.05,0.149934,"Co-Working_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"SFC-1_Dog Wash_L01 AirSys","SZHP","New",1,551.423,17200,58,31.192,418.605,17400,95,31.5547,600,1.08809,82.7,0.149976,"Dog Wash_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+"SFC-1_GOLF ROOM_L01 AirSys","SZHP","New",1,543.768,17200,58,31.6311,418.605,17400,95,31.9989,600,1.10341,271.8,0.499846,"GOLF ROOM_L01","NoSATControl",,-99996,,-99996,,"UNDEFINED","AllOnHVACAvail","CycleOnCallPrimaryZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"SFC-7_Leasing_L01 TrmlUnit","Uncontrolled","New",1,"SFC-7_Leasing_L01 AirSys",1,"Leasing_L01",-99996,-99996,2000,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"SFC-5_Mail-Parcel_L01 TrmlUnit","Uncontrolled","New",1,"SFC-5_Mail-Parcel_L01 AirSys",1,"Mail-Parcel_L01",-99996,-99996,1400,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"SFC-5_Co-Working_L01 TrmlUnit","Uncontrolled","New",1,"SFC-5_Co-Working_L01 AirSys",2,"Co-Working_L01",-99996,-99996,1400,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"SFC-1_Dog Wash_L01 TrmlUnit","Uncontrolled","New",1,"SFC-1_Dog Wash_L01 AirSys",1,"Dog Wash_L01",-99996,-99996,600,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+"SFC-1_GOLF ROOM_L01 TrmlUnit","Uncontrolled","New",1,"SFC-1_GOLF ROOM_L01 AirSys",1,"GOLF ROOM_L01",-99996,-99996,600,-99996,-99996,"","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"SFC-7_Leasing_L01 ClgCoil","DirectExpansion","New","Electric","SFC-7_Leasing_L01 AirSys",1,"n/a",57900,60407.7,"NONE","NONE",-99996,"Air",1,15.05,-99996,11.95,0,-99996,-99996,0.232158,-999,14.3,14.3,-99996,-99996
+"SFC-5_Mail-Parce_L01 ClgCoil","DirectExpansion","New","Electric","SFC-5_Mail-Parcel_L01 AirSys",1,"n/a",40600,42358.4,"NONE","NONE",-99996,"Air",1,15.05,-99996,11.95,0,-99996,-99996,0.232158,-999,14.3,14.3,-99996,-99996
+"SFC-5_Co-Working_L01 ClgCoil","DirectExpansion","New","Electric","SFC-5_Co-Working_L01 AirSys",2,"n/a",40600,42358.4,"NONE","NONE",-99996,"Air",1,15.05,-99996,11.95,0,-99996,-99996,0.232158,-999,14.3,14.3,-99996,-99996
+"SFC-1_Dog Wash_L01 ClgCoil","DirectExpansion","New","Electric","SFC-1_Dog Wash_L01 AirSys",1,"n/a",17200,17944.9,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,-999,14.3,13.4,-99996,-99996
+"SFC-1_GOLF ROOM_L01 ClgCoil","DirectExpansion","New","Electric","SFC-1_GOLF ROOM_L01 AirSys",1,"n/a",17200,17944.9,"NONE","NONE",-99996,"Air",1,14.9,-99996,11.9,-99996,-99996,-99996,0.233307,-999,14.3,13.4,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"SFC-7_Leasing_L01 HtgCoil","HeatPump","New","Electric","SFC-7_Leasing_L01 AirSys",1,"n/a",57700,55192.3,"NONE","NONE",-99996,"Air",1,8.8,-99996,3.4,-99996,0.262046,0,-99996,-99996,-99996,-99996,-99996,-999,7.5,7.5
+"SFC-5_Mail-Parcel_L01 HtgCoil","HeatPump","New","Electric","SFC-5_Mail-Parcel_L01 AirSys",1,"n/a",42600,40841.6,"NONE","NONE",-99996,"Air",1,8.8,-99996,3.4,-99996,0.263726,0,-99996,-99996,-99996,-99996,-99996,-999,7.5,7.5
+"SFC-5_Co-Working_L01 HtgCoil","HeatPump","New","Electric","SFC-5_Co-Working_L01 AirSys",2,"n/a",42600,40841.6,"NONE","NONE",-99996,"Air",1,8.8,-99996,3.4,-99996,0.263726,0,-99996,-99996,-99996,-99996,-99996,-999,7.5,7.5
+"SFC-1_Dog Wash_L01 HtgCoil","HeatPump","New","Electric","SFC-1_Dog Wash_L01 AirSys",1,"n/a",17400,16655.1,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.258092,0,-99996,-99996,-99996,-99996,-99996,-999,7.5,6.7
+"SFC-1_GOLF ROOM__L01 HtgCoil","HeatPump","New","Electric","SFC-1_GOLF ROOM_L01 AirSys",1,"n/a",17400,16655.1,"NONE","NONE",-99996,"Air",1,8.95,-99996,3.45,-99996,0.258092,0,-99996,-99996,-99996,-99996,-99996,-999,7.5,6.7
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"SFC-7_Leasing_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","SFC-7_Leasing_L01 AirSys",1,"n/a",2000,-99996,0.65,"BrakeHorsePower",0.75,1.54672,0.310667,0.75,"InAirStream",0.9
+"SFC-5_Mail-Parcel_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","SFC-5_Mail-Parcel_L01 AirSys",1,"n/a",1400,-99996,0.65,"BrakeHorsePower",0.5,1.47307,0.295873,0.5,"InAirStream",0.9
+"SFC-5_Co-Working_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","SFC-5_Co-Working_L01 AirSys",2,"n/a",1400,-99996,0.65,"BrakeHorsePower",0.5,1.47307,0.295873,0.5,"InAirStream",0.9
+"SFC-1_Dog Wash_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","SFC-1_Dog Wash_L01 AirSys",1,"n/a",600,-99996,0.65,"BrakeHorsePower",0.33,2.26853,0.455644,0.33,"InAirStream",0.9
+"SFC-1_GOLF ROOM_L01 SupFan","ConstantVolume","New","Centrifugal","AirFoil","SFC-1_GOLF ROOM_L01 AirSys",1,"n/a",600,-99996,0.65,"BrakeHorsePower",0.33,2.26853,0.455644,0.33,"InAirStream",0.9
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"SFC-7_Leasing_L01 OACtrl","NoEconomizer","New",327,"SFC-7_Leasing_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"SFC-5_Mail-Parcel_L01 OACtrl","NoEconomizer","New",885.5,"SFC-5_Mail-Parcel_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"SFC-5_Co-Working_L01 OACtrl","NoEconomizer","New",88.05,"SFC-5_Co-Working_L01 AirSys",2,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"SFC-1_Dog Wash_L01 OACtrl","NoEconomizer","New",82.7,"SFC-1_Dog Wash_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"
+"SFC-1_GOLF ROOM_L01 OACtrl","NoEconomizer","New",271.8,"SFC-1_GOLF ROOM_L01 AirSys",1,"UNDEFINED",-99996,-99996,-99996,-99996,"FollowHVACAvailability",0,"NONE"

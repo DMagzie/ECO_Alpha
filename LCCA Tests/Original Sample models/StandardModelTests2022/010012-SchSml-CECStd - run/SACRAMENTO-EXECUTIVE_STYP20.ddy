@@ -1,0 +1,205 @@
+Site:Location,
+  SACRAMENTO EXECUTIVE,	!- Location Name
+  38.507,	!- Latitude
+  -121.495,	!- Longitude
+  -8,		!- Time Zone Relative to GMT
+  4.572;	!- Elevation {m}
+
+
+SizingPeriod:DesignDay,
+  SACRAMENTO EXECUTIVE Ann Htg 99.6% Condns DB,	!- Name
+  12,	!- Month
+  21,	!- Day of Month
+  WinterDesignDay,	!- Day Type
+  -0.3,	!- Maximum Dry-Bulb Temperature {C} [31.5 F]
+  0.0,	!- Daily Dry-Bulb Temperature Range {C}
+  DefaultMultipliers,	!- Dry-Bulb Temperature Range Modifier Type
+  ,	!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,	!- Humidity Condition Type
+  -0.3,	!- Wetbulb at Maximum Dry-Bulb {C} [31.5 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  101284,	!- Barometric Pressure {Pa} [14.7 PSI]
+  2.3,	!- Wind Speed {m/s} [5.1 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  330,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAEClearSky,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  ,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  ,		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+  0.0;	!- Clearness {0.0 to 1.1}
+
+
+SizingPeriod:DesignDay,
+  SACRAMENTO EXECUTIVE  June .4% Condns DB=>MCWB,     !- Name
+   6,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  39.4,	!- Maximum Dry-Bulb Temperature {C} [103.0 F]
+  16.5,	!- Daily Dry-Bulb Temperature Range {C} [29.7 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  21.6,	!- Wetbulb at Maximum Dry-Bulb {C} [70.8 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  101284,	!- Barometric Pressure {Pa} [14.7 PSI]
+  2.3,	!- Wind Speed {m/s} [5.1 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  220,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.362,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.413;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SACRAMENTO EXECUTIVE  July .4% Condns DB=>MCWB,     !- Name
+   7,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  40.1,	!- Maximum Dry-Bulb Temperature {C} [104.2 F]
+  17.7,	!- Daily Dry-Bulb Temperature Range {C} [31.8 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  22.0,	!- Wetbulb at Maximum Dry-Bulb {C} [71.6 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  101284,	!- Barometric Pressure {Pa} [14.7 PSI]
+  2.3,	!- Wind Speed {m/s} [5.1 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  220,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.363,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.407;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SACRAMENTO EXECUTIVE  August .4% Condns DB=>MCWB,     !- Name
+   8,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  40.1,	!- Maximum Dry-Bulb Temperature {C} [104.1 F]
+  17.5,	!- Daily Dry-Bulb Temperature Range {C} [31.5 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  21.2,	!- Wetbulb at Maximum Dry-Bulb {C} [70.2 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  101284,	!- Barometric Pressure {Pa} [14.7 PSI]
+  2.3,	!- Wind Speed {m/s} [5.1 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  220,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.347,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.442;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SACRAMENTO EXECUTIVE  September .4% Condns DB=>MCWB,     !- Name
+   9,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  37.9,	!- Maximum Dry-Bulb Temperature {C} [100.2 F]
+  16.8,	!- Daily Dry-Bulb Temperature Range {C} [30.2 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  19.8,	!- Wetbulb at Maximum Dry-Bulb {C} [67.6 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  101284,	!- Barometric Pressure {Pa} [14.7 PSI]
+  2.3,	!- Wind Speed {m/s} [5.1 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  220,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.351,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.437;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SACRAMENTO EXECUTIVE  October .4% Condns DB=>MCWB,     !- Name
+  10,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  33.5,	!- Maximum Dry-Bulb Temperature {C} [92.3 F]
+  14.6,	!- Daily Dry-Bulb Temperature Range {C} [26.3 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  18.2,	!- Wetbulb at Maximum Dry-Bulb {C} [64.7 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  101284,	!- Barometric Pressure {Pa} [14.7 PSI]
+  2.3,	!- Wind Speed {m/s} [5.1 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  220,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.345,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.463;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+
+SizingPeriod:DesignDay,
+  SACRAMENTO EXECUTIVE  November .4% Condns DB=>MCWB,     !- Name
+  11,	!- Month
+  21,	!- Day of Month
+  SummerDesignDay, !- Day Type
+  25.4,	!- Maximum Dry-Bulb Temperature {C} [77.7 F]
+  11.3,	!- Daily Dry-Bulb Temperature Range {C} [20.3 F]
+  DefaultMultipliers, !- Dry-Bulb Temperature Range Modifier Type
+  ,		!- Dry-Bulb Temperature Range Modifier Day Schedule Name
+  Wetbulb,		!- Humidity Condition Type
+  15.3,	!- Wetbulb at Maximum Dry-Bulb {C} [59.6 F]
+  ,		!- Humidity Indicating Day Schedule Name
+  ,		!- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+  ,		!- Enthalpy at Maximum Dry-Bulb {J/kg}
+  ,		!- Daily Wet-Bulb Temperature Range {deltaC}
+  101284,	!- Barometric Pressure {Pa} [14.7 PSI]
+  2.3,	!- Wind Speed {m/s} [5.1 mph] design conditions vs. traditional 3.35 m/s (7.5 mph)
+  220,	!- Wind Direction {Degrees; N=0, S=180}
+  No,	!- Rain {Yes/No}
+  No,	!- Snow on ground {Yes/No}
+  No,	!- Daylight Savings Time Indicator
+  ASHRAETau,	!- Solar Model Indicator
+  ,		!- Beam Solar Day Schedule Name
+  ,		!- Diffuse Solar Day Schedule Name
+  0.331,		!- ASHRAE Clear Sky Optical Depth for Beam Irradiance (TauB)
+  2.486;		!- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (TauD)
+
+

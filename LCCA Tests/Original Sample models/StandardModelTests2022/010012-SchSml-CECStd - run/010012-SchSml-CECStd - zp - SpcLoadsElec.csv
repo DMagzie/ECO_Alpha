@@ -1,0 +1,123 @@
+Space Interior Loads Electric Use Report
+,,,,,Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,
+Space,,,,,Interior Lighting,,,,Interior Lighting,,,,Receptacle,,,,Process,,,,Commercial Refrigeration,,,
+Name,Conditioning Type,Space Function,Floor Area,Multiplier,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,
+,,,(ft2),,(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),
+"Cafeteria_Spc","DirectlyConditioned","Dining Area (Cafeteria/Fast Food)",2859.73,1,0.45,"SchoolLights",2045.3,2632.06,,,,,0.5,"SchoolReceptacle",2647.7,3785.86,,,,,,,,,
+"Lobby_Spc","DirectlyConditioned","Corridor Area",678.128,1,0.4,"SchoolLights",2045.3,554.79,,,,,,,,,,,,,,,,,
+"Main_Corridor_Spc","DirectlyConditioned","Corridor Area",1722.23,1,0.4,"SchoolLights",2045.3,1408.99,,,,,,,,,,,,,,,,,
+"Mech/Elec_Spc","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms",446.486,1,0.4,"SchoolLights",2045.3,365.279,,,,,3,"SchoolReceptacle",2647.7,3546.48,,,,,,,,,
+"Office_Spc","DirectlyConditioned","Office Area (>250 square feet)",2201.36,1,0.6,"SchoolLights",2045.3,2701.46,,,,,1.5,"SchoolReceptacle",2647.7,8742.81,,,,,,,,,
+"Restroom_Spc","IndirectlyConditioned","Restrooms",1004.6,1,0.65,"SchoolLights",2045.3,1335.56,,,,,,,,,,,,,,,,,
+"Wing1_Corridor_Spc","DirectlyConditioned","Corridor Area",1722.22,1,0.4,"SchoolLights",2045.3,1408.99,,,,,,,,,,,,,,,,,
+"Wing1_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.474,1,0.6,"SchoolLights",2045.3,924.649,,,,,1,"SchoolReceptacle",2647.7,1994.97,,,,,,,,,
+"Wing1_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.474,1,0.6,"SchoolLights",2045.3,924.649,,,,,1,"SchoolReceptacle",2647.7,1994.97,,,,,,,,,
+"Wing1_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.474,1,0.6,"SchoolLights",2045.3,924.649,,,,,1,"SchoolReceptacle",2647.7,1994.97,,,,,,,,,
+"Wing1_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.484,1,0.6,"SchoolLights",2045.3,924.66,,,,,1,"SchoolReceptacle",2647.7,1995,,,,,,,,,
+"Wing1_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.474,1,0.6,"SchoolLights",2045.3,924.649,,,,,1,"SchoolReceptacle",2647.7,1994.97,,,,,,,,,
+"Wing1_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.474,1,0.6,"SchoolLights",2045.3,924.649,,,,,1,"SchoolReceptacle",2647.7,1994.97,,,,,,,,,
+"Wing1_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.474,1,0.6,"SchoolLights",2045.3,924.649,,,,,1,"SchoolReceptacle",2647.7,1994.97,,,,,,,,,
+"Wing1_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.484,1,0.6,"SchoolLights",2045.3,924.66,,,,,1,"SchoolReceptacle",2647.7,1995,,,,,,,,,
+"Wing2_Corridor_Spc","DirectlyConditioned","Corridor Area",1722.32,1,0.4,"SchoolLights",2045.3,1409.06,,,,,,,,,,,,,,,,,
+"Wing2_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.461,1,0.6,"SchoolLights",2045.3,924.633,,,,,1,"SchoolReceptacle",2647.7,1994.94,,,,,,,,,
+"Wing2_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.461,1,0.6,"SchoolLights",2045.3,924.633,,,,,1,"SchoolReceptacle",2647.7,1994.94,,,,,,,,,
+"Wing2_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.461,1,0.6,"SchoolLights",2045.3,924.633,,,,,1,"SchoolReceptacle",2647.7,1994.94,,,,,,,,,
+"Wing2_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.47,1,0.6,"SchoolLights",2045.3,924.644,,,,,1,"SchoolReceptacle",2647.7,1994.96,,,,,,,,,
+"Wing2_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.478,1,0.6,"SchoolLights",2045.3,924.653,,,,,1,"SchoolReceptacle",2647.7,1994.98,,,,,,,,,
+"Wing2_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.478,1,0.6,"SchoolLights",2045.3,924.653,,,,,1,"SchoolReceptacle",2647.7,1994.98,,,,,,,,,
+"Wing2_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.478,1,0.6,"SchoolLights",2045.3,924.653,,,,,1,"SchoolReceptacle",2647.7,1994.98,,,,,,,,,
+"Wing2_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.487,1,0.6,"SchoolLights",2045.3,924.664,,,,,1,"SchoolReceptacle",2647.7,1995.01,,,,,,,,,
+
+
+
+Space Loads Report
+Space,,,,,,Occupancy,,,,,Service Hot Water,,Ventilation,,,,,,Infiltration,,,Thermal Zone
+Name,Conditioning Type,Space Function,Floor Area,Story Name,Multiplier,Density,Number,Schedule Name,Sensible Heat Rate,Latent Heat Rate,SHW Use, Schedule Name,Prop. DsgnVentPerArea,Prop. DsgnVentPerPerson,Code VentPerArea,Code VentPerPerson,Sim. Area Flow,Sim. Person Flow,Method,Schedule Name,Design Infiltration Rate,Clg Tstat Sch, Htg Tstat Sch
+,,,(ft2),,,(ppl/1000ft2),(people),,(Btu/h-person),(Btu/h-person),(gal/person),,(cfm/ft2),(cfm/person),(cfm/ft2),(cfm/person),(cfm),(cfm),,,(cfm/ft2)
+"Cafeteria_Spc","DirectlyConditioned","Dining Area (Cafeteria/Fast Food)",2859.7335,"Level 1",1,33.335,95.3292,"SchoolOccupancy",275,275,0.578,"SchoolServiceHotWater",0.5,14.9993,0.5,14.9993,428.96,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Lobby_Spc","DirectlyConditioned","Corridor Area",678.1279,"Level 1",1,5,3.39064,"SchoolOccupancy",250,250,0,"SchoolServiceHotWater",0.15,30,0.15,30,101.719,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Main_Corridor_Spc","DirectlyConditioned","Corridor Area",1722.2294,"Level 1",1,5,8.61115,"SchoolOccupancy",250,250,0,"SchoolServiceHotWater",0.15,30,0.15,30,258.334,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Mech/Elec_Spc","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms",446.4862,"Level 1",1,1.5,0.669729,"SchoolOccupancy",250,250,0.18,"SchoolServiceHotWater",0.15,100,0.15,100,66.9729,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Office_Spc","DirectlyConditioned","Office Area (>250 square feet)",2201.3599,"Level 1",1,5,11.0068,"SchoolOccupancy",250,200,0.18,"SchoolServiceHotWater",0.15,30,0.15,30,330.204,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Restroom_Spc","IndirectlyConditioned","Restrooms",1004.5998,"Level 1",1,5,5.023,"SchoolOccupancy",250,250,0,"SchoolServiceHotWater",0,0,0,0,0,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"NONE","NONE"
+"Wing1_Corridor_Spc","DirectlyConditioned","Corridor Area",1722.2232,"Level 1",1,5,8.61112,"SchoolOccupancy",250,250,0,"SchoolServiceHotWater",0.15,30,0.15,30,258.333,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4744,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.32,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4744,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.32,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4744,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.32,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4836,"Level 1",1,25,18.8371,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.324,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4744,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.32,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4744,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.32,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4744,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.32,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing1_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4836,"Level 1",1,25,18.8371,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.324,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Corridor_Spc","DirectlyConditioned","Corridor Area",1722.3150,"Level 1",1,5,8.61158,"SchoolOccupancy",250,250,0,"SchoolServiceHotWater",0.15,30,0.15,30,258.347,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4613,"Level 1",1,25,18.8365,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.315,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4613,"Level 1",1,25,18.8365,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.315,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4613,"Level 1",1,25,18.8365,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.315,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4705,"Level 1",1,25,18.8368,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.319,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4777,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.322,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4777,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.322,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4777,"Level 1",1,25,18.8369,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.322,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+"Wing2_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas",753.4869,"Level 1",1,25,18.8372,"SchoolOccupancy",245,155,0.18,"SchoolServiceHotWater",0.38,15.2,0.38,15.2,286.325,0,"FlowExteriorWallArea","SchoolInfiltration",0.2352,"SchoolClgSetpt","SchoolHtgSetpt"
+
+
+
+Space Interior Lighting Report
+Space,,,,,Regulated,,,,,,,,Non-Regulated
+Name,Conditioning Type,Space Function,Lighting Status,Floor Area,Lighting Specification Method,Installed Power,Schedule Name,Schedule,Lighting System Count,Lighting Control Credit,Simulated Power,Simulated LPD,Power,Schedule Name,Schedule,LPD
+,,,,(ft2),,(Watts),,(FLH),,(Watts),(Watts),(Watts/ft2),(Watts),,(FLH),(Watts/ft2),
+"Cafeteria_Spc","DirectlyConditioned","Dining Area (Cafeteria/Fast Food)","New",2859.73,"AreaCategoryMethod",1286.88,"SchoolLights",2045.3,0,0,1286.88,0.45
+"Lobby_Spc","DirectlyConditioned","Corridor Area","New",678.128,"AreaCategoryMethod",271.251,"SchoolLights",2045.3,0,0,271.251,0.40
+"Main_Corridor_Spc","DirectlyConditioned","Corridor Area","New",1722.23,"AreaCategoryMethod",688.892,"SchoolLights",2045.3,0,0,688.892,0.40
+"Mech/Elec_Spc","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms","New",446.486,"AreaCategoryMethod",178.594,"SchoolLights",2045.3,0,0,178.594,0.40
+"Office_Spc","DirectlyConditioned","Office Area (>250 square feet)","New",2201.36,"AreaCategoryMethod",1320.82,"SchoolLights",2045.3,0,0,1320.82,0.60
+"Restroom_Spc","IndirectlyConditioned","Restrooms","New",1004.6,"AreaCategoryMethod",652.99,"SchoolLights",2045.3,0,0,652.99,0.65
+"Wing1_Corridor_Spc","DirectlyConditioned","Corridor Area","New",1722.22,"AreaCategoryMethod",688.889,"SchoolLights",2045.3,0,0,688.889,0.40
+"Wing1_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.474,"AreaCategoryMethod",452.085,"SchoolLights",2045.3,0,0,452.085,0.60
+"Wing1_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.474,"AreaCategoryMethod",452.085,"SchoolLights",2045.3,0,0,452.085,0.60
+"Wing1_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.474,"AreaCategoryMethod",452.085,"SchoolLights",2045.3,0,0,452.085,0.60
+"Wing1_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.484,"AreaCategoryMethod",452.09,"SchoolLights",2045.3,0,0,452.09,0.60
+"Wing1_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.474,"AreaCategoryMethod",452.085,"SchoolLights",2045.3,0,0,452.085,0.60
+"Wing1_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.474,"AreaCategoryMethod",452.085,"SchoolLights",2045.3,0,0,452.085,0.60
+"Wing1_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.474,"AreaCategoryMethod",452.085,"SchoolLights",2045.3,0,0,452.085,0.60
+"Wing1_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.484,"AreaCategoryMethod",452.09,"SchoolLights",2045.3,0,0,452.09,0.60
+"Wing2_Corridor_Spc","DirectlyConditioned","Corridor Area","New",1722.32,"AreaCategoryMethod",688.926,"SchoolLights",2045.3,0,0,688.926,0.40
+"Wing2_Side1_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.461,"AreaCategoryMethod",452.077,"SchoolLights",2045.3,0,0,452.077,0.60
+"Wing2_Side1_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.461,"AreaCategoryMethod",452.077,"SchoolLights",2045.3,0,0,452.077,0.60
+"Wing2_Side1_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.461,"AreaCategoryMethod",452.077,"SchoolLights",2045.3,0,0,452.077,0.60
+"Wing2_Side1_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.47,"AreaCategoryMethod",452.082,"SchoolLights",2045.3,0,0,452.082,0.60
+"Wing2_Side2_Class1_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.478,"AreaCategoryMethod",452.087,"SchoolLights",2045.3,0,0,452.087,0.60
+"Wing2_Side2_Class2_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.478,"AreaCategoryMethod",452.087,"SchoolLights",2045.3,0,0,452.087,0.60
+"Wing2_Side2_Class3_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.478,"AreaCategoryMethod",452.087,"SchoolLights",2045.3,0,0,452.087,0.60
+"Wing2_Side2_Class4_Spc","DirectlyConditioned","Classroom, Lecture, Training, Vocational Areas","New",753.487,"AreaCategoryMethod",452.092,"SchoolLights",2045.3,0,0,452.092,0.60
+
+
+
+Space Daylighting,,,,,,,,,,,,,,,,,,,,,,,,,
+Name,SpcFunc,FlrArea,DayltgCtrlType,MandMinDaylitArea,MinDimLtgFrac,MinDimPwrFrac,NumOfCtrlSteps,SkylitDaylitArea,SkylitDayltgCtrlLtgPwr,SkylitDayltgCtrlLtgFrac,SkylitDayltgIllumSetpt,SkylitDayltgIllumSetptAdjFac,SkylitDayltgAdjIllumSetpt,,PriSideDayltgRefPtCoord[1],PriSideDayltgRefPtCoord[2],PriSideDayltgRefPtCoord[3],PriSideDaylitArea,PriSideDayltgCtrlLtgPwr,PriSideDayltgCtrlLtgFrac,PriSideDayltgIllumSetpt,PriSideDayltgIllumSetptAdjFac,PriSideDayltgAdjIllumSetpt,,SecSideDayltgRefPtCoord[1],SecSideDayltgRefPtCoord[2],SecSideDayltgRefPtCoord[3],SecSideDaylitArea,SecSideDayltgCtrlLtgPwr,SecSideDayltgCtrlLtgFrac,SecSideDayltgIllumSetpt,SecSideDayltgIllumSetptAdjFac,SecSideDayltgAdjIllumSetpt
+Space,,,,,,,,Skylit Zone,,,,,,,Primary Sidelit Daylit Zone,,,,,,,,,,Secondary Sidelit Daylit Zone,,,,,,
+Name,Space Function,Floor Area,Control Type,MinDayltg per 140.3c,Min. Dim. Ltg. Frac.,Min Dim. Pwr. Frac.,Switched # Ctrl. Steps,Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point
+,,(ft2),,(ft2),,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux)
+"Cafeteria_Spc","Dining Area (Cafeteria/Fast Food)",2859.73,"None",0,0,-99996,-99996,0,0,0,125,-99996,125,,48.0227,122.728,2.5,1170.75,0,0,125,-99996,187.5,,36.9903,122.728,2.5,927.799,0,0,125,-99996,250
+"Lobby_Spc","Corridor Area",678.128,"None",0,0,-99996,-99996,0,0,0,75,-99996,75,,14.4862,10.9908,2.5,324.958,0,0,75,-99996,112.5,,14.4862,21.9816,2.5,324.958,0,0,75,-99996,150
+"Main_Corridor_Spc","Corridor Area",1722.23,"None",0,0,-99996,-99996,0,0,0,75,-99996,75,,10.791,75.6915,2.5,418.177,0,0,75,-99996,112.5,,16.1667,75.7076,2.5,217.969,0,0,75,-99996,150
+"Mech/Elec_Spc","Electrical, Mechanical, Telephone Rooms",446.486,"None",0,0,-99996,-99996,0,0,0,200,-99996,200,,-99996,-99996,-99996,0,0,0,200,-99996,200,,-99996,-99996,-99996,0,0,0,200,-99996,800
+"Office_Spc","Office Area (>250 square feet)",2201.36,"None",0,0,-99996,-99996,0,0,0,287.5,-99996,287.5,,44.6682,11.0292,2.5,795.979,0,0,287.5,-99996,287.5,,44.6682,22.0584,2.5,554.073,0,0,287.5,-99996,1150
+"Restroom_Spc","Restrooms",1004.6,"None",0,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Wing1_Corridor_Spc","Corridor Area",1722.22,"None",0,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Wing1_Side1_Class1_Spc","Classroom, Lecture, Training, Vocational Areas",753.474,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-16.6725,11.0324,2.5,362.075,0,0,275,-99996,412.5,,-16.6725,22.0648,2.5,362.075,0,0,275,-99996,550
+"Wing1_Side1_Class2_Spc","Classroom, Lecture, Training, Vocational Areas",753.474,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-49.5138,11.0324,2.5,362.535,0,0,275,-99996,412.5,,-49.5138,22.0648,2.5,362.535,0,0,275,-99996,550
+"Wing1_Side1_Class3_Spc","Classroom, Lecture, Training, Vocational Areas",753.474,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-82.1582,11.0324,2.5,362.075,0,0,275,-99996,412.5,,-82.1581,22.0648,2.5,362.075,0,0,275,-99996,550
+"Wing1_Side1_Class4_Spc","Classroom, Lecture, Training, Vocational Areas",753.484,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-115.097,11.0324,2.5,362.535,0,0,275,-99996,412.5,,-115.097,22.0648,2.5,362.535,0,0,275,-99996,550
+"Wing1_Side2_Class1_Spc","Classroom, Lecture, Training, Vocational Areas",753.474,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-16.6725,48.0227,2.5,360.708,0,0,275,-99996,412.5,,-16.6725,36.9903,2.5,362.075,0,0,275,-99996,550
+"Wing1_Side2_Class2_Spc","Classroom, Lecture, Training, Vocational Areas",753.474,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-49.5138,48.0227,2.5,361.167,0,0,275,-99996,412.5,,-49.5138,36.9903,2.5,362.535,0,0,275,-99996,550
+"Wing1_Side2_Class3_Spc","Classroom, Lecture, Training, Vocational Areas",753.474,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-82.1582,48.0227,2.5,360.708,0,0,275,-99996,412.5,,-82.1582,36.9903,2.5,362.075,0,0,275,-99996,550
+"Wing1_Side2_Class4_Spc","Classroom, Lecture, Training, Vocational Areas",753.484,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-115.097,48.0227,2.5,361.167,0,0,275,-99996,412.5,,-115.097,36.9903,2.5,362.535,0,0,275,-99996,550
+"Wing2_Corridor_Spc","Corridor Area",1722.32,"None",0,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"Wing2_Side1_Class1_Spc","Classroom, Lecture, Training, Vocational Areas",753.461,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-16.6725,102.896,2.5,362.075,0,0,275,-99996,412.5,,-16.6725,113.928,2.5,360.708,0,0,275,-99996,550
+"Wing2_Side1_Class2_Spc","Classroom, Lecture, Training, Vocational Areas",753.461,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-49.5138,102.896,2.5,362.535,0,0,275,-99996,412.5,,-49.5138,113.928,2.5,361.167,0,0,275,-99996,550
+"Wing2_Side1_Class3_Spc","Classroom, Lecture, Training, Vocational Areas",753.461,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-82.1582,102.896,2.5,362.075,0,0,275,-99996,412.5,,-82.1581,113.928,2.5,360.708,0,0,275,-99996,550
+"Wing2_Side1_Class4_Spc","Classroom, Lecture, Training, Vocational Areas",753.47,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-115.097,102.896,2.5,362.535,0,0,275,-99996,412.5,,-115.097,113.928,2.5,361.167,0,0,275,-99996,550
+"Wing2_Side2_Class1_Spc","Classroom, Lecture, Training, Vocational Areas",753.478,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-16.6725,139.887,2.5,362.075,0,0,275,-99996,412.5,,-16.6725,128.854,2.5,360.708,0,0,275,-99996,550
+"Wing2_Side2_Class2_Spc","Classroom, Lecture, Training, Vocational Areas",753.478,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-49.5138,139.887,2.5,362.535,0,0,275,-99996,412.5,,-49.5138,128.854,2.5,361.167,0,0,275,-99996,550
+"Wing2_Side2_Class3_Spc","Classroom, Lecture, Training, Vocational Areas",753.478,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-82.1582,139.887,2.5,362.075,0,0,275,-99996,412.5,,-82.1582,128.854,2.5,360.708,0,0,275,-99996,550
+"Wing2_Side2_Class4_Spc","Classroom, Lecture, Training, Vocational Areas",753.487,"None",0,0,-99996,-99996,0,0,0,275,-99996,275,,-115.097,139.887,2.5,362.535,0,0,275,-99996,412.5,,-115.097,128.854,2.5,361.167,0,0,275,-99996,550

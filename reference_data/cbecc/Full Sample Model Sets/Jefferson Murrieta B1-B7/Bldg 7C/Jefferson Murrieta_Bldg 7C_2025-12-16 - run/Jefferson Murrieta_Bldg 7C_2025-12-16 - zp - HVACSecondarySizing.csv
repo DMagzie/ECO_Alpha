@@ -1,0 +1,26 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Jefferson Murrieta_Bldg 7C_2025-12-1622TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"Fitness_L1 TrmlUnit","Uncontrolled","Clubroom_L1 FC4+1+1","Clubroom_L1",2000.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 7C_2025-12-1622CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Club_L1 ClgCoil","DirectExpansion","Clubroom_L1 FC4+1+1","n/a",60000.000,62598.636,-99996.00000,15.625,12.251,1
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 7C_2025-12-1622CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"Club_L1 HtgCoil","HeatPump","Clubroom_L1 FC4+1+1","n/a",60000.000,57401.364,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 7C_2025-12-1622Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"Club_L1 SupFan","ConstantVolume","Clubroom_L1 FC4+1+1","n/a",2000.000,-99996.000,0.650,"BrakeHorsePower",1.547,0.750,0.750,"InAirStream",0.900,0.3107
+ENDTABLE
+TABLE Jefferson Murrieta_Bldg 7C_2025-12-1622OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"Fitness_L1 OACtrl","NoEconomizer","Clubroom_L1 FC4+1+1","UNDEFINED"
+ENDTABLE

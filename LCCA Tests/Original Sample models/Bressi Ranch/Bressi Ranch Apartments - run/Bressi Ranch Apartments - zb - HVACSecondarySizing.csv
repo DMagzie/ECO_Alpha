@@ -1,0 +1,136 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Bressi Ranch Apartments22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"ResBaseAirSys TrmlUnit","Uncontrolled","ResBaseAirSys_SZHP","Co-Working_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-2","Uncontrolled","ResBaseAirSys_SZHP-2","Dog Wash_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-3","Uncontrolled","ResBaseAirSys_SZHP-3","Elec. Room 01_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-4","Uncontrolled","ResBaseAirSys_SZHP-4","Elec. Room 02_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-5","Uncontrolled","ResBaseAirSys_SZHP-5","EMR_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-6","Uncontrolled","ResBaseAirSys_SZHP-6","GOLF ROOM_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-7","Uncontrolled","ResBaseAirSys_SZHP-7","Leasing_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-8","Uncontrolled","ResBaseAirSys_SZHP-8","Mail-Parcel_L01",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-9","Uncontrolled","ResBaseAirSys_SZHP-9","Elec. Room 01_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-10","Uncontrolled","ResBaseAirSys_SZHP-10","Elec. Room 02_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-11","Uncontrolled","ResBaseAirSys_SZHP-11","Elec. Room 03_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-12","Uncontrolled","ResBaseAirSys_SZHP-12","Elec. Room 04_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-13","Uncontrolled","ResBaseAirSys_SZHP-13","IDF 01_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-14","Uncontrolled","ResBaseAirSys_SZHP-14","IDF 02_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-15","Uncontrolled","ResBaseAirSys_SZHP-15","Storage 05_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-16","Uncontrolled","ResBaseAirSys_SZHP-16","Storage 08_L02",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-17","Uncontrolled","ResBaseAirSys_SZHP-17","IDF_L03",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-18","Uncontrolled","ResBaseAirSys_SZHP-18","Stair 5_L04",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-19","Uncontrolled","ResBaseAirSys_SZHP-19","Storage 04_L04",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-20","Uncontrolled","ResBaseAirSys_SZHP-20","Storage 09_L04",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-21","Uncontrolled","ResBaseAirSys_SZHP-21","Storage 13_L04",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-22","Uncontrolled","ResBaseAirSys_SZHP-22","IDF_L05",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-23","Uncontrolled","ResBaseAirSys_SZHP-23","Storage 03_L05",-99996.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Bressi Ranch Apartments22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilClg","DirectExpansion","ResBaseAirSys_SZHP","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-2","DirectExpansion","ResBaseAirSys_SZHP-2","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-3","DirectExpansion","ResBaseAirSys_SZHP-3","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-4","DirectExpansion","ResBaseAirSys_SZHP-4","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-5","DirectExpansion","ResBaseAirSys_SZHP-5","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-6","DirectExpansion","ResBaseAirSys_SZHP-6","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-7","DirectExpansion","ResBaseAirSys_SZHP-7","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-8","DirectExpansion","ResBaseAirSys_SZHP-8","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-9","DirectExpansion","ResBaseAirSys_SZHP-9","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-10","DirectExpansion","ResBaseAirSys_SZHP-10","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-11","DirectExpansion","ResBaseAirSys_SZHP-11","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-12","DirectExpansion","ResBaseAirSys_SZHP-12","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-13","DirectExpansion","ResBaseAirSys_SZHP-13","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-14","DirectExpansion","ResBaseAirSys_SZHP-14","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-15","DirectExpansion","ResBaseAirSys_SZHP-15","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-16","DirectExpansion","ResBaseAirSys_SZHP-16","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-17","DirectExpansion","ResBaseAirSys_SZHP-17","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-18","DirectExpansion","ResBaseAirSys_SZHP-18","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-19","DirectExpansion","ResBaseAirSys_SZHP-19","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-20","DirectExpansion","ResBaseAirSys_SZHP-20","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-21","DirectExpansion","ResBaseAirSys_SZHP-21","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-22","DirectExpansion","ResBaseAirSys_SZHP-22","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-23","DirectExpansion","ResBaseAirSys_SZHP-23","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+ENDTABLE
+TABLE Bressi Ranch Apartments22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilHtg","Resistance","ResBaseAirSys_SZHP","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-2","Resistance","ResBaseAirSys_SZHP-2","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-3","Resistance","ResBaseAirSys_SZHP-3","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-4","Resistance","ResBaseAirSys_SZHP-4","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-5","Resistance","ResBaseAirSys_SZHP-5","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-6","Resistance","ResBaseAirSys_SZHP-6","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-7","Resistance","ResBaseAirSys_SZHP-7","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-8","Resistance","ResBaseAirSys_SZHP-8","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-9","Resistance","ResBaseAirSys_SZHP-9","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-10","Resistance","ResBaseAirSys_SZHP-10","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-11","Resistance","ResBaseAirSys_SZHP-11","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-12","Resistance","ResBaseAirSys_SZHP-12","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-13","Resistance","ResBaseAirSys_SZHP-13","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-14","Resistance","ResBaseAirSys_SZHP-14","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-15","Resistance","ResBaseAirSys_SZHP-15","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-16","Resistance","ResBaseAirSys_SZHP-16","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-17","Resistance","ResBaseAirSys_SZHP-17","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-18","Resistance","ResBaseAirSys_SZHP-18","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-19","Resistance","ResBaseAirSys_SZHP-19","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-20","Resistance","ResBaseAirSys_SZHP-20","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-21","Resistance","ResBaseAirSys_SZHP-21","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-22","Resistance","ResBaseAirSys_SZHP-22","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-23","Resistance","ResBaseAirSys_SZHP-23","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Bressi Ranch Apartments22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"ResBaseAirSys_SZHP SupFan","ConstantVolume","ResBaseAirSys_SZHP","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-2","ConstantVolume","ResBaseAirSys_SZHP-2","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-3","ConstantVolume","ResBaseAirSys_SZHP-3","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-4","ConstantVolume","ResBaseAirSys_SZHP-4","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-5","ConstantVolume","ResBaseAirSys_SZHP-5","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-6","ConstantVolume","ResBaseAirSys_SZHP-6","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-7","ConstantVolume","ResBaseAirSys_SZHP-7","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-8","ConstantVolume","ResBaseAirSys_SZHP-8","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-9","ConstantVolume","ResBaseAirSys_SZHP-9","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-10","ConstantVolume","ResBaseAirSys_SZHP-10","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-11","ConstantVolume","ResBaseAirSys_SZHP-11","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-12","ConstantVolume","ResBaseAirSys_SZHP-12","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-13","ConstantVolume","ResBaseAirSys_SZHP-13","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-14","ConstantVolume","ResBaseAirSys_SZHP-14","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-15","ConstantVolume","ResBaseAirSys_SZHP-15","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-16","ConstantVolume","ResBaseAirSys_SZHP-16","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-17","ConstantVolume","ResBaseAirSys_SZHP-17","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-18","ConstantVolume","ResBaseAirSys_SZHP-18","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-19","ConstantVolume","ResBaseAirSys_SZHP-19","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-20","ConstantVolume","ResBaseAirSys_SZHP-20","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-21","ConstantVolume","ResBaseAirSys_SZHP-21","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-22","ConstantVolume","ResBaseAirSys_SZHP-22","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-23","ConstantVolume","ResBaseAirSys_SZHP-23","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+ENDTABLE
+TABLE Bressi Ranch Apartments22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"ResBaseAirSys_SZHP OACtrl","NoEconomizer","ResBaseAirSys_SZHP","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-2","NoEconomizer","ResBaseAirSys_SZHP-2","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-3","NoEconomizer","ResBaseAirSys_SZHP-3","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-4","NoEconomizer","ResBaseAirSys_SZHP-4","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-5","NoEconomizer","ResBaseAirSys_SZHP-5","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-6","NoEconomizer","ResBaseAirSys_SZHP-6","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-7","NoEconomizer","ResBaseAirSys_SZHP-7","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-8","NoEconomizer","ResBaseAirSys_SZHP-8","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-9","NoEconomizer","ResBaseAirSys_SZHP-9","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-10","NoEconomizer","ResBaseAirSys_SZHP-10","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-11","NoEconomizer","ResBaseAirSys_SZHP-11","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-12","NoEconomizer","ResBaseAirSys_SZHP-12","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-13","NoEconomizer","ResBaseAirSys_SZHP-13","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-14","NoEconomizer","ResBaseAirSys_SZHP-14","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-15","NoEconomizer","ResBaseAirSys_SZHP-15","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-16","NoEconomizer","ResBaseAirSys_SZHP-16","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-17","NoEconomizer","ResBaseAirSys_SZHP-17","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-18","NoEconomizer","ResBaseAirSys_SZHP-18","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-19","NoEconomizer","ResBaseAirSys_SZHP-19","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-20","NoEconomizer","ResBaseAirSys_SZHP-20","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-21","NoEconomizer","ResBaseAirSys_SZHP-21","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-22","NoEconomizer","ResBaseAirSys_SZHP-22","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-23","NoEconomizer","ResBaseAirSys_SZHP-23","UNDEFINED"
+ENDTABLE

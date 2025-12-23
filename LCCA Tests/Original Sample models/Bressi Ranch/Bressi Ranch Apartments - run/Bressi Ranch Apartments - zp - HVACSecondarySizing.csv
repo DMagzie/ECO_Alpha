@@ -1,0 +1,46 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Bressi Ranch Apartments22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"SFC-7_Leasing_L01 TrmlUnit","Uncontrolled","SFC-7_Leasing_L01 AirSys","Leasing_L01",2000.000,-99996.000,-99996.000,""
+,"SFC-5_Mail-Parcel_L01 TrmlUnit","Uncontrolled","SFC-5_Mail-Parcel_L01 AirSys","Mail-Parcel_L01",1400.000,-99996.000,-99996.000,""
+,"SFC-5_Co-Working_L01 TrmlUnit","Uncontrolled","SFC-5_Co-Working_L01 AirSys","Co-Working_L01",1400.000,-99996.000,-99996.000,""
+,"SFC-1_Dog Wash_L01 TrmlUnit","Uncontrolled","SFC-1_Dog Wash_L01 AirSys","Dog Wash_L01",600.000,-99996.000,-99996.000,""
+,"SFC-1_GOLF ROOM_L01 TrmlUnit","Uncontrolled","SFC-1_GOLF ROOM_L01 AirSys","GOLF ROOM_L01",600.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Bressi Ranch Apartments22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"SFC-7_Leasing_L01 ClgCoil","DirectExpansion","SFC-7_Leasing_L01 AirSys","n/a",57900.000,60407.684,-99996.00000,15.053,11.956,1
+,"SFC-5_Mail-Parce_L01 ClgCoil","DirectExpansion","SFC-5_Mail-Parcel_L01 AirSys","n/a",40600.000,42358.411,-99996.00000,15.053,11.956,1
+,"SFC-5_Co-Working_L01 ClgCoil","DirectExpansion","SFC-5_Co-Working_L01 AirSys","n/a",40600.000,42358.411,-99996.00000,15.053,11.956,1
+,"SFC-1_Dog Wash_L01 ClgCoil","DirectExpansion","SFC-1_Dog Wash_L01 AirSys","n/a",17200.000,17944.942,-99996.00000,14.896,11.880,1
+,"SFC-1_GOLF ROOM_L01 ClgCoil","DirectExpansion","SFC-1_GOLF ROOM_L01 AirSys","n/a",17200.000,17944.942,-99996.00000,14.896,11.880,1
+ENDTABLE
+TABLE Bressi Ranch Apartments22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"SFC-7_Leasing_L01 HtgCoil","HeatPump","SFC-7_Leasing_L01 AirSys","n/a",57700.000,55192.316,-99996.00000,-99996.000,-99996.000
+,"SFC-5_Mail-Parcel_L01 HtgCoil","HeatPump","SFC-5_Mail-Parcel_L01 AirSys","n/a",42600.000,40841.589,-99996.00000,-99996.000,-99996.000
+,"SFC-5_Co-Working_L01 HtgCoil","HeatPump","SFC-5_Co-Working_L01 AirSys","n/a",42600.000,40841.589,-99996.00000,-99996.000,-99996.000
+,"SFC-1_Dog Wash_L01 HtgCoil","HeatPump","SFC-1_Dog Wash_L01 AirSys","n/a",17400.000,16655.058,-99996.00000,-99996.000,-99996.000
+,"SFC-1_GOLF ROOM__L01 HtgCoil","HeatPump","SFC-1_GOLF ROOM_L01 AirSys","n/a",17400.000,16655.058,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Bressi Ranch Apartments22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"SFC-7_Leasing_L01 SupFan","ConstantVolume","SFC-7_Leasing_L01 AirSys","n/a",2000.000,-99996.000,0.650,"BrakeHorsePower",1.547,0.750,0.750,"InAirStream",0.900,0.3107
+,"SFC-5_Mail-Parcel_L01 SupFan","ConstantVolume","SFC-5_Mail-Parcel_L01 AirSys","n/a",1400.000,-99996.000,0.650,"BrakeHorsePower",1.473,0.500,0.500,"InAirStream",0.900,0.2959
+,"SFC-5_Co-Working_L01 SupFan","ConstantVolume","SFC-5_Co-Working_L01 AirSys","n/a",1400.000,-99996.000,0.650,"BrakeHorsePower",1.473,0.500,0.500,"InAirStream",0.900,0.2959
+,"SFC-1_Dog Wash_L01 SupFan","ConstantVolume","SFC-1_Dog Wash_L01 AirSys","n/a",600.000,-99996.000,0.650,"BrakeHorsePower",2.269,0.330,0.330,"InAirStream",0.900,0.4556
+,"SFC-1_GOLF ROOM_L01 SupFan","ConstantVolume","SFC-1_GOLF ROOM_L01 AirSys","n/a",600.000,-99996.000,0.650,"BrakeHorsePower",2.269,0.330,0.330,"InAirStream",0.900,0.4556
+ENDTABLE
+TABLE Bressi Ranch Apartments22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"SFC-7_Leasing_L01 OACtrl","NoEconomizer","SFC-7_Leasing_L01 AirSys","UNDEFINED"
+,"SFC-5_Mail-Parcel_L01 OACtrl","NoEconomizer","SFC-5_Mail-Parcel_L01 AirSys","UNDEFINED"
+,"SFC-5_Co-Working_L01 OACtrl","NoEconomizer","SFC-5_Co-Working_L01 AirSys","UNDEFINED"
+,"SFC-1_Dog Wash_L01 OACtrl","NoEconomizer","SFC-1_Dog Wash_L01 AirSys","UNDEFINED"
+,"SFC-1_GOLF ROOM_L01 OACtrl","NoEconomizer","SFC-1_GOLF ROOM_L01 AirSys","UNDEFINED"
+ENDTABLE

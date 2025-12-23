@@ -1,0 +1,109 @@
+AirSystems
+,,,,,Cooling,,,,Heating,,,Fan/Ventilation,,,Controls
+Name,Type,Status,System Count,Floor Area Served,Net Capacity,Design Supply T,Capacity/Area,Supply Flow/Ton,Net Capacity,Design Supply T,Capacity/Area,Supply Flow,Supply Flow/Area,Design OA,OA/Area,Control Zone Name,Temp Control,FixedT,Supply HiT,At Outdoor,Supply LowT,At OutdoorT,ReheatCtrlMthd,Availability Schedule,Night Cycle Control
+,,,(#),(ft2),(Btu/hr),(degF),(Btu/ft2),(cfm/ton),(Btu/hr),(degF),(Btu/ft2),(cfm),(cfm/ft2),(cfm),(cfm/ft2),,,(degF),(degF),(degF),(degF),( degF),,,
+"BaseAirSys6-Basement","VAV","New",1,38353,854855,60,22.2891,355.345,362822,65,9.46008,25314,0.660027,5752.95,0.15,"NONE","WarmestReset",,65,,60,,"DualMaximum","OfficeHVACAvail","CycleOnCallAnyZone"
+"BaseAirSys6-Bot","VAV","New",1,38353,1.08942e+06,55,28.4052,311.222,537056,60,14.003,28254.4,0.736694,5752.95,0.15,"NONE","WarmestReset",,60,,55,,"DualMaximum","OfficeHVACAvail","CycleOnCallAnyZone"
+"BaseAirSys6-Mid","VAV","New",5,191765,1.18347e+06,55,30.8574,329.008,595673,60,15.5313,32447.7,0.846028,5752.95,0.15,"NONE","WarmestReset",,60,,55,,"DualMaximum","OfficeHVACAvail","CycleOnCallAnyZone"
+"BaseAirSys6-Hi","VAV","New",5,191765,1.24386e+06,55,32.432,298.451,621085,60,16.1939,30936.1,0.806615,5752.95,0.15,"NONE","WarmestReset",,60,,55,,"DualMaximum","OfficeHVACAvail","CycleOnCallAnyZone"
+"BaseAirSys6-Top","VAV","New",1,38353,1.11301e+06,55,29.0201,315.474,893179,60,23.2884,29260.4,0.762924,5752.95,0.15,"NONE","WarmestReset",,60,,55,,"DualMaximum","OfficeHVACAvail","CycleOnCallAnyZone"
+
+
+
+Terminal Units
+,,,,Relationships,,,,,AirFlow,,VAV,,Fan Powered Terminal
+Name,Type,Status,Qty,System,System Qty,Zone,Floor Area,HVAC Zones,Primary Max,Primary Min,Heating Max,Reheat Control,Induced Air Zone,Induction Ratio,Fan Power,Parallel Box Control,Flow Fraction
+,,,(#),,(#),,(ft2),(#),(cfm),(cfm),(cfm),,,,( W/cfm)
+"BaseVAVTrmlUnit","VAVReheatBox","New",1,"BaseAirSys6-Basement",1,"Basement Thermal Zone",38353,1,25684.1,5752.95,12842.1,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-2","VAVReheatBox","New",1,"BaseAirSys6-Bot",1,"Core_bottom Thermal Zone",27257.6,1,21428.8,4088.65,10714.4,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-3","VAVReheatBox","New",1,"BaseAirSys6-Bot",1,"Perimeter_bot_ZN_1 Thermal Zone",3373.61,1,3838.17,506.042,1919.09,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-4","VAVReheatBox","New",1,"BaseAirSys6-Bot",1,"Perimeter_bot_ZN_2 Thermal Zone",2174.05,1,2442.22,326.108,1221.11,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-5","VAVReheatBox","New",1,"BaseAirSys6-Bot",1,"Perimeter_bot_ZN_3 Thermal Zone",3373.64,1,2566.39,506.045,1283.19,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-6","VAVReheatBox","New",1,"BaseAirSys6-Bot",1,"Perimeter_bot_ZN_4 Thermal Zone",2174.04,1,2675.58,326.105,1337.79,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-7","VAVReheatBox","New",1,"BaseAirSys6-Mid",5,"Core_mid Thermal Zone",27257.6,1,23626.5,4088.65,11813.2,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-8","VAVReheatBox","New",1,"BaseAirSys6-Mid",5,"Perimeter_mid_ZN_1 Thermal Zone",3373.61,1,3923.72,506.042,1961.86,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-9","VAVReheatBox","New",1,"BaseAirSys6-Mid",5,"Perimeter_mid_ZN_2 Thermal Zone",2174.05,1,2496.87,326.108,1248.44,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-10","VAVReheatBox","New",1,"BaseAirSys6-Mid",5,"Perimeter_mid_ZN_3 Thermal Zone",3373.64,1,2715.78,506.045,1357.89,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-11","VAVReheatBox","New",1,"BaseAirSys6-Mid",5,"Perimeter_mid_ZN_4 Thermal Zone",2174.04,1,2720.46,326.105,1360.23,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-12","VAVReheatBox","New",1,"BaseAirSys6-Hi",5,"Core_hi Thermal Zone",27257.6,1,23591,4088.65,11795.5,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-13","VAVReheatBox","New",1,"BaseAirSys6-Hi",5,"Perimeter_hi_ZN_1 Thermal Zone",3373.61,1,3910.52,506.042,1955.26,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-14","VAVReheatBox","New",1,"BaseAirSys6-Hi",5,"Perimeter_hi_ZN_2 Thermal Zone",2174.05,1,2489.29,326.108,1244.64,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-15","VAVReheatBox","New",1,"BaseAirSys6-Hi",5,"Perimeter_hi_ZN_3 Thermal Zone",3373.64,1,2705.79,506.045,1352.89,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-16","VAVReheatBox","New",1,"BaseAirSys6-Hi",5,"Perimeter_hi_ZN_4 Thermal Zone",2174.04,1,2718.61,326.105,1359.31,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-17","VAVReheatBox","New",1,"BaseAirSys6-Top",1,"Core_top Thermal Zone",27257.6,1,22425.8,4088.65,11212.9,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-18","VAVReheatBox","New",1,"BaseAirSys6-Top",1,"Perimeter_top_ZN_1 Thermal Zone",3373.61,1,3991.13,506.042,1995.56,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-19","VAVReheatBox","New",1,"BaseAirSys6-Top",1,"Perimeter_top_ZN_2 Thermal Zone",2174.05,1,2475.28,326.108,1237.64,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-20","VAVReheatBox","New",1,"BaseAirSys6-Top",1,"Perimeter_top_ZN_3 Thermal Zone",3373.64,1,2571.36,506.045,1285.68,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+"BaseVAVTrmlUnit-21","VAVReheatBox","New",1,"BaseAirSys6-Top",1,"Perimeter_top_ZN_4 Thermal Zone",2174.04,1,2844.8,326.105,1422.4,"DualMaximum","NONE",-99996,-99996,"UNDEFINED",-99996
+
+
+
+Cooling Coils
+,,,,Relationships,,,Capacity,,,,ChilledWater,,,DirectExpansion
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSegIn,FluidSegOut,Design Flow Rate,Condenser Type,Number Stages,SEER (rounded),CodeMin SEER,EER (rounded),CodeMin EER,IEER (roundded),CodeMin IEER,EIR,Sizing Ratio,SEER2 (rounded),CodeMin SEER2,EER2 (rounded), CodeMin EER2
+,,,,,(#),,(Btu/hr),(Btu/hr),(Btu/hr),(Btu/hr),( gpm)
+"BaseSys6 CoilClg","ChilledWater","New","- specify -","BaseAirSys6-Basement",1,"UNDEFINED",854855,854855,"BaseChWPrimSupSeg","BaseChWPrimRetSeg",85.453,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996,-99996,-99996
+"BaseSys6 CoilClg-Bot","ChilledWater","New","- specify -","BaseAirSys6-Bot",1,"UNDEFINED",1.08942e+06,1.08942e+06,"BaseChWPrimSupSeg","BaseChWPrimRetSeg",108.901,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996,-99996,-99996
+"BaseSys6 CoilClg-Mid","ChilledWater","New","- specify -","BaseAirSys6-Mid",5,"UNDEFINED",1.18347e+06,1.18347e+06,"BaseChWPrimSupSeg","BaseChWPrimRetSeg",118.302,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996,-99996,-99996
+"BaseSys6 CoilClg-Hi","ChilledWater","New","- specify -","BaseAirSys6-Hi",5,"UNDEFINED",1.24386e+06,1.24386e+06,"BaseChWPrimSupSeg","BaseChWPrimRetSeg",124.339,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996,-99996,-99996
+"BaseSys6 CoilClg-Top","ChilledWater","New","- specify -","BaseAirSys6-Top",1,"UNDEFINED",1.11301e+06,1.11301e+06,"BaseChWPrimSupSeg","BaseChWPrimRetSeg",111.258,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996,-99996,-99996
+
+
+
+Heating Coils
+,,,,Relationships,,,Capacity,,HotWater,,,HeatPump,,,,,,,,,Furnace
+Name,Type,Status,Fuel Src,System,System Qty,Zone,Total-Net,Total-Gross,FluidSeg In,FluidSeg Out,Design Flow Rate,Condenser Type,Number Stages,HSPF (rounded),CodeMin HSPF,COP (rounded),CodeMin COP,EIR,Comp Lockout Temp,Supp Htr Temp,AFUE,CodeMin AFUE,Thrml Eff,CodeMin Thrml Eff,SizingRatio,HSPF2 (rounded), CodeMin HSPF2
+,,,,,(#),,(Btu/hr),(Btu/hr),,,(gpm),,,,,,,,(?F),( ?F)
+"BaseSys6 CoilHtg","HotWater","New","- specify -","BaseAirSys6-Basement",1,"UNDEFINED",236285,236285,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",11.8098,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil","HotWater","New","- specify -","BaseAirSys6-Basement",1,"Basement Thermal Zone",126537,126537,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",6.32444,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseSys6 CoilHtg-Bot","HotWater","New","- specify -","BaseAirSys6-Bot",1,"UNDEFINED",122021,122021,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",6.09872,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-2","HotWater","New","- specify -","BaseAirSys6-Bot",1,"Core_bottom Thermal Zone",175759,175759,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",8.78461,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-3","HotWater","New","- specify -","BaseAirSys6-Bot",1,"Perimeter_bot_ZN_1 Thermal Zone",72037.2,72037.2,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",3.60049,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-4","HotWater","New","- specify -","BaseAirSys6-Bot",1,"Perimeter_bot_ZN_2 Thermal Zone",47621.4,47621.4,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",2.38017,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-5","HotWater","New","- specify -","BaseAirSys6-Bot",1,"Perimeter_bot_ZN_3 Thermal Zone",72013.1,72013.1,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",3.59929,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-6","HotWater","New","- specify -","BaseAirSys6-Bot",1,"Perimeter_bot_ZN_4 Thermal Zone",47604.9,47604.9,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",2.37934,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseSys6 CoilHtg-Mid","HotWater","New","- specify -","BaseAirSys6-Mid",5,"UNDEFINED",91984.2,91984.2,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",4.59746,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-7","HotWater","New","- specify -","BaseAirSys6-Mid",5,"Core_mid Thermal Zone",223476,223476,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",11.1695,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-8","HotWater","New","- specify -","BaseAirSys6-Mid",5,"Perimeter_mid_ZN_1 Thermal Zone",84138,84138,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",4.2053,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-9","HotWater","New","- specify -","BaseAirSys6-Mid",5,"Perimeter_mid_ZN_2 Thermal Zone",55899.8,55899.8,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",2.79393,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-10","HotWater","New","- specify -","BaseAirSys6-Mid",5,"Perimeter_mid_ZN_3 Thermal Zone",84221.5,84221.5,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",4.20948,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-11","HotWater","New","- specify -","BaseAirSys6-Mid",5,"Perimeter_mid_ZN_4 Thermal Zone",55953.3,55953.3,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",2.7966,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseSys6 CoilHtg-Hi","HotWater","New","- specify -","BaseAirSys6-Hi",5,"UNDEFINED",103011,103011,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",5.14861,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-12","HotWater","New","- specify -","BaseAirSys6-Hi",5,"Core_hi Thermal Zone",230373,230373,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",11.5143,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-13","HotWater","New","- specify -","BaseAirSys6-Hi",5,"Perimeter_hi_ZN_1 Thermal Zone",86419.9,86419.9,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",4.31935,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-14","HotWater","New","- specify -","BaseAirSys6-Hi",5,"Perimeter_hi_ZN_2 Thermal Zone",57337.8,57337.8,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",2.8658,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-15","HotWater","New","- specify -","BaseAirSys6-Hi",5,"Perimeter_hi_ZN_3 Thermal Zone",86536,86536,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",4.32516,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-16","HotWater","New","- specify -","BaseAirSys6-Hi",5,"Perimeter_hi_ZN_4 Thermal Zone",57406.8,57406.8,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",2.86925,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseSys6 CoilHtg-Top","HotWater","New","- specify -","BaseAirSys6-Top",1,"UNDEFINED",114982,114982,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",5.74689,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-17","HotWater","New","- specify -","BaseAirSys6-Top",1,"Core_top Thermal Zone",426198,426198,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",21.3018,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-18","HotWater","New","- specify -","BaseAirSys6-Top",1,"Perimeter_top_ZN_1 Thermal Zone",106013,106013,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",5.29863,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-19","HotWater","New","- specify -","BaseAirSys6-Top",1,"Perimeter_top_ZN_2 Thermal Zone",69903.8,69903.8,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",3.49386,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-20","HotWater","New","- specify -","BaseAirSys6-Top",1,"Perimeter_top_ZN_3 Thermal Zone",106117,106117,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",5.30383,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+"BaseVAVReheatCoil-21","HotWater","New","- specify -","BaseAirSys6-Top",1,"Perimeter_top_ZN_4 Thermal Zone",69965.9,69965.9,"BaseHWPrimSupSeg","BaseHWPrimRetSeg",3.49697,"UNDEFINED",-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-99996,-999,-99996,-99996
+
+
+
+Fans
+,,,,,Relationships,,,Capacity,,,Power,,,,Motor
+Name,Control Method,Status,Class,Cent Type,System,System Qty,Zone,Maximum,Minimum,Efficiency,Modeling Method,Brake HP,Total Static,Power Index,Nameplate HP,Position,Efficiency
+,,,,,,(#),,(cfm),(cfm),,,(hp),(inH2O),(W/cfm),( hp)
+"BaseSys6 Fan","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Basement",1,"UNDEFINED",25314,5752.95,0.65,"PowerPerUnitFlow",17.1348,2.79191,0.542678,20,"InAirStream",0.93
+"BaseSys6 RetFan","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Basement",1,"UNDEFINED",22782.6,0,0.65,"PowerPerUnitFlow",15.4214,2.79191,0.542678,20,"InAirStream",0.93
+"BaseSys6 Fan-Bot","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Bot",1,"UNDEFINED",28254.4,5752.95,0.65,"PowerPerUnitFlow",18.9213,2.76214,0.536893,20,"InAirStream",0.93
+"BaseSys6 RetFan-Bot","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Bot",1,"UNDEFINED",25429,0,0.65,"PowerPerUnitFlow",17.0292,2.76214,0.536893,20,"InAirStream",0.93
+"BaseSys6 Fan-Mid","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Mid",5,"UNDEFINED",32447.7,5752.95,0.65,"PowerPerUnitFlow",38.7809,4.92964,0.947,40,"InAirStream",0.941
+"BaseSys6 Fan-Hi","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Hi",5,"UNDEFINED",30936.1,5752.95,0.65,"PowerPerUnitFlow",36.9742,4.92964,0.947,40,"InAirStream",0.941
+"BaseSys6 Fan-Top","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Top",1,"UNDEFINED",29260.4,5752.95,0.65,"PowerPerUnitFlow",18.1909,2.56422,0.498421,20,"InAirStream",0.93
+"BaseSys6 RetFan-Top","VariableSpeedDrive","New","Centrifugal","AirFoil","BaseAirSys6-Top",1,"UNDEFINED",26334.4,0,0.65,"PowerPerUnitFlow",16.3718,2.56422,0.498421,20,"InAirStream",0.93
+
+
+
+Outside Air Control
+,,,,Relationships,,Control
+Name,Control,Status,Design OA,Name,System Count,Econo Integration,Max OA Ratio,High DB Lockout,Low DB Lockout,High Enthalpy Lockout,OA Schedule Method,Delay,Schedule Name
+,,,(cfm),,(#),,,(F),(F),(Btu/lb),,( hrs)
+"BaseSys6 OACtrl","FixedDryBulb","New",5752.95,"BaseAirSys6-Basement",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"BaseSys6 OACtrl-Bot","FixedDryBulb","New",5752.95,"BaseAirSys6-Bot",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"BaseSys6 OACtrl-Mid","FixedDryBulb","New",5752.95,"BaseAirSys6-Mid",5,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"BaseSys6 OACtrl-Hi","FixedDryBulb","New",5752.95,"BaseAirSys6-Hi",5,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"
+"BaseSys6 OACtrl-Top","FixedDryBulb","New",5752.95,"BaseAirSys6-Top",1,"Integrated",1,75,-99996,50,"FollowHVACAvailability",0,"NONE"

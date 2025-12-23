@@ -1,0 +1,295 @@
+Space Interior Loads Electric Use Report
+,,,,,Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,,Non-Regulated,,,
+Space,,,,,Interior Lighting,,,,Interior Lighting,,,,Receptacle,,,,Process,,,,Commercial Refrigeration,,,
+Name,Conditioning Type,Space Function,Floor Area,Multiplier,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,Power Density,Schedule Name,Schedule,Energy Use,
+,,,(ft2),,(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),(W/ft2),,(FLH),(kWh),
+"CorridorFlr1","DirectlyConditioned","Corridor Area",1620.03,1,0.4,"AssemblyLights",3340.2,2164.49,,,,,,,,,,,,,,,,,
+"ElevatorCoreFlr1","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0,1,,,,,,,,,,,,,,,,,,,,,
+"EmployeeLoungeFlr1","DirectlyConditioned","Corridor Area",351,1,0.4,"AssemblyLights",3340.2,468.964,,,,,,,,,,,,,,,,,
+"ExerciseCenterFlr1","DirectlyConditioned","Corridor Area",351,1,0.4,"AssemblyLights",3340.2,468.964,,,,,,,,,,,,,,,,,
+"FrontLoungeFlr1","DirectlyConditioned","Hotel Function Area",1755.13,1,0.85,"AssemblyLights",3340.2,4983.11,,,,,0.5,"AssemblyReceptacle",3838.95,3368.93,,,,,,,,,
+"FrontOfficeFlr1","DirectlyConditioned","Office Area (>250 square feet)",1404,1,0.6,"AssemblyLights",3340.2,2813.78,,,,,1.5,"AssemblyReceptacle",3838.95,8084.83,,,,,,,,,
+"FrontStairsFlr1","DirectlyConditioned","Corridor Area",216,1,0.4,"AssemblyLights",3340.2,288.593,,,,,,,,,,,,,,,,,
+"FrontStorageFlr1","DirectlyConditioned","Corridor Area",135.001,1,0.4,"AssemblyLights",3340.2,180.372,,,,,,,,,,,,,,,,,
+"GuestRoom101","DirectlyConditioned","Hotel/Motel Guest Room",351.026,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom101-RecptSch",0,0,3.83221,"GuestRoom101-ProcESch",0,0,,,,,
+"GuestRoom102","DirectlyConditioned","Hotel/Motel Guest Room",351.026,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom102-RecptSch",0,0,3.83221,"GuestRoom102-ProcESch",0,0,,,,,
+"GuestRoom103","DirectlyConditioned","Hotel/Motel Guest Room",351.026,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom103-RecptSch",0,0,3.83221,"GuestRoom103-ProcESch",0,0,,,,,
+"GuestRoom104","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom104-RecptSch",0,0,3.83249,"GuestRoom104-ProcESch",0,0,,,,,
+"GuestRoom105","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom105-RecptSch",0,0,3.83249,"GuestRoom105-ProcESch",0,0,,,,,
+"LaundryRoomFlr1","DirectlyConditioned","Laundry Area",1053.01,1,0.45,"AssemblyLights",3340.2,1582.76,,,,,3,"AssemblyReceptacle",3838.95,12127.3,,,,,,,,,
+"MechanicalRoomFlr1","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms",351.026,1,,,,,,,,,3,"AssemblyReceptacle",3838.95,4042.71,,,,,,,,,
+"MeetingRoomFlr1","DirectlyConditioned","Hotel Function Area",864.069,1,0.85,"AssemblyLights",3340.2,2453.24,,,,,0.5,"AssemblyReceptacle",3838.95,1658.56,,,,,,,,,
+"RearStairsFlr1","DirectlyConditioned","Corridor Area",216.054,1,0.4,"AssemblyLights",3340.2,288.665,,,,,,,,,,,,,,,,,
+"RearStorageFlr1","DirectlyConditioned","Corridor Area",216.07,1,0.4,"AssemblyLights",3340.2,288.687,,,,,,,,,,,,,,,,,
+"RestroomFlr1","DirectlyConditioned","Corridor Area",351.026,1,0.4,"AssemblyLights",3340.2,468.999,,,,,,,,,,,,,,,,,
+"CorridorFlr2","DirectlyConditioned","Corridor Area",1350.01,1,0.4,"ResidentialCommonLights",8760,4730.45,,,,,,,,,,,,,,,,,
+"ElevatorCoreFlr2","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0,1,,,,,,,,,,,,,,,,,,,,,
+"FrontStairsFlr2","DirectlyConditioned","Corridor Area",216,1,0.4,"ResidentialCommonLights",8760,756.864,,,,,,,,,,,,,,,,,
+"FrontStorageFlr2","DirectlyConditioned","Corridor Area",135.001,1,0.4,"ResidentialCommonLights",8760,473.042,,,,,,,,,,,,,,,,,
+"GuestRoom201","DirectlyConditioned","Hotel/Motel Guest Room",351.027,1,,,,,1.26679,"T24R_ILtg",0,0,10.4234,"GuestRoom201-RecptSch",0,0,3.8322,"GuestRoom201-ProcESch",0,0,,,,,
+"GuestRoom202_205","DirectlyConditioned","Hotel/Motel Guest Room",1404.1,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom202_205-RecptSch",0,0,3.83221,"GuestRoom202_205-ProcESch",0,0,,,,,
+"GuestRoom206_208","DirectlyConditioned","Hotel/Motel Guest Room",1134.09,1,,,,,1.21104,"T24R_ILtg",0,0,9.67888,"GuestRoom206_208-RecptSch",0,0,3.55846,"GuestRoom206_208-ProcESch",0,0,,,,,
+"GuestRoom209_212","DirectlyConditioned","Hotel/Motel Guest Room",1404.1,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom209_212-RecptSch",0,0,3.83221,"GuestRoom209_212-ProcESch",0,0,,,,,
+"GuestRoom213","DirectlyConditioned","Hotel/Motel Guest Room",351.026,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom213-RecptSch",0,0,3.83221,"GuestRoom213-ProcESch",0,0,,,,,
+"GuestRoom214","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom214-RecptSch",0,0,3.83249,"GuestRoom214-ProcESch",0,0,,,,,
+"GuestRoom215_218","DirectlyConditioned","Hotel/Motel Guest Room",1404,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom215_218-RecptSch",0,0,3.83249,"GuestRoom215_218-ProcESch",0,0,,,,,
+"GuestRoom219","DirectlyConditioned","Hotel/Motel Guest Room",351.005,1,,,,,1.26684,"T24R_ILtg",0,0,10.4241,"GuestRoom219-RecptSch",0,0,3.83244,"GuestRoom219-ProcESch",0,0,,,,,
+"GuestRoom220_223","DirectlyConditioned","Hotel/Motel Guest Room",1404,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom220_223-RecptSch",0,0,3.83249,"GuestRoom220_223-ProcESch",0,0,,,,,
+"GuestRoom224","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom224-RecptSch",0,0,3.83249,"GuestRoom224-ProcESch",0,0,,,,,
+"RearStairsFlr2","DirectlyConditioned","Corridor Area",216.054,1,0.4,"ResidentialCommonLights",8760,757.053,,,,,,,,,,,,,,,,,
+"RearStorageFlr2","DirectlyConditioned","Corridor Area",216.07,1,0.4,"ResidentialCommonLights",8760,757.109,,,,,,,,,,,,,,,,,
+"CorridorFlr3","DirectlyConditioned","Corridor Area",1350.01,1,0.4,"ResidentialCommonLights",8760,4730.45,,,,,,,,,,,,,,,,,
+"ElevatorCoreFlr3","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0,1,,,,,,,,,,,,,,,,,,,,,
+"FrontStairsFlr3","DirectlyConditioned","Corridor Area",216,1,0.4,"ResidentialCommonLights",8760,756.864,,,,,,,,,,,,,,,,,
+"FrontStorageFlr3","DirectlyConditioned","Corridor Area",135.001,1,0.4,"ResidentialCommonLights",8760,473.042,,,,,,,,,,,,,,,,,
+"GuestRoom301","DirectlyConditioned","Hotel/Motel Guest Room",351.027,1,,,,,1.26679,"T24R_ILtg",0,0,10.4234,"GuestRoom301-RecptSch",0,0,3.8322,"GuestRoom301-ProcESch",0,0,,,,,
+"GuestRoom302_305","DirectlyConditioned","Hotel/Motel Guest Room",1404.1,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom302_305-RecptSch",0,0,3.83221,"GuestRoom302_305-ProcESch",0,0,,,,,
+"GuestRoom306_308","DirectlyConditioned","Hotel/Motel Guest Room",1134.09,1,,,,,1.21104,"T24R_ILtg",0,0,9.67888,"GuestRoom306_308-RecptSch",0,0,3.55846,"GuestRoom306_308-ProcESch",0,0,,,,,
+"GuestRoom309_312","DirectlyConditioned","Hotel/Motel Guest Room",1404.1,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom309_312-RecptSch",0,0,3.83221,"GuestRoom309_312-ProcESch",0,0,,,,,
+"GuestRoom313","DirectlyConditioned","Hotel/Motel Guest Room",351.026,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom313-RecptSch",0,0,3.83221,"GuestRoom313-ProcESch",0,0,,,,,
+"GuestRoom314","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom314-RecptSch",0,0,3.83249,"GuestRoom314-ProcESch",0,0,,,,,
+"GuestRoom315_318","DirectlyConditioned","Hotel/Motel Guest Room",1404,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom315_318-RecptSch",0,0,3.83249,"GuestRoom315_318-ProcESch",0,0,,,,,
+"GuestRoom319","DirectlyConditioned","Hotel/Motel Guest Room",351.005,1,,,,,1.26684,"T24R_ILtg",0,0,10.4241,"GuestRoom319-RecptSch",0,0,3.83244,"GuestRoom319-ProcESch",0,0,,,,,
+"GuestRoom320_323","DirectlyConditioned","Hotel/Motel Guest Room",1404,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom320_323-RecptSch",0,0,3.83249,"GuestRoom320_323-ProcESch",0,0,,,,,
+"GuestRoom324","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom324-RecptSch",0,0,3.83249,"GuestRoom324-ProcESch",0,0,,,,,
+"RearStairsFlr3","DirectlyConditioned","Corridor Area",216.054,1,0.4,"ResidentialCommonLights",8760,757.053,,,,,,,,,,,,,,,,,
+"RearStorageFlr3","DirectlyConditioned","Corridor Area",216.07,1,0.4,"ResidentialCommonLights",8760,757.109,,,,,,,,,,,,,,,,,
+"CorridorFlr4","DirectlyConditioned","Corridor Area",1350.01,1,0.4,"ResidentialCommonLights",8760,4730.45,,,,,,,,,,,,,,,,,
+"ElevatorCoreFlr4","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0,1,,,,,,,,,,,,,,,,,,,,,
+"FrontStairsFlr4","DirectlyConditioned","Corridor Area",216,1,0.4,"ResidentialCommonLights",8760,756.864,,,,,,,,,,,,,,,,,
+"FrontStorageFlr4","DirectlyConditioned","Corridor Area",135.001,1,0.4,"ResidentialCommonLights",8760,473.042,,,,,,,,,,,,,,,,,
+"GuestRoom401","DirectlyConditioned","Hotel/Motel Guest Room",351.027,1,,,,,1.26679,"T24R_ILtg",0,0,10.4234,"GuestRoom401-RecptSch",0,0,3.8322,"GuestRoom401-ProcESch",0,0,,,,,
+"GuestRoom402_405","DirectlyConditioned","Hotel/Motel Guest Room",1404.1,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom402_405-RecptSch",0,0,3.83221,"GuestRoom402_405-ProcESch",0,0,,,,,
+"GuestRoom406_408","DirectlyConditioned","Hotel/Motel Guest Room",1134.09,1,,,,,1.21104,"T24R_ILtg",0,0,9.67888,"GuestRoom406_408-RecptSch",0,0,3.55846,"GuestRoom406_408-ProcESch",0,0,,,,,
+"GuestRoom409_412","DirectlyConditioned","Hotel/Motel Guest Room",1404.1,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom409_412-RecptSch",0,0,3.83221,"GuestRoom409_412-ProcESch",0,0,,,,,
+"GuestRoom413","DirectlyConditioned","Hotel/Motel Guest Room",351.026,1,,,,,1.26679,"T24R_ILtg",0,0,10.4235,"GuestRoom413-RecptSch",0,0,3.83221,"GuestRoom413-ProcESch",0,0,,,,,
+"GuestRoom414","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom414-RecptSch",0,0,3.83249,"GuestRoom414-ProcESch",0,0,,,,,
+"GuestRoom415_418","DirectlyConditioned","Hotel/Motel Guest Room",1404,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom415_418-RecptSch",0,0,3.83249,"GuestRoom415_418-ProcESch",0,0,,,,,
+"GuestRoom419","DirectlyConditioned","Hotel/Motel Guest Room",351.005,1,,,,,1.26684,"T24R_ILtg",0,0,10.4241,"GuestRoom419-RecptSch",0,0,3.83244,"GuestRoom419-ProcESch",0,0,,,,,
+"GuestRoom420_423","DirectlyConditioned","Hotel/Motel Guest Room",1404,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom420_423-RecptSch",0,0,3.83249,"GuestRoom420_423-ProcESch",0,0,,,,,
+"GuestRoom424","DirectlyConditioned","Hotel/Motel Guest Room",351,1,,,,,1.26685,"T24R_ILtg",0,0,10.4242,"GuestRoom424-RecptSch",0,0,3.83249,"GuestRoom424-ProcESch",0,0,,,,,
+"RearStairsFlr4","DirectlyConditioned","Corridor Area",216.054,1,0.4,"ResidentialCommonLights",8760,757.053,,,,,,,,,,,,,,,,,
+"RearStorageFlr4","DirectlyConditioned","Corridor Area",216.07,1,0.4,"ResidentialCommonLights",8760,757.109,,,,,,,,,,,,,,,,,
+
+
+
+Space Loads Report
+Space,,,,,,Occupancy,,,,,Service Hot Water,,Ventilation,,,,,,Infiltration,,,Thermal Zone
+Name,Conditioning Type,Space Function,Floor Area,Story Name,Multiplier,Density,Number,Schedule Name,Sensible Heat Rate,Latent Heat Rate,SHW Use, Schedule Name,Prop. DsgnVentPerArea,Prop. DsgnVentPerPerson,Code VentPerArea,Code VentPerPerson,Sim. Area Flow,Sim. Person Flow,Method,Schedule Name,Design Infiltration Rate,Clg Tstat Sch, Htg Tstat Sch
+,,,(ft2),,,(ppl/1000ft2),(people),,(Btu/h-person),(Btu/h-person),(gal/person),,(cfm/ft2),(cfm/person),(cfm/ft2),(cfm/person),(cfm),(cfm),,,(cfm/ft2)
+"CorridorFlr1","DirectlyConditioned","Corridor Area",1620.0333,"Building Story 1",1,5,8.10017,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,243.005,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"ElevatorCoreFlr1","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0.0000,"Building Story 1",1,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"EmployeeLoungeFlr1","DirectlyConditioned","Corridor Area",351.0000,"Building Story 1",1,5,1.755,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,52.65,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"ExerciseCenterFlr1","DirectlyConditioned","Corridor Area",351.0000,"Building Story 1",1,5,1.755,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,52.65,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"FrontLoungeFlr1","DirectlyConditioned","Hotel Function Area",1755.1303,"Building Story 1",1,71.43,125.369,"AssemblyOccupancy",250,200,0.096,"AssemblyServiceHotWater",0.5,6.99986,0.5,6.99986,263.27,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"FrontOfficeFlr1","DirectlyConditioned","Office Area (>250 square feet)",1404.0000,"Building Story 1",1,5,7.02,"AssemblyOccupancy",250,200,0.18,"AssemblyServiceHotWater",0.15,30,0.15,30,210.6,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"FrontStairsFlr1","DirectlyConditioned","Corridor Area",216.0001,"Building Story 1",1,5,1.08,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,32.4,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"FrontStorageFlr1","DirectlyConditioned","Corridor Area",135.0005,"Building Story 1",1,5,0.675003,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,20.2501,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"GuestRoom101","DirectlyConditioned","Hotel/Motel Guest Room",351.0259,"Building Story 1",1,2.5,0.877565,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6539,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom102","DirectlyConditioned","Hotel/Motel Guest Room",351.0259,"Building Story 1",1,2.5,0.877565,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6539,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom103","DirectlyConditioned","Hotel/Motel Guest Room",351.0259,"Building Story 1",1,2.5,0.877565,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6539,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom104","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 1",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom105","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 1",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"LaundryRoomFlr1","DirectlyConditioned","Laundry Area",1053.0054,"Building Story 1",1,5,5.26503,"AssemblyOccupancy",250,250,0.578,"AssemblyServiceHotWater",0.15,30,0.15,30,157.951,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"MechanicalRoomFlr1","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms",351.0259,"Building Story 1",1,1.5,0.526539,"AssemblyOccupancy",250,250,0.18,"AssemblyServiceHotWater",0.15,100,0.15,100,52.6539,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"MeetingRoomFlr1","DirectlyConditioned","Hotel Function Area",864.0692,"Building Story 1",1,71.43,61.7205,"AssemblyOccupancy",250,200,0.096,"AssemblyServiceHotWater",0.5,6.99986,0.5,6.99986,129.61,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"RearStairsFlr1","DirectlyConditioned","Corridor Area",216.0540,"Building Story 1",1,5,1.08027,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,32.4081,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"RearStorageFlr1","DirectlyConditioned","Corridor Area",216.0700,"Building Story 1",1,5,1.08035,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,32.4105,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"RestroomFlr1","DirectlyConditioned","Corridor Area",351.0259,"Building Story 1",1,5,1.75513,"AssemblyOccupancy",250,250,0,"AssemblyServiceHotWater",0.15,30,0.15,30,52.6539,0,"FlowExteriorWallArea","AssemblyInfiltration",0.2352,"AssemblyClgSetpt","AssemblyHtgSetpt"
+"CorridorFlr2","DirectlyConditioned","Corridor Area",1350.0133,"Building Story 2",1,5,6.75007,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,202.502,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"ElevatorCoreFlr2","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0.0000,"Building Story 2",1,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"FrontStairsFlr2","DirectlyConditioned","Corridor Area",216.0001,"Building Story 2",1,5,1.08,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"FrontStorageFlr2","DirectlyConditioned","Corridor Area",135.0005,"Building Story 2",1,5,0.675003,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,20.2501,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"GuestRoom201","DirectlyConditioned","Hotel/Motel Guest Room",351.0266,"Building Story 2",1,2.5,0.877566,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.654,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom202_205","DirectlyConditioned","Hotel/Motel Guest Room",1404.1037,"Building Story 2",1,2.5,3.51026,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.616,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom206_208","DirectlyConditioned","Hotel/Motel Guest Room",1134.0892,"Building Story 2",1,2.5,2.83522,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,170.113,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom209_212","DirectlyConditioned","Hotel/Motel Guest Room",1404.1037,"Building Story 2",1,2.5,3.51026,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.616,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom213","DirectlyConditioned","Hotel/Motel Guest Room",351.0259,"Building Story 2",1,2.5,0.877565,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6539,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom214","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 2",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom215_218","DirectlyConditioned","Hotel/Motel Guest Room",1404.0000,"Building Story 2",1,2.5,3.51,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.6,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom219","DirectlyConditioned","Hotel/Motel Guest Room",351.0054,"Building Story 2",1,2.5,0.877513,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6508,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom220_223","DirectlyConditioned","Hotel/Motel Guest Room",1404.0000,"Building Story 2",1,2.5,3.51,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.6,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom224","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 2",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"RearStairsFlr2","DirectlyConditioned","Corridor Area",216.0540,"Building Story 2",1,5,1.08027,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4081,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"RearStorageFlr2","DirectlyConditioned","Corridor Area",216.0700,"Building Story 2",1,5,1.08035,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4105,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"CorridorFlr3","DirectlyConditioned","Corridor Area",1350.0133,"Building Story 3",1,5,6.75007,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,202.502,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"ElevatorCoreFlr3","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0.0000,"Building Story 3",1,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"FrontStairsFlr3","DirectlyConditioned","Corridor Area",216.0001,"Building Story 3",1,5,1.08,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"FrontStorageFlr3","DirectlyConditioned","Corridor Area",135.0005,"Building Story 3",1,5,0.675003,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,20.2501,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"GuestRoom301","DirectlyConditioned","Hotel/Motel Guest Room",351.0266,"Building Story 3",1,2.5,0.877566,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.654,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom302_305","DirectlyConditioned","Hotel/Motel Guest Room",1404.1037,"Building Story 3",1,2.5,3.51026,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.616,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom306_308","DirectlyConditioned","Hotel/Motel Guest Room",1134.0892,"Building Story 3",1,2.5,2.83522,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,170.113,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom309_312","DirectlyConditioned","Hotel/Motel Guest Room",1404.1037,"Building Story 3",1,2.5,3.51026,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.616,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom313","DirectlyConditioned","Hotel/Motel Guest Room",351.0259,"Building Story 3",1,2.5,0.877565,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6539,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom314","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 3",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom315_318","DirectlyConditioned","Hotel/Motel Guest Room",1404.0000,"Building Story 3",1,2.5,3.51,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.6,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom319","DirectlyConditioned","Hotel/Motel Guest Room",351.0054,"Building Story 3",1,2.5,0.877513,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6508,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom320_323","DirectlyConditioned","Hotel/Motel Guest Room",1404.0000,"Building Story 3",1,2.5,3.51,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.6,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom324","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 3",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"RearStairsFlr3","DirectlyConditioned","Corridor Area",216.0540,"Building Story 3",1,5,1.08027,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4081,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"RearStorageFlr3","DirectlyConditioned","Corridor Area",216.0700,"Building Story 3",1,5,1.08035,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4105,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"CorridorFlr4","DirectlyConditioned","Corridor Area",1350.0133,"Building Story 4",1,5,6.75007,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,202.502,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"ElevatorCoreFlr4","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area",0.0000,"Building Story 4",1,-99996,0,"",-99996,-99996,-99996,"NONE",0,0,0,0,0,0,"FlowExteriorWallArea","On",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"FrontStairsFlr4","DirectlyConditioned","Corridor Area",216.0001,"Building Story 4",1,5,1.08,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"FrontStorageFlr4","DirectlyConditioned","Corridor Area",135.0005,"Building Story 4",1,5,0.675003,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,20.2501,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"GuestRoom401","DirectlyConditioned","Hotel/Motel Guest Room",351.0266,"Building Story 4",1,2.5,0.877566,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.654,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom402_405","DirectlyConditioned","Hotel/Motel Guest Room",1404.1037,"Building Story 4",1,2.5,3.51026,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.616,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom406_408","DirectlyConditioned","Hotel/Motel Guest Room",1134.0892,"Building Story 4",1,2.5,2.83522,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,170.113,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom409_412","DirectlyConditioned","Hotel/Motel Guest Room",1404.1037,"Building Story 4",1,2.5,3.51026,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.616,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom413","DirectlyConditioned","Hotel/Motel Guest Room",351.0259,"Building Story 4",1,2.5,0.877565,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6539,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom414","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 4",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom415_418","DirectlyConditioned","Hotel/Motel Guest Room",1404.0000,"Building Story 4",1,2.5,3.51,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.6,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom419","DirectlyConditioned","Hotel/Motel Guest Room",351.0054,"Building Story 4",1,2.5,0.877513,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.6508,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom420_423","DirectlyConditioned","Hotel/Motel Guest Room",1404.0000,"Building Story 4",1,2.5,3.51,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,210.6,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"GuestRoom424","DirectlyConditioned","Hotel/Motel Guest Room",351.0000,"Building Story 4",1,2.5,0.8775,"ResidentialLivingOccupancy",245,155,4.48,"ResidentialLivingServiceHotWater",0.15,60,0.15,60,52.65,0,"FlowExteriorWallArea","ResidentialLivingInfiltration",0.2352,"ResidentialLivingClgSetpt","ResidentialLivingHtgSetpt"
+"RearStairsFlr4","DirectlyConditioned","Corridor Area",216.0540,"Building Story 4",1,5,1.08027,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4081,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+"RearStorageFlr4","DirectlyConditioned","Corridor Area",216.0700,"Building Story 4",1,5,1.08035,"ResidentialCommonOccupancy",250,250,0,"ResidentialCommonServiceHotWater",0.15,30,0.15,30,32.4105,0,"FlowExteriorWallArea","ResidentialCommonInfiltration",0.2352,"ResidentialCommonClgSetpt","ResidentialCommonHtgSetpt"
+
+
+
+Space Interior Lighting Report
+Space,,,,,Regulated,,,,,,,,,,,Non-Regulated
+Name,Conditioning Type,Space Function,Lighting Status,Floor Area,Lighting Specification Method,Installed Power,Schedule Name,Schedule,Lighting System Count,Lighting Control Credit,General Lighting Power,Area Category Allowances,Tailored Allowances,Simulated Power,Simulated LPD,Power,Schedule Name,Schedule,LPD
+,,,,(ft2),,(Watts),,(FLH),,(Watts),(Watts),(Watts),(Watts),(Watts),(Watts/ft2),(Watts),,(FLH),(Watts/ft2),
+"CorridorFlr1","DirectlyConditioned","Corridor Area","New",1620.03,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,648.013,0,0,648.013,0.40
+"ElevatorCoreFlr1","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+"EmployeeLoungeFlr1","DirectlyConditioned","Corridor Area","New",351,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,140.4,0,0,140.4,0.40
+"ExerciseCenterFlr1","DirectlyConditioned","Corridor Area","New",351,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,140.4,0,0,140.4,0.40
+"FrontLoungeFlr1","DirectlyConditioned","Hotel Function Area","New",1755.13,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,1491.86,0,0,1491.86,0.85
+"FrontOfficeFlr1","DirectlyConditioned","Office Area (>250 square feet)","New",1404,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,842.4,0,0,842.4,0.60
+"FrontStairsFlr1","DirectlyConditioned","Corridor Area","New",216,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,86.4,0,0,86.4,0.40
+"FrontStorageFlr1","DirectlyConditioned","Corridor Area","New",135.001,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,54.0002,0,0,54.0002,0.40
+"GuestRoom101","DirectlyConditioned","Hotel/Motel Guest Room","New",351.026,,,
+"GuestRoom102","DirectlyConditioned","Hotel/Motel Guest Room","New",351.026,,,
+"GuestRoom103","DirectlyConditioned","Hotel/Motel Guest Room","New",351.026,,,
+"GuestRoom104","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"GuestRoom105","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"LaundryRoomFlr1","DirectlyConditioned","Laundry Area","New",1053.01,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,473.852,0,0,473.852,0.45
+"MechanicalRoomFlr1","DirectlyConditioned","Electrical, Mechanical, Telephone Rooms","New",351.026,,,
+"MeetingRoomFlr1","DirectlyConditioned","Hotel Function Area","New",864.069,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,734.459,0,0,734.459,0.85
+"RearStairsFlr1","DirectlyConditioned","Corridor Area","New",216.054,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,86.4216,0,0,86.4216,0.40
+"RearStorageFlr1","DirectlyConditioned","Corridor Area","New",216.07,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,86.428,0,0,86.428,0.40
+"RestroomFlr1","DirectlyConditioned","Corridor Area","New",351.026,"AreaCategoryMethod",0,"AssemblyLights",3340.2,0,0,140.41,0,0,140.41,0.40
+"CorridorFlr2","DirectlyConditioned","Corridor Area","New",1350.01,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,540.005,0,0,540.005,0.40
+"ElevatorCoreFlr2","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+"FrontStairsFlr2","DirectlyConditioned","Corridor Area","New",216,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.4,0,0,86.4,0.40
+"FrontStorageFlr2","DirectlyConditioned","Corridor Area","New",135.001,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,54.0002,0,0,54.0002,0.40
+"GuestRoom201","DirectlyConditioned","Hotel/Motel Guest Room","New",351.027,,,
+"GuestRoom202_205","DirectlyConditioned","Hotel/Motel Guest Room","New",1404.1,,,
+"GuestRoom206_208","DirectlyConditioned","Hotel/Motel Guest Room","New",1134.09,,,
+"GuestRoom209_212","DirectlyConditioned","Hotel/Motel Guest Room","New",1404.1,,,
+"GuestRoom213","DirectlyConditioned","Hotel/Motel Guest Room","New",351.026,,,
+"GuestRoom214","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"GuestRoom215_218","DirectlyConditioned","Hotel/Motel Guest Room","New",1404,,,
+"GuestRoom219","DirectlyConditioned","Hotel/Motel Guest Room","New",351.005,,,
+"GuestRoom220_223","DirectlyConditioned","Hotel/Motel Guest Room","New",1404,,,
+"GuestRoom224","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"RearStairsFlr2","DirectlyConditioned","Corridor Area","New",216.054,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.4216,0,0,86.4216,0.40
+"RearStorageFlr2","DirectlyConditioned","Corridor Area","New",216.07,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.428,0,0,86.428,0.40
+"CorridorFlr3","DirectlyConditioned","Corridor Area","New",1350.01,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,540.005,0,0,540.005,0.40
+"ElevatorCoreFlr3","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+"FrontStairsFlr3","DirectlyConditioned","Corridor Area","New",216,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.4,0,0,86.4,0.40
+"FrontStorageFlr3","DirectlyConditioned","Corridor Area","New",135.001,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,54.0002,0,0,54.0002,0.40
+"GuestRoom301","DirectlyConditioned","Hotel/Motel Guest Room","New",351.027,,,
+"GuestRoom302_305","DirectlyConditioned","Hotel/Motel Guest Room","New",1404.1,,,
+"GuestRoom306_308","DirectlyConditioned","Hotel/Motel Guest Room","New",1134.09,,,
+"GuestRoom309_312","DirectlyConditioned","Hotel/Motel Guest Room","New",1404.1,,,
+"GuestRoom313","DirectlyConditioned","Hotel/Motel Guest Room","New",351.026,,,
+"GuestRoom314","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"GuestRoom315_318","DirectlyConditioned","Hotel/Motel Guest Room","New",1404,,,
+"GuestRoom319","DirectlyConditioned","Hotel/Motel Guest Room","New",351.005,,,
+"GuestRoom320_323","DirectlyConditioned","Hotel/Motel Guest Room","New",1404,,,
+"GuestRoom324","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"RearStairsFlr3","DirectlyConditioned","Corridor Area","New",216.054,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.4216,0,0,86.4216,0.40
+"RearStorageFlr3","DirectlyConditioned","Corridor Area","New",216.07,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.428,0,0,86.428,0.40
+"CorridorFlr4","DirectlyConditioned","Corridor Area","New",1350.01,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,540.005,0,0,540.005,0.40
+"ElevatorCoreFlr4","IndirectlyConditioned","Unoccupied-Exclude from Gross Floor Area","New",0,,,
+"FrontStairsFlr4","DirectlyConditioned","Corridor Area","New",216,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.4,0,0,86.4,0.40
+"FrontStorageFlr4","DirectlyConditioned","Corridor Area","New",135.001,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,54.0002,0,0,54.0002,0.40
+"GuestRoom401","DirectlyConditioned","Hotel/Motel Guest Room","New",351.027,,,
+"GuestRoom402_405","DirectlyConditioned","Hotel/Motel Guest Room","New",1404.1,,,
+"GuestRoom406_408","DirectlyConditioned","Hotel/Motel Guest Room","New",1134.09,,,
+"GuestRoom409_412","DirectlyConditioned","Hotel/Motel Guest Room","New",1404.1,,,
+"GuestRoom413","DirectlyConditioned","Hotel/Motel Guest Room","New",351.026,,,
+"GuestRoom414","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"GuestRoom415_418","DirectlyConditioned","Hotel/Motel Guest Room","New",1404,,,
+"GuestRoom419","DirectlyConditioned","Hotel/Motel Guest Room","New",351.005,,,
+"GuestRoom420_423","DirectlyConditioned","Hotel/Motel Guest Room","New",1404,,,
+"GuestRoom424","DirectlyConditioned","Hotel/Motel Guest Room","New",351,,,
+"RearStairsFlr4","DirectlyConditioned","Corridor Area","New",216.054,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.4216,0,0,86.4216,0.40
+"RearStorageFlr4","DirectlyConditioned","Corridor Area","New",216.07,"AreaCategoryMethod",0,"ResidentialCommonLights",8760,0,0,86.428,0,0,86.428,0.40
+
+
+
+Space Daylighting,,,,,,,,,,,,,,,,,,,,,,,,,
+Name,SpcFunc,FlrArea,DayltgCtrlType,MandMinDaylitArea,MinDimLtgFrac,MinDimPwrFrac,NumOfCtrlSteps,SkylitDaylitArea,SkylitDayltgCtrlLtgPwr,SkylitDayltgCtrlLtgFrac,SkylitDayltgIllumSetpt,SkylitDayltgIllumSetptAdjFac,SkylitDayltgAdjIllumSetpt,,PriSideDayltgRefPtCoord[1],PriSideDayltgRefPtCoord[2],PriSideDayltgRefPtCoord[3],PriSideDaylitArea,PriSideDayltgCtrlLtgPwr,PriSideDayltgCtrlLtgFrac,PriSideDayltgIllumSetpt,PriSideDayltgIllumSetptAdjFac,PriSideDayltgAdjIllumSetpt,,SecSideDayltgRefPtCoord[1],SecSideDayltgRefPtCoord[2],SecSideDayltgRefPtCoord[3],SecSideDaylitArea,SecSideDayltgCtrlLtgPwr,SecSideDayltgCtrlLtgFrac,SecSideDayltgIllumSetpt,SecSideDayltgIllumSetptAdjFac,SecSideDayltgAdjIllumSetpt
+Space,,,,,,,,Skylit Zone,,,,,,,Primary Sidelit Daylit Zone,,,,,,,,,,Secondary Sidelit Daylit Zone,,,,,,
+Name,Space Function,Floor Area,Control Type,MinDayltg per 140.3c,Min. Dim. Ltg. Frac.,Min Dim. Pwr. Frac.,Switched # Ctrl. Steps,Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point,,Ref Pt Coord [1],Ref Pt Coord [2],Ref Pt Coord [3],Daylit Area,Controlled Watts,Control Fraction,Illuminance Set Pt,Illum Set Pt Adj Factor,Adj Illum. Set Point
+,,(ft2),,(ft2),,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux),,,,,(ft2),(Watts),(Frac),(lux),,(lux)
+"CorridorFlr1","Corridor Area",1620.03,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,8.15322,30.1621,2.5,182,0,0,75,-99996,112.5,,16.1467,30.1621,2.5,182,0,0,75,-99996,150
+"ElevatorCoreFlr1","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,0,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0
+"EmployeeLoungeFlr1","Corridor Area",351,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,139.661,52.2933,2.5,91.2188,0,0,75,-99996,112.5,,139.661,44.4246,2.5,91.2188,0,0,75,-99996,150
+"ExerciseCenterFlr1","Corridor Area",351,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,71.6601,52.2933,2.5,91.2188,0,0,75,-99996,112.5,,71.6601,44.4246,2.5,91.2188,0,0,75,-99996,150
+"FrontLoungeFlr1","Hotel Function Area",1755.13,"None",-99996,0,-99996,-99996,0,0,0,175,-99996,175,,32.6608,8.02887,2.5,511.875,0,0,175,-99996,262.5,,32.6608,15.8976,2.5,511.875,0,0,175,-99996,350
+"FrontOfficeFlr1","Office Area (>250 square feet)",1404,"None",-99996,0,-99996,-99996,0,0,0,287.5,-99996,287.5,,32.6591,52.2933,2.5,364.875,0,0,287.5,-99996,287.5,,32.6591,44.4246,2.5,364.875,0,0,287.5,-99996,1150
+"FrontStairsFlr1","Corridor Area",216,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"FrontStorageFlr1","Corridor Area",135.001,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"GuestRoom101","Hotel/Motel Guest Room",351.026,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,139.661,8.02887,2.5,91.2188,0,0,110,-99996,165,,139.661,15.8976,2.5,91.2188,0,0,110,-99996,220
+"GuestRoom102","Hotel/Motel Guest Room",351.026,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,152.659,8.02887,2.5,91.2188,0,0,110,-99996,165,,152.659,15.8976,2.5,91.2188,0,0,110,-99996,220
+"GuestRoom103","Hotel/Motel Guest Room",351.026,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,8.02887,2.5,91.2188,0,0,110,-99996,165,,165.659,15.8976,2.5,91.2188,0,0,110,-99996,220
+"GuestRoom104","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,52.2933,2.5,91.2188,0,0,110,-99996,165,,165.659,44.4246,2.5,91.2188,0,0,110,-99996,220
+"GuestRoom105","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,152.659,52.2933,2.5,91.2188,0,0,110,-99996,165,,152.659,44.4246,2.5,91.2188,0,0,110,-99996,220
+"LaundryRoomFlr1","Laundry Area",1053.01,"None",-99996,0,-99996,-99996,0,0,0,200,-99996,200,,100.66,52.2933,2.5,273.656,0,0,200,-99996,300,,100.66,44.4246,2.5,273.656,0,0,200,-99996,400
+"MechanicalRoomFlr1","Electrical, Mechanical, Telephone Rooms",351.026,"None",-99996,0,-99996,-99996,0,0,0,200,-99996,200,,-99996,-99996,-99996,0,0,0,200,-99996,200,,-99996,-99996,-99996,0,0,0,200,-99996,800
+"MeetingRoomFlr1","Hotel Function Area",864.069,"None",-99996,0,-99996,-99996,0,0,0,175,-99996,175,,104.16,8.02887,2.5,240.844,0,0,175,-99996,262.5,,104.16,15.8976,2.5,240.844,0,0,175,-99996,350
+"RearStairsFlr1","Corridor Area",216.054,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"RearStorageFlr1","Corridor Area",216.07,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"RestroomFlr1","Corridor Area",351.026,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"CorridorFlr2","Corridor Area",1350.01,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,172.747,30.1621,13.5,89,0,0,75,-99996,112.5,,165.333,30.1621,13.5,89.0001,0,0,75,-99996,150
+"ElevatorCoreFlr2","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,0,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0
+"FrontStairsFlr2","Corridor Area",216,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"FrontStorageFlr2","Corridor Area",135.001,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"GuestRoom201","Hotel/Motel Guest Room",351.027,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,6.65847,7.0289,13.5,72.7604,0,0,110,-99996,165,,6.65847,13.8977,13.5,72.7604,0,0,110,-99996,220
+"GuestRoom202_205","Hotel/Motel Guest Room",1404.1,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,32.6592,7.0289,13.5,291.042,0,0,110,-99996,165,,32.6592,13.8977,13.5,291.042,0,0,110,-99996,220
+"GuestRoom206_208","Hotel/Motel Guest Room",1134.09,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,86.1598,7.0289,13.5,245.781,0,0,110,-99996,165,,86.1598,13.8977,13.5,245.781,0,0,110,-99996,220
+"GuestRoom209_212","Hotel/Motel Guest Room",1404.1,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,139.661,7.0289,13.5,291.042,0,0,110,-99996,165,,139.661,13.8977,13.5,291.042,0,0,110,-99996,220
+"GuestRoom213","Hotel/Motel Guest Room",351.026,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,7.0289,13.5,72.7604,0,0,110,-99996,165,,165.659,13.8977,13.5,72.7604,0,0,110,-99996,220
+"GuestRoom214","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,53.2933,13.5,72.7604,0,0,110,-99996,165,,165.659,46.4245,13.5,72.7604,0,0,110,-99996,220
+"GuestRoom215_218","Hotel/Motel Guest Room",1404,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,139.661,53.2933,13.5,291.042,0,0,110,-99996,165,,139.661,46.4245,13.5,291.042,0,0,110,-99996,220
+"GuestRoom219","Hotel/Motel Guest Room",351.005,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,100.66,53.2933,13.5,72.7604,0,0,110,-99996,165,,100.66,46.4245,13.5,72.7604,0,0,110,-99996,220
+"GuestRoom220_223","Hotel/Motel Guest Room",1404,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,71.6601,53.2933,13.5,291.042,0,0,110,-99996,165,,71.6601,46.4245,13.5,291.042,0,0,110,-99996,220
+"GuestRoom224","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,19.6605,53.2933,13.5,72.7604,0,0,110,-99996,165,,19.6605,46.4245,13.5,72.7604,0,0,110,-99996,220
+"RearStairsFlr2","Corridor Area",216.054,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"RearStorageFlr2","Corridor Area",216.07,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"CorridorFlr3","Corridor Area",1350.01,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,172.747,30.1621,22.5,89,0,0,75,-99996,112.5,,165.333,30.1621,22.5,89.0001,0,0,75,-99996,150
+"ElevatorCoreFlr3","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,0,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0
+"FrontStairsFlr3","Corridor Area",216,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"FrontStorageFlr3","Corridor Area",135.001,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"GuestRoom301","Hotel/Motel Guest Room",351.027,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,6.65847,7.0289,22.5,72.7604,0,0,110,-99996,165,,6.65847,13.8977,22.5,72.7604,0,0,110,-99996,220
+"GuestRoom302_305","Hotel/Motel Guest Room",1404.1,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,32.6592,7.0289,22.5,291.042,0,0,110,-99996,165,,32.6592,13.8977,22.5,291.042,0,0,110,-99996,220
+"GuestRoom306_308","Hotel/Motel Guest Room",1134.09,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,86.1598,7.0289,22.5,245.781,0,0,110,-99996,165,,86.1598,13.8977,22.5,245.781,0,0,110,-99996,220
+"GuestRoom309_312","Hotel/Motel Guest Room",1404.1,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,139.661,7.0289,22.5,291.042,0,0,110,-99996,165,,139.661,13.8977,22.5,291.042,0,0,110,-99996,220
+"GuestRoom313","Hotel/Motel Guest Room",351.026,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,7.0289,22.5,72.7604,0,0,110,-99996,165,,165.659,13.8977,22.5,72.7604,0,0,110,-99996,220
+"GuestRoom314","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,53.2933,22.5,72.7604,0,0,110,-99996,165,,165.659,46.4245,22.5,72.7604,0,0,110,-99996,220
+"GuestRoom315_318","Hotel/Motel Guest Room",1404,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,139.661,53.2933,22.5,291.042,0,0,110,-99996,165,,139.661,46.4245,22.5,291.042,0,0,110,-99996,220
+"GuestRoom319","Hotel/Motel Guest Room",351.005,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,100.66,53.2933,22.5,72.7604,0,0,110,-99996,165,,100.66,46.4245,22.5,72.7604,0,0,110,-99996,220
+"GuestRoom320_323","Hotel/Motel Guest Room",1404,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,71.6601,53.2933,22.5,291.042,0,0,110,-99996,165,,71.6601,46.4245,22.5,291.042,0,0,110,-99996,220
+"GuestRoom324","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,19.6605,53.2933,22.5,72.7604,0,0,110,-99996,165,,19.6605,46.4245,22.5,72.7604,0,0,110,-99996,220
+"RearStairsFlr3","Corridor Area",216.054,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"RearStorageFlr3","Corridor Area",216.07,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"CorridorFlr4","Corridor Area",1350.01,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,172.747,30.1621,31.5,89,0,0,75,-99996,112.5,,165.333,30.1621,31.5,89.0001,0,0,75,-99996,150
+"ElevatorCoreFlr4","Unoccupied-Exclude from Gross Floor Area",0,"None",-99996,0,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0,,-99996,-99996,-99996,0,0,0,0,-99996,0
+"FrontStairsFlr4","Corridor Area",216,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"FrontStorageFlr4","Corridor Area",135.001,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"GuestRoom401","Hotel/Motel Guest Room",351.027,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,6.65847,7.0289,31.5,72.7604,0,0,110,-99996,165,,6.65847,13.8977,31.5,72.7604,0,0,110,-99996,220
+"GuestRoom402_405","Hotel/Motel Guest Room",1404.1,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,32.6592,7.0289,31.5,291.042,0,0,110,-99996,165,,32.6592,13.8977,31.5,291.042,0,0,110,-99996,220
+"GuestRoom406_408","Hotel/Motel Guest Room",1134.09,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,86.1598,7.0289,31.5,245.781,0,0,110,-99996,165,,86.1598,13.8977,31.5,245.781,0,0,110,-99996,220
+"GuestRoom409_412","Hotel/Motel Guest Room",1404.1,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,139.661,7.0289,31.5,291.042,0,0,110,-99996,165,,139.661,13.8977,31.5,291.042,0,0,110,-99996,220
+"GuestRoom413","Hotel/Motel Guest Room",351.026,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,7.0289,31.5,72.7604,0,0,110,-99996,165,,165.659,13.8977,31.5,72.7604,0,0,110,-99996,220
+"GuestRoom414","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,165.659,53.2933,31.5,72.7604,0,0,110,-99996,165,,165.659,46.4245,31.5,72.7604,0,0,110,-99996,220
+"GuestRoom415_418","Hotel/Motel Guest Room",1404,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,139.661,53.2933,31.5,291.042,0,0,110,-99996,165,,139.661,46.4245,31.5,291.042,0,0,110,-99996,220
+"GuestRoom419","Hotel/Motel Guest Room",351.005,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,100.66,53.2933,31.5,72.7604,0,0,110,-99996,165,,100.66,46.4245,31.5,72.7604,0,0,110,-99996,220
+"GuestRoom420_423","Hotel/Motel Guest Room",1404,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,71.6601,53.2933,31.5,291.042,0,0,110,-99996,165,,71.6601,46.4245,31.5,291.042,0,0,110,-99996,220
+"GuestRoom424","Hotel/Motel Guest Room",351,"None",-99996,0,-99996,-99996,0,0,0,110,-99996,110,,19.6605,53.2933,31.5,72.7604,0,0,110,-99996,165,,19.6605,46.4245,31.5,72.7604,0,0,110,-99996,220
+"RearStairsFlr4","Corridor Area",216.054,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150
+"RearStorageFlr4","Corridor Area",216.07,"None",-99996,0,-99996,-99996,0,0,0,75,-99996,75,,-99996,-99996,-99996,0,0,0,75,-99996,112.5,,-99996,-99996,-99996,0,0,0,75,-99996,150

@@ -1,0 +1,305 @@
+General Information
+Project Address,City,ZipCode,ClimateZone,Compliance Software,Compliance Manager,RulesetFile Name,Compliance Type
+" - specify - "," - specify - ",95814,"ClimateZone12","CBECC 2022.3.2 (1369)","BEMCmpMgr 2022.3.2-SP1 (8964)","CA 2022 Nonresidential, Vers. 1.0 Alpha (T24N_2022.bin)","NewComplete"
+
+No. of Thermal Zones,No. of Thermal Zones (cond),No. of Air Systems,No. of Zonal Systems,No. of Terminal Units
+12,11,11,1,0
+
+No. of Stories
+Total,New,Existing,Altered
+1,1,0,0
+
+No. of Above Grade Stories
+Total,New,Existing,Altered
+1,1,0,0
+
+No. of Dwelling Units (Conditioned)
+Total,New,Existing,Altered
+0,0,0,0
+
+NonRes Floor Area (Conditioned)
+Total,New,Existing,Altered
+1,1,0,0
+
+Res Floor Area (Conditioned)
+Total,New,Existing,Altered
+0,0,0,0
+
+,Conditioned Floor Area
+Total Floor Area,Total,New,Existing,Altered
+24412.7,24412.7,0,0,0
+
+
+
+Building Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+13950.08,4746.90,2228.14,4746.90,2228.14
+
+Building New Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+13950.08,4746.90,2228.14,4746.90,2228.14
+Building Existing or Altered Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Building Window Area,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+4963.39,2003.67,819.30,1959.75,180.67
+
+Building New Window Area on New Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+4963.39,2003.67,819.30,1959.75,180.67
+Building New Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+Building Existing or Altered Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Window to Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.3558,0.4221,0.3677,0.4128,0.0811
+
+New Window to New Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.3558,0.4221,0.3677,0.4128,0.0811
+New Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+Existing or Altered Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+
+
+Skylight to Roof Ratio (SRR),Display Perimeter\SRR,West,Total
+(frac.),(ft),(ft)
+0.0000,0.00,0.00
+
+New Skylight to New Roof Ratio (SRR)
+(frac.)
+0.0000
+New Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000
+Existing or Altered Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000
+
+
+
+Exterior Roofs
+,,,,,,,,,,,,Aged Thermal Emittance,,ThrmlAbs,,Aged Solar Reflectance,,SolAbs,
+Name,Status,Name,Occupancy Classification,Conditioning Status,Assigned Occ Class (Ref),Area,Tilt,Slope Category,Cons Name,Construction Type,U-Factor,Roof,Cons,Roof,Cons,Roof,Cons,Roof,Cons
+,,,,,,(ft2),(deg),,,,(Btu/h-?F-ft2),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),
+"OS:Surface 173","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned","NonResidential",2859.73,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 7","New","Lobby_Spc","Nonresidential","DirectlyConditioned","NonResidential",678.13,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 29","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned","NonResidential",1722.23,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 41","New","Mech/Elec_Spc","Nonresidential","DirectlyConditioned","NonResidential",446.49,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 16","New","Office_Spc","Nonresidential","DirectlyConditioned","NonResidential",2201.36,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 35","New","Restroom_Spc","Nonresidential","IndirectlyConditioned","NonResidential",1004.60,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 95","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned","NonResidential",1722.22,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 101","New","Wing1_Side1_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.47,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 71","New","Wing1_Side1_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.47,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 83","New","Wing1_Side1_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.47,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 59","New","Wing1_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.48,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 65","New","Wing1_Side2_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.47,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 47","New","Wing1_Side2_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.47,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 53","New","Wing1_Side2_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.47,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 77","New","Wing1_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.48,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 120","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned","NonResidential",1722.32,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 108","New","Wing2_Side1_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.46,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 138","New","Wing2_Side1_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.46,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 126","New","Wing2_Side1_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.46,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 151","New","Wing2_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.47,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 145","New","Wing2_Side2_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.48,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 163","New","Wing2_Side2_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.48,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 157","New","Wing2_Side2_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.48,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+"OS:Surface 132","New","Wing2_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",753.49,0,"Low","Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","WoodFramingAndOtherRoof",0.034,0.75,0.75,0.75,0.75,0.63,0.63,0.37,0.37
+
+
+
+Exterior Wall
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Building Type,Area,Azimuth,Cons Name,Construction Type,U Factor,Window Area
+,,,,,,(ft2),(deg),,,(Btu/h-?F-ft2),(ft2)
+"OS:Surface 170","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned","NonResidential",871.88,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,460.39
+"OS:Surface 171","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned","NonResidential",859.50,90,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,455.08
+"OS:Surface 5","New","Lobby_Spc","Nonresidential","DirectlyConditioned","NonResidential",435.94,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,227.89
+"OS:Surface 26","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,270,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,180.67
+"OS:Surface 37","New","Mech/Elec_Spc","Nonresidential","DirectlyConditioned","NonResidential",502.30,90,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,0.00
+"OS:Surface 11","New","Office_Spc","Nonresidential","DirectlyConditioned","NonResidential",866.34,90,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,364.23
+"OS:Surface 12","New","Office_Spc","Nonresidential","DirectlyConditioned","NonResidential",435.94,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,188.57
+"OS:Surface 85","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned","NonResidential",193.75,270,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,0.00
+"OS:Surface 98","New","Wing1_Side1_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 68","New","Wing1_Side1_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 80","New","Wing1_Side1_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 56","New","Wing1_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 57","New","Wing1_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",339.06,270,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,0.00
+"OS:Surface 64","New","Wing1_Side2_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 46","New","Wing1_Side2_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 52","New","Wing1_Side2_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 75","New","Wing1_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",339.06,270,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,0.00
+"OS:Surface 76","New","Wing1_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 110","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned","NonResidential",193.76,270,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,0.00
+"OS:Surface 105","New","Wing2_Side1_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 135","New","Wing2_Side1_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 123","New","Wing2_Side1_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 148","New","Wing2_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,180,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 149","New","Wing2_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",339.06,270,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,0.00
+"OS:Surface 144","New","Wing2_Side2_Class1_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 162","New","Wing2_Side2_Class2_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 156","New","Wing2_Side2_Class3_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+"OS:Surface 130","New","Wing2_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",339.07,270,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,0.00
+"OS:Surface 131","New","Wing2_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","NonResidential",484.38,0,"Base_CZ12-NonresMetalFrameWallU055","MetalFrameWall",0.055,192.91
+
+
+
+Underground Floor
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Slab Type,Area,Exposed Perimeter,Cons Name,Slab Insulation Orientation,Overall 'F' Factor
+,,,,,(Heated/Unheated),(ft2),(ft),,,(Btu/h-?F-ft2)
+"OS:Surface 164","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",2859.73,117.27,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 1","New","Lobby_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",678.13,29.53,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 17","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",1722.23,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 36","New","Mech/Elec_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",446.49,34.02,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 8","New","Office_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",2201.36,88.21,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 30","New","Restroom_Spc","Nonresidential","IndirectlyConditioned","UnheatedSlab",1004.60,0.00,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 84","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",1722.22,13.12,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 96","New","Wing1_Side1_Class1_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.47,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 66","New","Wing1_Side1_Class2_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.47,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 78","New","Wing1_Side1_Class3_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.47,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 54","New","Wing1_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.48,55.77,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 60","New","Wing1_Side2_Class1_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.47,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 42","New","Wing1_Side2_Class2_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.47,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 48","New","Wing1_Side2_Class3_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.47,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 72","New","Wing1_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.48,55.77,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 109","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",1722.32,13.12,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 102","New","Wing2_Side1_Class1_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.46,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 133","New","Wing2_Side1_Class2_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.46,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 121","New","Wing2_Side1_Class3_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.46,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 146","New","Wing2_Side1_Class4_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.47,55.77,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 139","New","Wing2_Side2_Class1_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.48,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 158","New","Wing2_Side2_Class2_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.48,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 152","New","Wing2_Side2_Class3_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.48,32.81,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+"OS:Surface 127","New","Wing2_Side2_Class4_Spc","Nonresidential","DirectlyConditioned","UnheatedSlab",753.49,55.77,"Base_CZ12-SlabOnOrBelowGradeF073","None",0.730
+
+
+
+Window
+,,,,Exterior Wall,Window
+Name,Status,Occupancy Classification,Conditioning Status,Name,Area,Azimuth,Product Type,Cert Method,Cons Name,Frame Type,Glazing Type,U Factor,SHGC,Visual Transmittance, U Factor Simulated,Inside Convection Coefficient
+,,,,,(ft2),(Deg),,,,,,(Btu/h-?F-ft2),,,(Btu/h-?F-ft2),(Btu/h-?F-ft2)
+"OS:SubSurface 22","New","Nonresidential","DirectlyConditioned","OS:Surface 170",460.39,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 21","New","Nonresidential","DirectlyConditioned","OS:Surface 171",455.08,90,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 3","New","Nonresidential","DirectlyConditioned","OS:Surface 5",227.89,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 5","New","Nonresidential","DirectlyConditioned","OS:Surface 26",180.67,270,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 2","New","Nonresidential","DirectlyConditioned","OS:Surface 11",364.23,90,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 1","New","Nonresidential","DirectlyConditioned","OS:Surface 12",188.57,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 14","New","Nonresidential","DirectlyConditioned","OS:Surface 98",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 11","New","Nonresidential","DirectlyConditioned","OS:Surface 68",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 9","New","Nonresidential","DirectlyConditioned","OS:Surface 80",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 7","New","Nonresidential","DirectlyConditioned","OS:Surface 56",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 6","New","Nonresidential","DirectlyConditioned","OS:Surface 64",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 4","New","Nonresidential","DirectlyConditioned","OS:Surface 46",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 8","New","Nonresidential","DirectlyConditioned","OS:Surface 52",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 10","New","Nonresidential","DirectlyConditioned","OS:Surface 76",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 13","New","Nonresidential","DirectlyConditioned","OS:Surface 105",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 15","New","Nonresidential","DirectlyConditioned","OS:Surface 135",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 12","New","Nonresidential","DirectlyConditioned","OS:Surface 123",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 19","New","Nonresidential","DirectlyConditioned","OS:Surface 148",192.91,180,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 20","New","Nonresidential","DirectlyConditioned","OS:Surface 144",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 17","New","Nonresidential","DirectlyConditioned","OS:Surface 162",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 18","New","Nonresidential","DirectlyConditioned","OS:Surface 156",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+"OS:SubSurface 16","New","Nonresidential","DirectlyConditioned","OS:Surface 131",192.91,0,"FixedWindow","NFRCRated","Base_AllCZ_FixedWindowU34","- specify -","- specify -",0.340,0.220,0.420,0.34000,-99996.00000
+
+
+
+Interior Wall
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Area,Azimuth,Cons Name,Construction Type,U Factor
+,,,,,(ft2),(deg),,,(Btu/h-?F-ft2)
+"OS:Surface 165","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned",435.94,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 166","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned",520.43,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 167","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned",242.19,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 168","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned",242.19,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 169","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned",96.88,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 172","New","Cafeteria_Spc","Nonresidential","DirectlyConditioned",193.75,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 2","New","Lobby_Spc","Nonresidential","DirectlyConditioned",242.19,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 3","New","Lobby_Spc","Nonresidential","DirectlyConditioned",193.75,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 4","New","Lobby_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 6","New","Lobby_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 18","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned",193.76,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 21","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned",502.30,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 22","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned",527.27,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 24","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned",193.75,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 25","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 27","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned",290.63,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 28","New","Main_Corridor_Spc","Nonresidential","DirectlyConditioned",48.43,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 38","New","Mech/Elec_Spc","Nonresidential","DirectlyConditioned",193.75,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 39","New","Mech/Elec_Spc","Nonresidential","DirectlyConditioned",502.30,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 9","New","Office_Spc","Nonresidential","DirectlyConditioned",435.94,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 86","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 87","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 88","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 89","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 91","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 92","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 93","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 94","New","Wing1_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 99","New","Wing1_Side1_Class1_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 69","New","Wing1_Side1_Class2_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 81","New","Wing1_Side1_Class3_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 63","New","Wing1_Side2_Class1_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 45","New","Wing1_Side2_Class2_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 51","New","Wing1_Side2_Class3_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 111","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 112","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 113","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 114","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 116","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 117","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 118","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 119","New","Wing2_Corridor_Spc","Nonresidential","DirectlyConditioned",484.38,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 106","New","Wing2_Side1_Class1_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 136","New","Wing2_Side1_Class2_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 124","New","Wing2_Side1_Class3_Spc","Nonresidential","DirectlyConditioned",339.06,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 143","New","Wing2_Side2_Class1_Spc","Nonresidential","DirectlyConditioned",339.07,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 161","New","Wing2_Side2_Class2_Spc","Nonresidential","DirectlyConditioned",339.07,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+"OS:Surface 155","New","Wing2_Side2_Class3_Spc","Nonresidential","DirectlyConditioned",339.07,-99996,"NACM_MetalFrameWallInterior","UNDEFINED",0.319
+
+
+
+Construction Assembly
+Name,Surface Type,Material Layer 1 (CodeItem),Material Layer 2 (CodeItem),Material Layer 3 (CodeItem),Material Layer 4 (CodeItem),Material Layer 5 (CodeItem), Material Layer 6 (CodeItem), Material Layer 7 (CodeItem), Material Layer 8 (CodeItem), Material Layer 9 (CodeItem), Material Layer 10 (CodeItem)
+"Base_CZ12-SlabOnOrBelowGradeF073","UndergroundFloor","","","","","","","","","",""
+"Base_CZ12-NonresMetalFrameWallU055","ExteriorWall","","","","","","","","","",""
+"NACM_MetalFrameWallInterior","InteriorWall","","","","","","","","","",""
+"Base_CZ12-FlatNonresWoodFramingAndOtherRoofU034","Roof","","","","","","","","","",""
+
+
+
+Construction Materials
+Name,Code Item,Type,R-value,Thickness,Frame Type,Frame Configuration,Frame Depth, Frame Cavity Insulation(for composite material)
+,,,(?F-ft2-h/Btuh),(in),,,,(?F-ft2-h/Btuh)
+"Stucco - 7/8 in.","UNDEFINED","Plastering Materials",0.180,0.880,"- specify -","- specify -","- specify -",0.000
+"Air - Metal Wall Framing - 16 or 24 in. OC","UNDEFINED","Air",0.650,5.500,"- specify -","- specify -","- specify -",0.000
+"Gypsum Board - 1/2 in.","UNDEFINED","Bldg Board and Siding",0.450,0.500,"- specify -","- specify -","- specify -",0.000
+"Gypsum Board - 5/8 in.","UNDEFINED","Bldg Board and Siding",0.560,0.630,"- specify -","- specify -","- specify -",0.000
+"Metal Standing Seam - 1/16 in.","UNDEFINED","Roofing",0.000,0.063,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R28.63","UNDEFINED","Insulation Board",28.630,4.569,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R14.60","UNDEFINED","Insulation Board",14.600,2.330,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R1.41","UNDEFINED","Insulation Board",1.410,0.225,"- specify -","- specify -","- specify -",0.000
+"Compliance Insulation R0.02","UNDEFINED","Insulation Board",0.020,0.003,"- specify -","- specify -","- specify -",0.000

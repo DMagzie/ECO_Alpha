@@ -1,0 +1,63 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 030012S-OffMed-CECStd22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"BaseVAVBox TrmlUnit","VAVReheatBox","BaseAirSys5","Core_bottom Thermal Zone",-99996.000,1588.005,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-2","VAVReheatBox","BaseAirSys5","Perimeter_bot_ZN_1 Thermal Zone",-99996.000,334.764,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-3","VAVReheatBox","BaseAirSys5","Perimeter_bot_ZN_2 Thermal Zone",-99996.000,211.935,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-4","VAVReheatBox","BaseAirSys5","Perimeter_bot_ZN_3 Thermal Zone",-99996.000,334.764,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-5","VAVReheatBox","BaseAirSys5","Perimeter_bot_ZN_4 Thermal Zone",-99996.000,211.920,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-6","VAVReheatBox","BaseAirSys5-2","Core_mid Thermal Zone",-99996.000,1588.005,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-7","VAVReheatBox","BaseAirSys5-2","Perimeter_mid_ZN_1 Thermal Zone",-99996.000,334.764,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-8","VAVReheatBox","BaseAirSys5-2","Perimeter_mid_ZN_2 Thermal Zone",-99996.000,211.935,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-9","VAVReheatBox","BaseAirSys5-2","Perimeter_mid_ZN_3 Thermal Zone",-99996.000,334.764,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-10","VAVReheatBox","BaseAirSys5-2","Perimeter_mid_ZN_4 Thermal Zone",-99996.000,211.920,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-11","VAVReheatBox","BaseAirSys5-3","Core_top Thermal Zone",-99996.000,1588.005,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-12","VAVReheatBox","BaseAirSys5-3","Perimeter_top_ZN_1 Thermal Zone",-99996.000,334.764,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-13","VAVReheatBox","BaseAirSys5-3","Perimeter_top_ZN_2 Thermal Zone",-99996.000,211.935,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-14","VAVReheatBox","BaseAirSys5-3","Perimeter_top_ZN_3 Thermal Zone",-99996.000,334.764,-99996.000,"DualMaximum"
+,"BaseVAVBox TrmlUnit-15","VAVReheatBox","BaseAirSys5-3","Perimeter_top_ZN_4 Thermal Zone",-99996.000,211.920,-99996.000,"DualMaximum"
+ENDTABLE
+TABLE 030012S-OffMed-CECStd22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys5 CoilClg","DirectExpansion","BaseAirSys5","UNDEFINED",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"BaseSys5 CoilClg-2","DirectExpansion","BaseAirSys5-2","UNDEFINED",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"BaseSys5 CoilClg-3","DirectExpansion","BaseAirSys5-3","UNDEFINED",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+ENDTABLE
+TABLE 030012S-OffMed-CECStd22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"BaseSys5 CoilHtg","HotWater","BaseAirSys5","UNDEFINED",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseSys5 CoilHtg-2","HotWater","BaseAirSys5-2","UNDEFINED",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseSys5 CoilHtg-3","HotWater","BaseAirSys5-3","UNDEFINED",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg","HotWater","BaseAirSys5","Core_bottom Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-2","HotWater","BaseAirSys5","Perimeter_bot_ZN_1 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-3","HotWater","BaseAirSys5","Perimeter_bot_ZN_2 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-4","HotWater","BaseAirSys5","Perimeter_bot_ZN_3 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-5","HotWater","BaseAirSys5","Perimeter_bot_ZN_4 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-6","HotWater","BaseAirSys5-2","Core_mid Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-7","HotWater","BaseAirSys5-2","Perimeter_mid_ZN_1 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-8","HotWater","BaseAirSys5-2","Perimeter_mid_ZN_2 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-9","HotWater","BaseAirSys5-2","Perimeter_mid_ZN_3 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-10","HotWater","BaseAirSys5-2","Perimeter_mid_ZN_4 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-11","HotWater","BaseAirSys5-3","Core_top Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-12","HotWater","BaseAirSys5-3","Perimeter_top_ZN_1 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-13","HotWater","BaseAirSys5-3","Perimeter_top_ZN_2 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-14","HotWater","BaseAirSys5-3","Perimeter_top_ZN_3 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"BaseVAVBox CoilHtg-15","HotWater","BaseAirSys5-3","Perimeter_top_ZN_4 Thermal Zone",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE 030012S-OffMed-CECStd22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"BaseSys5 SupFan","VariableSpeedDrive","BaseAirSys5","UNDEFINED",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"BaseSys5 SupFan-2","VariableSpeedDrive","BaseAirSys5-2","UNDEFINED",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"BaseSys5 SupFan-3","VariableSpeedDrive","BaseAirSys5-3","UNDEFINED",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+ENDTABLE
+TABLE 030012S-OffMed-CECStd22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"BaseSys5 OACtrl","NoEconomizer","BaseAirSys5","UNDEFINED"
+,"BaseSys5 OACtrl-2","NoEconomizer","BaseAirSys5-2","UNDEFINED"
+,"BaseSys5 OACtrl-3","NoEconomizer","BaseAirSys5-3","UNDEFINED"
+ENDTABLE

@@ -1,0 +1,71 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE 60-21191-ACM-Mainplace Mall Parcel 3_ResHVAC22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"TU-HFC-1000_STORAGE","Uncontrolled","AS-HFC-1000","STORAGE/SMART LOCKERS_L1",422.000,-99996.000,-99996.000,""
+,"TU_FACILITIES_L1","Uncontrolled","HFC-600_L1","FACILITIES_L1",792.000,-99996.000,-99996.000,""
+,"CLUB ROOM/LOUNGE TrmlUnit","Uncontrolled","CLUB ROOM/LOUNGE AirSys","CLUB ROOM/LOUNGE_L5",135.900,-99996.000,-99996.000,""
+,"TU_DOG WASH_L1","Uncontrolled","DOG WASH_L1 AirSys","DOG WASH_L1",76.000,-99996.000,-99996.000,""
+,"MAKER ROOM_L1 TrmlUnit","Uncontrolled","MAKER ROOM_L1 AirSys","MAKER ROOM_L1",10.500,-99996.000,-99996.000,""
+,"FITNESS CTR_L4 TrmlUnit","Uncontrolled","FITNESS CTR_L4 AirSys","FITNESS CTR_L4",141.050,-99996.000,-99996.000,""
+,"YOGA RM_L4 TrmlUnit","Uncontrolled","YOGA RM_L4 AirSys","YOGA RM_L4",46.100,-99996.000,-99996.000,""
+,"GAME RM_L4 TrmlUnit","Uncontrolled","GAME RM_L4 AirSys","GAME RM_L4",263.850,-99996.000,-99996.000,""
+,"CLUB ROOM/LOUNGE TrmlUnit 10","Uncontrolled","CLUB ROOM/LOUNGE AirSys 10","CLUB ROOM/LOUNGE_L4",624.450,-99996.000,-99996.000,""
+,"MAIN LOBBY/LEASI TrmlUnit","Uncontrolled","MAIN LOBBY/LEASI AirSys","MAIN LOBBY/LEASING_L1",337.300,-99996.000,-99996.000,""
+ENDTABLE
+TABLE 60-21191-ACM-Mainplace Mall Parcel 3_ResHVAC22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"HP-4_CLG","DirectExpansion","AS-HFC-1000","n/a",30000.000,31299.318,-99996.00000,15.833,13.021,1
+,"FACILITIES_L1 ClgCoil","DirectExpansion","HFC-600_L1","n/a",18000.000,18779.591,-99996.00000,15.833,12.500,1
+,"CLUB ROOM/LOUNGE ClgCoil","DirectExpansion","CLUB ROOM/LOUNGE AirSys","n/a",48000.000,50078.909,-99996.00000,17.188,9.167,1
+,"DOG WASH_L1 ClgCoil-2","DirectExpansion","DOG WASH_L1 AirSys","n/a",18000.000,18779.591,-99996.00000,15.833,12.500,1
+,"MAKER ROOM_L1 ClgCoil","DirectExpansion","MAKER ROOM_L1 AirSys","n/a",18000.000,18779.591,-99996.00000,15.833,12.500,1
+,"FITNESS CTR_L4 ClgCoil","DirectExpansion","FITNESS CTR_L4 AirSys","n/a",48000.000,50078.909,-99996.00000,17.188,9.167,1
+,"YOGA RM_L4 ClgCoil","DirectExpansion","YOGA RM_L4 AirSys","n/a",24000.000,25039.455,-99996.00000,16.146,12.500,1
+,"GAME RM_L4 ClgCoil","DirectExpansion","GAME RM_L4 AirSys","n/a",36000.000,37559.182,-99996.00000,15.833,13.021,1
+,"CLUB ROOM/LOUNGE ClgCoil 10","DirectExpansion","CLUB ROOM/LOUNGE AirSys 10","n/a",48000.000,50078.909,-99996.00000,17.188,9.167,1
+,"MAIN LOBBY/LEASI ClgCoil","DirectExpansion","MAIN LOBBY/LEASI AirSys","n/a",48000.000,50078.909,-99996.00000,17.188,9.167,1
+ENDTABLE
+TABLE 60-21191-ACM-Mainplace Mall Parcel 3_ResHVAC22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"HP-4_HTG","HeatPump","AS-HFC-1000","n/a",29800.000,28500.682,-99996.00000,-99996.000,-99996.000
+,"FACILITIES_L1 HtgCoil","HeatPump","HFC-600_L1","n/a",17800.000,17020.409,-99996.00000,-99996.000,-99996.000
+,"CLUB ROOM/LOUNGE HtgCoil","HeatPump","CLUB ROOM/LOUNGE AirSys","n/a",54000.000,51921.091,-99996.00000,-99996.000,-99996.000
+,"DOG WASH_L1 HtgCoil-2","HeatPump","DOG WASH_L1 AirSys","n/a",17800.000,17020.409,-99996.00000,-99996.000,-99996.000
+,"MAKER ROOM_L1 HtgCoil","HeatPump","MAKER ROOM_L1 AirSys","n/a",17800.000,17020.409,-99996.00000,-99996.000,-99996.000
+,"FITNESS CTR_L4 HtgCoil","HeatPump","FITNESS CTR_L4 AirSys","n/a",54000.000,51921.091,-99996.00000,-99996.000,-99996.000
+,"YOGA RM_L4 HtgCoil","HeatPump","YOGA RM_L4 AirSys","n/a",23700.000,22660.545,-99996.00000,-99996.000,-99996.000
+,"GAME RM_L4 HtgCoil","HeatPump","GAME RM_L4 AirSys","n/a",36800.000,35240.818,-99996.00000,-99996.000,-99996.000
+,"CLUB ROOM/LOUNGE HtgCoil 10","HeatPump","CLUB ROOM/LOUNGE AirSys 10","n/a",54000.000,51921.091,-99996.00000,-99996.000,-99996.000
+,"MAIN LOBBY/LEASI HtgCoil","HeatPump","MAIN LOBBY/LEASI AirSys","n/a",54000.000,51921.091,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE 60-21191-ACM-Mainplace Mall Parcel 3_ResHVAC22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"HFC-1000 Fan","ConstantVolume","AS-HFC-1000","n/a",422.000,-99996.000,0.650,"BrakeHorsePower",3.255,0.333,0.500,"InAirStream",0.850,0.6922
+,"FACILITIES_L1 SupFan","ConstantVolume","HFC-600_L1","n/a",792.000,-99996.000,0.650,"BrakeHorsePower",1.734,0.333,0.500,"InAirStream",0.855,0.3667
+,"CLUB ROOM/LOUNGE SupFan","ConstantVolume","CLUB ROOM/LOUNGE AirSys","n/a",135.900,-99996.000,0.650,"BrakeHorsePower",10.107,0.333,0.500,"InAirStream",0.855,2.1368
+,"DOG WASH_L1 SupFan-2","ConstantVolume","DOG WASH_L1 AirSys","n/a",76.000,-99996.000,0.650,"BrakeHorsePower",18.072,0.333,0.500,"InAirStream",0.855,3.8209
+,"MAKER ROOM_L1 SupFan","ConstantVolume","MAKER ROOM_L1 AirSys","n/a",10.500,-99996.000,0.650,"BrakeHorsePower",130.809,0.333,0.500,"InAirStream",0.855,27.6563
+,"FITNESS CTR_L4 SupFan","ConstantVolume","FITNESS CTR_L4 AirSys","n/a",141.050,-99996.000,0.650,"BrakeHorsePower",9.738,0.333,0.500,"InAirStream",0.855,2.0588
+,"YOGA RM_L4 SupFan","ConstantVolume","YOGA RM_L4 AirSys","n/a",46.100,-99996.000,0.650,"BrakeHorsePower",11.184,0.125,0.250,"InAirStream",0.855,2.3646
+,"GAME RM_L4 SupFan","ConstantVolume","GAME RM_L4 AirSys","n/a",263.850,-99996.000,0.650,"BrakeHorsePower",5.206,0.333,0.500,"InAirStream",0.855,1.1006
+,"CLUB ROOM/LOUNGE SupFan 11","ConstantVolume","CLUB ROOM/LOUNGE AirSys 10","n/a",624.450,-99996.000,0.650,"BrakeHorsePower",6.605,1.000,1.500,"InAirStream",0.855,1.3965
+,"MAIN LOBBY/LEASI SupFan","ConstantVolume","MAIN LOBBY/LEASI AirSys","n/a",337.300,-99996.000,0.650,"BrakeHorsePower",9.171,0.750,1.000,"InAirStream",0.855,1.9390
+ENDTABLE
+TABLE 60-21191-ACM-Mainplace Mall Parcel 3_ResHVAC22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"OA-HFC-1000","NoEconomizer","AS-HFC-1000","UNDEFINED"
+,"FACILITIES_L1 OACtrl","NoEconomizer","HFC-600_L1","UNDEFINED"
+,"CLUB ROOM/LOUNGE OACtrl","NoEconomizer","CLUB ROOM/LOUNGE AirSys","UNDEFINED"
+,"CLUB ROOM/LOUNGE OACtrl-2","NoEconomizer","DOG WASH_L1 AirSys","UNDEFINED"
+,"MAKER ROOM_L1 OACtrl","NoEconomizer","MAKER ROOM_L1 AirSys","UNDEFINED"
+,"FITNESS CTR_L4 OACtrl","NoEconomizer","FITNESS CTR_L4 AirSys","UNDEFINED"
+,"YOGA RM_L4 OACtrl","NoEconomizer","YOGA RM_L4 AirSys","UNDEFINED"
+,"GAME RM_L4 OACtrl","NoEconomizer","GAME RM_L4 AirSys","UNDEFINED"
+,"CLUB ROOM/LOUNGE OACtrl 10","NoEconomizer","CLUB ROOM/LOUNGE AirSys 10","UNDEFINED"
+,"MAIN LOBBY/LEASI OACtrl","NoEconomizer","MAIN LOBBY/LEASI AirSys","UNDEFINED"
+ENDTABLE

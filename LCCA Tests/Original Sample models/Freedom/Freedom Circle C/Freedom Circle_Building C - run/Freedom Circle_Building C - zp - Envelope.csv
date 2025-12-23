@@ -1,0 +1,572 @@
+General Information
+Project Address,City,ZipCode,ClimateZone,Compliance Software,Compliance Manager,RulesetFile Name,Compliance Type
+" - specify - ","Santa Clara",95050,"ClimateZone4","CBECC 2022.3.2 (1369)","BEMCmpMgr 2022.3.2 (8731)","CA 2022 Nonresidential, Vers. 1.0 Alpha (T24N_2022.bin)","NewComplete"
+
+No. of Thermal Zones,No. of Thermal Zones (cond),No. of Air Systems,No. of Zonal Systems,No. of Terminal Units
+7,7,2,0,7
+
+No. of Stories
+Total,New,Existing,Altered
+8,8,0,0
+
+No. of Above Grade Stories
+Total,New,Existing,Altered
+7,7,0,0
+
+No. of Dwelling Units (Conditioned)
+Total,New,Existing,Altered
+316,316,0,0
+
+NonRes Floor Area (Conditioned)
+Total,New,Existing,Altered
+8,8,0,0
+
+Res Floor Area (Conditioned)
+Total,New,Existing,Altered
+290035,0,290035,0
+
+,Conditioned Floor Area
+Total Floor Area,Total,New,Existing,Altered
+523039,331262,0,290035,0
+
+
+
+Building Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+148749.72,31286.31,53726.14,25771.29,37965.98
+
+Building New Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+3522.73,546.41,1059.06,1871.98,45.28
+Building Existing or Altered Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Building Window Area,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+44863.99,8895.30,17229.80,6572.45,12166.45
+
+Building New Window Area on New Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+795.45,150.69,92.57,552.19,0.00
+Building New Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+Building Existing or Altered Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Window to Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.3016,0.2843,0.3207,0.2550,0.3205
+
+New Window to New Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.2258,0.2758,0.0874,0.2950,0.0000
+New Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+Existing or Altered Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+
+
+Skylight to Roof Ratio (SRR),Display Perimeter\SRR,West,Total
+(frac.),(ft),(ft)
+0.0000,0.00,0.00
+
+New Skylight to New Roof Ratio (SRR)
+(frac.)
+0.0000
+New Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000
+Existing or Altered Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000
+
+
+
+Exterior Roofs
+,,,,,,,,,,,,Aged Thermal Emittance,,ThrmlAbs,,Aged Solar Reflectance,,SolAbs,
+Name,Status,Name,Occupancy Classification,Conditioning Status,Assigned Occ Class (Ref),Area,Tilt,Slope Category,Cons Name,Construction Type,U-Factor,Roof,Cons,Roof,Cons,Roof,Cons,Roof,Cons
+,,,,,,(ft2),(deg),,,,(Btu/h-?F-ft2),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),(frac.),
+"Roof (Front 1) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",2.74,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+"Roof (Front 2) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",529.21,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+"Roof (Front 3) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",256.18,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+"Roof (Front 4) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",95.23,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+"Roof (Front 5) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",13.83,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+"Roof (Front 6) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",202.87,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+"Roof (Front 1) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",22.20,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+"Roof (Front 1) : Corridor_L07","New","Corridor_L07","Nonresidential","DirectlyConditioned","NonResidential",6425.93,0,"Low","4_Roof_WoodFrame","WoodFramingAndOtherRoof",0.029,0.83,0.83,0.83,0.83,0.65,0.65,0.35,0.35
+
+
+
+Exterior Wall
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Building Type,Area,Azimuth,Cons Name,Construction Type,U Factor,Window Area
+,,,,,,(ft2),(deg),,,(Btu/h-?F-ft2),(ft2)
+"ExtWall (Front 1) : Corridor_L01","New","Corridor_L01","Nonresidential","DirectlyConditioned","NonResidential",105.32,180,"2_Wall_MetalFrame","MetalFrameWall",0.151,73.19
+"ExtWall (Front 2) : Corridor_L01","New","Corridor_L01","Nonresidential","DirectlyConditioned","NonResidential",60.37,180,"2_Wall_MetalFrame","MetalFrameWall",0.151,0.00
+"ExtWall (Front 3) : Corridor_L01","New","Corridor_L01","Nonresidential","DirectlyConditioned","NonResidential",178.83,180,"2_Wall_MetalFrame","MetalFrameWall",0.151,109.79
+"ExtWall (Left 1) : Corridor_L01","New","Corridor_L01","Nonresidential","DirectlyConditioned","NonResidential",523.18,90,"2_Wall_MetalFrame","MetalFrameWall",0.151,0.00
+"ExtWall (Left 2) : Corridor_L01","New","Corridor_L01","Nonresidential","DirectlyConditioned","NonResidential",27.11,90,"2_Wall_MetalFrame","MetalFrameWall",0.151,0.00
+"ExtWall (Front 1) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",51.75,180,"2_Wall_MetalFrame","MetalFrameWall",0.151,0.00
+"ExtWall (Front 2) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",167.97,180,"2_Wall_MetalFrame","MetalFrameWall",0.151,102.26
+"ExtWall (Left 1) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",23.24,90,"2_Wall_MetalFrame","MetalFrameWall",0.151,0.00
+"ExtWall (Back 1) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",200.95,360,"2_Wall_MetalFrame","MetalFrameWall",0.151,55.97
+"ExtWall (Back 2) : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned","NonResidential",1.92,360,"2_Wall_MetalFrame","MetalFrameWall",0.151,0.00
+"ExtWall (Front 1) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",92.40,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,51.67
+"ExtWall (Front 2) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",94.83,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,23.68
+"ExtWall (Front 3) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",176.10,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,23.68
+"ExtWall (Left 1) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",22.02,90,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,0.00
+"ExtWall (Left 2) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",14.25,90,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,0.00
+"ExtWall (Left 3) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",97.92,90,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,43.06
+"ExtWall (Left 4) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",93.12,90,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,49.51
+"ExtWall (Back 1) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",133.89,360,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,51.67
+"ExtWall (Back 2) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",78.91,360,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,0.00
+"ExtWall (Back 3) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",93.28,360,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,43.06
+"ExtWall (Back 4) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",37.46,360,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,0.00
+"ExtWall (Right 1) : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned","NonResidential",45.28,270,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,0.00
+"ExtWall (Front 1) : Corridor_L04","New","Corridor_L04","Nonresidential","DirectlyConditioned","NonResidential",169.43,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,41.98
+"ExtWall (Front 1) : Corridor_L05","New","Corridor_L05","Nonresidential","DirectlyConditioned","NonResidential",169.43,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,41.98
+"ExtWall (Front 1) : Corridor_L06","New","Corridor_L06","Nonresidential","DirectlyConditioned","NonResidential",169.43,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,41.98
+"ExtWall (Front 1) : Corridor_L07","New","Corridor_L07","Nonresidential","DirectlyConditioned","NonResidential",266.67,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,0.00
+"ExtWall (Front 2) : Corridor_L07","New","Corridor_L07","Nonresidential","DirectlyConditioned","NonResidential",169.43,180,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,41.98
+"ExtWall (Left 1) : Corridor_L07","New","Corridor_L07","Nonresidential","DirectlyConditioned","NonResidential",258.21,90,"2_Wall_WoodFrame","WoodFramingAndOtherWall",0.068,0.00
+
+
+
+Underground Floor
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Slab Type,Area,Exposed Perimeter,Cons Name,Slab Insulation Orientation,Overall 'F' Factor
+,,,,,(Heated/Unheated),(ft2),(ft),,,(Btu/h-?F-ft2)
+"IntFloor : Corridor_L01","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",307.96,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 2","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",1.92,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 3","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",50.28,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 4","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",129.41,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 5","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",45.32,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 6","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",22.56,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 7","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",142.83,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 8","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",840.43,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 9","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",187.69,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 10","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",5.92,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 11","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",43.10,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 12","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",2.06,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 13","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",523.89,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 14","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",28.47,0.00,"3_Floor_Slab on Grade","None",0.730
+"IntFloor : Corridor_L01 15","New","Corridor_L01","Nonresidential","DirectlyConditioned","UnheatedSlab",109.54,0.00,"3_Floor_Slab on Grade","None",0.730
+
+
+
+Window
+,,,,Exterior Wall,Window
+Name,Status,Occupancy Classification,Conditioning Status,Name,Area,Azimuth,Product Type,Cert Method,Cons Name,Frame Type,Glazing Type,U Factor,SHGC,Visual Transmittance, U Factor Simulated,Inside Convection Coefficient
+,,,,,(ft2),(Deg),,,,,,(Btu/h-?F-ft2),,,(Btu/h-?F-ft2),(Btu/h-?F-ft2)
+"Window (Front 1) : Corridor_L01","New","Nonresidential","DirectlyConditioned","ExtWall (Front 1) : Corridor_L01",73.19,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 2) : Corridor_L01","New","Nonresidential","DirectlyConditioned","ExtWall (Front 3) : Corridor_L01",109.79,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 1) : Corridor_L02","New","Nonresidential","DirectlyConditioned","ExtWall (Front 2) : Corridor_L02",102.26,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Back 1) : Corridor_L02","New","Nonresidential","DirectlyConditioned","ExtWall (Back 1) : Corridor_L02",55.97,360,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 1) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Front 1) : Corridor_L03",51.67,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 2) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Front 2) : Corridor_L03",23.68,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 3) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Front 3) : Corridor_L03",23.68,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Left 1) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Left 3) : Corridor_L03",21.53,90,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Left 2) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Left 3) : Corridor_L03",21.53,90,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Left 3) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Left 4) : Corridor_L03",49.51,90,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Back 1) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Back 1) : Corridor_L03",51.67,360,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Back 2) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Back 3) : Corridor_L03",21.53,360,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Back 3) : Corridor_L03","New","Nonresidential","DirectlyConditioned","ExtWall (Back 3) : Corridor_L03",21.53,360,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 1) : Corridor_L04","New","Nonresidential","DirectlyConditioned","ExtWall (Front 1) : Corridor_L04",41.98,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 1) : Corridor_L05","New","Nonresidential","DirectlyConditioned","ExtWall (Front 1) : Corridor_L05",41.98,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 1) : Corridor_L06","New","Nonresidential","DirectlyConditioned","ExtWall (Front 1) : Corridor_L06",41.98,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+"Window (Front 1) : Corridor_L07","New","Nonresidential","DirectlyConditioned","ExtWall (Front 2) : Corridor_L07",41.98,180,"CurtainWall","NFRCRated","1_Win_Storefront","- specify -","- specify -",0.410,0.260,0.460,0.41000,-99996.00000
+
+
+
+Interior Wall
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Area,Azimuth,Cons Name,Construction Type,U Factor
+,,,,,(ft2),(deg),,,(Btu/h-?F-ft2)
+"IntWall : Corridor_L01","New","Corridor_L01","Nonresidential","DirectlyConditioned",16.08,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 2","New","Corridor_L01","Nonresidential","DirectlyConditioned",109.68,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 3","New","Corridor_L01","Nonresidential","DirectlyConditioned",82.10,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 4","New","Corridor_L01","Nonresidential","DirectlyConditioned",34.47,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 5","New","Corridor_L01","Nonresidential","DirectlyConditioned",69.45,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 6","New","Corridor_L01","Nonresidential","DirectlyConditioned",85.10,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 7","New","Corridor_L01","Nonresidential","DirectlyConditioned",9.69,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 8","New","Corridor_L01","Nonresidential","DirectlyConditioned",24.85,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 9","New","Corridor_L01","Nonresidential","DirectlyConditioned",133.75,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 10","New","Corridor_L01","Nonresidential","DirectlyConditioned",13.84,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 11","New","Corridor_L01","Nonresidential","DirectlyConditioned",106.36,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 12","New","Corridor_L01","Nonresidential","DirectlyConditioned",88.90,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 13","New","Corridor_L01","Nonresidential","DirectlyConditioned",140.82,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 14","New","Corridor_L01","Nonresidential","DirectlyConditioned",34.47,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 15","New","Corridor_L01","Nonresidential","DirectlyConditioned",158.07,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 16","New","Corridor_L01","Nonresidential","DirectlyConditioned",170.71,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 17","New","Corridor_L01","Nonresidential","DirectlyConditioned",106.61,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 18","New","Corridor_L01","Nonresidential","DirectlyConditioned",84.85,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 19","New","Corridor_L01","Nonresidential","DirectlyConditioned",179.94,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 20","New","Corridor_L01","Nonresidential","DirectlyConditioned",212.86,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 21","New","Corridor_L01","Nonresidential","DirectlyConditioned",499.49,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 22","New","Corridor_L01","Nonresidential","DirectlyConditioned",51.14,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 23","New","Corridor_L01","Nonresidential","DirectlyConditioned",316.65,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 24","New","Corridor_L01","Nonresidential","DirectlyConditioned",201.98,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 25","New","Corridor_L01","Nonresidential","DirectlyConditioned",1503.13,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 26","New","Corridor_L01","Nonresidential","DirectlyConditioned",3.80,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 27","New","Corridor_L01","Nonresidential","DirectlyConditioned",430.10,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 28","New","Corridor_L01","Nonresidential","DirectlyConditioned",83.16,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 29","New","Corridor_L01","Nonresidential","DirectlyConditioned",83.25,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 30","New","Corridor_L01","Nonresidential","DirectlyConditioned",126.97,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 31","New","Corridor_L01","Nonresidential","DirectlyConditioned",305.22,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 32","New","Corridor_L01","Nonresidential","DirectlyConditioned",146.68,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 33","New","Corridor_L01","Nonresidential","DirectlyConditioned",81.54,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 34","New","Corridor_L01","Nonresidential","DirectlyConditioned",997.88,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 35","New","Corridor_L01","Nonresidential","DirectlyConditioned",301.14,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 36","New","Corridor_L01","Nonresidential","DirectlyConditioned",121.56,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 37","New","Corridor_L01","Nonresidential","DirectlyConditioned",301.14,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 38","New","Corridor_L01","Nonresidential","DirectlyConditioned",238.69,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 39","New","Corridor_L01","Nonresidential","DirectlyConditioned",372.92,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 40","New","Corridor_L01","Nonresidential","DirectlyConditioned",257.41,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 41","New","Corridor_L01","Nonresidential","DirectlyConditioned",257.85,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 42","New","Corridor_L01","Nonresidential","DirectlyConditioned",68.84,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 43","New","Corridor_L01","Nonresidential","DirectlyConditioned",225.11,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 44","New","Corridor_L01","Nonresidential","DirectlyConditioned",124.31,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 45","New","Corridor_L01","Nonresidential","DirectlyConditioned",80.67,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 46","New","Corridor_L01","Nonresidential","DirectlyConditioned",150.21,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 47","New","Corridor_L01","Nonresidential","DirectlyConditioned",79.15,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 48","New","Corridor_L01","Nonresidential","DirectlyConditioned",78.53,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 49","New","Corridor_L01","Nonresidential","DirectlyConditioned",111.62,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 50","New","Corridor_L01","Nonresidential","DirectlyConditioned",180.07,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 51","New","Corridor_L01","Nonresidential","DirectlyConditioned",120.44,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 52","New","Corridor_L01","Nonresidential","DirectlyConditioned",81.72,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 53","New","Corridor_L01","Nonresidential","DirectlyConditioned",101.98,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 54","New","Corridor_L01","Nonresidential","DirectlyConditioned",95.89,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 55","New","Corridor_L01","Nonresidential","DirectlyConditioned",13.07,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 56","New","Corridor_L01","Nonresidential","DirectlyConditioned",135.51,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 57","New","Corridor_L01","Nonresidential","DirectlyConditioned",109.68,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L01 58","New","Corridor_L01","Nonresidential","DirectlyConditioned",257.01,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L01 59","New","Corridor_L01","Nonresidential","DirectlyConditioned",55.29,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned",248.85,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 2","New","Corridor_L02","Nonresidential","DirectlyConditioned",383.86,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 3","New","Corridor_L02","Nonresidential","DirectlyConditioned",123.19,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 4","New","Corridor_L02","Nonresidential","DirectlyConditioned",262.69,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 5","New","Corridor_L02","Nonresidential","DirectlyConditioned",261.61,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 6","New","Corridor_L02","Nonresidential","DirectlyConditioned",125.73,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 7","New","Corridor_L02","Nonresidential","DirectlyConditioned",255.79,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 8","New","Corridor_L02","Nonresidential","DirectlyConditioned",339.09,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 9","New","Corridor_L02","Nonresidential","DirectlyConditioned",283.06,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 10","New","Corridor_L02","Nonresidential","DirectlyConditioned",131.52,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 11","New","Corridor_L02","Nonresidential","DirectlyConditioned",129.94,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 12","New","Corridor_L02","Nonresidential","DirectlyConditioned",94.01,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 13","New","Corridor_L02","Nonresidential","DirectlyConditioned",14.69,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 14","New","Corridor_L02","Nonresidential","DirectlyConditioned",220.29,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 15","New","Corridor_L02","Nonresidential","DirectlyConditioned",92.10,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 16","New","Corridor_L02","Nonresidential","DirectlyConditioned",64.48,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 17","New","Corridor_L02","Nonresidential","DirectlyConditioned",135.73,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 18","New","Corridor_L02","Nonresidential","DirectlyConditioned",70.37,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 19","New","Corridor_L02","Nonresidential","DirectlyConditioned",29.55,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 20","New","Corridor_L02","Nonresidential","DirectlyConditioned",94.25,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 21","New","Corridor_L02","Nonresidential","DirectlyConditioned",120.70,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 22","New","Corridor_L02","Nonresidential","DirectlyConditioned",91.38,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 23","New","Corridor_L02","Nonresidential","DirectlyConditioned",76.94,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 24","New","Corridor_L02","Nonresidential","DirectlyConditioned",47.39,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 25","New","Corridor_L02","Nonresidential","DirectlyConditioned",250.13,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 26","New","Corridor_L02","Nonresidential","DirectlyConditioned",91.17,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 27","New","Corridor_L02","Nonresidential","DirectlyConditioned",81.24,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 28","New","Corridor_L02","Nonresidential","DirectlyConditioned",99.04,90,"2_Wall_Interior-MetalFrame","UNDEFINED",0.144
+"IntWall : Corridor_L02 29","New","Corridor_L02","Nonresidential","DirectlyConditioned",271.42,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 30","New","Corridor_L02","Nonresidential","DirectlyConditioned",99.04,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 31","New","Corridor_L02","Nonresidential","DirectlyConditioned",368.66,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 32","New","Corridor_L02","Nonresidential","DirectlyConditioned",56.53,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 33","New","Corridor_L02","Nonresidential","DirectlyConditioned",3.26,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 34","New","Corridor_L02","Nonresidential","DirectlyConditioned",1253.97,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 35","New","Corridor_L02","Nonresidential","DirectlyConditioned",1470.85,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 36","New","Corridor_L02","Nonresidential","DirectlyConditioned",601.26,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 37","New","Corridor_L02","Nonresidential","DirectlyConditioned",211.71,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 38","New","Corridor_L02","Nonresidential","DirectlyConditioned",104.20,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 39","New","Corridor_L02","Nonresidential","DirectlyConditioned",53.94,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 40","New","Corridor_L02","Nonresidential","DirectlyConditioned",161.59,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 41","New","Corridor_L02","Nonresidential","DirectlyConditioned",128.75,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 42","New","Corridor_L02","Nonresidential","DirectlyConditioned",117.36,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L02 43","New","Corridor_L02","Nonresidential","DirectlyConditioned",42.29,90,"2_Wall_Interior-MetalFrame","MetalFrameWall",0.144
+"IntWall : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned",236.61,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 2","New","Corridor_L03","Nonresidential","DirectlyConditioned",95.51,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 3","New","Corridor_L03","Nonresidential","DirectlyConditioned",119.11,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 4","New","Corridor_L03","Nonresidential","DirectlyConditioned",86.18,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 5","New","Corridor_L03","Nonresidential","DirectlyConditioned",114.98,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 6","New","Corridor_L03","Nonresidential","DirectlyConditioned",89.47,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 7","New","Corridor_L03","Nonresidential","DirectlyConditioned",105.35,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 8","New","Corridor_L03","Nonresidential","DirectlyConditioned",112.18,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 9","New","Corridor_L03","Nonresidential","DirectlyConditioned",58.22,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 10","New","Corridor_L03","Nonresidential","DirectlyConditioned",86.18,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 11","New","Corridor_L03","Nonresidential","DirectlyConditioned",131.35,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 12","New","Corridor_L03","Nonresidential","DirectlyConditioned",125.19,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 13","New","Corridor_L03","Nonresidential","DirectlyConditioned",133.10,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 14","New","Corridor_L03","Nonresidential","DirectlyConditioned",130.51,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 15","New","Corridor_L03","Nonresidential","DirectlyConditioned",123.90,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 16","New","Corridor_L03","Nonresidential","DirectlyConditioned",123.07,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 17","New","Corridor_L03","Nonresidential","DirectlyConditioned",127.60,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 18","New","Corridor_L03","Nonresidential","DirectlyConditioned",27.07,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 19","New","Corridor_L03","Nonresidential","DirectlyConditioned",185.61,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 20","New","Corridor_L03","Nonresidential","DirectlyConditioned",184.08,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 21","New","Corridor_L03","Nonresidential","DirectlyConditioned",385.10,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 22","New","Corridor_L03","Nonresidential","DirectlyConditioned",183.94,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 23","New","Corridor_L03","Nonresidential","DirectlyConditioned",185.62,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 24","New","Corridor_L03","Nonresidential","DirectlyConditioned",333.21,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 25","New","Corridor_L03","Nonresidential","DirectlyConditioned",185.64,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 26","New","Corridor_L03","Nonresidential","DirectlyConditioned",143.75,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 27","New","Corridor_L03","Nonresidential","DirectlyConditioned",185.51,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 28","New","Corridor_L03","Nonresidential","DirectlyConditioned",183.94,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 29","New","Corridor_L03","Nonresidential","DirectlyConditioned",143.75,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 30","New","Corridor_L03","Nonresidential","DirectlyConditioned",184.00,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 31","New","Corridor_L03","Nonresidential","DirectlyConditioned",184.04,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 32","New","Corridor_L03","Nonresidential","DirectlyConditioned",320.66,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 33","New","Corridor_L03","Nonresidential","DirectlyConditioned",183.99,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 34","New","Corridor_L03","Nonresidential","DirectlyConditioned",333.21,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 35","New","Corridor_L03","Nonresidential","DirectlyConditioned",184.64,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L03 36","New","Corridor_L03","Nonresidential","DirectlyConditioned",115.31,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 37","New","Corridor_L03","Nonresidential","DirectlyConditioned",60.72,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 38","New","Corridor_L03","Nonresidential","DirectlyConditioned",118.02,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 39","New","Corridor_L03","Nonresidential","DirectlyConditioned",100.90,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 40","New","Corridor_L03","Nonresidential","DirectlyConditioned",159.40,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 41","New","Corridor_L03","Nonresidential","DirectlyConditioned",112.64,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 42","New","Corridor_L03","Nonresidential","DirectlyConditioned",188.01,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 43","New","Corridor_L03","Nonresidential","DirectlyConditioned",125.56,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 44","New","Corridor_L03","Nonresidential","DirectlyConditioned",129.65,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 45","New","Corridor_L03","Nonresidential","DirectlyConditioned",110.65,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 46","New","Corridor_L03","Nonresidential","DirectlyConditioned",27.07,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 47","New","Corridor_L03","Nonresidential","DirectlyConditioned",122.13,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L03 48","New","Corridor_L03","Nonresidential","DirectlyConditioned",42.13,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04","New","Corridor_L04","Nonresidential","DirectlyConditioned",227.65,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 2","New","Corridor_L04","Nonresidential","DirectlyConditioned",91.90,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 3","New","Corridor_L04","Nonresidential","DirectlyConditioned",114.60,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 4","New","Corridor_L04","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 5","New","Corridor_L04","Nonresidential","DirectlyConditioned",110.62,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 6","New","Corridor_L04","Nonresidential","DirectlyConditioned",86.08,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 7","New","Corridor_L04","Nonresidential","DirectlyConditioned",119.21,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 8","New","Corridor_L04","Nonresidential","DirectlyConditioned",118.41,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 9","New","Corridor_L04","Nonresidential","DirectlyConditioned",128.06,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 10","New","Corridor_L04","Nonresidential","DirectlyConditioned",125.57,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 11","New","Corridor_L04","Nonresidential","DirectlyConditioned",122.76,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 12","New","Corridor_L04","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 13","New","Corridor_L04","Nonresidential","DirectlyConditioned",56.02,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 14","New","Corridor_L04","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 15","New","Corridor_L04","Nonresidential","DirectlyConditioned",126.38,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 16","New","Corridor_L04","Nonresidential","DirectlyConditioned",120.44,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 17","New","Corridor_L04","Nonresidential","DirectlyConditioned",178.58,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 18","New","Corridor_L04","Nonresidential","DirectlyConditioned",180.89,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 19","New","Corridor_L04","Nonresidential","DirectlyConditioned",177.11,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 20","New","Corridor_L04","Nonresidential","DirectlyConditioned",178.59,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 21","New","Corridor_L04","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 22","New","Corridor_L04","Nonresidential","DirectlyConditioned",177.03,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 23","New","Corridor_L04","Nonresidential","DirectlyConditioned",176.97,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 24","New","Corridor_L04","Nonresidential","DirectlyConditioned",178.61,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 25","New","Corridor_L04","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 26","New","Corridor_L04","Nonresidential","DirectlyConditioned",178.48,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 27","New","Corridor_L04","Nonresidential","DirectlyConditioned",177.07,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 28","New","Corridor_L04","Nonresidential","DirectlyConditioned",175.92,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L04 29","New","Corridor_L04","Nonresidential","DirectlyConditioned",113.55,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 30","New","Corridor_L04","Nonresidential","DirectlyConditioned",97.07,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 31","New","Corridor_L04","Nonresidential","DirectlyConditioned",153.36,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 32","New","Corridor_L04","Nonresidential","DirectlyConditioned",108.37,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 33","New","Corridor_L04","Nonresidential","DirectlyConditioned",120.81,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 34","New","Corridor_L04","Nonresidential","DirectlyConditioned",124.74,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 35","New","Corridor_L04","Nonresidential","DirectlyConditioned",106.45,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L04 36","New","Corridor_L04","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05","New","Corridor_L05","Nonresidential","DirectlyConditioned",227.65,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 2","New","Corridor_L05","Nonresidential","DirectlyConditioned",91.90,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 3","New","Corridor_L05","Nonresidential","DirectlyConditioned",114.60,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 4","New","Corridor_L05","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 5","New","Corridor_L05","Nonresidential","DirectlyConditioned",110.62,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 6","New","Corridor_L05","Nonresidential","DirectlyConditioned",86.08,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 7","New","Corridor_L05","Nonresidential","DirectlyConditioned",56.02,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 8","New","Corridor_L05","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 9","New","Corridor_L05","Nonresidential","DirectlyConditioned",126.38,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 10","New","Corridor_L05","Nonresidential","DirectlyConditioned",120.44,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 11","New","Corridor_L05","Nonresidential","DirectlyConditioned",128.06,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 12","New","Corridor_L05","Nonresidential","DirectlyConditioned",125.57,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 13","New","Corridor_L05","Nonresidential","DirectlyConditioned",122.76,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 14","New","Corridor_L05","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 15","New","Corridor_L05","Nonresidential","DirectlyConditioned",119.21,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 16","New","Corridor_L05","Nonresidential","DirectlyConditioned",118.41,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 17","New","Corridor_L05","Nonresidential","DirectlyConditioned",177.11,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 18","New","Corridor_L05","Nonresidential","DirectlyConditioned",178.58,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 19","New","Corridor_L05","Nonresidential","DirectlyConditioned",180.89,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 20","New","Corridor_L05","Nonresidential","DirectlyConditioned",176.97,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 21","New","Corridor_L05","Nonresidential","DirectlyConditioned",178.61,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 22","New","Corridor_L05","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 23","New","Corridor_L05","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 24","New","Corridor_L05","Nonresidential","DirectlyConditioned",177.03,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 25","New","Corridor_L05","Nonresidential","DirectlyConditioned",178.59,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 26","New","Corridor_L05","Nonresidential","DirectlyConditioned",178.48,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 27","New","Corridor_L05","Nonresidential","DirectlyConditioned",177.07,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L05 28","New","Corridor_L05","Nonresidential","DirectlyConditioned",113.55,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 29","New","Corridor_L05","Nonresidential","DirectlyConditioned",97.07,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 30","New","Corridor_L05","Nonresidential","DirectlyConditioned",153.36,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 31","New","Corridor_L05","Nonresidential","DirectlyConditioned",108.37,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 32","New","Corridor_L05","Nonresidential","DirectlyConditioned",120.81,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 33","New","Corridor_L05","Nonresidential","DirectlyConditioned",124.74,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 34","New","Corridor_L05","Nonresidential","DirectlyConditioned",106.45,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L05 35","New","Corridor_L05","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06","New","Corridor_L06","Nonresidential","DirectlyConditioned",227.65,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 2","New","Corridor_L06","Nonresidential","DirectlyConditioned",91.90,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 3","New","Corridor_L06","Nonresidential","DirectlyConditioned",114.60,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 4","New","Corridor_L06","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 5","New","Corridor_L06","Nonresidential","DirectlyConditioned",110.62,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 6","New","Corridor_L06","Nonresidential","DirectlyConditioned",86.08,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 7","New","Corridor_L06","Nonresidential","DirectlyConditioned",56.02,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 8","New","Corridor_L06","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 9","New","Corridor_L06","Nonresidential","DirectlyConditioned",126.38,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 10","New","Corridor_L06","Nonresidential","DirectlyConditioned",120.44,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 11","New","Corridor_L06","Nonresidential","DirectlyConditioned",128.06,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 12","New","Corridor_L06","Nonresidential","DirectlyConditioned",125.57,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 13","New","Corridor_L06","Nonresidential","DirectlyConditioned",122.76,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 14","New","Corridor_L06","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 15","New","Corridor_L06","Nonresidential","DirectlyConditioned",119.21,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 16","New","Corridor_L06","Nonresidential","DirectlyConditioned",118.41,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 17","New","Corridor_L06","Nonresidential","DirectlyConditioned",177.11,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 18","New","Corridor_L06","Nonresidential","DirectlyConditioned",178.58,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 19","New","Corridor_L06","Nonresidential","DirectlyConditioned",180.89,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 20","New","Corridor_L06","Nonresidential","DirectlyConditioned",176.97,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 21","New","Corridor_L06","Nonresidential","DirectlyConditioned",178.61,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 22","New","Corridor_L06","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 23","New","Corridor_L06","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 24","New","Corridor_L06","Nonresidential","DirectlyConditioned",177.03,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 25","New","Corridor_L06","Nonresidential","DirectlyConditioned",178.59,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 26","New","Corridor_L06","Nonresidential","DirectlyConditioned",178.48,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 27","New","Corridor_L06","Nonresidential","DirectlyConditioned",177.07,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L06 28","New","Corridor_L06","Nonresidential","DirectlyConditioned",113.55,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 29","New","Corridor_L06","Nonresidential","DirectlyConditioned",97.07,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 30","New","Corridor_L06","Nonresidential","DirectlyConditioned",153.36,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 31","New","Corridor_L06","Nonresidential","DirectlyConditioned",108.37,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 32","New","Corridor_L06","Nonresidential","DirectlyConditioned",120.81,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 33","New","Corridor_L06","Nonresidential","DirectlyConditioned",124.74,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 34","New","Corridor_L06","Nonresidential","DirectlyConditioned",106.45,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L06 35","New","Corridor_L06","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07","New","Corridor_L07","Nonresidential","DirectlyConditioned",227.65,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 2","New","Corridor_L07","Nonresidential","DirectlyConditioned",91.90,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 3","New","Corridor_L07","Nonresidential","DirectlyConditioned",114.60,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 4","New","Corridor_L07","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 5","New","Corridor_L07","Nonresidential","DirectlyConditioned",110.62,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 6","New","Corridor_L07","Nonresidential","DirectlyConditioned",86.08,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 7","New","Corridor_L07","Nonresidential","DirectlyConditioned",56.02,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 8","New","Corridor_L07","Nonresidential","DirectlyConditioned",82.91,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 9","New","Corridor_L07","Nonresidential","DirectlyConditioned",126.38,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 10","New","Corridor_L07","Nonresidential","DirectlyConditioned",120.44,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 11","New","Corridor_L07","Nonresidential","DirectlyConditioned",128.06,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 12","New","Corridor_L07","Nonresidential","DirectlyConditioned",125.57,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 13","New","Corridor_L07","Nonresidential","DirectlyConditioned",122.76,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 14","New","Corridor_L07","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 15","New","Corridor_L07","Nonresidential","DirectlyConditioned",119.21,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 16","New","Corridor_L07","Nonresidential","DirectlyConditioned",118.41,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 17","New","Corridor_L07","Nonresidential","DirectlyConditioned",177.11,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 18","New","Corridor_L07","Nonresidential","DirectlyConditioned",178.58,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 19","New","Corridor_L07","Nonresidential","DirectlyConditioned",180.89,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 20","New","Corridor_L07","Nonresidential","DirectlyConditioned",176.97,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 21","New","Corridor_L07","Nonresidential","DirectlyConditioned",178.61,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 22","New","Corridor_L07","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 23","New","Corridor_L07","Nonresidential","DirectlyConditioned",138.31,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 24","New","Corridor_L07","Nonresidential","DirectlyConditioned",177.03,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 25","New","Corridor_L07","Nonresidential","DirectlyConditioned",178.59,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 26","New","Corridor_L07","Nonresidential","DirectlyConditioned",178.48,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 27","New","Corridor_L07","Nonresidential","DirectlyConditioned",177.07,90,"2_Wall_Interior-WoodFrame","UNDEFINED",0.066
+"IntWall : Corridor_L07 28","New","Corridor_L07","Nonresidential","DirectlyConditioned",113.55,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 29","New","Corridor_L07","Nonresidential","DirectlyConditioned",97.07,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 30","New","Corridor_L07","Nonresidential","DirectlyConditioned",153.36,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 31","New","Corridor_L07","Nonresidential","DirectlyConditioned",108.37,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 32","New","Corridor_L07","Nonresidential","DirectlyConditioned",120.81,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 33","New","Corridor_L07","Nonresidential","DirectlyConditioned",124.74,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 34","New","Corridor_L07","Nonresidential","DirectlyConditioned",106.45,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+"IntWall : Corridor_L07 35","New","Corridor_L07","Nonresidential","DirectlyConditioned",26.05,90,"2_Wall_Interior-WoodFrame","WoodFramingAndOtherWall",0.066
+
+
+
+Interior Floor
+,,Space
+Name,Status,Name,Occupancy Classification,Conditioning Status,Area,Cons Name,Construction Type,U Factor
+,,,,,(ft2),,,(Btu/h-?F-ft2)
+"IntFloor : Corridor_L02","New","Corridor_L02","Nonresidential","DirectlyConditioned",739.64,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 2","New","Corridor_L02","Nonresidential","DirectlyConditioned",63.90,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 3","New","Corridor_L02","Nonresidential","DirectlyConditioned",85.24,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 4","New","Corridor_L02","Nonresidential","DirectlyConditioned",421.55,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 5","New","Corridor_L02","Nonresidential","DirectlyConditioned",267.36,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 6","New","Corridor_L02","Nonresidential","DirectlyConditioned",22.47,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 7","New","Corridor_L02","Nonresidential","DirectlyConditioned",460.02,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 8","New","Corridor_L02","Nonresidential","DirectlyConditioned",55.24,"3_Floor_Slab on Grade","OtherFloor",-99996.000
+"IntFloor : Corridor_L02 9","New","Corridor_L02","Nonresidential","DirectlyConditioned",65.28,"3_Floor_Slab on Grade","OtherFloor",-99996.000
+"IntFloor : Corridor_L02 10","New","Corridor_L02","Nonresidential","DirectlyConditioned",2451.91,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 11","New","Corridor_L02","Nonresidential","DirectlyConditioned",152.03,"3_Floor_Slab on Grade","OtherFloor",-99996.000
+"IntFloor : Corridor_L02 12","New","Corridor_L02","Nonresidential","DirectlyConditioned",94.49,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 13","New","Corridor_L02","Nonresidential","DirectlyConditioned",471.85,"3_Floor_Slab on Grade","UNDEFINED",-99996.000
+"IntFloor : Corridor_L02 14","New","Corridor_L02","Nonresidential","DirectlyConditioned",13.26,"3_Floor_Slab on Grade","OtherFloor",-99996.000
+"IntFloor : Corridor_L03","New","Corridor_L03","Nonresidential","DirectlyConditioned",18.16,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 2","New","Corridor_L03","Nonresidential","DirectlyConditioned",18.32,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 3","New","Corridor_L03","Nonresidential","DirectlyConditioned",35.68,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 4","New","Corridor_L03","Nonresidential","DirectlyConditioned",481.75,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 5","New","Corridor_L03","Nonresidential","DirectlyConditioned",641.11,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 6","New","Corridor_L03","Nonresidential","DirectlyConditioned",302.40,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 7","New","Corridor_L03","Nonresidential","DirectlyConditioned",47.14,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 8","New","Corridor_L03","Nonresidential","DirectlyConditioned",39.86,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 9","New","Corridor_L03","Nonresidential","DirectlyConditioned",488.90,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L03 10","New","Corridor_L03","Nonresidential","DirectlyConditioned",49.94,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 11","New","Corridor_L03","Nonresidential","DirectlyConditioned",41.50,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 12","New","Corridor_L03","Nonresidential","DirectlyConditioned",36.84,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 13","New","Corridor_L03","Nonresidential","DirectlyConditioned",43.74,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 14","New","Corridor_L03","Nonresidential","DirectlyConditioned",55.71,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 15","New","Corridor_L03","Nonresidential","DirectlyConditioned",157.58,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 16","New","Corridor_L03","Nonresidential","DirectlyConditioned",68.28,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 17","New","Corridor_L03","Nonresidential","DirectlyConditioned",1186.48,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 18","New","Corridor_L03","Nonresidential","DirectlyConditioned",3.65,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 19","New","Corridor_L03","Nonresidential","DirectlyConditioned",87.85,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 20","New","Corridor_L03","Nonresidential","DirectlyConditioned",10.02,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 21","New","Corridor_L03","Nonresidential","DirectlyConditioned",2050.67,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L03 22","New","Corridor_L03","Nonresidential","DirectlyConditioned",1911.88,"3_Floor_Interior-WoodFrame","OtherFloor",0.047
+"IntFloor : Corridor_L04","New","Corridor_L04","Nonresidential","DirectlyConditioned",6365.70,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L05","New","Corridor_L05","Nonresidential","DirectlyConditioned",35.24,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L05 2","New","Corridor_L05","Nonresidential","DirectlyConditioned",6390.64,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L06","New","Corridor_L06","Nonresidential","DirectlyConditioned",6425.93,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+"IntFloor : Corridor_L07","New","Corridor_L07","Nonresidential","DirectlyConditioned",6425.93,"3_Floor_Interior-WoodFrame","UNDEFINED",0.047
+
+
+
+Construction Assembly
+Name,Surface Type,Material Layer 1 (CodeItem),Material Layer 2 (CodeItem),Material Layer 3 (CodeItem),Material Layer 4 (CodeItem),Material Layer 5 (CodeItem), Material Layer 6 (CodeItem), Material Layer 7 (CodeItem), Material Layer 8 (CodeItem), Material Layer 9 (CodeItem), Material Layer 10 (CodeItem)
+"2_Wall_Interior-MetalFrame","InteriorWall","","","","","","","","","",""
+"2_Wall_Interior-WoodFrame","InteriorWall","","","","","","","","","",""
+"2_Wall_MetalFrame","ExteriorWall","","","","","","","","","",""
+"2_Wall_WoodFrame","ExteriorWall","","","","","","","","","",""
+"3_Floor_Interior-WoodFrame","InteriorFloor","","","","","","","","","",""
+"3_Floor_Slab on Grade","UndergroundFloor","","","","","","","","","",""
+"4_Roof_Concrete","Roof","","","","","","","","","",""
+"4_Roof_WoodFrame","Roof","","","","","","","","","",""
+
+
+
+Construction Materials
+Name,Code Item,Type,R-value,Thickness,Frame Type,Frame Configuration,Frame Depth, Frame Cavity Insulation(for composite material)
+,,,(?F-ft2-h/Btuh),(in),,,,(?F-ft2-h/Btuh)
+"Air Cavity 4in or more","UNDEFINED","Air",0.920,6.000,"- specify -","- specify -","- specify -",0.000
+"Board_5/8in Gypsum","UNDEFINED","Bldg Board and Siding",0.560,0.630,"- specify -","- specify -","- specify -",0.000
+"Board_1/2in Plywood","UNDEFINED","Bldg Board and Siding",0.630,0.500,"- specify -","- specify -","- specify -",0.000
+"Finishes_Interior Walls","UNDEFINED","Finish Materials",0.490,0.250,"- specify -","- specify -","- specify -",0.000
+"Finishes_1/4in Roofing","UNDEFINED","Roofing",0.150,0.250,"- specify -","- specify -","- specify -",0.000
+"Finishes_Stucco","UNDEFINED","Plastering Materials",0.180,0.880,"- specify -","- specify -","- specify -",0.000
+"Roof/Floor_Wood Frame R-19","UNDEFINED","Composite",17.747,0.000,"Wood","Roof16inOC","11_25In",19.000
+"Roof/Floor_Wood Frame R-38","UNDEFINED","Composite",30.616,0.000,"Wood","Roof16inOC","11_25In",38.000
+"Roof/Floor_6in Concrete","UNDEFINED","Concrete",0.440,6.000,"- specify -","- specify -","- specify -",0.000
+"Vapor Permeable Felt","UNDEFINED","Building Membrane",0.060,0.130,"- specify -","- specify -","- specify -",0.000
+"Wall_Metal Frame R-19","UNDEFINED","Composite",3.924,0.000,"Metal","Wall16inOC","5_5In",19.000
+"Wall_Wood Frame R-19","UNDEFINED","Composite",11.711,0.000,"Wood","Wall16inOC","5_5In",19.000
