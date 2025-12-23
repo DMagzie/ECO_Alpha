@@ -45,6 +45,13 @@ from gui.pages.active_model_page import show_active_model
 from gui.pages.editing_page import handle_editing
 from gui.pages.comparison_page import handle_comparison
 
+# LCCA Dashboard - optional
+try:
+    from gui.pages.lcca_dashboard_page import handle_lcca_dashboard
+    LCCA_AVAILABLE = True
+except ImportError:
+    LCCA_AVAILABLE = False
+
 # Optional features - imported with error handling
 try:
     from gui.config import should_show_in_nav
@@ -75,6 +82,7 @@ def main():
         "🔄 Compare Models",
         "Export",
         "⚡ Simulate",
+        "💰 LCCA Dashboard",
         "Diagnostics",
         "Round-Trip Check"
     ]
@@ -83,6 +91,10 @@ def main():
     if GEOMETRY_BUILDER_AVAILABLE and should_show_in_nav('geometry_builder'):
         # Insert after Template Browser
         pages.insert(3, "🏗️ Geometry Builder")
+
+    # Remove LCCA if not available
+    if not LCCA_AVAILABLE:
+        pages.remove("💰 LCCA Dashboard")
 
     # Simple sidebar navigation
     st.sidebar.title("Navigation")
@@ -115,6 +127,11 @@ def main():
         handle_export()
     elif page == "⚡ Simulate":
         handle_simulation()
+    elif page == "💰 LCCA Dashboard":
+        if LCCA_AVAILABLE:
+            handle_lcca_dashboard()
+        else:
+            st.error("LCCA Dashboard is not available")
     elif page == "Diagnostics":
         show_diagnostics()
     elif page == "Round-Trip Check":
