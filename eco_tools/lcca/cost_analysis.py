@@ -312,16 +312,24 @@ def analyze_energy(
 
         # Calculate TOU distribution if tariff provided
         if tariff and tariff.schedule:
+            from datetime import date
+            from .tariffs import TouPeriod
+
             on_peak_kwh = 0.0
             mid_peak_kwh = 0.0
             off_peak_kwh = 0.0
             total_kwh = 0.0
 
             for h in simulation.hourly:
-                from .tariffs import TouPeriod
-                # Use day_of_week if available, otherwise calculate from month/day
-                dow = getattr(h, 'day_of_week', 0)
-                period = tariff.schedule.get_period(h.month, dow, h.hour)
+                # Determine if weekend from date
+                try:
+                    d = date(2024, h.month, h.day)
+                    is_weekend = d.weekday() >= 5  # Saturday=5, Sunday=6
+                except ValueError:
+                    is_weekend = False
+
+                # get_period(month, hour, is_weekend)
+                period = tariff.schedule.get_period(h.month, h.hour, is_weekend)
                 kwh = h.elec_total_kwh
 
                 if period == TouPeriod.ON_PEAK:
