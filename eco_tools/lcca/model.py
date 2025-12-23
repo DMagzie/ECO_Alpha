@@ -260,3 +260,162 @@ class LccaScenario:
         gas_cost = e.gas_therms * t.gas_rate_per_therm
         demand_cost = e.demand_kw * t.demand_rate_per_kw * 12  # Annual
         return elec_cost + gas_cost + demand_cost
+
+
+# ---- TOU-Native LCCA Models ----
+
+@dataclass
+class TouLccaScenario:
+    """
+    LCCA scenario using Time-of-Use tariff with hourly data.
+
+    This enables direct TOU cost calculation without converting to flat rates,
+    providing more accurate lifecycle cost analysis for buildings with:
+    - Solar PV (generation timing matters)
+    - Battery storage (arbitrage value)
+    - Load shifting potential
+
+    Example:
+        >>> scenario = TouLccaScenario(
+        ...     name="Proposed with PV",
+        ...     hourly_data=parsed_output.hourly,
+        ...     tou_tariff=create_sce_tou_gs3(),
+        ...     capex_upfront=857500,
+        ... )
+        >>> annual_cost = scenario.calculate_annual_cost()
+    """
+    name: str
+    hourly_data: List[HourlyEnergy]
+    tou_tariff: Any  # TouTariff - forward reference to avoid circular import
+
+    # Capital costs
+    capex_upfront: float = 0.0
+
+    # Operating costs (annual deltas vs baseline)
+    opex_annual_delta: float = 0.0
+    maintenance_annual_delta: float = 0.0
+
+    # Incentives
+    incentives: List[Incentive] = field(default_factory=list)
+
+    # Financial assumptions
+    assumptions: ScenarioAssumptions = field(default_factory=ScenarioAssumptions)
+
+    # Gas consumption (not in hourly for some models)
+    annual_gas_therms: float = 0.0
+
+    # Optional: use net electricity (after PV) vs gross
+    use_net_electricity: bool = True
+
+    # Metadata
+    building_area_sf: float = 0.0
+    building_type: str = ""
+
+    def _convert_hourly_to_usage(self, year: int = 2024) -> List[Any]:
+        """Convert HourlyEnergy to HourlyUsage for TOU calculations."""
+        from datetime import date
+        from .tariffs import HourlyUsage
+
+        usage_list = []
+        for h in self.hourly_data:
+            # Determine if weekend
+            try:
+                d = date(year, h.month, h.day)
+                is_weekend = d.weekday() >= 5
+            except ValueError:
+                is_weekend = False
+
+            # Get electricity consumption
+            if self.use_net_electricity:
+                kwh = h.net_elec_kwh
+            else:
+                kwh = h.elec_total_kwh
+
+            # Don't count negative (export) as consumption for TOU
+            kwh = max(0.0, kwh)
+
+            usage_list.append(HourlyUsage(
+                month=h.month,
+                day=h.day,
+                hour=h.hour,
+                kwh=kwh,
+                is_weekend=is_weekend
+            ))
+
+        return usage_list
+
+    def calculate_tou_breakdown(self) -> Any:
+        """
+        Calculate detailed TOU cost breakdown.
+
+        Returns:
+            TouCostBreakdown with energy, demand, and fixed costs
+        """
+        from .tariffs import calculate_tou_costs
+
+        usage = self._convert_hourly_to_usage()
+        return calculate_tou_costs(usage, self.tou_tariff)
+
+    def calculate_annual_cost(self) -> float:
+        """
+        Calculate total annual energy cost using TOU rates.
+
+        Returns:
+            Annual cost in dollars (electricity TOU + gas)
+        """
+        breakdown = self.calculate_tou_breakdown()
+
+        # Add gas cost
+        gas_cost = self.annual_gas_therms * self.tou_tariff.gas_rate
+
+        return breakdown.total_cost + gas_cost
+
+    def get_annual_kwh(self) -> float:
+        """Get total annual kWh consumption."""
+        if self.use_net_electricity:
+            return sum(max(0, h.net_elec_kwh) for h in self.hourly_data)
+        else:
+            return sum(h.elec_total_kwh for h in self.hourly_data)
+
+    def get_pv_generation_kwh(self) -> float:
+        """Get total annual PV generation."""
+        return sum(h.pv_generation_kwh for h in self.hourly_data)
+
+    @classmethod
+    def from_simulation_output(
+        cls,
+        name: str,
+        output: "SimulationOutput",
+        tou_tariff: Any,
+        capex_upfront: float = 0.0,
+        use_net_electricity: bool = True,
+        assumptions: Optional[ScenarioAssumptions] = None,
+        incentives: Optional[List[Incentive]] = None,
+    ) -> "TouLccaScenario":
+        """
+        Create TouLccaScenario from parsed simulation output.
+
+        Args:
+            name: Scenario name
+            output: Parsed SimulationOutput from HourlyResults
+            tou_tariff: TOU tariff to use
+            capex_upfront: Capital cost
+            use_net_electricity: If True, use net electricity (after PV)
+            assumptions: Financial assumptions (uses defaults if None)
+            incentives: List of incentives
+
+        Returns:
+            Configured TouLccaScenario
+        """
+        return cls(
+            name=name,
+            hourly_data=output.hourly,
+            tou_tariff=tou_tariff,
+            capex_upfront=capex_upfront,
+            annual_gas_therms=output.annual.total_gas_therm,
+            use_net_electricity=use_net_electricity,
+            assumptions=assumptions or ScenarioAssumptions(),
+            incentives=incentives or [],
+            building_area_sf=output.conditioned_area_sf,
+            building_type=output.building_type,
+        )

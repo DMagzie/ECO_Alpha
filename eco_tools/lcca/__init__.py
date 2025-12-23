@@ -19,6 +19,7 @@ from .model import (
     ScenarioAssumptions,
     Incentive,
     CashFlow,
+    TouLccaScenario,
 )
 
 from .econ1 import (
@@ -46,6 +47,11 @@ from .calculators import (
     generate_cash_flows,
     run_lcca,
     format_lcca_summary,
+    # TOU-native LCCA
+    TouLccaResults,
+    generate_tou_cash_flows,
+    run_tou_lcca,
+    format_tou_lcca_summary,
 )
 
 from .bridge import (
@@ -56,6 +62,26 @@ from .bridge import (
     run_simulation_lcca,
     quick_lcca_from_annual,
     estimate_pv_incentives,
+    # Mixed-use building support (Phase 4)
+    create_mixed_use_scenarios,
+    create_section_lcca_scenario,
+    run_mixed_use_lcca,
+    allocate_capex_by_section,
+)
+
+from .meter_aggregation import (
+    # Building section types
+    BuildingSectionType,
+    # Aggregation classes
+    MeterCategoryAggregate,
+    BuildingSection,
+    MeterAggregator,
+    MixedUseLccaResults,
+    # Convenience functions
+    aggregate_zones_by_meter_category,
+    create_mixed_use_lcca,
+    format_meter_aggregation_table,
+    format_building_sections_table,
 )
 
 from .tariffs import (
@@ -93,11 +119,120 @@ from .costdb import (
     estimate_battery_cost,
 )
 
+from .vnbt import (
+    NettingMode,
+    ExportRates,
+    NonBypassableCharges,
+    VnbtTariff,
+    HourlyNetUsage,
+    VnbtCostBreakdown,
+    VirtualMeterAllocation,
+    calculate_vnbt_costs,
+    calculate_vnbt_multifamily,
+    create_pge_e_elec_vnbt,
+    create_sce_tou_d_prime_vnbt,
+    create_sdge_tou_dr_vnbt,
+)
+
 from .excel_export import (
     ExcelExportOptions,
     export_lcca_to_excel,
     export_econ1_to_excel,
     export_comparison_to_excel,
+)
+
+from .scenario_manager import (
+    ScenarioManager,
+    ScenarioComparison,
+    TariffComparison,
+    ComparisonMatrix,
+    format_tariff_comparison,
+)
+
+from .ecm_bundle import (
+    # Enums
+    ECMCategory,
+    ECMSubcategory,
+    BuildingType,
+    CodeBaseline,
+    # Data classes
+    ECM,
+    ECMAnalysisResult,
+    ECMBundle,
+    ECMTemplate,
+    # Library
+    ECMLibrary,
+    get_ecm_library,
+    # Analysis functions
+    analyze_ecm_marginal_value,
+    format_ecm_analysis,
+    # ECM template factories
+    create_pv_ecm,
+    create_electrification_ecm,
+    create_efficiency_ecm,
+    # Residential HVAC ECMs
+    create_erv_ecm,
+    create_central_vent_ecm,
+    create_minisplit_ecm,
+    create_hpwh_ecm,
+    create_ecm_from_cuac_comparison,
+)
+
+from .sensitivity import (
+    SensitivityParameter,
+    ParameterRange,
+    SweepResult,
+    ParameterSweep,
+    TornadoItem,
+    TornadoAnalysis,
+    MonteCarloResult,
+    ParameterDistribution,
+    SensitivityAnalyzer,
+    format_sensitivity_summary,
+    # Zone-level sensitivity (Phase 5)
+    ZoneSensitivityResult,
+    ZoneImpactResult,
+    zone_sensitivity_analysis,
+    identify_high_impact_zones,
+    format_zone_impact_table,
+    zone_tornado_analysis,
+)
+
+from .benchmarks import (
+    # Enums
+    PerformanceRating,
+    BuildingVintage,
+    # Data classes
+    ZoneBenchmark,
+    BenchmarkComparison,
+    # Library
+    BenchmarkLibrary,
+    get_benchmark_library,
+    # Comparison functions
+    compare_zone_to_benchmark,
+    compare_zones_to_benchmarks,
+    identify_high_impact_zones as identify_benchmark_outliers,
+    calculate_portfolio_rating,
+    # Formatting
+    format_benchmark_comparison,
+    format_benchmark_summary_table,
+    format_rating_distribution,
+)
+
+from .project_context import (
+    SimulationEngine,
+    BuildingUseType,
+    CompliancePathway,
+    GeoLocation,
+    ClimateData,
+    BuildingGeometry,
+    LcaMetadata,
+    ComplianceInfo,
+    ProjectMetadata,
+    SourceFiles,
+    AnalysisState,
+    ProjectContext,
+    ProjectContextBuilder,
 )
 
 from .esg_report import (
@@ -129,6 +264,27 @@ try:
 except ImportError:
     PDF_EXPORT_AVAILABLE = False
 
+# Phase 6: Production Integration & Workflow
+from .auto_discovery import (
+    SimulationFileType,
+    SimulationFile,
+    DiscoveredOutputs,
+    discover_simulation_outputs,
+    discover_multiple_projects,
+    format_discovery_summary,
+    discover_and_validate,
+)
+
+from .lcca_runner import (
+    OutputFormat,
+    AnalysisMode,
+    RunnerConfig,
+    RunnerResults,
+    LccaRunner,
+    run_lcca_workflow,
+    batch_lcca,
+)
+
 __all__ = [
     # Data models
     "HourlyEnergy",
@@ -140,6 +296,7 @@ __all__ = [
     "ScenarioAssumptions",
     "Incentive",
     "CashFlow",
+    "TouLccaScenario",
     # ECON-1
     "Econ1Report",
     "EnergyCostBreakdown",
@@ -163,6 +320,11 @@ __all__ = [
     "generate_cash_flows",
     "run_lcca",
     "format_lcca_summary",
+    # TOU-native LCCA
+    "TouLccaResults",
+    "generate_tou_cash_flows",
+    "run_tou_lcca",
+    "format_tou_lcca_summary",
     # Bridge functions
     "simulation_to_energy_streams",
     "simulation_to_scenario",
@@ -171,6 +333,21 @@ __all__ = [
     "run_simulation_lcca",
     "quick_lcca_from_annual",
     "estimate_pv_incentives",
+    # Mixed-use building support (Phase 4)
+    "create_mixed_use_scenarios",
+    "create_section_lcca_scenario",
+    "run_mixed_use_lcca",
+    "allocate_capex_by_section",
+    # Meter Aggregation (Phase 4)
+    "BuildingSectionType",
+    "MeterCategoryAggregate",
+    "BuildingSection",
+    "MeterAggregator",
+    "MixedUseLccaResults",
+    "aggregate_zones_by_meter_category",
+    "create_mixed_use_lcca",
+    "format_meter_aggregation_table",
+    "format_building_sections_table",
     # TOU Tariffs
     "TouPeriod",
     "Season",
@@ -202,11 +379,101 @@ __all__ = [
     "estimate_hvac_cost",
     "estimate_pv_cost",
     "estimate_battery_cost",
+    # V-NBT (Virtual Net Billing Tariff)
+    "NettingMode",
+    "ExportRates",
+    "NonBypassableCharges",
+    "VnbtTariff",
+    "HourlyNetUsage",
+    "VnbtCostBreakdown",
+    "VirtualMeterAllocation",
+    "calculate_vnbt_costs",
+    "calculate_vnbt_multifamily",
+    "create_pge_e_elec_vnbt",
+    "create_sce_tou_d_prime_vnbt",
+    "create_sdge_tou_dr_vnbt",
     # Excel Export
     "ExcelExportOptions",
     "export_lcca_to_excel",
     "export_econ1_to_excel",
     "export_comparison_to_excel",
+    # Scenario Manager
+    "ScenarioManager",
+    "ScenarioComparison",
+    "TariffComparison",
+    "ComparisonMatrix",
+    "format_tariff_comparison",
+    # ECM Bundle - Enums
+    "ECMCategory",
+    "ECMSubcategory",
+    "BuildingType",
+    "CodeBaseline",
+    # ECM Bundle - Data classes
+    "ECM",
+    "ECMAnalysisResult",
+    "ECMBundle",
+    "ECMTemplate",
+    # ECM Bundle - Library
+    "ECMLibrary",
+    "get_ecm_library",
+    # ECM Bundle - Analysis
+    "analyze_ecm_marginal_value",
+    "format_ecm_analysis",
+    # ECM Bundle - Template factories
+    "create_pv_ecm",
+    "create_electrification_ecm",
+    "create_efficiency_ecm",
+    "create_erv_ecm",
+    "create_central_vent_ecm",
+    "create_minisplit_ecm",
+    "create_hpwh_ecm",
+    "create_ecm_from_cuac_comparison",
+    # Sensitivity Analysis
+    "SensitivityParameter",
+    "ParameterRange",
+    "SweepResult",
+    "ParameterSweep",
+    "TornadoItem",
+    "TornadoAnalysis",
+    "MonteCarloResult",
+    "ParameterDistribution",
+    "SensitivityAnalyzer",
+    "format_sensitivity_summary",
+    # Zone-level sensitivity (Phase 5)
+    "ZoneSensitivityResult",
+    "ZoneImpactResult",
+    "zone_sensitivity_analysis",
+    "identify_high_impact_zones",
+    "format_zone_impact_table",
+    "zone_tornado_analysis",
+    # Benchmarking (Phase 5)
+    "PerformanceRating",
+    "BuildingVintage",
+    "ZoneBenchmark",
+    "BenchmarkComparison",
+    "BenchmarkLibrary",
+    "get_benchmark_library",
+    "compare_zone_to_benchmark",
+    "compare_zones_to_benchmarks",
+    "identify_benchmark_outliers",
+    "calculate_portfolio_rating",
+    "format_benchmark_comparison",
+    "format_benchmark_summary_table",
+    "format_rating_distribution",
+    # Project Context
+    "SimulationEngine",
+    "BuildingUseType",
+    "CompliancePathway",
+    "GeoLocation",
+    "ClimateData",
+    "BuildingGeometry",
+    "LcaMetadata",
+    "ComplianceInfo",
+    "ProjectMetadata",
+    "SourceFiles",
+    "AnalysisState",
+    "ProjectContext",
+    "ProjectContextBuilder",
     # ESG Report
     "EmissionsSource",
     "EmissionFactors",
@@ -225,4 +492,20 @@ __all__ = [
     "get_emission_factors",
     # PDF Export (optional)
     "PDF_EXPORT_AVAILABLE",
+    # Auto-discovery (Phase 6)
+    "SimulationFileType",
+    "SimulationFile",
+    "DiscoveredOutputs",
+    "discover_simulation_outputs",
+    "discover_multiple_projects",
+    "format_discovery_summary",
+    "discover_and_validate",
+    # LCCA Runner (Phase 6)
+    "OutputFormat",
+    "AnalysisMode",
+    "RunnerConfig",
+    "RunnerResults",
+    "LccaRunner",
+    "run_lcca_workflow",
+    "batch_lcca",
 ]

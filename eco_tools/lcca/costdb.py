@@ -5,16 +5,31 @@ Provides:
 - System cost data structures and lookups
 - HVAC equipment costs by type and capacity
 - Material costs
-- Regional labor adjustments
-- Cost escalation factors
+- Regional labor adjustments (22 CA/HI regions)
+- Cost escalation factors (BLS PPI indices)
+- Utility rate structures (15 CA/HI rates)
+- CostDB v0.06 Excel format support
+
+Usage:
+    # Load default database
+    db = create_default_costdb()
+
+    # Load from NREL Excel file (v0.06 format)
+    db = load_costdb_v06('CostDB_v0.06_NREL.xlsx')
+
+    # Get regional cost
+    cost = db.get_system_cost('HP-SPLIT-3T-SEER15', 1.0, 'US-CA-SF')
 """
 
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Tuple
 from enum import Enum
 from pathlib import Path
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class SystemType(Enum):
@@ -652,3 +667,284 @@ def format_cost_estimate(
     """Format a cost estimate line."""
     region_str = f" ({region})" if region else ""
     return f"  {description}: {capacity:,.0f} {unit} = ${cost:,.0f}{region_str}"
+
+
+# =============================================================================
+# CostDB v0.06 NREL Format Support
+# =============================================================================
+
+@dataclass
+class UtilityRateStructure:
+    """Utility rate structure from CostDB v0.06."""
+    rate_id: str
+    utility: str
+    utility_code: str
+    rate_name: str
+    rate_type: str  # 'Tiered', 'TOU', 'Flat'
+    fuel_type: str  # 'Electric', 'Gas'
+    structure: str  # JSON string of tiers/periods
+    source: str = ""
+
+
+@dataclass
+class CostDBv06:
+    """
+    Enhanced CostDatabase with v0.06 NREL data.
+
+    Extends CostDatabase with:
+    - Full 22 CA/HI regional factors
+    - 15 utility rate structures
+    - BLS PPI escalation indices
+    - NREL source attribution
+    """
+    name: str = "CostDB v0.06 NREL"
+    version: str = "v0.06"
+    base_year: int = 2024
+
+    # Core cost data (inherited pattern)
+    system_costs: Dict[str, SystemCost] = field(default_factory=dict)
+    material_costs: Dict[str, MaterialCost] = field(default_factory=dict)
+    regional_factors: Dict[str, RegionalFactor] = field(default_factory=dict)
+    escalation_rates: Dict[int, EscalationRate] = field(default_factory=dict)
+
+    # v0.06 additions
+    utility_rates: Dict[str, UtilityRateStructure] = field(default_factory=dict)
+    escalation_indices: Dict[str, float] = field(default_factory=dict)
+    markup_factors: Dict[str, float] = field(default_factory=dict)
+    metadata: Dict[str, str] = field(default_factory=dict)
+
+    def get_system_cost(
+        self,
+        system_code: str,
+        quantity: float = 1.0,
+        region: str = "US-NATIONAL"
+    ) -> Optional[float]:
+        """
+        Look up system cost with regional adjustment.
+
+        Args:
+            system_code: System code (e.g., 'HP-SPLIT-3T-SEER15')
+            quantity: Number of units or capacity
+            region: Region code (e.g., 'US-CA-SF')
+
+        Returns:
+            Adjusted cost or None if not found
+        """
+        cost_data = self.system_costs.get(system_code)
+        if not cost_data:
+            return None
+
+        regional = self.regional_factors.get(region)
+        factor = regional.combined_factor if regional else 1.0
+
+        return cost_data.calculate_installed_cost(quantity, factor)
+
+    def get_regional_factor(self, region: str) -> float:
+        """Get regional cost adjustment factor."""
+        regional = self.regional_factors.get(region)
+        return regional.combined_factor if regional else 1.0
+
+    def list_regions(self, state: Optional[str] = None) -> List[str]:
+        """List available region codes, optionally filtered by state."""
+        if state:
+            return [
+                code for code, rf in self.regional_factors.items()
+                if rf.state == state
+            ]
+        return list(self.regional_factors.keys())
+
+    def list_utility_rates(
+        self,
+        utility_code: Optional[str] = None,
+        fuel_type: Optional[str] = None
+    ) -> List[str]:
+        """List available utility rate IDs."""
+        rates = []
+        for rate_id, rate in self.utility_rates.items():
+            if utility_code and rate.utility_code != utility_code:
+                continue
+            if fuel_type and rate.fuel_type != fuel_type:
+                continue
+            rates.append(rate_id)
+        return rates
+
+    def get_utility_rate(self, rate_id: str) -> Optional[UtilityRateStructure]:
+        """Get utility rate structure by ID."""
+        return self.utility_rates.get(rate_id)
+
+    def get_escalation_rate(self, index_name: str) -> float:
+        """Get annual escalation rate by index name."""
+        return self.escalation_indices.get(index_name, 0.03)
+
+    def get_markup_total(self) -> float:
+        """Get total markup factor (1 + sum of all markups)."""
+        return 1.0 + sum(self.markup_factors.values())
+
+
+def load_costdb_v06(excel_path: str) -> CostDBv06:
+    """
+    Load CostDB v0.06 from NREL Excel file.
+
+    Args:
+        excel_path: Path to CostDB_v0.06_NREL.xlsx
+
+    Returns:
+        Populated CostDBv06 instance
+
+    Raises:
+        FileNotFoundError: If Excel file not found
+        ImportError: If pandas/openpyxl not available
+    """
+    try:
+        import pandas as pd
+    except ImportError:
+        raise ImportError("pandas and openpyxl required: pip install pandas openpyxl")
+
+    path = Path(excel_path)
+    if not path.exists():
+        raise FileNotFoundError(f"CostDB file not found: {excel_path}")
+
+    logger.info(f"Loading CostDB v0.06: {excel_path}")
+    db = CostDBv06()
+
+    # Load System Costs
+    try:
+        systems_df = pd.read_excel(excel_path, sheet_name='System_Costs')
+        for _, row in systems_df.iterrows():
+            code = row['system_code']
+            db.system_costs[code] = SystemCost(
+                system_type=code,
+                description=row.get('description', ''),
+                base_cost=float(row.get('base_cost', 0)),
+                cost_unit=row.get('unit', 'each'),
+                capacity_unit=row.get('capacity_unit', ''),
+                source=row.get('source', 'NREL'),
+                year=db.base_year,
+            )
+        logger.info(f"Loaded {len(db.system_costs)} system costs")
+    except Exception as e:
+        logger.warning(f"Error loading System_Costs: {e}")
+
+    # Load Regional Factors
+    try:
+        regional_df = pd.read_excel(excel_path, sheet_name='Regional_Factors')
+        for _, row in regional_df.iterrows():
+            code = row['region_code']
+            db.regional_factors[code] = RegionalFactor(
+                region=code,
+                state=row.get('state', ''),
+                city=row.get('city', ''),
+                combined_factor=float(row.get('factor', 1.0)),
+            )
+        logger.info(f"Loaded {len(db.regional_factors)} regional factors")
+    except Exception as e:
+        logger.warning(f"Error loading Regional_Factors: {e}")
+
+    # Load Utility Rates
+    try:
+        rates_df = pd.read_excel(excel_path, sheet_name='Utility_Rates')
+        for _, row in rates_df.iterrows():
+            rate_id = row['rate_id']
+            db.utility_rates[rate_id] = UtilityRateStructure(
+                rate_id=rate_id,
+                utility=row.get('utility', ''),
+                utility_code=row.get('utility_code', ''),
+                rate_name=row.get('rate_name', ''),
+                rate_type=row.get('rate_type', 'Flat'),
+                fuel_type=row.get('fuel_type', 'Electric'),
+                structure=str(row.get('structure', '')),
+                source=row.get('source', ''),
+            )
+        logger.info(f"Loaded {len(db.utility_rates)} utility rates")
+    except Exception as e:
+        logger.warning(f"Error loading Utility_Rates: {e}")
+
+    # Load Escalation Indices
+    try:
+        escalation_df = pd.read_excel(excel_path, sheet_name='Escalation_Indices')
+        for _, row in escalation_df.iterrows():
+            idx_id = row['index_id']
+            db.escalation_indices[idx_id] = float(row.get('annual_rate', 0.03))
+        logger.info(f"Loaded {len(db.escalation_indices)} escalation indices")
+    except Exception as e:
+        logger.warning(f"Error loading Escalation_Indices: {e}")
+
+    # Load Markup Factors
+    try:
+        markups_df = pd.read_excel(excel_path, sheet_name='Markup_Factors')
+        for _, row in markups_df.iterrows():
+            markup_id = row['markup_id']
+            db.markup_factors[markup_id] = float(row.get('rate', 0.0))
+        logger.info(f"Loaded {len(db.markup_factors)} markup factors")
+    except Exception as e:
+        logger.warning(f"Error loading Markup_Factors: {e}")
+
+    # Load Metadata
+    try:
+        metadata_df = pd.read_excel(excel_path, sheet_name='Metadata')
+        for _, row in metadata_df.iterrows():
+            key = row['key']
+            value = str(row['value'])
+            db.metadata[key] = value
+        db.version = db.metadata.get('version', 'v0.06')
+        logger.info(f"Loaded metadata: version={db.version}")
+    except Exception as e:
+        logger.warning(f"Error loading Metadata: {e}")
+
+    return db
+
+
+def get_default_costdb_v06_path() -> Path:
+    """Get the default path to CostDB_v0.06_NREL.xlsx."""
+    # Check relative to this module
+    module_dir = Path(__file__).parent
+    default_path = module_dir / 'data' / 'CostDB_v0.06_NREL.xlsx'
+    return default_path
+
+
+def load_default_costdb_v06() -> CostDBv06:
+    """
+    Load the default CostDB v0.06 NREL database.
+
+    Returns:
+        CostDBv06 instance loaded from bundled Excel file
+
+    Raises:
+        FileNotFoundError: If default database not found
+    """
+    path = get_default_costdb_v06_path()
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Default CostDB v0.06 not found at {path}. "
+            f"Run: python -m eco_tools.lcca.extract_nrel_costs"
+        )
+    return load_costdb_v06(str(path))
+
+
+def get_regional_cost_v06(
+    system_code: str,
+    region: str,
+    quantity: float = 1.0,
+    db: Optional[CostDBv06] = None,
+) -> Tuple[Optional[float], float]:
+    """
+    Quick regional cost lookup using v0.06 database.
+
+    Args:
+        system_code: System code (e.g., 'HP-SPLIT-3T-SEER15')
+        region: Region code (e.g., 'US-CA-SF')
+        quantity: Number of units
+        db: CostDBv06 instance (loads default if None)
+
+    Returns:
+        Tuple of (adjusted_cost, regional_factor) or (None, 1.0) if not found
+    """
+    if db is None:
+        try:
+            db = load_default_costdb_v06()
+        except FileNotFoundError:
+            return None, 1.0
+
+    cost = db.get_system_cost(system_code, quantity, region)
+    factor = db.get_regional_factor(region)
+    return cost, factor

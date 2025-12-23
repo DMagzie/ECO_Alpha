@@ -4,15 +4,21 @@
 
 This roadmap outlines the steps to integrate LCCA capabilities with the ECO_Alpha_v7 CBECC translation pipeline.
 
-## Current State
+## Current State (Updated December 2024)
 
 | Component | Status | Location |
 |-----------|--------|----------|
 | CBECC Model Translation | Production Ready | eco_tools/translators/ |
-| Simulation Output Parsing | **NOT STARTED** | - |
-| LCCA Calculators | Scaffolded | EM_Projects/v5 Other/lcca_track/ |
-| Cost Database | Prototype | SNO/lcca/load_costdb.py |
-| ECON-1 Generator | Stub | EM_Projects/v5 Other/lcca_track/econ1/ |
+| Simulation Output Parsing | **COMPLETE** | eco_tools/lcca/parsers/ |
+| LCCA Calculators | **COMPLETE** | eco_tools/lcca/calculators.py |
+| Cost Database | **COMPLETE** | eco_tools/lcca/costdb.py |
+| ECON-1 Generator | **COMPLETE** | eco_tools/lcca/econ1.py |
+| TOU Rate Engine | **COMPLETE** | eco_tools/lcca/tariffs.py |
+| Excel Export | **COMPLETE** | eco_tools/lcca/excel_export.py |
+| ESG Reports | **COMPLETE** | eco_tools/lcca/esg_report.py |
+| PDF Export | **COMPLETE** | eco_tools/lcca/pdf_export.py |
+
+**See `LCCA_ARCHITECTURE.md` for full module documentation.**
 
 ## Sample Data Available
 

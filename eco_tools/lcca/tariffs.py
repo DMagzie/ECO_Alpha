@@ -688,3 +688,699 @@ def format_tou_breakdown(breakdown: TouCostBreakdown, tariff_name: str = "") -> 
     ])
 
     return "\n".join(lines)
+
+
+# =============================================================================
+# RESIDENTIAL TARIFF TEMPLATES - CALIFORNIA
+# =============================================================================
+
+def create_pge_e_tou_c() -> TouTariff:
+    """
+    Create PG&E E-TOU-C tariff template.
+
+    Pacific Gas & Electric - Residential Time-of-Use
+    Peak: 4pm-9pm weekdays, all year
+    Most common residential TOU rate for NEM customers.
+    """
+    schedule = TouSchedule(
+        name="PG&E E-TOU-C",
+        summer_months=[6, 7, 8, 9],  # June-September
+        # Summer: On-peak 4pm-9pm weekdays
+        summer_on_peak=[(16, 21)],
+        summer_mid_peak=[],
+        summer_off_peak=[],  # All other hours
+        # Winter: On-peak 4pm-9pm weekdays
+        winter_on_peak=[(16, 21)],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=True
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.47,
+        summer_mid_peak=0.35,
+        summer_off_peak=0.24,
+        winter_on_peak=0.32,
+        winter_mid_peak=0.28,
+        winter_off_peak=0.24
+    )
+
+    demand_rates = DemandRates()  # No demand charges for residential
+
+    return TouTariff(
+        name="E-TOU-C",
+        utility="Pacific Gas & Electric",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.80,
+        monthly_customer_charge=12.00
+    )
+
+
+def create_pge_ev2a() -> TouTariff:
+    """
+    Create PG&E EV2-A tariff template.
+
+    Pacific Gas & Electric - EV Residential TOU
+    Peak: 4pm-9pm weekdays
+    Super off-peak: midnight-6am (great for EV charging)
+    Popular for homes with EVs or battery storage.
+    """
+    schedule = TouSchedule(
+        name="PG&E EV2-A",
+        summer_months=[6, 7, 8, 9],
+        summer_on_peak=[(16, 21)],
+        summer_mid_peak=[(15, 16), (21, 24)],  # Partial peak hours
+        summer_off_peak=[(6, 15)],
+        # Note: 0-6 would be super off-peak, handled via rate override
+        winter_on_peak=[(16, 21)],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=False  # Weekend has partial peak
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.52,
+        summer_mid_peak=0.36,
+        summer_off_peak=0.20,  # Super off-peak is lower
+        winter_on_peak=0.34,
+        winter_mid_peak=0.28,
+        winter_off_peak=0.18
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="EV2-A",
+        utility="Pacific Gas & Electric",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.80,
+        monthly_customer_charge=15.00
+    )
+
+
+def create_sce_tou_d_4_9pm() -> TouTariff:
+    """
+    Create SCE TOU-D-4-9PM tariff template.
+
+    Southern California Edison - Residential TOU
+    Peak: 4pm-9pm weekdays year-round
+    Default residential TOU rate for SCE territory.
+    """
+    schedule = TouSchedule(
+        name="SCE TOU-D-4-9PM",
+        summer_months=[6, 7, 8, 9],
+        summer_on_peak=[(16, 21)],
+        summer_mid_peak=[],
+        summer_off_peak=[],
+        winter_on_peak=[(16, 21)],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=True
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.44,
+        summer_mid_peak=0.32,
+        summer_off_peak=0.22,
+        winter_on_peak=0.35,
+        winter_mid_peak=0.28,
+        winter_off_peak=0.22
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="TOU-D-4-9PM",
+        utility="Southern California Edison",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.65,
+        monthly_customer_charge=14.00
+    )
+
+
+def create_sce_tou_d_prime() -> TouTariff:
+    """
+    Create SCE TOU-D-PRIME tariff template.
+
+    Southern California Edison - Residential TOU for EV/Battery
+    Peak: 4pm-9pm weekdays
+    Super off-peak: 9pm-8am
+    Designed for customers with EVs or battery storage.
+    """
+    schedule = TouSchedule(
+        name="SCE TOU-D-PRIME",
+        summer_months=[6, 7, 8, 9],
+        summer_on_peak=[(16, 21)],
+        summer_mid_peak=[(8, 16)],
+        summer_off_peak=[(0, 8), (21, 24)],  # Super off-peak
+        winter_on_peak=[(16, 21)],
+        winter_mid_peak=[(8, 16)],
+        winter_off_peak=[(0, 8), (21, 24)],
+        weekend_all_off_peak=True
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.48,
+        summer_mid_peak=0.30,
+        summer_off_peak=0.16,  # Very low super off-peak
+        winter_on_peak=0.38,
+        winter_mid_peak=0.26,
+        winter_off_peak=0.14
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="TOU-D-PRIME",
+        utility="Southern California Edison",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.65,
+        monthly_customer_charge=16.00
+    )
+
+
+def create_sdge_tou_dr1() -> TouTariff:
+    """
+    Create SDG&E TOU-DR1 tariff template.
+
+    San Diego Gas & Electric - Residential TOU
+    Peak: 4pm-9pm all days
+    SDG&E's default residential TOU rate.
+    """
+    schedule = TouSchedule(
+        name="SDG&E TOU-DR1",
+        summer_months=[6, 7, 8, 9, 10],  # June-October
+        summer_on_peak=[(16, 21)],
+        summer_mid_peak=[],
+        summer_off_peak=[],
+        winter_on_peak=[(16, 21)],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=False  # SDG&E has peak on weekends too
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.58,  # SDG&E highest in state
+        summer_mid_peak=0.42,
+        summer_off_peak=0.28,
+        winter_on_peak=0.38,
+        winter_mid_peak=0.30,
+        winter_off_peak=0.26
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="TOU-DR1",
+        utility="San Diego Gas & Electric",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.90,
+        monthly_customer_charge=18.00
+    )
+
+
+def create_sdge_ev_tou_5() -> TouTariff:
+    """
+    Create SDG&E EV-TOU-5 tariff template.
+
+    San Diego Gas & Electric - Residential EV TOU
+    Super off-peak: midnight-6am
+    Designed for EV charging optimization.
+    """
+    schedule = TouSchedule(
+        name="SDG&E EV-TOU-5",
+        summer_months=[6, 7, 8, 9, 10],
+        summer_on_peak=[(16, 21)],
+        summer_mid_peak=[(6, 16), (21, 24)],
+        summer_off_peak=[(0, 6)],
+        winter_on_peak=[(16, 21)],
+        winter_mid_peak=[(6, 16), (21, 24)],
+        winter_off_peak=[(0, 6)],
+        weekend_all_off_peak=False
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.62,
+        summer_mid_peak=0.40,
+        summer_off_peak=0.12,  # Very low super off-peak
+        winter_on_peak=0.40,
+        winter_mid_peak=0.28,
+        winter_off_peak=0.10
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="EV-TOU-5",
+        utility="San Diego Gas & Electric",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.90,
+        monthly_customer_charge=22.00
+    )
+
+
+# =============================================================================
+# HAWAII TARIFF TEMPLATES
+# =============================================================================
+
+def create_heco_r_tou() -> TouTariff:
+    """
+    Create HECO Schedule R-TOU tariff template.
+
+    Hawaiian Electric (Oahu) - Residential TOU
+    Peak: 5pm-10pm all days
+    Hawaii has highest electricity rates in the US.
+    """
+    schedule = TouSchedule(
+        name="HECO R-TOU",
+        summer_months=[5, 6, 7, 8, 9, 10],  # Year-round essentially
+        summer_on_peak=[(17, 22)],  # 5pm-10pm
+        summer_mid_peak=[(7, 17), (22, 24)],
+        summer_off_peak=[(0, 7)],
+        winter_on_peak=[(17, 22)],
+        winter_mid_peak=[(7, 17), (22, 24)],
+        winter_off_peak=[(0, 7)],
+        weekend_all_off_peak=False  # Hawaii has peak all days
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.52,
+        summer_mid_peak=0.38,
+        summer_off_peak=0.28,
+        winter_on_peak=0.48,
+        winter_mid_peak=0.36,
+        winter_off_peak=0.26
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="R-TOU",
+        utility="Hawaiian Electric (HECO)",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=3.50,  # Propane equivalent
+        monthly_customer_charge=12.00
+    )
+
+
+def create_heco_r_tier() -> TouTariff:
+    """
+    Create HECO Schedule R (Tiered) tariff approximation.
+
+    Hawaiian Electric - Residential Standard (non-TOU)
+    Approximated as flat rate for TOU engine compatibility.
+    """
+    schedule = TouSchedule(
+        name="HECO R (Tiered)",
+        summer_months=[],  # No seasonal variation
+        summer_on_peak=[],
+        summer_mid_peak=[],
+        summer_off_peak=[],
+        winter_on_peak=[],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=True
+    )
+
+    # Flat rate approximation (all periods same)
+    energy_rates = TouRates(
+        summer_on_peak=0.40,
+        summer_mid_peak=0.40,
+        summer_off_peak=0.40,
+        winter_on_peak=0.40,
+        winter_mid_peak=0.40,
+        winter_off_peak=0.40
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="R (Tiered)",
+        utility="Hawaiian Electric (HECO)",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=3.50,
+        monthly_customer_charge=10.00
+    )
+
+
+def create_meco_r_tier() -> TouTariff:
+    """
+    Create MECO Schedule R tariff approximation.
+
+    Maui Electric Company - Residential Standard
+    Higher rates than Oahu due to smaller grid.
+    """
+    schedule = TouSchedule(
+        name="MECO R",
+        summer_months=[],
+        summer_on_peak=[],
+        summer_mid_peak=[],
+        summer_off_peak=[],
+        winter_on_peak=[],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=True
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.44,
+        summer_mid_peak=0.44,
+        summer_off_peak=0.44,
+        winter_on_peak=0.44,
+        winter_mid_peak=0.44,
+        winter_off_peak=0.44
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="R",
+        utility="Maui Electric Company (MECO)",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=3.80,
+        monthly_customer_charge=10.00
+    )
+
+
+def create_helco_r_tier() -> TouTariff:
+    """
+    Create HELCO Schedule R tariff approximation.
+
+    Hawaii Electric Light - Residential Standard (Big Island)
+    """
+    schedule = TouSchedule(
+        name="HELCO R",
+        summer_months=[],
+        summer_on_peak=[],
+        summer_mid_peak=[],
+        summer_off_peak=[],
+        winter_on_peak=[],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=True
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.46,
+        summer_mid_peak=0.46,
+        summer_off_peak=0.46,
+        winter_on_peak=0.46,
+        winter_mid_peak=0.46,
+        winter_off_peak=0.46
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="R",
+        utility="Hawaii Electric Light (HELCO)",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=4.00,
+        monthly_customer_charge=10.00
+    )
+
+
+# =============================================================================
+# DEFAULT / FALLBACK TARIFFS
+# =============================================================================
+
+def create_default_elec_us() -> TouTariff:
+    """
+    Create US average electricity tariff.
+
+    National average rates for fallback when specific utility unknown.
+    """
+    schedule = TouSchedule(
+        name="US Average",
+        summer_months=[6, 7, 8, 9],
+        summer_on_peak=[(14, 19)],
+        summer_mid_peak=[],
+        summer_off_peak=[],
+        winter_on_peak=[],
+        winter_mid_peak=[(14, 19)],
+        winter_off_peak=[],
+        weekend_all_off_peak=True
+    )
+
+    energy_rates = TouRates(
+        summer_on_peak=0.18,
+        summer_mid_peak=0.14,
+        summer_off_peak=0.11,
+        winter_on_peak=0.15,
+        winter_mid_peak=0.13,
+        winter_off_peak=0.11
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="US-AVG-ELEC",
+        utility="US National Average",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.20,
+        monthly_customer_charge=10.00
+    )
+
+
+def create_default_flat() -> TouTariff:
+    """
+    Create simple flat rate tariff.
+
+    For quick estimates when TOU detail not needed.
+    """
+    schedule = TouSchedule(
+        name="Flat Rate",
+        summer_months=[],
+        summer_on_peak=[],
+        summer_mid_peak=[],
+        summer_off_peak=[],
+        winter_on_peak=[],
+        winter_mid_peak=[],
+        winter_off_peak=[],
+        weekend_all_off_peak=True
+    )
+
+    flat_rate = 0.15
+    energy_rates = TouRates(
+        summer_on_peak=flat_rate,
+        summer_mid_peak=flat_rate,
+        summer_off_peak=flat_rate,
+        winter_on_peak=flat_rate,
+        winter_mid_peak=flat_rate,
+        winter_off_peak=flat_rate
+    )
+
+    demand_rates = DemandRates()
+
+    return TouTariff(
+        name="FLAT",
+        utility="Generic",
+        schedule=schedule,
+        energy_rates=energy_rates,
+        demand_rates=demand_rates,
+        gas_rate=1.00,
+        monthly_customer_charge=10.00
+    )
+
+
+# =============================================================================
+# TARIFF REGISTRY & LOOKUP
+# =============================================================================
+
+# Complete tariff registry
+TARIFF_REGISTRY: Dict[str, callable] = {
+    # PG&E Commercial
+    "PG&E B-20": create_pge_b20,
+    "B-20": create_pge_b20,
+    "PGE-B-20": create_pge_b20,
+
+    # PG&E Residential
+    "PG&E E-TOU-C": create_pge_e_tou_c,
+    "E-TOU-C": create_pge_e_tou_c,
+    "PGE-E-TOU-C": create_pge_e_tou_c,
+    "PG&E EV2-A": create_pge_ev2a,
+    "EV2-A": create_pge_ev2a,
+    "PGE-EV2A": create_pge_ev2a,
+
+    # SCE Commercial
+    "SCE TOU-GS-3": create_sce_tou_gs3,
+    "TOU-GS-3": create_sce_tou_gs3,
+    "SCE-TOU-GS-3": create_sce_tou_gs3,
+
+    # SCE Residential
+    "SCE TOU-D-4-9PM": create_sce_tou_d_4_9pm,
+    "TOU-D-4-9PM": create_sce_tou_d_4_9pm,
+    "SCE-TOU-D-4-9PM": create_sce_tou_d_4_9pm,
+    "SCE TOU-D-PRIME": create_sce_tou_d_prime,
+    "TOU-D-PRIME": create_sce_tou_d_prime,
+    "SCE-TOU-D-PRIME": create_sce_tou_d_prime,
+
+    # SDG&E Commercial
+    "SDG&E AL-TOU": create_sdge_al_tou,
+    "AL-TOU": create_sdge_al_tou,
+    "SDGE-AL-TOU": create_sdge_al_tou,
+
+    # SDG&E Residential
+    "SDG&E TOU-DR1": create_sdge_tou_dr1,
+    "TOU-DR1": create_sdge_tou_dr1,
+    "SDGE-TOU-DR1": create_sdge_tou_dr1,
+    "SDG&E EV-TOU-5": create_sdge_ev_tou_5,
+    "EV-TOU-5": create_sdge_ev_tou_5,
+    "SDGE-EV-TOU-5": create_sdge_ev_tou_5,
+
+    # Hawaii - HECO (Oahu)
+    "HECO R-TOU": create_heco_r_tou,
+    "HECO-R-TOU": create_heco_r_tou,
+    "HECO R": create_heco_r_tier,
+    "HECO-R-TIER": create_heco_r_tier,
+
+    # Hawaii - MECO (Maui)
+    "MECO R": create_meco_r_tier,
+    "MECO-R-TIER": create_meco_r_tier,
+
+    # Hawaii - HELCO (Big Island)
+    "HELCO R": create_helco_r_tier,
+    "HELCO-R-TIER": create_helco_r_tier,
+
+    # Defaults
+    "DEFAULT-ELEC-US": create_default_elec_us,
+    "US-AVG": create_default_elec_us,
+    "FLAT": create_default_flat,
+}
+
+
+def get_tariff_by_name(name: str) -> Optional[TouTariff]:
+    """
+    Get a predefined tariff by name.
+
+    Args:
+        name: Tariff identifier (e.g., "SCE TOU-GS-3", "PG&E E-TOU-C", "HECO R-TOU")
+
+    Returns:
+        TouTariff or None if not found
+    """
+    factory = TARIFF_REGISTRY.get(name)
+    if factory:
+        return factory()
+    return None
+
+
+def list_available_tariffs() -> List[str]:
+    """Return list of available predefined tariffs with descriptions."""
+    return [
+        # California Commercial
+        "PG&E B-20 (Pacific Gas & Electric - Commercial Medium)",
+        "SCE TOU-GS-3 (Southern California Edison - Commercial Large)",
+        "SDG&E AL-TOU (San Diego Gas & Electric - Commercial Large)",
+
+        # California Residential
+        "PG&E E-TOU-C (Pacific Gas & Electric - Residential TOU)",
+        "PG&E EV2-A (Pacific Gas & Electric - Residential EV)",
+        "SCE TOU-D-4-9PM (Southern California Edison - Residential TOU)",
+        "SCE TOU-D-PRIME (Southern California Edison - Residential EV/Battery)",
+        "SDG&E TOU-DR1 (San Diego Gas & Electric - Residential TOU)",
+        "SDG&E EV-TOU-5 (San Diego Gas & Electric - Residential EV)",
+
+        # Hawaii
+        "HECO R-TOU (Hawaiian Electric - Oahu Residential TOU)",
+        "HECO R (Hawaiian Electric - Oahu Residential Tiered)",
+        "MECO R (Maui Electric - Residential)",
+        "HELCO R (Hawaii Electric Light - Big Island Residential)",
+
+        # Defaults
+        "US-AVG (US National Average)",
+        "FLAT (Generic Flat Rate)",
+    ]
+
+
+def list_tariffs_by_utility(utility_code: str) -> List[str]:
+    """
+    List tariff names for a specific utility.
+
+    Args:
+        utility_code: Utility code (e.g., 'PGE', 'SCE', 'HECO')
+
+    Returns:
+        List of tariff names
+    """
+    utility_map = {
+        'PGE': ['PG&E B-20', 'PG&E E-TOU-C', 'PG&E EV2-A'],
+        'SCE': ['SCE TOU-GS-3', 'SCE TOU-D-4-9PM', 'SCE TOU-D-PRIME'],
+        'SDGE': ['SDG&E AL-TOU', 'SDG&E TOU-DR1', 'SDG&E EV-TOU-5'],
+        'HECO': ['HECO R-TOU', 'HECO R'],
+        'MECO': ['MECO R'],
+        'HELCO': ['HELCO R'],
+    }
+    return utility_map.get(utility_code.upper(), [])
+
+
+def get_default_tariff_for_region(
+    region_code: str,
+    building_type: str = 'residential'
+) -> Optional[TouTariff]:
+    """
+    Get default tariff for a region and building type.
+
+    Args:
+        region_code: Region code (e.g., 'US-CA-SF', 'US-HI-MAU')
+        building_type: 'residential' or 'commercial'
+
+    Returns:
+        TouTariff appropriate for the region
+    """
+    # Import here to avoid circular dependency
+    try:
+        from .ca_hi_helpers import get_default_rate_id
+        rate_id = get_default_rate_id(region_code, building_type)
+        return get_tariff_by_name(rate_id)
+    except ImportError:
+        # Fallback if ca_hi_helpers not available
+        pass
+
+    # Manual fallback mapping
+    region_to_tariff = {
+        # PG&E territory
+        'US-CA-SF': 'PG&E E-TOU-C' if building_type == 'residential' else 'PG&E B-20',
+        'US-CA-OAK': 'PG&E E-TOU-C' if building_type == 'residential' else 'PG&E B-20',
+        'US-CA-SJ': 'PG&E E-TOU-C' if building_type == 'residential' else 'PG&E B-20',
+        'US-CA-SAC': 'PG&E E-TOU-C' if building_type == 'residential' else 'PG&E B-20',
+        # SCE territory
+        'US-CA-LA': 'SCE TOU-D-4-9PM' if building_type == 'residential' else 'SCE TOU-GS-3',
+        'US-CA-OC': 'SCE TOU-D-4-9PM' if building_type == 'residential' else 'SCE TOU-GS-3',
+        'US-CA-RIV': 'SCE TOU-D-4-9PM' if building_type == 'residential' else 'SCE TOU-GS-3',
+        # SDG&E territory
+        'US-CA-SD': 'SDG&E TOU-DR1' if building_type == 'residential' else 'SDG&E AL-TOU',
+        # Hawaii
+        'US-HI-HON': 'HECO R-TOU' if building_type == 'residential' else 'HECO R-TOU',
+        'US-HI-MAU': 'MECO R',
+        'US-HI-BIG': 'HELCO R',
+    }
+
+    tariff_name = region_to_tariff.get(region_code)
+    if tariff_name:
+        return get_tariff_by_name(tariff_name)
+
+    # Ultimate fallback
+    return create_default_elec_us()
