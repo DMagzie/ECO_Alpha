@@ -1252,7 +1252,175 @@ xlsxwriter>=3.1     # Enhanced Excel features
 
 ---
 
-## 8. Success Criteria
+## 8. Future Phases - Roadmap
+
+### Phase 7: ESPM/BBC Integration (Planned - 8-12 weeks)
+
+**Objective:** Integrate Energy Star Portfolio Manager and DOE Better Buildings Challenge capabilities
+
+**Reference:** See `/Plans/espm_bbc_integration_plan.md` for detailed implementation plan
+
+#### 7.1 ESPM Export Module
+- [ ] Create `eco_tools/integrations/espm/` module structure
+- [ ] `espm_models.py` - Pydantic models for ESPM data (ESPMProperty, ESPMMeter, ESPMBillEntry)
+- [ ] `espm_mapper.py` - Map InternalRepresentation → ESPM format
+- [ ] `espm_xml_builder.py` - Generate ESPM Portfolio Manager XML
+- [ ] `espm_exporter.py` - Complete export service with XML and CSV output
+
+**Key Mappings:**
+| ESPM Field | ECO Tools Source |
+|------------|------------------|
+| Gross Floor Area | Sum of zone.floor_area_m2 |
+| Site EUI | HourlyEnergy → annual kBtu/sf |
+| Electric - Grid | HourlyEnergy.elec_total_kwh |
+| Natural Gas | HourlyEnergy.gas_total_therm |
+| On-Site Solar | HourlyEnergy.pv_generation_kwh |
+
+#### 7.2 BBC/BCC Tracking Module
+- [ ] `bbc_tracker.py` - Better Buildings Challenge goal tracking
+- [ ] BBCGoal dataclass - 20% energy reduction over 10 years
+- [ ] BCCGoal support - 50% GHG reduction over 10 years
+- [ ] Portfolio-wide progress calculation
+- [ ] Quarterly DOE submission data generation
+- [ ] Progress report PDF generation
+
+#### 7.3 Tests & Documentation
+- [ ] `tests/integration/test_espm_integration.py`
+- [ ] Unit tests for data mapping accuracy
+- [ ] XML validation tests
+- [ ] BBC calculation tests
+
+**Deliverables:**
+- ESPM XML export for Portfolio Manager upload
+- BBC/BCC progress tracking dashboard
+- Quarterly DOE submission automation
+- Portfolio-wide analytics
+
+---
+
+### Phase 8: Streamlit GUI Enhancements (Planned - 6-8 weeks)
+
+**Objective:** Add LCCA and portfolio management pages to Streamlit GUI
+
+#### 8.1 LCCA Dashboard Page
+- [ ] `gui/pages/lcca_dashboard.py` - Interactive LCCA visualization
+- [ ] NPV/IRR/Payback display widgets
+- [ ] Cash flow chart (matplotlib/plotly)
+- [ ] Sensitivity analysis interactive sliders
+- [ ] Scenario comparison view
+- [ ] Export buttons (Excel, PDF)
+
+#### 8.2 Portfolio Management Page
+- [ ] `gui/pages/portfolio_page.py` - Multi-building portfolio view
+- [ ] Building list with EUI/cost metrics
+- [ ] Add/remove buildings from portfolio
+- [ ] BBC goal configuration
+- [ ] Portfolio-wide analytics charts
+
+#### 8.3 ESPM Export Page
+- [ ] `gui/pages/espm_export_page.py` - ESPM export wizard
+- [ ] Property metadata form (address, year built, occupancy)
+- [ ] Meter configuration
+- [ ] XML preview and download
+- [ ] Validation feedback
+
+#### 8.4 Tariff Selection Widget
+- [ ] Rate selector with region auto-detection
+- [ ] TOU period visualization
+- [ ] Rate comparison view
+- [ ] Custom tariff editor
+
+**Integration Points:**
+```
+gui/pages/
+├── lcca_dashboard.py      # NEW: LCCA results visualization
+├── portfolio_page.py      # NEW: Multi-building management
+├── espm_export_page.py    # NEW: ESPM export wizard
+├── bbc_dashboard_page.py  # NEW: BBC/BCC tracking
+└── tariff_page.py         # NEW: Rate configuration
+```
+
+---
+
+### Phase 9: Real Project Validation (Planned - 4 weeks)
+
+**Objective:** Validate LCCA module with real project data
+
+#### 9.1 Test Projects
+- [ ] Ventura & 7th (Multifamily CUAC) - Full LCCA workflow
+- [ ] Del Amo Circle (Commercial) - TOU rate comparison
+- [ ] Freedom Circle (Mixed-Use) - Section allocation
+- [ ] Euclid Buildings (Multiple scenarios) - Batch processing
+
+#### 9.2 Validation Criteria
+- [ ] Zone costs sum to building total (±1% tolerance)
+- [ ] CUAC allowances match manual calculations
+- [ ] EUI values within benchmark ranges
+- [ ] PV/battery allocations sum correctly
+- [ ] ECON-1 report accuracy
+
+#### 9.3 Performance Benchmarks
+- [ ] CLI processing time for 100+ zone buildings
+- [ ] Excel export generation time
+- [ ] Batch discovery performance
+
+---
+
+### Phase 10: API & Advanced Features (Future)
+
+**Objective:** Production-ready features for enterprise use
+
+#### 10.1 REST API Layer (Optional)
+- [ ] FastAPI wrapper for LCCA functions
+- [ ] Authentication/authorization
+- [ ] Rate limiting
+- [ ] API documentation (OpenAPI)
+
+#### 10.2 Database Persistence
+- [ ] SQLite/PostgreSQL storage for portfolios
+- [ ] Historical trend storage
+- [ ] User preferences
+
+#### 10.3 Advanced Analytics
+- [ ] Monte Carlo risk analysis
+- [ ] Machine learning EUI prediction
+- [ ] Automated ECM recommendations
+- [ ] What-if scenario builder
+
+#### 10.4 External Integrations
+- [ ] EnergyScoreCards (Bright Power) export
+- [ ] EC3 embodied carbon integration
+- [ ] REopt distributed energy optimization
+- [ ] OpenEI utility rate API
+
+---
+
+## 9. Recommended Implementation Priority
+
+### Immediate Next Steps (Recommended Order)
+
+| Priority | Phase | Effort | Value | Dependencies |
+|----------|-------|--------|-------|--------------|
+| **P1** | Phase 9: Real Project Validation | 4 weeks | High | Phases 0-6 ✅ |
+| **P2** | Phase 8.1: LCCA Dashboard | 2 weeks | High | Phases 0-6 ✅ |
+| **P3** | Phase 7.1-7.2: ESPM/BBC Core | 4 weeks | High | None |
+| **P4** | Phase 8.2-8.3: Portfolio & ESPM GUI | 4 weeks | Medium | Phase 7 |
+| **P5** | Phase 8.4: Tariff Widget | 1 week | Medium | None |
+| **P6** | Phase 10: Advanced Features | Ongoing | Medium | All |
+
+### Quick Wins (Can Start Immediately)
+1. **Real project validation** - Test with existing CBECC project files
+2. **LCCA Dashboard mockup** - Basic Streamlit page with results display
+3. **ESPM data models** - Pydantic models are standalone
+
+### High-Value Integrations
+1. **ESPM Export** - Enables Portfolio Manager integration for Mercy Housing
+2. **BBC Tracking** - DOE Better Buildings Challenge compliance
+3. **Portfolio Management** - Multi-building analytics
+
+---
+
+## 10. Success Criteria
 
 ### Phase 0 (NREL Cost Database Infrastructure) - CRITICAL
 - ✅ `extract_nrel_costs.py` generates database without errors
