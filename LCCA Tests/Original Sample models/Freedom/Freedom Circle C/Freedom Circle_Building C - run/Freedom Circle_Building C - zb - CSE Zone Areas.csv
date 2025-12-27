@@ -1,8 +1,8 @@
 1,CSE Zone Surface Areas file format version number,
-CompMgr:,,"BEMCmpMgr 2022.3.2 (8731)",
+CompMgr:,,"BEMCmpMgr 2022.3.2-SP1 (8964)",
 Ruleset:,,"CA 2022 Nonresidential, Vers. 1.0 Alpha (T24N_2022.bin)",
 CSE:,,-,
-Calculation Date/Time:,,,"2025-03-07T14:35:13-08:00",
+Calculation Date/Time:,,,"2025-12-23T12:26:05-08:00",
 Input File Name:,,,"Freedom Circle_Building C",,,,,Areas include all sides exposed to the zone
 ,
 Zone,,Zone,Num of,Exterior/Underground Surface Areas,,,,,Zone Boundary Areas Added,,,Interior Mass,,Other Interior Surface Areas,

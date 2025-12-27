@@ -1,0 +1,41 @@
+PV Array & Battery Report
+,"PV Capacity required based on Prescriptive tables:  64.4 kWdc  (no prescriptive battery requirement)"
+,"Standard Design PV Capacity: 64.4 kWdc  /  (no battery)"
+,"User-specified PV array capacity:  64.4 kWdc  (no battery equipment defined)"
+
+Prescriptive PV/Battery Requirements:
+Space/ResOtherZn/ResZn,,,,,,NonRes & HiRiseRes Multiplied Areas by PVBattery Bldg Type,,,,,,,,,,,,,LowRiseRes,,Prescriptive Capacities:
+Name,Conditioning Type,Space Function,PV/Batt Bldg Type,Floor Area,Multiplier,"Events, Exhibits",Library,Hotel/Motel,"Office, Financial, Unleased, Med Office/Clinic",Restaurants,"Retail, Grocery",School,Warehouse,Religious Worship,"Sports, Recreation",Highrise Multifamily,none,# Res Dwellings,MultArea,,PV,Batt Energy,Batt Power
+,,,,(ft2),,(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),(ft2),,(ft2),,(kWdc),(kWh),(kW)
+"F1 Business Center","Conditioned","Conference, Multipurpose and Meeting Area","Sports, Recreation",324,1,,,,,,,,,,324,,,,,,0,0,0,
+"F1 Corridor","Conditioned","Corridor Area","Sports, Recreation",1444,1,,,,,,,,,,1444,,,,,,0,0,0,
+"F1 Fitness Center","Conditioned","Exercise/Fitness Center and Gymnasium Areas","Sports, Recreation",324,1,,,,,,,,,,324,,,,,,0,0,0,
+"F1 Laundry","Conditioned","Laundry Area","Sports, Recreation",108,1,,,,,,,,,,108,,,,,,0,0,0,
+"F1 Leasing Office","Conditioned","Office Area (<=250 square feet)","Office, Financial, Unleased, Med Office/Clinic",216,1,,,,216,,,,,,,,,,,,0,0,0,
+"F1 Lobby","Conditioned","Lobby, Main Entry","Sports, Recreation",540,1,,,,,,,,,,540,,,,,,0,0,0,
+"F1 Mech Rm","Unconditioned","Electrical, Mechanical, Telephone Rooms","Sports, Recreation",108,1,,,,,,,,,,0,,,,,,0,0,0,
+"F1 Stairs","Conditioned","Stairwell","Sports, Recreation",144,1,,,,,,,,,,144,,,,,,0,0,0,
+"F2 Corridor","Conditioned","Corridor Area","Office, Financial, Unleased, Med Office/Clinic",1444,1,,,,1444,,,,,,,,,,,,0,0,0,
+"F2 Stairs","Conditioned","Stairwell","Office, Financial, Unleased, Med Office/Clinic",144,1,,,,144,,,,,,,,,,,,0,0,0,
+"F3 Corridor","Conditioned","Corridor Area","Office, Financial, Unleased, Med Office/Clinic",1444,1,,,,1444,,,,,,,,,,,,0,0,0,
+"F3 Stairs","Conditioned","Stairwell","Office, Financial, Unleased, Med Office/Clinic",144,1,,,,144,,,,,,,,,,,,0,0,0,
+"F1 Res Zn N","Conditioned",,,2850,1,,,,,,,,,,,,,3,2850,,5.42985,0,0,
+"F1 Res Zn NE","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F1 Res Zn NW","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F1 Res Zn S","Conditioned",,,2850,1,,,,,,,,,,,,,3,2850,,5.42985,0,0,
+"F1 Res Zn SE","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F1 Res Zn SW","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F2 Res Zn N","Conditioned",,,3390,1,,,,,,,,,,,,,4,3390,,6.98519,0,0,
+"F2 Res Zn NE","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F2 Res Zn NW","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F2 Res Zn S","Conditioned",,,3930,1,,,,,,,,,,,,,5,3930,,8.54053,0,0,
+"F2 Res Zn SE","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F2 Res Zn SW","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F3 Res Zn N","Conditioned",,,3390,1,,,,,,,,,,,,,4,3390,,6.98519,0,0,
+"F3 Res Zn NE","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F3 Res Zn NW","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F3 Res Zn S","Conditioned",,,3930,1,,,,,,,,,,,,,5,3930,,8.54053,0,0,
+"F3 Res Zn SE","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+"F3 Res Zn SW","Conditioned",,,1054,1,,,,,,,,,,,,,1,1054,,1.87453,0,0,
+,,,,,Sums:,0,0,0,3392,0,0,0,0,0,2884,0,0,36,32988,,64.4055,0,0,
+,,Bldg Cond Area:,39264,,Pcts:,0.0,0.0,0.0,8.6,0.0,0.0,0.0,0.0,0.0,7.3,0.0,0.0,,84.0,

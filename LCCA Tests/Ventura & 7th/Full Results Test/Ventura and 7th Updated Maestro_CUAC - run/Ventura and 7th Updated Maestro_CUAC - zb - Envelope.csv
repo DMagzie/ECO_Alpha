@@ -1,0 +1,99 @@
+General Information
+Project Address,City,ZipCode,ClimateZone,Compliance Software,Compliance Manager,RulesetFile Name,Compliance Type
+"3720 E Cesar Chavez Blvd","Fresno",93702,"ClimateZone13","CBECC 2022.3.2 (1369)","BEMCmpMgr 2022.3.2-SP1 (8964)","CA 2022 Nonresidential, Vers. 1.0 Alpha (T24N_2022.bin)","NewComplete"
+
+No. of Thermal Zones,No. of Thermal Zones (cond),No. of Air Systems,No. of Zonal Systems,No. of Terminal Units
+0,0,3,0,0
+
+No. of Stories
+Total,New,Existing,Altered
+4,4,0,0
+
+No. of Above Grade Stories
+Total,New,Existing,Altered
+4,4,0,0
+
+No. of Dwelling Units (Conditioned)
+Total,New,Existing,Altered
+54,54,0,0
+
+NonRes Floor Area (Conditioned)
+Total,New,Existing,Altered
+4,4,0,0
+
+Res Floor Area (Conditioned)
+Total,New,Existing,Altered
+50722,0,50722,0
+
+,Conditioned Floor Area
+Total Floor Area,Total,New,Existing,Altered
+67317,50722,0,50722,0
+
+
+
+Building Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+34454.38,630.00,11391.82,4189.05,18243.51
+
+Building New Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+Building Existing or Altered Wall Area
+Total ExtWall,N ExtWall,E ExtWall,S ExtWall,W ExtWall,
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Building Window Area,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+8161.19,30.00,3720.00,451.19,3960.00
+
+Building New Window Area on New Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+Building New Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+Building Existing or Altered Window Area on Existing or Altered Walls,
+Total Window Area,North Window,E Window,S Window,W Window
+(ft2),(ft2),(ft2),(ft2),(ft2)
+0.00,0.00,0.00,0.00,0.00
+
+
+Window to Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.2369,0.0476,0.3266,0.1077,0.2171
+
+New Window to New Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+New Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+Existing or Altered Window to Existing or Altered Wall Ratio
+Bldg. WWR,North WWR,East WWR,South WWR,West WWR
+(frac.),(frac.),(frac.),(frac.),(frac.)
+0.0000,0.0000,0.0000,0.0000,0.0000
+
+
+Skylight to Roof Ratio (SRR),Display Perimeter\SRR,West,Total
+(frac.),(ft),(ft)
+0.0000,0.00,0.00
+
+New Skylight to New Roof Ratio (SRR)
+(frac.)
+0.0000
+New Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000
+Existing or Altered Skylight to Existing or Altered Roof Ratio (SRR)
+(frac.)
+0.0000

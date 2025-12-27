@@ -1,6 +1,6 @@
 General Information
 Project Address,City,ZipCode,ClimateZone,Compliance Software,Compliance Manager,RulesetFile Name,Compliance Type
-" - specify - ","Santa Clara",95050,"ClimateZone4","CBECC 2022.3.2 (1369)","BEMCmpMgr 2022.3.2 (8731)","CA 2022 Nonresidential, Vers. 1.0 Alpha (T24N_2022.bin)","NewComplete"
+" - specify - ","Santa Clara",95050,"ClimateZone4","CBECC 2022.3.2 (1369)","BEMCmpMgr 2022.3.2-SP1 (8964)","CA 2022 Nonresidential, Vers. 1.0 Alpha (T24N_2022.bin)","NewComplete"
 
 No. of Thermal Zones,No. of Thermal Zones (cond),No. of Air Systems,No. of Zonal Systems,No. of Terminal Units
 7,7,2,0,7

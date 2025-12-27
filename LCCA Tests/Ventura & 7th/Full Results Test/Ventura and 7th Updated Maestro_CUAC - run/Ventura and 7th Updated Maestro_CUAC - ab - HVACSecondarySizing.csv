@@ -1,0 +1,39 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE Ventura and 7th Updated Maestro_CUAC22TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"ResBaseAirSys TrmlUnit","Uncontrolled","ResBaseAirSys_SZHP","Fitness",650.486,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-2","Uncontrolled","ResBaseAirSys_SZHP-2","Leasing-Meeting Room-Office",958.135,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-3","Uncontrolled","ResBaseAirSys_SZHP-3","Community Room",794.089,-99996.000,-99996.000,""
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilClg","DirectExpansion","ResBaseAirSys_SZHP","n/a",26720.682,27877.971,-99996.00000,15.053,11.956,1
+,"ResBaseAirSys_SZHP CoilClg-2","DirectExpansion","ResBaseAirSys_SZHP-2","n/a",39358.303,41062.935,-99996.00000,15.053,11.956,1
+,"ResBaseAirSys_SZHP CoilClg-3","DirectExpansion","ResBaseAirSys_SZHP-3","n/a",32619.602,34032.377,-99996.00000,15.053,11.956,1
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilHtg","HeatPump","ResBaseAirSys_SZHP","n/a",29035.260,27877.971,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-2","HeatPump","ResBaseAirSys_SZHP-2","n/a",42767.567,41062.935,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-3","HeatPump","ResBaseAirSys_SZHP-3","n/a",35445.152,34032.377,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP SuppCoilHtg","Resistance","ResBaseAirSys_SZHP","n/a",24076.125,24076.125,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP SuppCoilHtg-2","Resistance","ResBaseAirSys_SZHP-2","n/a",50792.125,50792.125,0.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP SuppCoilHtg-3","Resistance","ResBaseAirSys_SZHP-3","n/a",41668.000,41668.000,0.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"ResBaseAirSys_SZHP SupFan","ConstantVolume","ResBaseAirSys_SZHP","n/a",650.486,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.555,0.750,"InAirStream",0.855,0.7440
+,"ResBaseAirSys_SZHP SupFan-2","ConstantVolume","ResBaseAirSys_SZHP-2","n/a",958.135,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.817,1.000,"InAirStream",0.855,0.7440
+,"ResBaseAirSys_SZHP SupFan-3","ConstantVolume","ResBaseAirSys_SZHP-3","n/a",794.089,-99996.000,0.650,"PowerPerUnitFlow",3.519,0.677,0.750,"InAirStream",0.855,0.7440
+ENDTABLE
+TABLE Ventura and 7th Updated Maestro_CUAC22OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"ResBaseAirSys_SZHP OACtrl","NoEconomizer","ResBaseAirSys_SZHP","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-2","FixedDryBulb","ResBaseAirSys_SZHP-2","Integrated"
+,"ResBaseAirSys_SZHP OACtrl-3","NoEconomizer","ResBaseAirSys_SZHP-3","UNDEFINED"
+ENDTABLE

@@ -1,0 +1,87 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE MF36Unit_3Story_ELEC-CZ0225TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"F1 Business Cent TrmlUnit","Uncontrolled","F1 Business Cent AirSys","F1 Business Center",191.955,-99996.000,-99996.000,""
+,"F1 Corridor TrmlUnit","Uncontrolled","F1 Corridor AirSys","F1 Corridor",249.090,-99996.000,-99996.000,""
+,"F1 Fitness Cente TrmlUnit","Uncontrolled","F1 Fitness Cente AirSys","F1 Fitness Center",68.058,-99996.000,-99996.000,""
+,"F1 Laundry TrmlUnit","Uncontrolled","F1 Laundry AirSys","F1 Laundry",174.349,-99996.000,-99996.000,""
+,"F1 Leasing Offic TrmlUnit","Uncontrolled","F1 Leasing Offic AirSys","F1 Leasing Office",99.273,-99996.000,-99996.000,""
+,"F1 Lobby TrmlUnit","Uncontrolled","F1 Lobby AirSys","F1 Lobby",115.315,-99996.000,-99996.000,""
+,"F1 Stairs TrmlUnit","Uncontrolled","F1 Stairs AirSys","F1 Stairs",150.441,-99996.000,-99996.000,""
+,"F2 Corridor TrmlUnit","Uncontrolled","F2 Corridor AirSys","F2 Corridor",249.090,-99996.000,-99996.000,""
+,"F2 Stairs TrmlUnit","Uncontrolled","F2 Stairs AirSys","F2 Stairs",46.931,-99996.000,-99996.000,""
+,"F3 Corridor TrmlUnit","Uncontrolled","F3 Corridor AirSys","F3 Corridor",249.090,-99996.000,-99996.000,""
+,"F3 Stairs TrmlUnit","Uncontrolled","F3 Stairs AirSys","F3 Stairs",94.066,-99996.000,-99996.000,""
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"F1 Business Cent ClgCoil","DirectExpansion","F1 Business Cent AirSys","n/a",7885.114,8226.624,-99996.00000,15.053,11.956,1
+,"F1 Corridor ClgCoil","DirectExpansion","F1 Corridor AirSys","n/a",10232.126,10675.286,-99996.00000,15.053,11.956,1
+,"F1 Fitness Cente ClgCoil","DirectExpansion","F1 Fitness Cente AirSys","n/a",2795.685,2916.768,-99996.00000,15.053,11.956,1
+,"F1 Laundry ClgCoil","DirectExpansion","F1 Laundry AirSys","n/a",6334.162,6608.499,-99996.00000,15.053,11.956,1
+,"F1 Leasing Offic ClgCoil","DirectExpansion","F1 Leasing Offic AirSys","n/a",4077.923,4254.540,-99996.00000,15.053,11.956,1
+,"F1 Lobby ClgCoil","DirectExpansion","F1 Lobby AirSys","n/a",4736.917,4942.076,-99996.00000,15.053,11.956,1
+,"F1 Stairs ClgCoil","DirectExpansion","F1 Stairs AirSys","n/a",5654.741,5899.651,-99996.00000,15.053,11.956,1
+,"F2 Corridor ClgCoil","DirectExpansion","F2 Corridor AirSys","n/a",10232.126,10675.286,-99996.00000,15.053,11.956,1
+,"F2 Stairs ClgCoil","DirectExpansion","F2 Stairs AirSys","n/a",1927.820,2011.316,-99996.00000,15.053,11.956,1
+,"F3 Corridor ClgCoil","DirectExpansion","F3 Corridor AirSys","n/a",10232.126,10675.286,-99996.00000,15.053,11.956,1
+,"F3 Stairs ClgCoil","DirectExpansion","F3 Stairs AirSys","n/a",3731.910,3893.541,-99996.00000,15.053,11.956,1
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"F1 Business Cent HtgCoil","HeatPump","F1 Business Cent AirSys","n/a",8568.133,8226.624,0.00000,-99996.000,-99996.000
+,"F1 Business Cent HPSuppHtgCoil","Resistance","F1 Business Cent AirSys","n/a",13721.250,13721.250,0.00000,-99996.000,-99996.000
+,"F1 Corridor HtgCoil","HeatPump","F1 Corridor AirSys","n/a",11118.445,10675.286,0.00000,-99996.000,-99996.000
+,"F1 Corridor HPSuppHtgCoil","Resistance","F1 Corridor AirSys","n/a",17867.125,17867.125,0.00000,-99996.000,-99996.000
+,"F1 Fitness Cente HtgCoil","HeatPump","F1 Fitness Cente AirSys","n/a",3037.851,2916.768,0.00000,-99996.000,-99996.000
+,"F1 Fitness Cente HPSuppHtgCoil","Resistance","F1 Fitness Cente AirSys","n/a",4458.675,4458.675,0.00000,-99996.000,-99996.000
+,"F1 Laundry HtgCoil","HeatPump","F1 Laundry AirSys","n/a",6882.835,6608.499,0.00000,-99996.000,-99996.000
+,"F1 Laundry HPSuppHtgCoil","Resistance","F1 Laundry AirSys","n/a",5579.075,5579.075,0.00000,-99996.000,-99996.000
+,"F1 Leasing Offic HtgCoil","HeatPump","F1 Leasing Offic AirSys","n/a",4431.157,4254.540,0.00000,-99996.000,-99996.000
+,"F1 Leasing Offic HPSuppHtgCoil","Resistance","F1 Leasing Offic AirSys","n/a",4475.525,4475.525,0.00000,-99996.000,-99996.000
+,"F1 Lobby HtgCoil","HeatPump","F1 Lobby AirSys","n/a",5147.234,4942.076,0.00000,-99996.000,-99996.000
+,"F1 Lobby HPSuppHtgCoil","Resistance","F1 Lobby AirSys","n/a",7484.950,7484.950,0.00000,-99996.000,-99996.000
+,"F1 Stairs HtgCoil","HeatPump","F1 Stairs AirSys","n/a",6144.561,5899.651,0.00000,-99996.000,-99996.000
+,"F1 Stairs HPSuppHtgCoil","Resistance","F1 Stairs AirSys","n/a",5307.387,5307.387,0.00000,-99996.000,-99996.000
+,"F2 Corridor HtgCoil","HeatPump","F2 Corridor AirSys","n/a",11118.445,10675.286,0.00000,-99996.000,-99996.000
+,"F2 Corridor HPSuppHtgCoil","Resistance","F2 Corridor AirSys","n/a",17805.375,17805.375,0.00000,-99996.000,-99996.000
+,"F2 Stairs HtgCoil","HeatPump","F2 Stairs AirSys","n/a",2094.811,2011.316,0.00000,-99996.000,-99996.000
+,"F2 Stairs HPSuppHtgCoil","Resistance","F2 Stairs AirSys","n/a",2445.338,2445.338,0.00000,-99996.000,-99996.000
+,"F3 Corridor HtgCoil","HeatPump","F3 Corridor AirSys","n/a",11118.445,10675.286,0.00000,-99996.000,-99996.000
+,"F3 Corridor HPSuppHtgCoil","Resistance","F3 Corridor AirSys","n/a",17805.375,17805.375,0.00000,-99996.000,-99996.000
+,"F3 Stairs HtgCoil","HeatPump","F3 Stairs AirSys","n/a",4055.172,3893.541,0.00000,-99996.000,-99996.000
+,"F3 Stairs HPSuppHtgCoil","Resistance","F3 Stairs AirSys","n/a",3746.850,3746.850,0.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"F1 Business Cent SupFan","ConstantVolume","F1 Business Cent AirSys","n/a",191.955,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.163,0.250,"InAirStream",0.855,0.7420
+,"F1 Corridor SupFan","ConstantVolume","F1 Corridor AirSys","n/a",249.090,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.212,0.250,"InAirStream",0.855,0.7420
+,"F1 Fitness Cente SupFan","ConstantVolume","F1 Fitness Cente AirSys","n/a",68.058,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.058,0.083,"InAirStream",0.855,0.7420
+,"F1 Laundry SupFan","ConstantVolume","F1 Laundry AirSys","n/a",174.349,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.148,0.250,"InAirStream",0.855,0.7420
+,"F1 Leasing Offic SupFan","ConstantVolume","F1 Leasing Offic AirSys","n/a",99.273,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.084,0.125,"InAirStream",0.855,0.7420
+,"F1 Lobby SupFan","ConstantVolume","F1 Lobby AirSys","n/a",115.315,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.098,0.125,"InAirStream",0.855,0.7420
+,"F1 Stairs SupFan","ConstantVolume","F1 Stairs AirSys","n/a",150.441,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.128,0.250,"InAirStream",0.855,0.7420
+,"F2 Corridor SupFan","ConstantVolume","F2 Corridor AirSys","n/a",249.090,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.212,0.250,"InAirStream",0.855,0.7420
+,"F2 Stairs SupFan","ConstantVolume","F2 Stairs AirSys","n/a",46.931,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.040,0.083,"InAirStream",0.855,0.7420
+,"F3 Corridor SupFan","ConstantVolume","F3 Corridor AirSys","n/a",249.090,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.212,0.250,"InAirStream",0.855,0.7420
+,"F3 Stairs SupFan","ConstantVolume","F3 Stairs AirSys","n/a",94.066,-99996.000,0.650,"PowerPerUnitFlow",3.510,0.080,0.083,"InAirStream",0.855,0.7420
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"F1 Business Cent OACtrl","NoEconomizer","F1 Business Cent AirSys","UNDEFINED"
+,"F1 Corridor OACtrl","NoEconomizer","F1 Corridor AirSys","UNDEFINED"
+,"F1 Fitness Cente OACtrl","NoEconomizer","F1 Fitness Cente AirSys","UNDEFINED"
+,"F1 Laundry OACtrl","NoEconomizer","F1 Laundry AirSys","UNDEFINED"
+,"F1 Leasing Offic OACtrl","NoEconomizer","F1 Leasing Offic AirSys","UNDEFINED"
+,"F1 Lobby OACtrl","NoEconomizer","F1 Lobby AirSys","UNDEFINED"
+,"F1 Stairs OACtrl","NoEconomizer","F1 Stairs AirSys","UNDEFINED"
+,"F2 Corridor OACtrl","NoEconomizer","F2 Corridor AirSys","UNDEFINED"
+,"F2 Stairs OACtrl","NoEconomizer","F2 Stairs AirSys","UNDEFINED"
+,"F3 Corridor OACtrl","NoEconomizer","F3 Corridor AirSys","UNDEFINED"
+,"F3 Stairs OACtrl","NoEconomizer","F3 Stairs AirSys","UNDEFINED"
+ENDTABLE

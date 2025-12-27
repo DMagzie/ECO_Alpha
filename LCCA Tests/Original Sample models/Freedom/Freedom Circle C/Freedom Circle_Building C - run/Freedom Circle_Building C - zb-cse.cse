@@ -1,4 +1,4 @@
- #define  RunDateFmt  14:35, Fri, Mar 07, 2025
+ #define  RunDateFmt  12:26, Tue, Dec 23, 2025
  #define  RunID               21   // StandardSizing
  #define  AnalysisType        13   // Proposed and Standard
  #define  CompCodeBase      2022   // CA2022

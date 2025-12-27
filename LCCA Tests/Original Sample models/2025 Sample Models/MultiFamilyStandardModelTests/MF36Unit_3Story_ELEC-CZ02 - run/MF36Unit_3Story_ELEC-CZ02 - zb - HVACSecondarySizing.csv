@@ -1,0 +1,76 @@
+; Tables for Std model AutoHardSize capacity look-up rules
+TABLE MF36Unit_3Story_ELEC-CZ0225TrmlUnit
+PropName,BaseName,Type,System,Zone,PriAirFlowMax,PriAirFlowMin,HtgAirFlowMax,ReheatCtrlMthd
+;,,,,,(cfm),(cfm),( cfm)
+,"ResBaseAirSys TrmlUnit","Uncontrolled","ResBaseAirSys_SZHP","F1 Business Center",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-2","Uncontrolled","ResBaseAirSys_SZHP-2","F1 Corridor",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-3","Uncontrolled","ResBaseAirSys_SZHP-3","F1 Fitness Center",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-4","Uncontrolled","ResBaseAirSys_SZHP-4","F1 Laundry",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-5","Uncontrolled","ResBaseAirSys_SZHP-5","F1 Leasing Office",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-6","Uncontrolled","ResBaseAirSys_SZHP-6","F1 Lobby",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-7","Uncontrolled","ResBaseAirSys_SZHP-7","F1 Stairs",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-8","Uncontrolled","ResBaseAirSys_SZHP-8","F2 Corridor",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-9","Uncontrolled","ResBaseAirSys_SZHP-9","F2 Stairs",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-10","Uncontrolled","ResBaseAirSys_SZHP-10","F3 Corridor",-99996.000,-99996.000,-99996.000,""
+,"ResBaseAirSys TrmlUnit-11","Uncontrolled","ResBaseAirSys_SZHP-11","F3 Stairs",-99996.000,-99996.000,-99996.000,""
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225CoilClg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,DXSEER,DXEER,NumClgStages
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilClg","DirectExpansion","ResBaseAirSys_SZHP","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-2","DirectExpansion","ResBaseAirSys_SZHP-2","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-3","DirectExpansion","ResBaseAirSys_SZHP-3","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-4","DirectExpansion","ResBaseAirSys_SZHP-4","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-5","DirectExpansion","ResBaseAirSys_SZHP-5","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-6","DirectExpansion","ResBaseAirSys_SZHP-6","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-7","DirectExpansion","ResBaseAirSys_SZHP-7","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-8","DirectExpansion","ResBaseAirSys_SZHP-8","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-9","DirectExpansion","ResBaseAirSys_SZHP-9","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-10","DirectExpansion","ResBaseAirSys_SZHP-10","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+,"ResBaseAirSys_SZHP CoilClg-11","DirectExpansion","ResBaseAirSys_SZHP-11","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000,1
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225CoilHtg
+PropName,BaseName,Type,System,Zone,CapTotNetRtd,CapTotGrossRtd,FluidFlowRtDsgn,FurnAFUE,FurnThrmlEff,
+;,,,,,(Btu/hr),(Btu/hr),( gpm),
+,"ResBaseAirSys_SZHP CoilHtg","Resistance","ResBaseAirSys_SZHP","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-2","Resistance","ResBaseAirSys_SZHP-2","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-3","Resistance","ResBaseAirSys_SZHP-3","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-4","Resistance","ResBaseAirSys_SZHP-4","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-5","Resistance","ResBaseAirSys_SZHP-5","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-6","Resistance","ResBaseAirSys_SZHP-6","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-7","Resistance","ResBaseAirSys_SZHP-7","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-8","Resistance","ResBaseAirSys_SZHP-8","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-9","Resistance","ResBaseAirSys_SZHP-9","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-10","Resistance","ResBaseAirSys_SZHP-10","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+,"ResBaseAirSys_SZHP CoilHtg-11","Resistance","ResBaseAirSys_SZHP-11","n/a",-99996.000,-99996.000,-99996.00000,-99996.000,-99996.000
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225Fan
+PropName,BaseName,CtrlMthd,System,Zone,FlowCap,FlowMin,FlowEff,ModelingMthd,TotStaticPress,MtrBHP,MtrHP,MtrPos,MtrEff,PwrIdx
+;,,,,,(cfm),(cfm),,,(inH2O),(hp),(hp),,(W/cfm)
+,"ResBaseAirSys_SZHP SupFan","ConstantVolume","ResBaseAirSys_SZHP","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-2","ConstantVolume","ResBaseAirSys_SZHP-2","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-3","ConstantVolume","ResBaseAirSys_SZHP-3","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-4","ConstantVolume","ResBaseAirSys_SZHP-4","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-5","ConstantVolume","ResBaseAirSys_SZHP-5","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-6","ConstantVolume","ResBaseAirSys_SZHP-6","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-7","ConstantVolume","ResBaseAirSys_SZHP-7","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-8","ConstantVolume","ResBaseAirSys_SZHP-8","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-9","ConstantVolume","ResBaseAirSys_SZHP-9","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-10","ConstantVolume","ResBaseAirSys_SZHP-10","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+,"ResBaseAirSys_SZHP SupFan-11","ConstantVolume","ResBaseAirSys_SZHP-11","n/a",0.000,-99996.000,1.000,"PowerPerUnitFlow",0.000,0.000,-99996.000,"InAirStream",1.000,0.0000
+ENDTABLE
+TABLE MF36Unit_3Story_ELEC-CZ0225OACtrl
+PropName,BaseName,EconoCtrlMthd,System,EconoIntegration
+;
+,"ResBaseAirSys_SZHP OACtrl","NoEconomizer","ResBaseAirSys_SZHP","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-2","NoEconomizer","ResBaseAirSys_SZHP-2","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-3","NoEconomizer","ResBaseAirSys_SZHP-3","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-4","NoEconomizer","ResBaseAirSys_SZHP-4","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-5","NoEconomizer","ResBaseAirSys_SZHP-5","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-6","NoEconomizer","ResBaseAirSys_SZHP-6","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-7","NoEconomizer","ResBaseAirSys_SZHP-7","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-8","NoEconomizer","ResBaseAirSys_SZHP-8","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-9","NoEconomizer","ResBaseAirSys_SZHP-9","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-10","NoEconomizer","ResBaseAirSys_SZHP-10","UNDEFINED"
+,"ResBaseAirSys_SZHP OACtrl-11","NoEconomizer","ResBaseAirSys_SZHP-11","UNDEFINED"
+ENDTABLE
