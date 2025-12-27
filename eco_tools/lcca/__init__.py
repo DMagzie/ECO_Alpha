@@ -305,6 +305,20 @@ from .lcca_runner import (
     batch_lcca,
 )
 
+# Phase 7: Unified LCCA Data Aggregator
+from .aggregator import (
+    ProjectInfo,
+    ComplianceInfo as AggregatedComplianceInfo,  # Renamed to avoid conflict
+    EnergyData,
+    HVACData,
+    DHWData,
+    EnvelopeData,
+    LCCAInputData,
+    LCCADataAggregator,
+    aggregate_lcca_data,
+    format_lcca_summary as format_aggregated_summary,  # Renamed to avoid conflict
+)
+
 __all__ = [
     # Data models
     "HourlyEnergy",
@@ -548,4 +562,15 @@ __all__ = [
     "LccaRunner",
     "run_lcca_workflow",
     "batch_lcca",
+    # LCCA Aggregator (Phase 7)
+    "ProjectInfo",
+    "AggregatedComplianceInfo",
+    "EnergyData",
+    "HVACData",
+    "DHWData",
+    "EnvelopeData",
+    "LCCAInputData",
+    "LCCADataAggregator",
+    "aggregate_lcca_data",
+    "format_aggregated_summary",
 ]

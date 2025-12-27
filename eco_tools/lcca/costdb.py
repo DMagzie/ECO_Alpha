@@ -244,6 +244,20 @@ class CostDatabase:
 
         return cost_data.calculate_cost(quantity, factor)
 
+    def get_regional_factor(self, region: str) -> Optional[RegionalFactor]:
+        """Get regional factor by name (case-insensitive)."""
+        # Try exact match
+        if region in self.regional_factors:
+            return self.regional_factors[region]
+
+        # Try case-insensitive
+        region_lower = region.lower()
+        for key, rf in self.regional_factors.items():
+            if key.lower() == region_lower:
+                return rf
+
+        return None
+
     def escalate_cost(
         self,
         base_cost: float,
@@ -502,6 +516,338 @@ def create_default_costdb() -> CostDatabase:
         capacity_unit="SF",
         labor_hours=0.01,
         installation_factor=1.3,
+        source="RS Means 2024"
+    )
+
+    # Additional HVAC system types for CBECC mapping
+    db.system_costs["ptac"] = SystemCost(
+        system_type="ptac",
+        description="Packaged terminal air conditioner",
+        base_cost=1800,
+        cost_unit="each",
+        labor_hours=4,
+        installation_factor=1.2,
+        source="RS Means 2024"
+    )
+
+    db.system_costs["pthp"] = SystemCost(
+        system_type="pthp",
+        description="Packaged terminal heat pump",
+        base_cost=2200,
+        cost_unit="each",
+        labor_hours=4,
+        installation_factor=1.2,
+        source="RS Means 2024"
+    )
+
+    db.system_costs["water_heater_electric"] = SystemCost(
+        system_type="water_heater_electric",
+        description="Commercial electric water heater",
+        base_cost=2500,
+        cost_unit="each",
+        labor_hours=6,
+        installation_factor=1.3,
+        source="RS Means 2024"
+    )
+
+    db.system_costs["water_heater_tankless_gas"] = SystemCost(
+        system_type="water_heater_tankless_gas",
+        description="Tankless gas water heater",
+        base_cost=4000,
+        cost_unit="each",
+        labor_hours=8,
+        installation_factor=1.4,
+        source="RS Means 2024"
+    )
+
+    db.system_costs["water_heater_tankless_electric"] = SystemCost(
+        system_type="water_heater_tankless_electric",
+        description="Tankless electric water heater",
+        base_cost=3500,
+        cost_unit="each",
+        labor_hours=6,
+        installation_factor=1.3,
+        source="RS Means 2024"
+    )
+
+    # ---- Envelope Material Costs ----
+
+    # Wall Insulation - Batt ($/SF wall area)
+    db.material_costs["insulation_batt_r13"] = MaterialCost(
+        name="insulation_batt_r13",
+        description="Fiberglass batt insulation R-13",
+        cost_per_unit=0.45,
+        unit="sf",
+        labor_hours_per_unit=0.015,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_batt_r19"] = MaterialCost(
+        name="insulation_batt_r19",
+        description="Fiberglass batt insulation R-19",
+        cost_per_unit=0.55,
+        unit="sf",
+        labor_hours_per_unit=0.015,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_batt_r21"] = MaterialCost(
+        name="insulation_batt_r21",
+        description="Fiberglass batt insulation R-21",
+        cost_per_unit=0.62,
+        unit="sf",
+        labor_hours_per_unit=0.015,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_batt_r30"] = MaterialCost(
+        name="insulation_batt_r30",
+        description="Fiberglass batt insulation R-30",
+        cost_per_unit=0.85,
+        unit="sf",
+        labor_hours_per_unit=0.018,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_batt_r38"] = MaterialCost(
+        name="insulation_batt_r38",
+        description="Fiberglass batt insulation R-38",
+        cost_per_unit=1.05,
+        unit="sf",
+        labor_hours_per_unit=0.020,
+        source="RS Means 2024"
+    )
+
+    # Rigid Insulation ($/SF)
+    db.material_costs["insulation_rigid_r5"] = MaterialCost(
+        name="insulation_rigid_r5",
+        description="Rigid foam insulation R-5 (1 inch)",
+        cost_per_unit=0.80,
+        unit="sf",
+        labor_hours_per_unit=0.020,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_rigid_r10"] = MaterialCost(
+        name="insulation_rigid_r10",
+        description="Rigid foam insulation R-10 (2 inch)",
+        cost_per_unit=1.40,
+        unit="sf",
+        labor_hours_per_unit=0.025,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_rigid_r15"] = MaterialCost(
+        name="insulation_rigid_r15",
+        description="Rigid foam insulation R-15 (3 inch)",
+        cost_per_unit=2.00,
+        unit="sf",
+        labor_hours_per_unit=0.030,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_rigid_r20"] = MaterialCost(
+        name="insulation_rigid_r20",
+        description="Rigid foam insulation R-20 (4 inch)",
+        cost_per_unit=2.60,
+        unit="sf",
+        labor_hours_per_unit=0.035,
+        source="RS Means 2024"
+    )
+
+    # Spray Foam Insulation ($/SF)
+    db.material_costs["insulation_spray_r20"] = MaterialCost(
+        name="insulation_spray_r20",
+        description="Closed-cell spray foam R-20",
+        cost_per_unit=2.20,
+        unit="sf",
+        labor_hours_per_unit=0.025,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["insulation_spray_r30"] = MaterialCost(
+        name="insulation_spray_r30",
+        description="Closed-cell spray foam R-30",
+        cost_per_unit=3.20,
+        unit="sf",
+        labor_hours_per_unit=0.030,
+        source="RS Means 2024"
+    )
+
+    # Windows by U-Factor Tier ($/SF glazing)
+    db.material_costs["window_u046"] = MaterialCost(
+        name="window_u046",
+        description="Standard window U-0.46",
+        cost_per_unit=45.00,
+        unit="sf",
+        labor_hours_per_unit=0.25,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["window_u040"] = MaterialCost(
+        name="window_u040",
+        description="Code-compliant window U-0.40",
+        cost_per_unit=52.00,
+        unit="sf",
+        labor_hours_per_unit=0.25,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["window_u034"] = MaterialCost(
+        name="window_u034",
+        description="Enhanced window U-0.34",
+        cost_per_unit=62.00,
+        unit="sf",
+        labor_hours_per_unit=0.28,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["window_u030"] = MaterialCost(
+        name="window_u030",
+        description="High-performance window U-0.30",
+        cost_per_unit=72.00,
+        unit="sf",
+        labor_hours_per_unit=0.30,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["window_u028"] = MaterialCost(
+        name="window_u028",
+        description="Premium window U-0.28 (triple-pane)",
+        cost_per_unit=85.00,
+        unit="sf",
+        labor_hours_per_unit=0.32,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["window_u025"] = MaterialCost(
+        name="window_u025",
+        description="Ultra-high performance window U-0.25",
+        cost_per_unit=98.00,
+        unit="sf",
+        labor_hours_per_unit=0.35,
+        source="RS Means 2024"
+    )
+
+    # Low-E SHGC Adders ($/SF additional cost)
+    db.material_costs["shgc_025"] = MaterialCost(
+        name="shgc_025",
+        description="Standard low-E SHGC 0.25",
+        cost_per_unit=0.00,
+        unit="sf",
+        labor_hours_per_unit=0.0,
+        source="Included in base"
+    )
+
+    db.material_costs["shgc_022"] = MaterialCost(
+        name="shgc_022",
+        description="Enhanced low-E SHGC 0.22",
+        cost_per_unit=3.00,
+        unit="sf",
+        labor_hours_per_unit=0.0,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["shgc_018"] = MaterialCost(
+        name="shgc_018",
+        description="Spectrally selective SHGC 0.18",
+        cost_per_unit=6.00,
+        unit="sf",
+        labor_hours_per_unit=0.0,
+        source="RS Means 2024"
+    )
+
+    # Roof Insulation ($/SF roof area)
+    db.material_costs["roof_r25"] = MaterialCost(
+        name="roof_r25",
+        description="Roof insulation R-25",
+        cost_per_unit=1.80,
+        unit="sf",
+        labor_hours_per_unit=0.020,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["roof_r30"] = MaterialCost(
+        name="roof_r30",
+        description="Roof insulation R-30",
+        cost_per_unit=2.20,
+        unit="sf",
+        labor_hours_per_unit=0.022,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["roof_r38"] = MaterialCost(
+        name="roof_r38",
+        description="Roof insulation R-38",
+        cost_per_unit=2.80,
+        unit="sf",
+        labor_hours_per_unit=0.025,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["roof_r49"] = MaterialCost(
+        name="roof_r49",
+        description="Roof insulation R-49",
+        cost_per_unit=3.50,
+        unit="sf",
+        labor_hours_per_unit=0.028,
+        source="RS Means 2024"
+    )
+
+    # Cool Roof Adder ($/SF)
+    db.material_costs["cool_roof_coating"] = MaterialCost(
+        name="cool_roof_coating",
+        description="Cool roof coating (high reflectance)",
+        cost_per_unit=0.75,
+        unit="sf",
+        labor_hours_per_unit=0.008,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["cool_roof_membrane"] = MaterialCost(
+        name="cool_roof_membrane",
+        description="Cool roof membrane upgrade",
+        cost_per_unit=1.50,
+        unit="sf",
+        labor_hours_per_unit=0.012,
+        source="RS Means 2024"
+    )
+
+    # Floor/Slab Insulation ($/SF)
+    db.material_costs["slab_r10"] = MaterialCost(
+        name="slab_r10",
+        description="Under-slab insulation R-10",
+        cost_per_unit=1.25,
+        unit="sf",
+        labor_hours_per_unit=0.015,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["slab_r15"] = MaterialCost(
+        name="slab_r15",
+        description="Under-slab insulation R-15",
+        cost_per_unit=1.75,
+        unit="sf",
+        labor_hours_per_unit=0.018,
+        source="RS Means 2024"
+    )
+
+    # Air Barrier/Sealing ($/SF envelope)
+    db.material_costs["air_barrier_basic"] = MaterialCost(
+        name="air_barrier_basic",
+        description="Basic air barrier system",
+        cost_per_unit=0.35,
+        unit="sf",
+        labor_hours_per_unit=0.010,
+        source="RS Means 2024"
+    )
+
+    db.material_costs["air_barrier_enhanced"] = MaterialCost(
+        name="air_barrier_enhanced",
+        description="Enhanced air barrier with testing",
+        cost_per_unit=0.65,
+        unit="sf",
+        labor_hours_per_unit=0.018,
         source="RS Means 2024"
     )
 
