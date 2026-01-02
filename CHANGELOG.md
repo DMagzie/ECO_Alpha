@@ -6,6 +6,117 @@ All notable changes to the ECO Tools project will be documented in this file.
 
 ## [Unreleased]
 
+### Gas Metering Extension Complete (2026-01-01)
+
+#### ✅ MILESTONE: Zone-Level Gas Metering for Dual-Fuel LCCA
+
+**Status:** Production Ready
+
+Extended the zone-level metering infrastructure to support natural gas metering in parallel to electric, completing the v7 release with full dual-fuel LCCA capabilities.
+
+#### Added
+
+**Gas Meter Infrastructure:**
+- `ZoneMeterAssignment` - Added gas meter fields (`gas_zone_meter`, `gas_building_meter`, `has_gas`)
+- `MeterHierarchy` - Added gas meter collections (`gas_section_meters`, `gas_zone_meters`, `gas_submeter_map`)
+- Parallel gas meter hierarchy: `MtrGas` → `MtrGas_Residential` → `MtrGas_DU_1BR`, etc.
+
+**CSE Transformation:**
+- Gas meter injection with `exBtuSf = 100` for therms
+- `rsFuelMtr` reference updates for RSYS elements
+- Gas export definitions for hourly output
+
+**Output Parsing:**
+- `ZoneGasHourlyData` dataclass with heating, DHW, cooking end-uses
+- Gas meter detection (MtrGas_*, MtrNatGas prefixes)
+- 8760 hourly therm data per gas meter
+
+**CLI Enhancement:**
+- `--gas-rate` argument for zone-analyze command (default: $1.80/therm)
+- Combined electric + gas cost display
+- Separate totals for electric and gas
+
+**GUI Enhancement:**
+- Gas meter detection during CSE import
+- Gas cost calculation alongside electric
+- Gas data display in zone summaries
+
+#### Files Modified
+
+| File | Changes |
+|------|---------|
+| `eco_tools/lcca/zone_meter_mapper.py` | Added gas meter fields and hierarchy |
+| `eco_tools/lcca/cse_transformer.py` | Added gas meter injection |
+| `eco_tools/lcca/parsers/cse_zone_output.py` | Added gas meter parsing |
+| `eco_tools/lcca/zone_simulation.py` | Added gas data population |
+| `eco_tools/lcca/cli.py` | Extended zone-analyze for gas |
+| `gui/pages/zone_analysis_page.py` | Extended for gas display |
+| `tests/test_gas_metering.py` | Created (13 tests) |
+
+#### Validation
+
+- 13 unit tests pass covering all gas metering components
+- CLI tested with Ventura & 7th project (all-electric, correctly shows no gas)
+- Gas rate calculation: `gas_therm * gas_rate` per zone
+
+---
+
+### Zone-Level LCCA Integration Complete (2025-01-01)
+
+#### ✅ MAJOR MILESTONE: Zone-Level TOU, VNBT, CLI, and GUI Integration
+
+**Status:** Production Ready
+
+Successfully completed zone-level LCCA integration with full validation on Ventura & 7th multifamily project. All four priority integration items now complete.
+
+#### Added
+
+**Zone-Level TOU Integration:**
+- Per-zone hourly data (8760 values) → TOU cost calculation
+- Complete TOU breakdown per zone (summer/winter, on/mid/off-peak)
+- Validated: 4 zones → $335,450/year total TOU costs
+
+**Zone-Level VNBT Integration:**
+- PV allocation by consumption to individual zones
+- V-NBT cost calculation with ACC export rates
+- Self-consumption tracking and value calculation
+- Validated: $195,783/year net cost (42% savings with 1.75 MW PV)
+
+**CLI zone-analyze Command:**
+- `python -m eco_tools.lcca zone-analyze /path/to/project` - TOU analysis
+- `python -m eco_tools.lcca zone-analyze /path/to/project --vnbt` - VNBT analysis
+- `--verbose` flag for detailed breakdown
+- `--json` flag for programmatic output
+
+**GUI Zone Analysis Enhancement:**
+- Import from Project: Parse CSE output files directly
+- V-NBT toggle in sidebar settings
+- Calculate TOU/VNBT costs button
+- Zone results display with cost breakdown
+
+#### Files Modified
+
+| File | Changes |
+|------|---------|
+| `eco_tools/lcca/vnbt.py` | Added zone-level VNBT bridge functions |
+| `eco_tools/lcca/cli.py` | Added `zone-analyze` command |
+| `gui/pages/zone_analysis_page.py` | Enhanced with CSE import + V-NBT |
+| `LCCA_Plans/CHANGELOG_ZONE_METERING_v2.0.md` | Updated with all milestones |
+
+#### Validation Results (Ventura & 7th)
+
+```
+Zones: 4 (1BR, 2BR, 3BR Dwelling Units + Common Areas)
+Total Gross Load: 1,126,339 kWh/year
+Total PV Generation: 1,753,181 kWh/year
+Self-Consumption: 558,582 kWh (31.9% of PV)
+TOU Cost (no PV): $335,450/year
+VNBT Net Cost (with PV): $195,783/year
+Annual Savings: $142,119 (42.1%)
+```
+
+---
+
 ### CIBD25 Direct Writer - Phase 1-3 Complete (2025-11-28)
 
 #### ✅ MAJOR MILESTONE: CBECC 2025 GUI Validation Successful

@@ -18,6 +18,8 @@ A building energy modeling platform with proven CIBD22X/CIBD25 round-trip transl
 | **EMJSON v6 Schema** | Complete | Universal internal representation |
 | **3D Geometry Builder** | Working | Interactive Plotly-based visualization |
 | **Streamlit GUI** | Functional | Web-based model editor |
+| **Zone-Level LCCA** | Working | TOU/VNBT costs per zone with 8760 hourly data (electric + gas) |
+| **LCCA CLI** | Working | `zone-analyze` command with `--gas-rate` for dual-fuel analysis |
 
 ### Proven Performance
 
@@ -303,10 +305,10 @@ MIT License - See LICENSE file
 
 ## Project Status
 
-**Current Version**: v7.0.0-alpha
-**Status**: MVP Complete
-**Stability**: Production-ready for CIBD22X and CIBD text round-trip
+**Current Version**: v7.0.0
+**Status**: Production Ready
+**Stability**: Production-ready for CIBD22X, CIBD text round-trip, and Zone-Level LCCA
 
 ---
 
-**Last Updated**: December 2025
+**Last Updated**: January 2026

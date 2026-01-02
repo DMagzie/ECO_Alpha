@@ -5,7 +5,34 @@ This folder consolidates planning documents for Life Cycle Cost Analysis (LCCA) 
 ## Current Status
 
 **ECO_Alpha_v7 CBECC Pipeline:** Production Ready
-**LCCA Integration:** Planning Phase
+**LCCA Integration:** Production Ready - v7 Release Complete (Dual-Fuel)
+
+### Milestone Achieved: Gas Metering Extension - January 1, 2026
+
+**STATUS: PRODUCTION READY**
+
+Zone-level LCCA now supports both electric AND natural gas metering:
+
+| Component | Status | Validation |
+|-----------|--------|------------|
+| Zone Metering (v2.0) | ✅ Complete | 0.0000% difference |
+| TOU Integration | ✅ Complete | 4 zones → $335,450/year |
+| VNBT Integration | ✅ Complete | 42% savings with PV |
+| CLI zone-analyze | ✅ Complete | TOU + VNBT + Gas modes |
+| GUI Zone Analysis | ✅ Complete | CSE import + V-NBT + Gas |
+| **Gas Metering** | ✅ Complete | 13 tests pass |
+
+This enables:
+- Per-zone TOU rate calculations with 8760 hourly data
+- VNBT allocation per dwelling unit and common area
+- **Gas cost calculation with flat rate ($/therm)**
+- **Combined electric + gas zone-level costs**
+- CLI analysis: `python -m eco_tools.lcca zone-analyze --gas-rate 1.80`
+- GUI import from CBECC simulation outputs
+- Mixed-use building cost separation
+- Common area attribution (corridors, fitness, lobby)
+
+See: `CHANGELOG_ZONE_METERING_v2.0.md` for full documentation
 
 ## Prerequisites for LCCA
 
@@ -72,23 +99,32 @@ The LCCA workflow requires **simulation outputs** as inputs:
 
 ```
 LCCA_Plans/
-├── README.md                     # This file
+├── README.md                          # This file
+├── CHANGELOG_ZONE_METERING_v2.0.md    # Zone metering milestone (Dec 2024)
 ├── docs/
-│   ├── CHANGELOG_CONSOLIDATED.md # Combined history from all LCCA work
-│   ├── SIMULATION_REQUIREMENTS.md# What simulation outputs LCCA needs
-│   └── INTEGRATION_ROADMAP.md    # Step-by-step integration plan
+│   ├── CHANGELOG_CONSOLIDATED.md      # Combined history from all LCCA work
+│   ├── SIMULATION_REQUIREMENTS.md     # What simulation outputs LCCA needs
+│   └── INTEGRATION_ROADMAP.md         # Step-by-step integration plan
 ├── reference/
-│   └── existing_lcca_code.md     # Inventory of existing LCCA code
+│   ├── cse_lcca_architecture.md       # Zone-level metering architecture (v2.0)
+│   ├── cse_guide.md                   # CSE reference guide
+│   └── existing_lcca_code.md          # Inventory of existing LCCA code
 └── schemas/
-    └── lcca_scenario_schema.md   # LCCA data model documentation
+    └── lcca_scenario_schema.md        # LCCA data model documentation
 ```
 
 ## Next Steps
 
-1. **Simulation Track** - Parse CBECC hourly outputs into standardized format
-2. **Cost Database** - Structure CostDB for automated system cost lookups
-3. **LCCA Core** - Port calculators (NPV, IRR, payback) into eco_tools
-4. **Deliverables** - ECON-1 PDF, Excel dashboard, ESG report
+1. ~~**Simulation Track** - Parse CBECC hourly outputs into standardized format~~ **COMPLETE (v2.0)**
+2. ~~**Package Zone Metering** - Formalize transformation scripts into Python module~~ **COMPLETE (v2.0)**
+3. ~~**Cost Database** - Structure CostDB for automated system cost lookups~~ **COMPLETE**
+4. ~~**TOU Integration** - Apply zone-level hourly data to TOU rate calculations~~ **COMPLETE (Jan 1, 2025)**
+5. ~~**VNBT Integration** - Zone-level PV allocation and V-NBT costs~~ **COMPLETE (Jan 1, 2025)**
+6. ~~**CLI Integration** - `zone-analyze` command for cost analysis~~ **COMPLETE (Jan 1, 2025)**
+7. ~~**GUI Integration** - Zone Analysis page with CSE import~~ **COMPLETE (Jan 1, 2025)**
+8. ~~**Gas Metering** - Extend zone metering to natural gas~~ **COMPLETE (Jan 1, 2026)**
+
+**v7 Release Complete** - All planned zone-level LCCA features implemented.
 
 ## Related Locations
 
