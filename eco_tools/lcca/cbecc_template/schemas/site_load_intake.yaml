@@ -1,0 +1,411 @@
+# Site Load Intake Form Schema
+# Defines the structure for site load inputs that can be:
+# 1. Injected into CBECC models via CbeccTemplate
+# 2. Used directly by site load calculators
+#
+# Usage:
+#   intake = IntakeLoader.load("project_intake.yaml")
+#   template = CbeccTemplate("base_model.cibd22x")
+#   template.apply_intake(intake)
+#   template.write("updated_model.cibd25")
+
+schema_version: "1.0"
+schema_type: "site_load_intake"
+
+# =============================================================================
+# PROJECT INFORMATION
+# =============================================================================
+project:
+  type: object
+  required: [name, building_type]
+  properties:
+    name:
+      type: string
+      description: Project name
+      example: "Sunset Apartments"
+
+    building_type:
+      type: string
+      enum: [multifamily, nonresidential, mixed_use]
+      description: Primary building type
+
+    climate_zone:
+      type: integer
+      minimum: 1
+      maximum: 16
+      description: California Title 24 climate zone
+
+    dwelling_units:
+      type: integer
+      minimum: 0
+      description: Number of dwelling units (multifamily only)
+
+    floor_area_sf:
+      type: number
+      minimum: 0
+      description: Total floor area in square feet
+
+# =============================================================================
+# ELEVATORS
+# =============================================================================
+elevators:
+  type: object
+  description: Elevator configuration - can be modeled in CBECC via ElevCnt/ElevPwr
+  properties:
+    count:
+      type: integer
+      minimum: 0
+      description: Total number of elevators
+
+    type:
+      type: string
+      enum: [hydraulic, traction_geared, traction_gearless, machine_room_less]
+      default: traction_geared
+      description: Elevator drive type
+
+    floors_served:
+      type: integer
+      minimum: 2
+      description: Number of floors served
+
+    override_cec_values:
+      type: boolean
+      default: false
+      description: Override CEC standard process load values
+
+    actual_power_kw:
+      type: number
+      minimum: 0
+      description: Actual motor power if overriding CEC values
+
+    zone_assignment:
+      type: string
+      description: CBECC zone name to assign elevators to
+      example: "Lobby_L01"
+
+# =============================================================================
+# ESCALATORS
+# =============================================================================
+escalators:
+  type: object
+  description: Escalator configuration - can be modeled in CBECC via EscalCnt/EscalPwr
+  properties:
+    count:
+      type: integer
+      minimum: 0
+      description: Total number of escalators
+
+    width:
+      type: string
+      enum: [24_inch, 32_inch, 40_inch]
+      default: 32_inch
+      description: Escalator step width
+
+    variable_speed:
+      type: boolean
+      default: false
+      description: Variable speed drive (reduces energy when unoccupied)
+
+    actual_power_kw:
+      type: number
+      minimum: 0
+      description: Actual motor power per escalator
+
+    zone_assignment:
+      type: string
+      description: CBECC zone name to assign escalators to
+
+# =============================================================================
+# PARKING GARAGE
+# =============================================================================
+parking_garage:
+  type: object
+  description: Parking garage configuration - can be modeled in CBECC
+  properties:
+    total_area_sf:
+      type: number
+      minimum: 0
+      description: Total parking area in square feet
+
+    parking_spaces:
+      type: integer
+      minimum: 0
+      description: Number of parking spaces
+
+    levels:
+      type: integer
+      minimum: 1
+      description: Number of parking levels
+
+    # Exhaust/Ventilation - CBECC properties: PrkgGarExhFlow, PrkgGarExhFanPwr
+    exhaust:
+      type: object
+      properties:
+        system_type:
+          type: string
+          enum: [constant_volume, variable_speed, jet_fan, energy_star]
+          default: constant_volume
+          description: Exhaust fan system type
+
+        total_cfm:
+          type: number
+          minimum: 0
+          description: Total exhaust airflow in CFM
+
+        cfm_per_sf:
+          type: number
+          default: 0.75
+          description: Design airflow per square foot (if total_cfm not specified)
+
+        fan_power_w_cfm:
+          type: number
+          default: 0.35
+          minimum: 0.1
+          maximum: 0.6
+          description: Fan power in W/CFM
+
+        co_control:
+          type: boolean
+          default: true
+          description: CO-based demand control ventilation
+
+        zone_assignment:
+          type: string
+          description: CBECC ResOtherZn name for parking garage
+
+    # Lighting - usually modeled in CBECC
+    lighting:
+      type: object
+      properties:
+        modeled_in_cbecc:
+          type: boolean
+          default: true
+          description: Whether lighting is in CBECC model
+
+        lpd_override:
+          type: number
+          description: Override LPD if not using Title 24 default
+
+# =============================================================================
+# EV CHARGING
+# =============================================================================
+ev_charging:
+  type: object
+  description: EV charging infrastructure - NOT modeled in CBECC, always site load
+  properties:
+    calgreen_2025:
+      type: boolean
+      default: true
+      description: Auto-calculate based on CALGreen 2025 requirements
+
+    dwelling_units:
+      type: integer
+      description: Number of dwelling units (for CALGreen calc)
+
+    common_parking_spaces:
+      type: integer
+      description: Number of common area parking spaces
+
+    # Manual configuration (if not using CALGreen auto-calc)
+    num_ports:
+      type: integer
+      description: Total charging ports (overrides CALGreen calc)
+
+    charger_level:
+      type: string
+      enum: [level_1, level_2_low, level_2, level_2_standard, level_2_high, dc_fast]
+      default: level_2_low
+      description: Charger power level
+
+    kw_per_port:
+      type: number
+      description: Override power per port
+
+    location_type:
+      type: string
+      enum: [workplace, residential, retail, public, mf_assigned, mf_shared, mf_visitor]
+      default: mf_assigned
+      description: Installation location type
+
+    alms_enabled:
+      type: boolean
+      default: true
+      description: Automatic Load Management System enabled
+
+    alms_factor:
+      type: number
+      default: 0.4
+      minimum: 0.2
+      maximum: 0.8
+      description: ALMS simultaneity factor
+
+# =============================================================================
+# POOLS AND SPAS
+# =============================================================================
+pools:
+  type: array
+  description: Pool configurations - NOT modeled in CBECC
+  items:
+    type: object
+    properties:
+      name:
+        type: string
+        example: "Main Pool"
+
+      surface_area_sf:
+        type: number
+        minimum: 0
+        description: Pool surface area in square feet
+
+      volume_gallons:
+        type: number
+        description: Pool volume in gallons
+
+      pool_type:
+        type: string
+        enum: [residential, commercial, competition]
+        default: commercial
+
+      heated:
+        type: boolean
+        default: true
+
+      heater_type:
+        type: string
+        enum: [gas, heat_pump, solar, electric_resistance]
+        default: gas
+
+      heater_efficiency:
+        type: number
+        description: Heater efficiency (0-1 for gas, COP for heat pump)
+
+      pump_hp:
+        type: number
+        description: Pump motor horsepower
+
+      variable_speed_pump:
+        type: boolean
+        default: true
+
+spas:
+  type: array
+  description: Spa/hot tub configurations - NOT modeled in CBECC
+  items:
+    type: object
+    properties:
+      name:
+        type: string
+
+      volume_gallons:
+        type: number
+        default: 500
+
+      heater_type:
+        type: string
+        enum: [gas, electric]
+        default: electric
+
+      jet_pump_hp:
+        type: number
+        default: 2.0
+
+# =============================================================================
+# OTHER SITE LOADS
+# =============================================================================
+site_lighting:
+  type: object
+  description: Exterior/site lighting - NOT modeled in CBECC
+  properties:
+    method:
+      type: string
+      enum: [area_based, fixture_based]
+      default: area_based
+
+    # Area-based method
+    area_sf:
+      type: number
+      description: Site lighting area
+
+    lpd:
+      type: number
+      default: 0.05
+      description: Lighting power density W/SF
+
+    # Fixture-based method
+    num_fixtures:
+      type: integer
+
+    watts_per_fixture:
+      type: number
+      default: 100
+
+it_telecom:
+  type: object
+  description: IT/Telecom room - NOT modeled in CBECC
+  properties:
+    it_load_kw:
+      type: number
+      description: Total IT equipment load in kW
+
+    pue:
+      type: number
+      default: 1.5
+      description: Power Usage Effectiveness (includes cooling)
+
+water_pumps:
+  type: array
+  description: Water system pumps - NOT modeled in CBECC
+  items:
+    type: object
+    properties:
+      pump_type:
+        type: string
+        enum: [booster, fire, recirculation, sump]
+
+      pump_hp:
+        type: number
+
+      hours_per_day:
+        type: number
+
+trash_compactor:
+  type: object
+  description: Trash compactor - NOT modeled in CBECC
+  properties:
+    motor_hp:
+      type: number
+      default: 5.0
+
+    cycles_per_day:
+      type: number
+      default: 10
+
+# =============================================================================
+# CUSTOM LOADS
+# =============================================================================
+custom_loads:
+  type: array
+  description: Additional miscellaneous loads
+  items:
+    type: object
+    required: [name]
+    properties:
+      name:
+        type: string
+        description: Load name/description
+
+      annual_kwh:
+        type: number
+        description: Direct annual kWh input
+
+      load_kw:
+        type: number
+        description: Continuous load in kW
+
+      hours_per_day:
+        type: number
+        default: 12
+
+      load_shape:
+        type: string
+        description: Load shape profile name

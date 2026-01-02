@@ -68,7 +68,7 @@ try:
     from eco_tools.lcca.ca_hi_helpers import (
         get_region_from_climate_zone,
         get_default_rate_id,
-        CZ_TO_REGION,
+        CLIMATE_ZONE_TO_REGION,
     )
     LCCA_AVAILABLE = True
 except ImportError as e:
@@ -118,10 +118,8 @@ def handle_lcca_dashboard():
         "📊 Results",
         "📈 Cash Flow",
         "⚡ TOU Analysis",
-        "💵 Tariffs",
         "🔄 Comparison",
         "🎚️ Sensitivity",
-        "📋 Scenarios",
         "📤 Export"
     ])
 
@@ -138,18 +136,12 @@ def handle_lcca_dashboard():
         render_tou_tab()
 
     with tabs[4]:
-        render_tariff_management_tab()
-
-    with tabs[5]:
         render_comparison_tab()
 
-    with tabs[6]:
+    with tabs[5]:
         render_sensitivity_tab()
 
-    with tabs[7]:
-        render_scenarios_tab()
-
-    with tabs[8]:
+    with tabs[6]:
         render_export_tab()
 
 
@@ -236,10 +228,11 @@ def render_sidebar_config():
         "Incremental Cost ($)",
         min_value=0,
         max_value=10000000,
-        value=st.session_state.get("lcca_capex", 100000),
+        value=100000,
         step=10000,
         key="lcca_capex"
     )
+    st.session_state.lcca_capex = capex
 
 
 def render_project_tab():
@@ -371,17 +364,24 @@ def run_lcca_analysis(project_path: str):
                 else:
                     annual_cost = proposed.annual.total_elec_kwh * 0.20  # Fallback
 
-                # Use the workflow runner for project-based LCCA
-                from eco_tools.lcca.lcca_runner import run_lcca_workflow
-
-                workflow_results = run_lcca_workflow(
-                    project_dir=Path(project_path),
-                    rate_id=tariff_id,
-                    capex=capex,
-                    output_excel=False,
+                # Create scenario and run LCCA
+                from eco_tools.lcca import Tariff
+                simple_tariff = Tariff(
+                    elec_rate_per_kwh=tariff.energy_rates.summer_off_peak,
+                    gas_rate_per_therm=tariff.gas_rate,
                 )
 
-                st.session_state.lcca_results = workflow_results
+                scenario = LccaScenario(
+                    name="Proposed Design",
+                    annual_elec_kwh=proposed.annual.total_elec_kwh,
+                    annual_gas_therm=proposed.annual.total_gas_therm,
+                    tariff=simple_tariff,
+                    capex=capex,
+                    assumptions=assumptions,
+                )
+
+                results = run_lcca(scenario)
+                st.session_state.lcca_results = results
 
             st.success("✅ Analysis complete!")
 
@@ -444,26 +444,21 @@ def render_results_tab():
     st.divider()
 
     # Financial metrics (if LCCA results available)
-    # Handle both RunnerResults (has lcca_results) and direct LccaResults
-    lcca = getattr(results, 'lcca_results', results) if results else None
-
-    if lcca:
+    if results:
         st.subheader("💰 Financial Metrics")
 
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-            npv = getattr(lcca, 'npv', 0) or 0
             st.metric(
                 "Net Present Value",
-                f"${npv:,.0f}",
+                f"${results.npv:,.0f}",
                 delta=None,
                 help="Present value of all cash flows"
             )
 
         with col2:
-            irr = getattr(lcca, 'irr', 0) or 0
-            irr_pct = irr * 100
+            irr_pct = results.irr * 100 if results.irr else 0
             st.metric(
                 "Internal Rate of Return",
                 f"{irr_pct:.1f}%",
@@ -471,19 +466,17 @@ def render_results_tab():
             )
 
         with col3:
-            payback = getattr(lcca, 'simple_payback', 0) or 0
             st.metric(
                 "Simple Payback",
-                f"{payback:.1f} years",
+                f"{results.simple_payback:.1f} years",
                 help="Years to recover investment"
             )
 
         with col4:
-            sir = getattr(lcca, 'sir', 0) or 0
             st.metric(
                 "Savings-to-Investment Ratio",
-                f"{sir:.2f}",
-                delta="✅ Passes" if sir >= 1.0 else "❌ Fails",
+                f"{results.sir:.2f}",
+                delta="✅ Passes" if results.sir >= 1.0 else "❌ Fails",
                 help="Total savings / Total investment"
             )
 
@@ -692,475 +685,6 @@ def render_tou_tab():
         st.plotly_chart(fig, use_container_width=True)
 
 
-def render_tariff_management_tab():
-    """Render advanced tariff management tab."""
-    st.header("💵 Tariff Management")
-    st.caption("View, compare, and customize utility tariffs")
-
-    # Sub-tabs for tariff management
-    tariff_tabs = st.tabs(["📋 Tariff Library", "⚙️ Customize Tariff", "📊 Rate Comparison", "🗓️ TOU Schedule"])
-
-    with tariff_tabs[0]:
-        render_tariff_library()
-
-    with tariff_tabs[1]:
-        render_tariff_customizer()
-
-    with tariff_tabs[2]:
-        render_rate_comparison()
-
-    with tariff_tabs[3]:
-        render_tou_schedule_visual()
-
-
-def render_tariff_library():
-    """Render tariff library browser."""
-    st.subheader("Available Tariffs")
-
-    # Group tariffs by utility
-    tariff_groups = {
-        "PG&E (Northern California)": [
-            ("PG&E B-20", "Commercial Medium (75-500 kW)"),
-            ("PG&E E-TOU-C", "Residential TOU"),
-            ("PG&E EV2-A", "Residential EV"),
-        ],
-        "SCE (Southern California)": [
-            ("SCE TOU-GS-3", "Commercial Large"),
-            ("SCE TOU-D-4-9PM", "Residential TOU"),
-            ("SCE TOU-D-PRIME", "Residential EV/Battery"),
-        ],
-        "SDG&E (San Diego)": [
-            ("SDG&E AL-TOU", "Commercial Large"),
-            ("SDG&E TOU-DR1", "Residential TOU"),
-            ("SDG&E EV-TOU-5", "Residential EV"),
-        ],
-        "Hawaii": [
-            ("HECO R-TOU", "HECO Residential TOU (Oahu)"),
-            ("HECO R", "HECO Residential Tiered (Oahu)"),
-            ("MECO R", "MECO Residential (Maui)"),
-            ("HELCO R", "HELCO Residential (Big Island)"),
-        ],
-        "Defaults": [
-            ("US-AVG", "US National Average"),
-            ("FLAT", "Generic Flat Rate"),
-        ],
-    }
-
-    # Display by group
-    for group_name, tariffs in tariff_groups.items():
-        with st.expander(f"**{group_name}**", expanded=group_name == "PG&E (Northern California)"):
-            for tariff_id, description in tariffs:
-                col1, col2, col3 = st.columns([3, 4, 2])
-
-                with col1:
-                    st.markdown(f"**{tariff_id}**")
-
-                with col2:
-                    st.caption(description)
-
-                with col3:
-                    if st.button("Select", key=f"sel_{tariff_id}"):
-                        st.session_state.lcca_tariff_id = tariff_id
-                        st.success(f"Selected: {tariff_id}")
-
-    # Show selected tariff details
-    st.divider()
-    selected_id = st.session_state.get("lcca_tariff_id", "PG&E B-20")
-    tariff = get_tariff_by_name(selected_id)
-
-    if tariff:
-        st.subheader(f"Selected: {tariff.name}")
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.markdown("**Energy Rates ($/kWh)**")
-            st.markdown(f"- Summer On-Peak: ${tariff.energy_rates.summer_on_peak:.4f}")
-            st.markdown(f"- Summer Mid-Peak: ${tariff.energy_rates.summer_mid_peak:.4f}")
-            st.markdown(f"- Summer Off-Peak: ${tariff.energy_rates.summer_off_peak:.4f}")
-            st.markdown(f"- Winter On-Peak: ${tariff.energy_rates.winter_on_peak:.4f}")
-            st.markdown(f"- Winter Mid-Peak: ${tariff.energy_rates.winter_mid_peak:.4f}")
-            st.markdown(f"- Winter Off-Peak: ${tariff.energy_rates.winter_off_peak:.4f}")
-
-        with col2:
-            st.markdown("**Demand Charges ($/kW)**")
-            st.markdown(f"- Facility Charge: ${tariff.demand_rates.facility_charge:.2f}")
-            st.markdown(f"- Summer On-Peak: ${tariff.demand_rates.summer_on_peak:.2f}")
-            st.markdown(f"- Summer Mid-Peak: ${tariff.demand_rates.summer_mid_peak:.2f}")
-            st.markdown(f"- Winter On-Peak: ${tariff.demand_rates.winter_on_peak:.2f}")
-
-            st.markdown("**Fixed Charges**")
-            st.markdown(f"- Monthly Customer: ${tariff.monthly_customer_charge:.2f}")
-            st.markdown(f"- Gas Rate: ${tariff.gas_rate:.2f}/therm")
-
-
-def render_tariff_customizer():
-    """Render tariff rate customizer."""
-    st.subheader("Customize Tariff Rates")
-
-    # Start with selected tariff as base
-    selected_id = st.session_state.get("lcca_tariff_id", "PG&E B-20")
-    tariff = get_tariff_by_name(selected_id)
-
-    if not tariff:
-        st.warning("Select a base tariff first")
-        return
-
-    st.info(f"Customizing rates based on: **{tariff.name}** ({tariff.utility})")
-
-    # Initialize custom rates in session state
-    if "custom_tariff_rates" not in st.session_state:
-        st.session_state.custom_tariff_rates = {
-            "summer_on_peak": tariff.energy_rates.summer_on_peak,
-            "summer_mid_peak": tariff.energy_rates.summer_mid_peak,
-            "summer_off_peak": tariff.energy_rates.summer_off_peak,
-            "winter_on_peak": tariff.energy_rates.winter_on_peak,
-            "winter_mid_peak": tariff.energy_rates.winter_mid_peak,
-            "winter_off_peak": tariff.energy_rates.winter_off_peak,
-            "demand_facility": tariff.demand_rates.facility_charge,
-            "demand_summer_on": tariff.demand_rates.summer_on_peak,
-            "monthly_charge": tariff.monthly_customer_charge,
-            "gas_rate": tariff.gas_rate,
-        }
-
-    custom = st.session_state.custom_tariff_rates
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.markdown("**Summer Energy Rates ($/kWh)**")
-        custom["summer_on_peak"] = st.number_input(
-            "On-Peak",
-            min_value=0.0, max_value=2.0,
-            value=float(custom["summer_on_peak"]),
-            step=0.01, format="%.4f",
-            key="cust_sum_on"
-        )
-        custom["summer_mid_peak"] = st.number_input(
-            "Mid-Peak",
-            min_value=0.0, max_value=2.0,
-            value=float(custom["summer_mid_peak"]),
-            step=0.01, format="%.4f",
-            key="cust_sum_mid"
-        )
-        custom["summer_off_peak"] = st.number_input(
-            "Off-Peak",
-            min_value=0.0, max_value=2.0,
-            value=float(custom["summer_off_peak"]),
-            step=0.01, format="%.4f",
-            key="cust_sum_off"
-        )
-
-        st.markdown("**Winter Energy Rates ($/kWh)**")
-        custom["winter_on_peak"] = st.number_input(
-            "On-Peak",
-            min_value=0.0, max_value=2.0,
-            value=float(custom["winter_on_peak"]),
-            step=0.01, format="%.4f",
-            key="cust_win_on"
-        )
-        custom["winter_mid_peak"] = st.number_input(
-            "Mid-Peak",
-            min_value=0.0, max_value=2.0,
-            value=float(custom["winter_mid_peak"]),
-            step=0.01, format="%.4f",
-            key="cust_win_mid"
-        )
-        custom["winter_off_peak"] = st.number_input(
-            "Off-Peak",
-            min_value=0.0, max_value=2.0,
-            value=float(custom["winter_off_peak"]),
-            step=0.01, format="%.4f",
-            key="cust_win_off"
-        )
-
-    with col2:
-        st.markdown("**Demand Charges ($/kW)**")
-        custom["demand_facility"] = st.number_input(
-            "Facility Charge",
-            min_value=0.0, max_value=100.0,
-            value=float(custom["demand_facility"]),
-            step=1.0, format="%.2f",
-            key="cust_dem_fac"
-        )
-        custom["demand_summer_on"] = st.number_input(
-            "Summer On-Peak Demand",
-            min_value=0.0, max_value=100.0,
-            value=float(custom["demand_summer_on"]),
-            step=1.0, format="%.2f",
-            key="cust_dem_sum"
-        )
-
-        st.markdown("**Fixed Charges**")
-        custom["monthly_charge"] = st.number_input(
-            "Monthly Customer Charge ($)",
-            min_value=0.0, max_value=1000.0,
-            value=float(custom["monthly_charge"]),
-            step=10.0, format="%.2f",
-            key="cust_monthly"
-        )
-        custom["gas_rate"] = st.number_input(
-            "Gas Rate ($/therm)",
-            min_value=0.0, max_value=10.0,
-            value=float(custom["gas_rate"]),
-            step=0.1, format="%.2f",
-            key="cust_gas"
-        )
-
-    st.session_state.custom_tariff_rates = custom
-
-    # Action buttons
-    st.divider()
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        if st.button("Reset to Base Tariff", use_container_width=True):
-            st.session_state.custom_tariff_rates = {
-                "summer_on_peak": tariff.energy_rates.summer_on_peak,
-                "summer_mid_peak": tariff.energy_rates.summer_mid_peak,
-                "summer_off_peak": tariff.energy_rates.summer_off_peak,
-                "winter_on_peak": tariff.energy_rates.winter_on_peak,
-                "winter_mid_peak": tariff.energy_rates.winter_mid_peak,
-                "winter_off_peak": tariff.energy_rates.winter_off_peak,
-                "demand_facility": tariff.demand_rates.facility_charge,
-                "demand_summer_on": tariff.demand_rates.summer_on_peak,
-                "monthly_charge": tariff.monthly_customer_charge,
-                "gas_rate": tariff.gas_rate,
-            }
-            st.rerun()
-
-    with col2:
-        if st.button("Apply Inflation (+3%)", use_container_width=True):
-            for key in custom:
-                custom[key] = custom[key] * 1.03
-            st.session_state.custom_tariff_rates = custom
-            st.success("Applied 3% inflation to all rates")
-            st.rerun()
-
-    with col3:
-        if st.button("Use Custom Rates", type="primary", use_container_width=True):
-            st.session_state.use_custom_tariff = True
-            st.success("Custom rates will be used for next analysis")
-
-
-def render_rate_comparison():
-    """Render rate comparison across tariffs."""
-    st.subheader("Compare Tariff Rates")
-
-    # Select tariffs to compare
-    available = list_available_tariffs()
-    tariff_names = [t.split(" (")[0] for t in available]
-
-    selected = st.multiselect(
-        "Select tariffs to compare",
-        tariff_names,
-        default=["PG&E B-20", "SCE TOU-GS-3", "SDG&E AL-TOU"],
-        max_selections=6
-    )
-
-    if len(selected) < 2:
-        st.info("Select at least 2 tariffs to compare")
-        return
-
-    # Build comparison data
-    comparison_data = []
-    for name in selected:
-        tariff = get_tariff_by_name(name)
-        if tariff:
-            comparison_data.append({
-                "Tariff": name,
-                "Utility": tariff.utility,
-                "Summer On-Peak": f"${tariff.energy_rates.summer_on_peak:.3f}",
-                "Summer Off-Peak": f"${tariff.energy_rates.summer_off_peak:.3f}",
-                "Winter On-Peak": f"${tariff.energy_rates.winter_on_peak:.3f}",
-                "Winter Off-Peak": f"${tariff.energy_rates.winter_off_peak:.3f}",
-                "Demand (Summer)": f"${tariff.demand_rates.summer_on_peak:.2f}/kW",
-            })
-
-    st.dataframe(comparison_data, use_container_width=True)
-
-    # Visualization
-    if PLOTLY_AVAILABLE and len(selected) >= 2:
-        st.subheader("Rate Visualization")
-
-        # Gather data for chart
-        tariff_names_chart = []
-        on_peak_rates = []
-        off_peak_rates = []
-
-        for name in selected:
-            tariff = get_tariff_by_name(name)
-            if tariff:
-                tariff_names_chart.append(name)
-                on_peak_rates.append(tariff.energy_rates.summer_on_peak)
-                off_peak_rates.append(tariff.energy_rates.summer_off_peak)
-
-        fig = go.Figure(data=[
-            go.Bar(name="On-Peak", x=tariff_names_chart, y=on_peak_rates, marker_color="#e74c3c"),
-            go.Bar(name="Off-Peak", x=tariff_names_chart, y=off_peak_rates, marker_color="#27ae60"),
-        ])
-
-        fig.update_layout(
-            title="Summer Energy Rates by Tariff",
-            yaxis_title="Rate ($/kWh)",
-            barmode="group",
-            height=400
-        )
-
-        st.plotly_chart(fig, use_container_width=True)
-
-        # Annual cost comparison for 100,000 kWh
-        st.subheader("Estimated Annual Cost (100,000 kWh)")
-
-        annual_costs = []
-        for name in selected:
-            tariff = get_tariff_by_name(name)
-            if tariff:
-                # Simplified cost estimate assuming 40% on-peak, 60% off-peak
-                avg_rate = 0.4 * tariff.energy_rates.summer_on_peak + 0.6 * tariff.energy_rates.summer_off_peak
-                annual_cost = 100000 * avg_rate + 12 * tariff.monthly_customer_charge
-                annual_costs.append({"Tariff": name, "Annual Cost": annual_cost})
-
-        if annual_costs:
-            fig2 = go.Figure(data=[
-                go.Bar(
-                    x=[c["Tariff"] for c in annual_costs],
-                    y=[c["Annual Cost"] for c in annual_costs],
-                    marker_color=["#3498db", "#2ecc71", "#e74c3c", "#9b59b6", "#f39c12", "#1abc9c"][:len(annual_costs)]
-                )
-            ])
-
-            fig2.update_layout(
-                title="Estimated Annual Cost (100,000 kWh load)",
-                yaxis_title="Annual Cost ($)",
-                height=350
-            )
-
-            st.plotly_chart(fig2, use_container_width=True)
-
-
-def render_tou_schedule_visual():
-    """Render visual TOU schedule representation."""
-    st.subheader("TOU Schedule Visualization")
-
-    selected_id = st.session_state.get("lcca_tariff_id", "PG&E B-20")
-    tariff = get_tariff_by_name(selected_id)
-
-    if not tariff:
-        st.warning("Select a tariff first")
-        return
-
-    st.info(f"Showing TOU schedule for: **{tariff.name}** ({tariff.utility})")
-
-    # Display schedule info
-    schedule = tariff.schedule
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.markdown("**Summer Schedule**")
-        st.markdown(f"- Months: {', '.join(str(m) for m in schedule.summer_months)}")
-        if schedule.summer_on_peak:
-            st.markdown(f"- On-Peak Hours: {schedule.summer_on_peak}")
-        if schedule.summer_mid_peak:
-            st.markdown(f"- Mid-Peak Hours: {schedule.summer_mid_peak}")
-        st.markdown(f"- Off-Peak: All other hours")
-
-    with col2:
-        st.markdown("**Winter Schedule**")
-        winter_months = [m for m in range(1, 13) if m not in schedule.summer_months]
-        st.markdown(f"- Months: {', '.join(str(m) for m in winter_months)}")
-        if schedule.winter_on_peak:
-            st.markdown(f"- On-Peak Hours: {schedule.winter_on_peak}")
-        if schedule.winter_mid_peak:
-            st.markdown(f"- Mid-Peak Hours: {schedule.winter_mid_peak}")
-        st.markdown(f"- Off-Peak: All other hours")
-
-    st.markdown(f"**Weekend Treatment:** {'All Off-Peak' if schedule.weekend_all_off_peak else 'Same as Weekday'}")
-
-    # Visual schedule grid
-    if PLOTLY_AVAILABLE:
-        st.divider()
-        st.markdown("**24-Hour Schedule Grid (Summer Weekday)**")
-
-        # Build hour-by-hour schedule
-        hours = list(range(24))
-        periods = []
-        colors = []
-
-        for hour in hours:
-            period = schedule.get_period(7, hour, is_weekend=False)  # July weekday
-            if period.value == "on_peak":
-                periods.append("On-Peak")
-                colors.append("#e74c3c")
-            elif period.value == "mid_peak":
-                periods.append("Mid-Peak")
-                colors.append("#f39c12")
-            else:
-                periods.append("Off-Peak")
-                colors.append("#27ae60")
-
-        fig = go.Figure(data=[
-            go.Bar(
-                x=[f"{h}:00" for h in hours],
-                y=[1] * 24,
-                marker_color=colors,
-                text=periods,
-                textposition="inside",
-                hovertemplate="Hour %{x}: %{text}<extra></extra>"
-            )
-        ])
-
-        fig.update_layout(
-            title="Summer Weekday TOU Periods",
-            xaxis_title="Hour of Day",
-            yaxis_visible=False,
-            height=200,
-            margin=dict(t=50, b=50)
-        )
-
-        st.plotly_chart(fig, use_container_width=True)
-
-        # Winter schedule
-        st.markdown("**24-Hour Schedule Grid (Winter Weekday)**")
-
-        periods_winter = []
-        colors_winter = []
-
-        for hour in hours:
-            period = schedule.get_period(1, hour, is_weekend=False)  # January weekday
-            if period.value == "on_peak":
-                periods_winter.append("On-Peak")
-                colors_winter.append("#c0392b")
-            elif period.value == "mid_peak":
-                periods_winter.append("Mid-Peak")
-                colors_winter.append("#d68910")
-            else:
-                periods_winter.append("Off-Peak")
-                colors_winter.append("#1e8449")
-
-        fig2 = go.Figure(data=[
-            go.Bar(
-                x=[f"{h}:00" for h in hours],
-                y=[1] * 24,
-                marker_color=colors_winter,
-                text=periods_winter,
-                textposition="inside",
-                hovertemplate="Hour %{x}: %{text}<extra></extra>"
-            )
-        ])
-
-        fig2.update_layout(
-            title="Winter Weekday TOU Periods",
-            xaxis_title="Hour of Day",
-            yaxis_visible=False,
-            height=200,
-            margin=dict(t=50, b=50)
-        )
-
-        st.plotly_chart(fig2, use_container_width=True)
-
-
 def render_comparison_tab():
     """Render baseline vs proposed comparison tab."""
     st.header("🔄 Baseline vs Proposed Comparison")
@@ -1290,13 +814,7 @@ def render_interactive_sensitivity(results):
     st.subheader("Interactive Parameter Adjustment")
     st.write("Adjust parameters to see real-time impact on NPV")
 
-    # Handle both RunnerResults and LccaResults
-    lcca = getattr(results, 'lcca_results', results) if results else None
-    if not lcca:
-        st.info("No LCCA results available")
-        return
-
-    base_npv = getattr(lcca, 'npv', 0) or 0
+    base_npv = results.npv
 
     # Interactive sliders in two columns
     col1, col2 = st.columns(2)
@@ -1405,13 +923,7 @@ def render_tornado_chart(results):
     st.subheader("Tornado Chart")
     st.write("Shows which parameters have the largest impact on NPV when varied by ±20%")
 
-    # Handle both RunnerResults and LccaResults
-    lcca = getattr(results, 'lcca_results', results) if results else None
-    if not lcca:
-        st.info("No LCCA results available")
-        return
-
-    base_npv = getattr(lcca, 'npv', 0) or 0
+    base_npv = results.npv
     capex = st.session_state.get("lcca_capex", 100000)
 
     # Calculate actual impacts for +/- 20% change in each parameter
@@ -1537,13 +1049,7 @@ def render_monte_carlo(results):
     st.subheader("Monte Carlo Simulation")
     st.write("Probabilistic analysis showing the range of possible NPV outcomes")
 
-    # Handle both RunnerResults and LccaResults
-    lcca = getattr(results, 'lcca_results', results) if results else None
-    if not lcca:
-        st.info("No LCCA results available")
-        return
-
-    base_npv = getattr(lcca, 'npv', 0) or 0
+    base_npv = results.npv
     capex = st.session_state.get("lcca_capex", 100000)
 
     # Configuration
@@ -1719,13 +1225,7 @@ def render_parameter_sweeps(results):
     st.subheader("Parameter Sweeps")
     st.write("See how NPV changes across a range of values for a single parameter")
 
-    # Handle both RunnerResults and LccaResults
-    lcca = getattr(results, 'lcca_results', results) if results else None
-    if not lcca:
-        st.info("No LCCA results available")
-        return
-
-    base_npv = getattr(lcca, 'npv', 0) or 0
+    base_npv = results.npv
     capex = st.session_state.get("lcca_capex", 100000)
 
     # Parameter selection
@@ -1825,181 +1325,6 @@ def render_parameter_sweeps(results):
             "Status": "Viable" if npv > 0 else "Not Viable",
         })
     st.dataframe(sweep_data, use_container_width=True, hide_index=True)
-
-
-def render_scenarios_tab():
-    """Render scenario management tab."""
-    st.header("Scenario Manager")
-    st.write("Create, compare, and manage multiple LCCA scenarios")
-
-    # Initialize scenario storage
-    if "lcca_scenarios" not in st.session_state:
-        st.session_state.lcca_scenarios = {}
-
-    scenarios = st.session_state.lcca_scenarios
-
-    # Current analysis info
-    results = st.session_state.get("lcca_results")
-    analysis = st.session_state.get("lcca_analysis")
-
-    col1, col2 = st.columns([2, 1])
-
-    with col1:
-        st.subheader("Save Current Analysis as Scenario")
-
-        if results and analysis:
-            scenario_name = st.text_input(
-                "Scenario Name",
-                value=f"Scenario {len(scenarios) + 1}",
-                key="new_scenario_name"
-            )
-
-            scenario_desc = st.text_area(
-                "Description (optional)",
-                placeholder="Describe what makes this scenario different...",
-                height=80,
-                key="new_scenario_desc"
-            )
-
-            if st.button("Save Scenario", type="primary"):
-                # Handle both RunnerResults and LccaResults
-                lcca = getattr(results, 'lcca_results', results) if results else None
-                scenarios[scenario_name] = {
-                    "name": scenario_name,
-                    "description": scenario_desc,
-                    "npv": getattr(lcca, 'npv', 0) or 0,
-                    "irr": getattr(lcca, 'irr', 0) or 0,
-                    "payback": getattr(lcca, 'simple_payback', 0) or 0,
-                    "sir": getattr(lcca, 'sir', 0) or 0,
-                    "annual_savings": getattr(lcca, 'annual_savings', 0) or 0,
-                    "tariff": st.session_state.get("lcca_tariff_id", "Unknown"),
-                    "capex": st.session_state.get("lcca_capex", 0),
-                    "analysis_years": st.session_state.get("lcca_analysis_period", 25),
-                    "discount_rate": st.session_state.get("lcca_discount_rate", 3.0),
-                }
-                st.session_state.lcca_scenarios = scenarios
-                st.success(f"Saved scenario: {scenario_name}")
-        else:
-            st.info("Run an analysis first, then save it as a scenario for comparison")
-
-    with col2:
-        st.subheader("Quick Stats")
-        st.metric("Saved Scenarios", len(scenarios))
-
-        if results:
-            lcca = getattr(results, 'lcca_results', results)
-            npv = getattr(lcca, 'npv', 0) or 0 if lcca else 0
-            st.metric("Current NPV", f"${npv:,.0f}")
-
-    st.divider()
-
-    # Saved scenarios list
-    st.subheader("Saved Scenarios")
-
-    if not scenarios:
-        st.info("No scenarios saved yet. Run analyses with different parameters and save them.")
-    else:
-        # Comparison table
-        table_data = []
-        for name, data in scenarios.items():
-            irr_str = f"{data['irr']*100:.1f}%" if data.get('irr') else "N/A"
-            payback_str = f"{data['payback']:.1f} yr" if data.get('payback') and data['payback'] < 100 else "N/A"
-            sir_str = f"{data['sir']:.2f}" if data.get('sir') else "N/A"
-
-            table_data.append({
-                "Scenario": name,
-                "NPV": f"${data['npv']:,.0f}",
-                "IRR": irr_str,
-                "Payback": payback_str,
-                "SIR": sir_str,
-                "Tariff": data.get('tariff', 'N/A'),
-                "CAPEX": f"${data.get('capex', 0):,.0f}",
-            })
-
-        st.dataframe(table_data, use_container_width=True, hide_index=True)
-
-        # Comparison chart
-        if PLOTLY_AVAILABLE and len(scenarios) >= 2:
-            st.subheader("Scenario Comparison")
-
-            names = list(scenarios.keys())
-            npvs = [scenarios[n]["npv"] for n in names]
-
-            colors = ['#27ae60' if npv > 0 else '#e74c3c' for npv in npvs]
-
-            fig = go.Figure(data=[go.Bar(
-                x=names,
-                y=npvs,
-                marker_color=colors,
-                text=[f"${npv:,.0f}" for npv in npvs],
-                textposition='auto',
-            )])
-
-            fig.update_layout(
-                title="NPV Comparison Across Scenarios",
-                xaxis_title="Scenario",
-                yaxis_title="NPV ($)",
-                height=350,
-            )
-            fig.add_hline(y=0, line_dash="dash", line_color="gray")
-
-            st.plotly_chart(fig, use_container_width=True)
-
-        # Management actions
-        st.subheader("Manage Scenarios")
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            scenario_to_delete = st.selectbox(
-                "Select scenario to delete",
-                [""] + list(scenarios.keys()),
-                key="delete_scenario_select"
-            )
-
-            if scenario_to_delete and st.button("Delete Scenario"):
-                del st.session_state.lcca_scenarios[scenario_to_delete]
-                st.success(f"Deleted: {scenario_to_delete}")
-                st.rerun()
-
-        with col2:
-            if st.button("Clear All Scenarios"):
-                st.session_state.lcca_scenarios = {}
-                st.success("Cleared all scenarios")
-                st.rerun()
-
-        # Export scenarios
-        st.divider()
-        st.subheader("Export Scenarios")
-
-        if st.button("Export Comparison to CSV"):
-            import csv
-            import io
-
-            output = io.StringIO()
-            writer = csv.writer(output)
-
-            # Header
-            writer.writerow(["Scenario", "NPV", "IRR", "Payback", "SIR", "Tariff", "CAPEX", "Description"])
-
-            for name, data in scenarios.items():
-                writer.writerow([
-                    name,
-                    data["npv"],
-                    data.get("irr", ""),
-                    data.get("payback", ""),
-                    data.get("sir", ""),
-                    data.get("tariff", ""),
-                    data.get("capex", ""),
-                    data.get("description", ""),
-                ])
-
-            st.download_button(
-                "Download CSV",
-                data=output.getvalue(),
-                file_name="lcca_scenario_comparison.csv",
-                mime="text/csv"
-            )
 
 
 def render_export_tab():

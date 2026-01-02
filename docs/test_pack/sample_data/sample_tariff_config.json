@@ -1,0 +1,33 @@
+{
+  "tariff_id": "PG&E E-TOU-C",
+  "utility": "Pacific Gas & Electric",
+  "type": "residential",
+  "energy_rates": {
+    "summer_on_peak": 0.47,
+    "summer_mid_peak": 0.35,
+    "summer_off_peak": 0.24,
+    "winter_on_peak": 0.32,
+    "winter_mid_peak": 0.28,
+    "winter_off_peak": 0.24
+  },
+  "demand_rates": {
+    "facility_charge": 0.0,
+    "summer_on_peak": 0.0,
+    "summer_mid_peak": 0.0,
+    "winter_on_peak": 0.0
+  },
+  "fixed_charges": {
+    "monthly_customer_charge": 12.00,
+    "monthly_meter_charge": 0.0
+  },
+  "gas_rate": 1.80,
+  "schedule": {
+    "summer_months": [6, 7, 8, 9],
+    "on_peak_hours": [16, 17, 18, 19, 20],
+    "weekend_all_off_peak": true
+  },
+  "custom_adjustments": {
+    "inflation_rate": 0.03,
+    "escalation_rate": 0.025
+  }
+}

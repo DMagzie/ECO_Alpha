@@ -41,6 +41,19 @@ try:
 except ImportError:
     ENERGYPLUS_AVAILABLE = False
 
+# Import CSE modules
+try:
+    from eco_tools.lcca.cse_runner import (
+        CSERunner, CSERunConfig, CSERunResult,
+        check_cse_available, format_run_result
+    )
+    from eco_tools.lcca.cse_transformer import (
+        CSETransformer, transform_cse_file, format_transform_summary
+    )
+    CSE_AVAILABLE = True
+except ImportError:
+    CSE_AVAILABLE = False
+
 # Import translators
 from eco_tools.translators.cibd22x.exporter import CIBD22XExporter
 from eco_tools.translators.hbjson.exporter import HBJSONExporter
@@ -69,6 +82,11 @@ except ImportError:
     CSV_EXPORT_AVAILABLE = False
 
 
+def _set_nav_and_rerun(target: str):
+    """Callback to set navigation target for main.py to handle."""
+    st.session_state["_pending_nav"] = target
+
+
 def handle_simulation():
     """Main simulation page handler."""
     st.title("⚡ Energy Simulation")
@@ -81,19 +99,27 @@ def handle_simulation():
 
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("📁 Go to Import Page", use_container_width=True):
-                st.session_state.nav_main = "Import"
-                st.rerun()
+            st.button(
+                "📁 Go to Import Page",
+                use_container_width=True,
+                key="sim_nav_import",
+                on_click=_set_nav_and_rerun,
+                args=("Import",)
+            )
         with col2:
-            if st.button("🧙 Go to Wizard", use_container_width=True):
-                st.session_state.nav_main = "🧙 Build Model"
-                st.rerun()
+            st.button(
+                "🧙 Go to Wizard",
+                use_container_width=True,
+                key="sim_nav_wizard",
+                on_click=_set_nav_and_rerun,
+                args=("Build Model",)
+            )
         return
 
     model = st.session_state.active_model
 
     # Show simulation tabs
-    tabs = st.tabs(["🏛️ CBECC-Com (Title 24)", "⚡ EnergyPlus", "📊 Compare Results"])
+    tabs = st.tabs(["🏛️ CBECC-Com (Title 24)", "⚡ EnergyPlus", "🔧 CSE (Zone-Level)", "📊 Compare Results"])
 
     # ===== TAB 1: CBECC-COM =====
     with tabs[0]:
@@ -103,8 +129,12 @@ def handle_simulation():
     with tabs[1]:
         show_energyplus_simulation(model)
 
-    # ===== TAB 3: COMPARE =====
+    # ===== TAB 3: CSE =====
     with tabs[2]:
+        show_cse_simulation(model)
+
+    # ===== TAB 4: COMPARE =====
+    with tabs[3]:
         show_comparison(model)
 
 
@@ -453,6 +483,284 @@ def show_energyplus_simulation(model: Dict[str, Any]):
         if result.get("html_file") and Path(result["html_file"]).exists():
             with st.expander("📄 View HTML Report"):
                 st.markdown(f"[Open Report]({result['html_file']})")
+
+
+def show_cse_simulation(model: Dict[str, Any]):
+    """Show CSE (California Simulation Engine) simulation interface for zone-level metering."""
+    st.header("🔧 CSE Zone-Level Simulation")
+    st.caption("Run CSE for detailed zone-level meter output")
+
+    if not CSE_AVAILABLE:
+        st.error("❌ CSE modules not available")
+        st.info("""
+        **CSE Integration requires:**
+        - CSE executable (bundled with CBECC)
+        - eco_tools.lcca.cse_runner module
+        - eco_tools.lcca.cse_transformer module
+        """)
+        return
+
+    # Check CSE availability
+    cse_available, cse_path = check_cse_available()
+
+    with st.expander("🔍 Check CSE Installation", expanded=False):
+        if st.button("Verify CSE Installation", use_container_width=True):
+            with st.spinner("Checking..."):
+                if cse_available:
+                    st.success(f"✅ CSE found at: {cse_path}")
+                else:
+                    st.error("❌ CSE executable not found")
+                    st.markdown("""
+                    **CSE is bundled with CBECC-Com:**
+                    - Install CBECC-Com from energy.ca.gov
+                    - CSE should be at `/Applications/CBECC 2025.app/Contents/MacOS/CSE`
+                    """)
+
+    st.divider()
+
+    # File selection tabs
+    file_tabs = st.tabs(["📁 Select CSE File", "📤 From CBECC Output"])
+
+    with file_tabs[0]:
+        st.subheader("Select CSE Input File")
+
+        # File uploader for .cse files
+        uploaded_cse = st.file_uploader(
+            "Upload CSE input file",
+            type=["cse"],
+            help="Upload a .cse file from CBECC output",
+            key="cse_file_uploader"
+        )
+
+        if uploaded_cse:
+            # Save to temp location
+            import tempfile
+            with tempfile.NamedTemporaryFile(mode='wb', delete=False, suffix='.cse') as tf:
+                tf.write(uploaded_cse.read())
+                st.session_state.cse_input_file = tf.name
+
+            st.success(f"✅ Loaded: {uploaded_cse.name}")
+
+        # Or specify path directly
+        st.markdown("**Or enter file path:**")
+        cse_path_input = st.text_input(
+            "CSE file path:",
+            value=st.session_state.get("cse_input_file", ""),
+            help="Full path to .cse file",
+            key="cse_path_input"
+        )
+
+        if cse_path_input and Path(cse_path_input).exists():
+            st.session_state.cse_input_file = cse_path_input
+            st.success(f"✅ File found: {Path(cse_path_input).name}")
+
+    with file_tabs[1]:
+        st.subheader("From CBECC Output")
+        st.info("💡 After running a CBECC simulation, the CSE input file is generated in the project's run folder")
+
+        # Check for CBECC file in session state
+        if "cbecc_file" in st.session_state:
+            cbecc_file = Path(st.session_state.cbecc_file)
+            run_folder = cbecc_file.parent / (cbecc_file.stem + " - run")
+
+            if run_folder.exists():
+                cse_files = list(run_folder.glob("*.cse"))
+                if cse_files:
+                    st.success(f"Found {len(cse_files)} CSE file(s) in run folder")
+
+                    selected_cse = st.selectbox(
+                        "Select CSE file:",
+                        options=[f.name for f in cse_files],
+                        help="Select the CSE file to run"
+                    )
+
+                    if selected_cse:
+                        selected_path = run_folder / selected_cse
+                        if st.button("Use This CSE File", type="primary"):
+                            st.session_state.cse_input_file = str(selected_path)
+                            st.success(f"✅ Selected: {selected_cse}")
+                else:
+                    st.warning("No CSE files found in run folder")
+            else:
+                st.warning(f"Run folder not found: {run_folder}")
+        else:
+            st.info("Run a CBECC simulation first to generate CSE input files")
+
+    st.divider()
+
+    # Zone-Level Transformation
+    if "cse_input_file" in st.session_state:
+        cse_file = st.session_state.cse_input_file
+
+        st.subheader("🔄 Zone-Level Transformation")
+        st.info("""
+        The CSE transformer adds zone-level metering to CSE input files:
+        - Creates zone-specific METER definitions
+        - Updates GAIN gnMeter references
+        - Adds EXPORT definitions for hourly output
+        """)
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            enable_transform = st.checkbox(
+                "Enable zone-level transformation",
+                value=True,
+                help="Transform the CSE file to add zone-level metering"
+            )
+
+        with col2:
+            if enable_transform:
+                transform_output = st.text_input(
+                    "Output filename:",
+                    value=Path(cse_file).stem + "_zoned.cse",
+                    help="Name for transformed CSE file"
+                )
+
+        if enable_transform and st.button("🔄 Transform CSE File", type="primary", use_container_width=True):
+            with st.spinner("Transforming CSE file..."):
+                try:
+                    output_path = Path(cse_file).parent / transform_output
+                    result = transform_cse_file(Path(cse_file), output_path)
+
+                    if result.success:
+                        st.success("✅ Transformation complete!")
+
+                        # Show statistics
+                        col1, col2, col3, col4 = st.columns(4)
+                        with col1:
+                            st.metric("Meters Added", result.meters_added)
+                        with col2:
+                            st.metric("Exports Added", result.exports_added)
+                        with col3:
+                            st.metric("GAINs Updated", result.gains_updated)
+                        with col4:
+                            st.metric("RSYS Updated", result.rsys_updated)
+
+                        # Store transformed file
+                        st.session_state.cse_transformed_file = str(output_path)
+                        st.session_state.cse_transform_result = result
+
+                        # Show zone assignments
+                        if result.zone_assignments:
+                            with st.expander("📋 Zone Assignments"):
+                                for zone_name, assignment in result.zone_assignments.items():
+                                    st.markdown(f"- **{zone_name}** → `{assignment.zone_meter}`")
+
+                    else:
+                        st.error("❌ Transformation failed")
+                        for err in result.errors:
+                            st.error(err)
+
+                except Exception as e:
+                    st.error(f"❌ Error: {e}")
+
+        st.divider()
+
+        # Run CSE Simulation
+        st.subheader("⚡ Run CSE Simulation")
+
+        # Select which file to run
+        file_to_run = cse_file
+        if "cse_transformed_file" in st.session_state and enable_transform:
+            file_to_run = st.session_state.cse_transformed_file
+            st.info(f"📁 Running transformed file: {Path(file_to_run).name}")
+        else:
+            st.info(f"📁 Running: {Path(file_to_run).name}")
+
+        # Timeout setting
+        timeout = st.slider("Timeout (seconds)", min_value=60, max_value=600, value=300, step=60)
+
+        if st.button("🚀 Run CSE Simulation", type="primary", use_container_width=True):
+            if not cse_available:
+                st.error("❌ CSE executable not found. Cannot run simulation.")
+            else:
+                with st.spinner("Running CSE simulation..."):
+                    try:
+                        runner = CSERunner()
+                        config = CSERunConfig(
+                            input_file=Path(file_to_run),
+                            timeout_seconds=timeout,
+                        )
+                        result = runner.run(config)
+
+                        # Store result
+                        st.session_state.cse_result = result
+
+                        if result.success:
+                            st.success(f"✅ Simulation completed in {result.execution_time_seconds:.1f}s")
+
+                            # Show key metrics
+                            col1, col2, col3 = st.columns(3)
+                            with col1:
+                                st.metric("Return Code", result.return_code)
+                            with col2:
+                                st.metric("Execution Time", f"{result.execution_time_seconds:.1f}s")
+                            with col3:
+                                st.metric("Output Files", len(result.output_files))
+
+                            # Show output files
+                            if result.output_files:
+                                st.markdown("**Output Files:**")
+                                for f in result.output_files:
+                                    st.markdown(f"- `{f.name}`")
+
+                            # Show CSV output path
+                            if result.csv_output:
+                                st.success(f"📊 CSV Output: {result.csv_output}")
+                                st.session_state.cse_csv_output = str(result.csv_output)
+
+                        else:
+                            st.error("❌ Simulation failed")
+                            if result.error_message:
+                                st.error(result.error_message)
+
+                            # Show stderr
+                            if result.stderr:
+                                with st.expander("Show error output"):
+                                    st.code(result.stderr)
+
+                    except Exception as e:
+                        st.error(f"❌ Error: {e}")
+                        import traceback
+                        with st.expander("Error details"):
+                            st.code(traceback.format_exc())
+
+    # Show previous results
+    if "cse_result" in st.session_state:
+        st.divider()
+        st.subheader("📊 Latest CSE Results")
+
+        result = st.session_state.cse_result
+
+        # Show formatted summary
+        with st.expander("📄 Full Execution Summary"):
+            st.code(format_run_result(result))
+
+        # Show CSV preview if available
+        if result.has_csv_output:
+            with st.expander("📊 Preview CSV Output", expanded=True):
+                try:
+                    import pandas as pd
+                    df = pd.read_csv(result.csv_output, nrows=50)
+                    st.dataframe(df, use_container_width=True)
+
+                    # Download button
+                    csv_content = Path(result.csv_output).read_text()
+                    st.download_button(
+                        label="📥 Download CSV",
+                        data=csv_content,
+                        file_name=result.csv_output.name,
+                        mime="text/csv"
+                    )
+                except Exception as e:
+                    st.warning(f"Could not preview CSV: {e}")
+
+        # Show warnings
+        if result.warnings:
+            with st.expander("⚠️ Warnings"):
+                for w in result.warnings:
+                    st.warning(w)
 
 
 def show_comparison(model: Dict[str, Any]):

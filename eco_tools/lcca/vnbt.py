@@ -725,3 +725,244 @@ def calculate_vnbt_multifamily(
         results[unit_name] = calculate_vnbt_costs(allocated_hourly, tariff)
 
     return results
+
+
+# ---- Zone-Level VNBT Bridge ----
+
+def days_in_month(month: int, year: int = 2024) -> int:
+    """Return number of days in a month."""
+    if month in (1, 3, 5, 7, 8, 10, 12):
+        return 31
+    elif month in (4, 6, 9, 11):
+        return 30
+    elif month == 2:
+        # Leap year check
+        if year % 400 == 0 or (year % 100 != 0 and year % 4 == 0):
+            return 29
+        return 28
+    return 30
+
+
+def convert_hourly_to_net_usage(
+    hourly_kwh: List[float],
+    pv_hourly_kwh: Optional[List[float]] = None,
+    battery_hourly_kwh: Optional[List[float]] = None,
+    year: int = 2024,
+) -> List[HourlyNetUsage]:
+    """
+    Convert raw hourly consumption to HourlyNetUsage format.
+
+    Args:
+        hourly_kwh: 8760 hourly consumption values (kWh)
+        pv_hourly_kwh: 8760 hourly PV generation (positive = generation)
+        battery_hourly_kwh: 8760 hourly battery net (positive = discharge to load)
+        year: Year for weekend determination
+
+    Returns:
+        List of HourlyNetUsage objects
+    """
+    from datetime import date
+
+    hourly_usage = []
+    hour_of_year = 0
+
+    for month in range(1, 13):
+        days = days_in_month(month, year)
+        for day in range(1, days + 1):
+            for hour in range(24):
+                if hour_of_year < len(hourly_kwh):
+                    try:
+                        is_weekend = date(year, month, day).weekday() >= 5
+                    except ValueError:
+                        is_weekend = False
+
+                    pv = pv_hourly_kwh[hour_of_year] if pv_hourly_kwh else 0.0
+                    batt = battery_hourly_kwh[hour_of_year] if battery_hourly_kwh else 0.0
+
+                    # Battery: positive = discharge, negative = charge
+                    batt_discharge = max(0.0, batt)
+                    batt_charge = max(0.0, -batt)
+
+                    hourly_usage.append(HourlyNetUsage(
+                        month=month,
+                        day=day,
+                        hour=hour,
+                        gross_load_kwh=hourly_kwh[hour_of_year],
+                        pv_generation_kwh=pv,
+                        battery_discharge_kwh=batt_discharge,
+                        battery_charge_kwh=batt_charge,
+                        is_weekend=is_weekend,
+                    ))
+                hour_of_year += 1
+
+    return hourly_usage
+
+
+@dataclass
+class ZoneVnbtResult:
+    """V-NBT calculation result for a single zone."""
+    zone_name: str
+    pv_allocation_pct: float
+    pv_allocated_kwh: float
+    gross_load_kwh: float
+    import_kwh: float
+    export_kwh: float
+    self_consumption_kwh: float
+    breakdown: VnbtCostBreakdown
+
+    @property
+    def net_cost(self) -> float:
+        """Net annual cost after export credits."""
+        return self.breakdown.net_electricity_cost
+
+    @property
+    def export_credit(self) -> float:
+        """Total export credit value."""
+        return self.breakdown.total_export_credit
+
+    @property
+    def self_consumption_value(self) -> float:
+        """Value of self-consumed PV at avoided import rates."""
+        return self.breakdown.self_consumption_value
+
+    @property
+    def total_import_cost(self) -> float:
+        """Total import cost before credits."""
+        return self.breakdown.total_import_cost
+
+    @property
+    def total_nbc_cost(self) -> float:
+        """Total non-bypassable charges."""
+        return self.breakdown.total_nbc_cost
+
+    @property
+    def total_fixed_cost(self) -> float:
+        """Total fixed charges."""
+        return self.breakdown.total_fixed_cost
+
+
+def calculate_zone_vnbt(
+    zones: List,  # List[ZoneEnergySummary] - avoid circular import
+    pv_hourly_generation: List[float],
+    tariff: VnbtTariff,
+    allocation_method: str = "by_kwdc",
+) -> Dict[str, ZoneVnbtResult]:
+    """
+    Calculate V-NBT costs for zones with allocated PV generation.
+
+    This bridge function connects ZoneEnergySummary data (with hourly_elec_kwh)
+    to the V-NBT calculation engine.
+
+    Args:
+        zones: List of ZoneEnergySummary objects with hourly_elec_kwh populated
+        pv_hourly_generation: 8760 hours of building PV generation (kWh, positive)
+        tariff: V-NBT tariff to apply
+        allocation_method: How to allocate PV to zones:
+            - "by_kwdc": Proportional to pv_allocation_kwdc
+            - "by_consumption": Proportional to annual consumption
+
+    Returns:
+        Dict mapping zone_name to ZoneVnbtResult
+    """
+    results: Dict[str, ZoneVnbtResult] = {}
+
+    # Calculate allocation fractions
+    if allocation_method == "by_kwdc":
+        total_kwdc = sum(z.pv_allocation_kwdc for z in zones if z.pv_allocation_kwdc > 0)
+        if total_kwdc == 0:
+            # Fall back to consumption-based if no PV allocations
+            allocation_method = "by_consumption"
+
+    if allocation_method == "by_consumption":
+        total_kwh = sum(z.elec_kwh for z in zones if z.elec_kwh > 0)
+        if total_kwh == 0:
+            # No consumption - return empty results
+            return results
+
+    # Process each zone
+    for zone in zones:
+        if not zone.hourly_elec_kwh:
+            continue
+
+        # Calculate allocation fraction
+        if allocation_method == "by_kwdc":
+            alloc_frac = zone.pv_allocation_kwdc / total_kwdc if total_kwdc > 0 else 0.0
+        else:
+            alloc_frac = zone.elec_kwh / total_kwh if total_kwh > 0 else 0.0
+
+        # Allocate PV to this zone
+        zone_pv_hourly = [pv * alloc_frac for pv in pv_hourly_generation]
+
+        # Convert to HourlyNetUsage
+        hourly_net_usage = convert_hourly_to_net_usage(
+            hourly_kwh=zone.hourly_elec_kwh,
+            pv_hourly_kwh=zone_pv_hourly,
+        )
+
+        # Calculate V-NBT costs
+        breakdown = calculate_vnbt_costs(hourly_net_usage, tariff)
+
+        # Summarize results
+        pv_allocated = sum(zone_pv_hourly)
+        import_kwh = sum(h.import_kwh for h in hourly_net_usage)
+        export_kwh = sum(h.export_kwh for h in hourly_net_usage)
+        self_consumption = sum(h.self_consumption_kwh for h in hourly_net_usage)
+
+        results[zone.zone_name] = ZoneVnbtResult(
+            zone_name=zone.zone_name,
+            pv_allocation_pct=alloc_frac * 100,
+            pv_allocated_kwh=pv_allocated,
+            gross_load_kwh=zone.elec_kwh,
+            import_kwh=import_kwh,
+            export_kwh=export_kwh,
+            self_consumption_kwh=self_consumption,
+            breakdown=breakdown,
+        )
+
+    return results
+
+
+def format_zone_vnbt_results(results: Dict[str, ZoneVnbtResult]) -> str:
+    """
+    Format zone V-NBT results as a summary table.
+
+    Args:
+        results: Dict from calculate_zone_vnbt()
+
+    Returns:
+        Formatted string table
+    """
+    lines = [
+        "=" * 90,
+        "ZONE-LEVEL V-NBT RESULTS",
+        "=" * 90,
+        "",
+        f"{'Zone':<30} {'PV%':>6} {'Gross':>10} {'Import':>10} {'Export':>10} {'Net Cost':>12}",
+        "-" * 90,
+    ]
+
+    total_gross = 0.0
+    total_import = 0.0
+    total_export = 0.0
+    total_cost = 0.0
+
+    for name, r in sorted(results.items()):
+        lines.append(
+            f"{name:<30} {r.pv_allocation_pct:>5.1f}% "
+            f"{r.gross_load_kwh:>10,.0f} {r.import_kwh:>10,.0f} "
+            f"{r.export_kwh:>10,.0f} ${r.net_cost:>11,.2f}"
+        )
+        total_gross += r.gross_load_kwh
+        total_import += r.import_kwh
+        total_export += r.export_kwh
+        total_cost += r.net_cost
+
+    lines.extend([
+        "-" * 90,
+        f"{'TOTAL':<30} {'100.0%':>6} "
+        f"{total_gross:>10,.0f} {total_import:>10,.0f} "
+        f"{total_export:>10,.0f} ${total_cost:>11,.2f}",
+        "=" * 90,
+    ])
+
+    return "\n".join(lines)

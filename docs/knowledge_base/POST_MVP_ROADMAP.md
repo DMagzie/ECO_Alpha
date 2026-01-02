@@ -58,6 +58,38 @@ This document outlines the priorities and sequencing of tasks after the MVP rele
 
 ---
 
+## 🐛 Bug Fixes (Critical)
+
+### POLY-001: Polyloop Parser Duplicate Surface Bug
+
+**Priority**: High
+**Documentation**: `docs/knowledge_base/BUG_POLYLOOP_DUPLICATE_SURFACES.md`
+
+**Problem**: The surface parser in `surface_parser.py` (lines 87-96) uses nested loops that cause slab-on-grade floors to be parsed twice, resulting in:
+- Doubled floor area for affected zones
+- Halved ceiling height calculations
+- Incorrect HVAC sizing (2x oversized)
+- Incorrect LCCA normalized metrics (kWh/SF)
+
+**Affected Project**: Gibralter Distribution Center (break room)
+
+**Root Cause**: `zone_elem.iter()` traverses ALL descendants instead of direct children, combined with floor elements matching multiple surface tags (`ExtFlr` and `UndgrFlr`).
+
+**Fix Tasks**:
+- [ ] Replace `zone_elem.iter()` with direct child iteration in `parse_surfaces()`
+- [ ] Add unit test for single-floor-per-zone validation
+- [ ] Add regression test for Gibralter break room area
+- [ ] Verify fix doesn't break existing translations
+- [ ] Update `GIBRALTAR_LESSONS_LEARNED.md` with resolution
+
+**Acceptance Criteria**:
+- Gibralter break room floor appears exactly once in parsed output
+- Break room area matches CBECC GUI value
+- All existing tests pass
+- No new regressions in other sample projects
+
+---
+
 ## 📅 Tagging Milestones
 
 | Tag | Description |

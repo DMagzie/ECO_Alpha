@@ -1,6 +1,12 @@
 [server]
 # Disable module caching so code changes are picked up immediately
 runOnSave = true
+# Increase max upload size to 200MB
+maxUploadSize = 200
+# Disable XSRF protection (can cause 403 errors in development)
+enableXsrfProtection = false
+# Enable CORS for local development
+enableCORS = false
 
 [runner]
 # Clear cache on every run

@@ -84,9 +84,11 @@ class SurfaceParser(BaseParser):
             if not zone_id:
                 continue
 
-            # Find all surfaces in this zone - namespace-aware
+            # Find all surfaces in this zone - direct children only
+            # FIX POLY-001: Changed from zone_elem.iter() to zone_elem (direct children)
+            # to prevent duplicate surfaces when parsing nested zone structures
             for surf_tag in self.SURFACE_TAGS:
-                for surf_elem in zone_elem.iter():
+                for surf_elem in zone_elem:  # Direct children only, not all descendants
                     if self._local_tag(surf_elem.tag) == surf_tag:
                         surface = self._parse_single_surface(surf_elem, surf_tag, zone_id, zone_name)
                         if surface:

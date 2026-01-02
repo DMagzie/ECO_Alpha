@@ -1,0 +1,92 @@
+{
+  "project": {
+    "name": "Sample Multifamily Project",
+    "building_type": "multifamily",
+    "climate_zone": "CZ12",
+    "location": "Sacramento, CA"
+  },
+  "zones": [
+    {
+      "name": "Unit 101 - 1BR",
+      "type": "dwelling",
+      "bedrooms": 1,
+      "area_sqft": 750,
+      "annual_kwh": 4500,
+      "annual_therms": 120
+    },
+    {
+      "name": "Unit 102 - 1BR",
+      "type": "dwelling",
+      "bedrooms": 1,
+      "area_sqft": 750,
+      "annual_kwh": 4350,
+      "annual_therms": 115
+    },
+    {
+      "name": "Unit 103 - 2BR",
+      "type": "dwelling",
+      "bedrooms": 2,
+      "area_sqft": 1050,
+      "annual_kwh": 5800,
+      "annual_therms": 150
+    },
+    {
+      "name": "Unit 201 - 2BR",
+      "type": "dwelling",
+      "bedrooms": 2,
+      "area_sqft": 1050,
+      "annual_kwh": 5650,
+      "annual_therms": 145
+    },
+    {
+      "name": "Unit 202 - 3BR",
+      "type": "dwelling",
+      "bedrooms": 3,
+      "area_sqft": 1350,
+      "annual_kwh": 7200,
+      "annual_therms": 180
+    },
+    {
+      "name": "Corridor L1",
+      "type": "common",
+      "category": "corridor",
+      "area_sqft": 450,
+      "annual_kwh": 1200
+    },
+    {
+      "name": "Corridor L2",
+      "type": "common",
+      "category": "corridor",
+      "area_sqft": 450,
+      "annual_kwh": 1200
+    },
+    {
+      "name": "Lobby",
+      "type": "common",
+      "category": "lobby",
+      "area_sqft": 300,
+      "annual_kwh": 1800
+    },
+    {
+      "name": "Laundry Room",
+      "type": "common",
+      "category": "laundry",
+      "area_sqft": 200,
+      "annual_kwh": 4500
+    },
+    {
+      "name": "Parking Garage",
+      "type": "common",
+      "category": "parking",
+      "area_sqft": 5000,
+      "annual_kwh": 3600
+    }
+  ],
+  "summary": {
+    "total_dwelling_units": 5,
+    "total_common_areas": 5,
+    "total_conditioned_area_sqft": 9350,
+    "total_annual_kwh": 39800,
+    "total_annual_therms": 710
+  }
+}

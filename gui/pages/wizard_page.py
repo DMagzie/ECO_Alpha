@@ -219,6 +219,11 @@ def assign_schedules_to_zones(model: Dict[str, Any], building_type: str) -> None
 # ===== END SCHEDULE HELPERS =====
 
 
+def _set_nav_and_rerun(target: str):
+    """Callback to set navigation target for main.py to handle."""
+    st.session_state["_pending_nav"] = target
+
+
 def handle_wizard():
     """Main wizard handler."""
     st.title("🧙 Model Building Wizard")
@@ -231,9 +236,13 @@ def handle_wizard():
 
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("📁 Go to Import Page", use_container_width=True):
-                st.session_state.nav_main = "Import"
-                st.rerun()
+            st.button(
+                "📁 Go to Import Page",
+                use_container_width=True,
+                key="wizard_nav_import",
+                on_click=_set_nav_and_rerun,
+                args=("Import",)
+            )
         return
 
     model = st.session_state.active_model
@@ -508,7 +517,7 @@ def show_overview_step(model: Dict[str, Any], analysis: Dict[str, Any]):
         if st.button("Next ▶️", type="primary", use_container_width=True):
             if wizard_mode == "Skip Wizard (Manual Editing)":
                 # Go directly to edit page
-                st.session_state.nav_main = "Edit Model"
+                st.session_state["_pending_nav"] = "Edit Model"
                 st.rerun()
             else:
                 st.session_state.wizard_step = 1

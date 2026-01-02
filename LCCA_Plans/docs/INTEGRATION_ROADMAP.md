@@ -308,22 +308,164 @@ eco_tools/
 
 ## Milestones
 
-| Milestone | Description | Dependencies |
-|-----------|-------------|--------------|
-| M1 | CSE hourly parser working | Sample data |
-| M2 | Annual summary calculations | M1 |
-| M3 | LCCA calculators ported | - |
-| M4 | Simulation → LCCA bridge | M1, M2, M3 |
-| M5 | TOU rate calculations | M1 |
-| M6 | ECON-1 PDF generation | M4 |
-| M7 | Excel dashboard export | M4 |
+| Milestone | Description | Dependencies | Status |
+|-----------|-------------|--------------|--------|
+| M1 | CSE hourly parser working | Sample data | Complete |
+| M2 | Annual summary calculations | M1 | Complete |
+| M3 | LCCA calculators ported | - | Complete |
+| M4 | Simulation → LCCA bridge | M1, M2, M3 | Complete |
+| M5 | TOU rate calculations | M1 | Complete |
+| M6 | ECON-1 PDF generation | M4 | Complete |
+| M7 | Excel dashboard export | M4 | Complete |
+| M8 | Site load calculators | - | **Complete** |
+| M9 | Whole-building LCCA schema | M4, M8 | **Complete** |
+| M10 | Site load hourly profiles | M8, M5 | **Complete** |
+| M11 | Whole-building aggregator | M9, M10 | **Complete** |
+| M12 | Abstract SimulationParser | M1 | **Complete** |
+| M13 | Configurable reporting modes | M9 | Planned |
+| M14 | EnergyPlus parser | M12 | Planned (2026) |
+
+---
+
+---
+
+## Phase 6: Non-Modeled Site Loads Integration
+
+**Goal:** Extend LCCA to include non-modeled site energy loads for whole-building analysis.
+
+**Documentation:** See `SITE_LOAD_INTEGRATION_PLAN.md` for full details.
+
+### 6.1 Problem Statement
+
+CBECC simulations model only zone-level loads (HVAC, interior lighting, DHW, plug loads). Real buildings have significant additional energy consumption from:
+- Common area lighting (corridors, stairs, lobbies)
+- Parking garage (lighting + ventilation)
+- Site/exterior lighting
+- Pool and spa systems (pumps + heaters)
+- EV charging infrastructure
+- Elevators and escalators
+- Water system pumps (fire, booster, HW circulator)
+
+### 6.2 Existing Work
+
+Location: `/Users/DavidM/Documents/ECO_Alpha_v7/LCCA Tests/Site Load Calculators/`
+
+| File | Content |
+|------|---------|
+| `NonRes Common Area Energy Calculator.xlsx` | 14 space types, Title 24 LPD |
+| `GBCI Pool Energy Calculator_v01 DRAFT.xlsx` | ENERGY STAR pump curves, DOE heater baselines |
+| `Project Name_House Meter Calculation Summary.xlsx` | Integration template |
+
+### 6.3 Implemented Module Structure
+
+```
+eco_tools/lcca/
+├── whole_building/                     # NEW - Core schema and aggregation
+│   ├── __init__.py
+│   ├── schema.py                       # WholeBuildingEnergy, EnergyStream, etc.
+│   └── aggregator.py                   # Combine modeled + site loads
+│
+├── site_loads/                         # NEW - Site load calculators
+│   ├── __init__.py
+│   ├── load_shapes/
+│   │   ├── __init__.py
+│   │   └── library.py                  # 8760 hourly profile generation
+│   ├── calculators/
+│   │   ├── __init__.py
+│   │   ├── base.py                     # BaseSiteLoadCalculator ABC
+│   │   ├── lighting.py                 # Interior, parking, site lighting
+│   │   ├── pools.py                    # Pool pump, heater, spa
+│   │   ├── vertical_transport.py       # Elevator, escalator
+│   │   └── miscellaneous.py            # EV, IT, pumps, trash, generic
+│   └── reference_data/                 # For future JSON data files
+│
+├── parsers/
+│   ├── base.py                         # NEW - Abstract SimulationParser
+│   └── ... (existing parsers)
+```
+
+### 6.4 Implementation Status
+
+- [x] Create `eco_tools/lcca/whole_building/` module with unified schema
+- [x] Create `eco_tools/lcca/site_loads/` module structure
+- [x] Implement WholeBuildingEnergy, EnergyStream, HourlyRecord data models
+- [x] Implement LoadShapeLibrary for 8760 hourly profile generation
+- [x] Implement lighting calculator (Title 24 2022 LPD)
+- [x] Implement pool/spa calculator (ENERGY STAR + DOE methodology)
+- [x] Implement elevator/escalator calculators
+- [x] Implement EV charger, IT/telecom, water pump, trash compactor calculators
+- [x] Create abstract SimulationParser for engine-agnostic design
+- [x] Create WholeBuildingAggregator to combine modeled + site loads
+- [ ] Add site load sections to Excel/PDF exports
+- [ ] Add comprehensive test suite
+- [ ] Migrate reference data from code to JSON files
+
+### 6.5 Key Formulas
+
+```python
+# Interior Lighting
+kwh = area_sf * lpd_w_sf / 1000 * hours_yr * control * diversity
+
+# Motor/Pump
+kwh = hp * 0.746 / efficiency * hours_day * days_yr
+
+# EV Charging
+kwh = num_ports * kw_per_port * hours_day * 365
+
+# Pool Heater (Gas)
+therms = mbtu_per_sqft_lookup * area * months / efficiency / 100
+```
+
+### 6.6 Acceptance Criteria
+
+- Site load calculations match Excel templates within 1%
+- LCCA reports show clear modeled vs. site load breakdown
+- TOU rates can be applied to site loads (Phase 6.5)
+- Existing modeled-only LCCA workflow unchanged
 
 ---
 
 ## Next Immediate Steps
 
-1. **Create `eco_tools/lcca/` module structure**
-2. **Build CSE hourly parser** with sample Bressi Ranch data
-3. **Calculate annual summaries** from parsed hourly data
-4. **Port NPV/IRR calculators** from existing scaffold
-5. **Create bridge function** connecting simulation to LCCA
+### Phase 1 Complete (December 2024)
+The following core infrastructure is now in place:
+- ✅ Whole-building energy schema (`WholeBuildingEnergy`, `EnergyStream`, `HourlyRecord`)
+- ✅ Site load calculators (lighting, pools, elevators, EV, IT, pumps, etc.)
+- ✅ Load shape library for 8760 hourly profile generation
+- ✅ Abstract SimulationParser for CBECC (future EnergyPlus)
+- ✅ WholeBuildingAggregator for combining modeled + site loads
+
+### Remaining Work
+1. **Add site load sections to Excel export** - Extend excel_export.py
+2. **Add site load sections to PDF export** - Extend pdf_export.py
+3. **Create test suite** for site load calculators
+4. **Migrate reference data to JSON** - Title 24 LPD, pool baselines
+5. **Implement EnergyPlus parser** (2026) - For ASHRAE 90.1 support
+
+### Usage Example
+```python
+from eco_tools.lcca.whole_building import create_whole_building_energy, ReportMode
+
+# Create whole-building energy from simulation + site loads
+wbe = create_whole_building_energy(
+    simulation_file="project - HourlyResults.csv",
+    site_loads_input={
+        "interior_lighting": [
+            {"area_sf": 5000, "space_type": "corridor"},
+            {"area_sf": 1200, "space_type": "lobby"},
+        ],
+        "elevator": [
+            {"num_elevators": 2, "elevator_type": "hydraulic_low_rise"},
+        ],
+        "pool_pump": [
+            {"pool_volume_gal": 50000, "pump_type": "variable_speed"},
+        ],
+    },
+    report_mode=ReportMode.FULL,
+)
+
+# Get summary
+print(f"Modeled: {wbe.modeled.annual.total_elec_kwh:,.0f} kWh")
+print(f"Site Loads: {wbe.site_loads.annual.total_elec_kwh:,.0f} kWh")
+print(f"Combined: {wbe.combined.annual.total_elec_kwh:,.0f} kWh")
+```

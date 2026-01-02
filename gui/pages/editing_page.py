@@ -28,6 +28,11 @@ from gui.pages.editing_modes.tables_editor import handle_tables_editor
 from gui.pages.editing_modes.visual_editor import handle_visual_editor
 
 
+def _set_nav_and_rerun(target: str):
+    """Callback to set navigation target for main.py to handle."""
+    st.session_state["_pending_nav"] = target
+
+
 def handle_editing():
     """Main editing page handler with mode selection."""
     st.title("✏️ Edit Model")
@@ -39,9 +44,13 @@ def handle_editing():
 
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("📁 Go to Import Page", use_container_width=True):
-                st.session_state.nav_main = "Import"
-                st.rerun()
+            st.button(
+                "📁 Go to Import Page",
+                use_container_width=True,
+                key="edit_nav_import",
+                on_click=_set_nav_and_rerun,
+                args=("Import",)
+            )
         return
 
     model = st.session_state.active_model
@@ -96,7 +105,7 @@ def handle_editing():
             if st.button("Use Wizard", use_container_width=True, type="primary" if st.session_state.editing_mode == "Wizard" else "secondary"):
                 st.session_state.editing_mode = "Wizard"
                 # Redirect to wizard page
-                st.session_state.nav_main = "🧙 Build Model"
+                st.session_state["_pending_nav"] = "Build Model"
                 st.rerun()
 
     with col4:
@@ -138,7 +147,7 @@ def handle_editing():
     elif st.session_state.editing_mode == "Wizard":
         # This shouldn't be reached since we redirect to wizard page
         st.info("Redirecting to Wizard...")
-        st.session_state.nav_main = "🧙 Build Model"
+        st.session_state["_pending_nav"] = "Build Model"
         st.rerun()
 
     else:

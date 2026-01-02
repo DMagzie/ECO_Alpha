@@ -319,6 +319,49 @@ from .aggregator import (
     format_lcca_summary as format_aggregated_summary,  # Renamed to avoid conflict
 )
 
+# Zone-Meter Mapping (CSE Transformation Platform)
+from .zone_meter_mapper import (
+    ZoneClassification,
+    ZoneMeterAssignment,
+    MeterHierarchy,
+    ZoneMeterMapper,
+    extract_bedroom_count,
+    classify_zone_from_name,
+    get_common_area_category_from_name,
+    map_cse_zones,
+    format_meter_hierarchy,
+)
+
+# CSE Transformer (CSE Transformation Platform)
+from .cse_transformer import (
+    TransformResult,
+    CSEMeterDefinition,
+    CSEExportDefinition,
+    CSETransformer,
+    transform_cse_file,
+    format_transform_summary,
+)
+
+# CSE Runner (CSE Transformation Platform)
+from .cse_runner import (
+    CSERunConfig,
+    CSERunResult,
+    CSERunner,
+    find_cse_executable,
+    run_cse,
+    check_cse_available,
+    format_run_result,
+)
+
+# Zone Simulation Pipeline (CSE Transformation Platform)
+from .zone_simulation import (
+    ZoneSimulationConfig,
+    ZoneSimulationResult,
+    ZoneSimulationPipeline,
+    run_zone_simulation,
+    format_simulation_result,
+)
+
 __all__ = [
     # Data models
     "HourlyEnergy",
@@ -573,4 +616,35 @@ __all__ = [
     "LCCADataAggregator",
     "aggregate_lcca_data",
     "format_aggregated_summary",
+    # Zone-Meter Mapping (CSE Transformation)
+    "ZoneClassification",
+    "ZoneMeterAssignment",
+    "MeterHierarchy",
+    "ZoneMeterMapper",
+    "extract_bedroom_count",
+    "classify_zone_from_name",
+    "get_common_area_category_from_name",
+    "map_cse_zones",
+    "format_meter_hierarchy",
+    # CSE Transformer (CSE Transformation)
+    "TransformResult",
+    "CSEMeterDefinition",
+    "CSEExportDefinition",
+    "CSETransformer",
+    "transform_cse_file",
+    "format_transform_summary",
+    # CSE Runner (CSE Transformation)
+    "CSERunConfig",
+    "CSERunResult",
+    "CSERunner",
+    "find_cse_executable",
+    "run_cse",
+    "check_cse_available",
+    "format_run_result",
+    # Zone Simulation Pipeline (CSE Transformation)
+    "ZoneSimulationConfig",
+    "ZoneSimulationResult",
+    "ZoneSimulationPipeline",
+    "run_zone_simulation",
+    "format_simulation_result",
 ]

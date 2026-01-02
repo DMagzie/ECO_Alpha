@@ -88,6 +88,28 @@ from .cse_input import (
     CSEDHWLoop,
     CSEDHWSystem,
 )
+from .cse_zone_input import (
+    parse_cse_zone_input,
+    CSEZoneInputParser,
+    CSEZoneInputModel,
+    CSEZone,
+    CSEGain,
+    CSESurface,
+    CSETerminal,
+    CSERsys,
+    CSEDuctSeg,
+    CSEAirHandler,
+    CSEMeter,
+    CSEExport,
+)
+from .cse_zone_output import (
+    parse_cse_zone_output,
+    CSEZoneOutputParser,
+    CSEZoneOutputModel,
+    ZoneHourlyData,
+    format_zone_output_summary,
+    get_zone_energy_summaries,
+)
 from .nrccprf import (
     parse_nrccprf,
     NRCCPRFParser,
@@ -95,6 +117,12 @@ from .nrccprf import (
     NRCCPRFProjectInfo,
     NRCCPRFComplianceResult,
     NRCCPRFEndUseBreakdown,
+)
+from .base import (
+    SimulationParser,
+    CbeccSimulationParser,
+    EnergyPlusParser,
+    get_parser_for_file,
 )
 
 __all__ = [
@@ -171,6 +199,26 @@ __all__ = [
     "CSEDHWTank",
     "CSEDHWLoop",
     "CSEDHWSystem",
+    # CSE Zone Input (zone-level metering)
+    "parse_cse_zone_input",
+    "CSEZoneInputParser",
+    "CSEZoneInputModel",
+    "CSEZone",
+    "CSEGain",
+    "CSESurface",
+    "CSETerminal",
+    "CSERsys",
+    "CSEDuctSeg",
+    "CSEAirHandler",
+    "CSEMeter",
+    "CSEExport",
+    # CSE Zone Output (zone-level results)
+    "parse_cse_zone_output",
+    "CSEZoneOutputParser",
+    "CSEZoneOutputModel",
+    "ZoneHourlyData",
+    "format_zone_output_summary",
+    "get_zone_energy_summaries",
     # NRCCPRF (Project Summary)
     "parse_nrccprf",
     "NRCCPRFParser",
@@ -178,4 +226,9 @@ __all__ = [
     "NRCCPRFProjectInfo",
     "NRCCPRFComplianceResult",
     "NRCCPRFEndUseBreakdown",
+    # Abstract Parser Base (for engine-agnostic design)
+    "SimulationParser",
+    "CbeccSimulationParser",
+    "EnergyPlusParser",
+    "get_parser_for_file",
 ]

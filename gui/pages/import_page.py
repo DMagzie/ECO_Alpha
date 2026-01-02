@@ -13,6 +13,13 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+# Try to import CUAC parser
+try:
+    from eco_tools.lcca.cuac.csv_parser import parse_cuac_csv, CuacResults
+    CUAC_AVAILABLE = True
+except ImportError:
+    CUAC_AVAILABLE = False
+
 # Add gui to path
 EXPLORER_GUI = ROOT / "gui"
 if str(EXPLORER_GUI) not in sys.path:
@@ -41,8 +48,8 @@ def handle_import():
         # File uploader
         uploaded_file = st.file_uploader(
             "Choose a file",
-            type=["xml", "cibd22x", "cibd22", "cibd25", "json", "gem"],
-            help="Upload CIBD22X XML (.xml, .cibd22x), CIBD22 text (.cibd22), CIBD25 text (.cibd25), EMJSON v6 JSON, or IES GEM (.gem) file",
+            type=["xml", "cibd22x", "cibd22", "cibd25", "json", "gem", "csv"],
+            help="Upload CIBD22X XML, CIBD22/25 text, EMJSON JSON, IES GEM, or CUAC CSV file",
             key="model_file_uploader"
         )
 
@@ -139,6 +146,66 @@ def handle_import():
                             st.error(f"❌ Invalid JSON: {str(e)}")
                         except Exception as e:
                             st.error(f"❌ Failed to load: {str(e)}")
+
+            elif file_extension == "csv":
+                # CUAC CSV format
+                st.markdown("### CUAC CSV Import")
+
+                if not CUAC_AVAILABLE:
+                    st.error("CUAC parser not available. Install eco_tools.lcca module.")
+                else:
+                    st.info("ℹ️ CUAC.csv files contain utility allowance data from CBECC multifamily simulations")
+
+                    # Check if it looks like a CUAC file
+                    uploaded_file.seek(0)
+                    first_lines = uploaded_file.read(500).decode('utf-8', errors='ignore')
+                    uploaded_file.seek(0)
+
+                    is_cuac = "CUAC" in first_lines or "Utility Allowance" in first_lines or "Monthly Allowances" in first_lines
+
+                    if not is_cuac:
+                        st.warning("⚠️ This doesn't appear to be a CUAC.csv file. Check the file contents.")
+
+                    if st.button("Import CUAC CSV", type="primary"):
+                        with st.spinner("Parsing CUAC data..."):
+                            try:
+                                # Save to temp file for parsing
+                                with tempfile.NamedTemporaryFile(mode='wb', delete=False, suffix='.csv') as tf:
+                                    uploaded_file.seek(0)
+                                    tf.write(uploaded_file.read())
+                                    temp_path = tf.name
+
+                                # Parse CUAC file
+                                cuac_results = parse_cuac_csv(temp_path)
+
+                                # Store in session state
+                                st.session_state['cuac_results'] = cuac_results
+                                st.session_state['cuac_filename'] = uploaded_file.name
+
+                                # Show summary
+                                st.success(f"✅ Imported CUAC data: {cuac_results.project_name}")
+
+                                col1, col2, col3 = st.columns(3)
+                                with col1:
+                                    st.metric("Unit Types", len(cuac_results.consumption_by_unit_type))
+                                with col2:
+                                    st.metric("Total kWh", f"{cuac_results.building_total_kwh:,.0f}")
+                                with col3:
+                                    st.metric("Tariff Date", cuac_results.tariff_date or "N/A")
+
+                                # Show unit breakdown
+                                st.subheader("Consumption by Unit Type")
+                                for ut_name, ut_data in cuac_results.consumption_by_unit_type.items():
+                                    st.write(f"**{ut_name}:** {ut_data.total_kwh:,.0f} kWh/yr")
+
+                                # Cleanup temp file
+                                try:
+                                    os.unlink(temp_path)
+                                except:
+                                    pass
+
+                            except Exception as e:
+                                st.error(f"❌ Failed to parse CUAC file: {str(e)}")
 
             else:
                 st.error(f"❌ Unsupported file type: {file_extension}")

@@ -1,10 +1,14 @@
-# LCCA Module Roadmap v2.0
-## ECO Tools Alpha v7 - Updated Implementation Plan
+# LCCA Module Roadmap v2.3
+## ECO Tools Alpha v7 - Final Release
 
-**Date:** December 22, 2024
-**Version:** 2.0
-**Status:** Active Development
+**Date:** January 1, 2025
+**Version:** 2.3
+**Status:** Production Ready - v7 Release Complete
 **Supersedes:** lcca_project_summary.md (December 22, 2024)
+**Changelog:**
+- v2.3: Zone-level TOU, VNBT, CLI, and GUI integration complete (Jan 1, 2025)
+- v2.2: Phase 6.5 (CSE Input Transformation) validated with real project data
+- v2.1: Added Phase 6.5 (CSE Input Transformation Platform) and documentation
 
 ---
 
@@ -1250,6 +1254,184 @@ xlsxwriter>=3.1     # Enhanced Excel features
   - Enables `python -m eco_tools.lcca` CLI execution
 - [x] Integration tests (test_phase6_integration.py, 50 tests)
 
+### Week 13-14: CSE Input Transformation Platform ✅ VALIDATED (Phase 6.5)
+
+**Objective:** Enable zone-level energy analysis by transforming CSE input files with hierarchical meter structure
+
+**Problem Solved:** CBECC's default CSE output aggregates energy by story-level meters (e.g., `sbmtrE1_Res_1st Story`), making per-zone LCCA impossible. This platform enables granular zone-level hourly data.
+
+**Validation Status:** ✅ PASSED (December 29, 2024)
+- Test Project: Ventura & 7th Multifamily (19 zones, 31 meters)
+- Zone totals match building totals within 2.9%
+- 210,360 rows of hourly meter data produced
+- Full end-use breakdown per zone
+
+#### 6.5.1 CSE Input Parser (`parsers/cse_zone_input.py`) ✅
+- [x] Parse CBECC-generated CSE input files into structured Python objects
+- [x] Extract ZONE definitions with area, volume, model type
+- [x] Extract GAIN definitions with gnMeter and gnEndUse
+- [x] Extract RSYS definitions with meter assignments
+- [x] Extract existing METER and EXPORT definitions
+- [x] CSEZoneInputModel dataclass aggregating all components
+
+#### 6.5.2 Zone-Meter Mapper (`zone_meter_mapper.py`) ✅
+- [x] Zone classification engine (DWELLING_UNIT, COMMON_AREA, UNCONDITIONED)
+- [x] CommonAreaCategory assignment (LOBBY, CORRIDOR, FITNESS, etc.)
+- [x] Hierarchical meter naming convention
+- [x] Building → Section → Category → Zone meter structure
+- [x] ZoneMeterAssignment and MeterHierarchy dataclasses
+- [x] Submeter relationships with multipliers
+
+#### 6.5.3 CSE Transformer (`cse_transformer.py`) ✅
+- [x] Transform CSE input with zone-level metering
+- [x] Update GAIN gnMeter references to zone meters
+- [x] Update RSYS rsElecMtr/rsFuelMtr references
+- [x] Inject new METER definitions with submeter hierarchy
+- [x] Inject new EXPORT definitions for hourly data
+- [x] TransformResult with statistics and output path
+
+#### 6.5.4 CSE Runner (`cse_runner.py`) ✅
+- [x] Locate CSE executable (macOS/Windows)
+- [x] Execute transformed CSE input files
+- [x] Capture stdout/stderr and return codes
+- [x] Collect output files (*-CSE.CSV, reports)
+- [x] Timeout handling and error reporting
+- [x] CSERunConfig and CSERunResult dataclasses
+
+#### 6.5.5 Zone Output Parser (`parsers/cse_zone_output.py`) ✅
+- [x] Parse CSE hourly meter output CSV
+- [x] Extract 8760 hourly values per meter
+- [x] End-use breakdown (Clg, Htg, Dhw, Lit, Rcp, etc.)
+- [x] ZoneHourlyData with annual totals and peak demand
+- [x] CSEZoneOutputModel aggregating all meters
+
+#### 6.5.6 Pipeline Orchestrator (`zone_simulation.py`) ✅
+- [x] High-level API coordinating all components
+- [x] ZoneSimulationConfig for pipeline configuration
+- [x] ZoneSimulationResult with ZoneEnergySummary objects
+- [x] `run_zone_simulation()` convenience function
+- [x] Meter hierarchy and zone assignment reporting
+
+#### 6.5.7 Meter Hierarchy Structure
+```
+MtrElec (Building Total)
+├── MtrElec_Residential (All Dwelling Units)
+│   ├── MtrElec_DU_0BR (Studio units)
+│   ├── MtrElec_DU_1BR (1-bedroom units)
+│   ├── MtrElec_DU_2BR (2-bedroom units)
+│   └── MtrElec_DU_3BR (3-bedroom units)
+│
+├── MtrElec_CommonArea (All Common Areas)
+│   ├── MtrElec_CA_LOBBY
+│   ├── MtrElec_CA_CORRIDOR
+│   ├── MtrElec_CA_FITNESS
+│   ├── MtrElec_CA_MECHANICAL
+│   ├── MtrElec_CA_PARKING
+│   └── MtrElec_CA_OTHER
+│
+└── MtrElec_NonResidential (Commercial/Retail)
+    ├── MtrElec_NR_Office
+    └── MtrElec_NR_Retail
+```
+
+#### 6.5.8 Usage Example
+```python
+from pathlib import Path
+from eco_tools.lcca.zone_simulation import run_zone_simulation
+
+result = run_zone_simulation(
+    cbecc_run_dir=Path("/project - run"),
+    run_cse=True,
+)
+
+for zone in result.proposed_zones:
+    print(f"{zone.zone_name}: {zone.elec_kwh:,.0f} kWh")
+    # zone.hourly_elec_kwh now contains 8760 values for TOU/VNBT
+```
+
+#### 6.5.9 Documentation ✅
+- [x] `LCCA_Plans/reference/cse_guide.md` - CSE reference guide
+- [x] `LCCA_Plans/reference/cse_lcca_architecture.md` - Architecture documentation
+
+#### 6.5.10 Deliverables Summary
+| File | Lines | Purpose |
+|------|-------|---------|
+| `parsers/cse_zone_input.py` | ~600 | Parse CSE input files |
+| `zone_meter_mapper.py` | ~700 | Zone classification & meters |
+| `cse_transformer.py` | ~500 | Transform CSE with zone meters |
+| `cse_runner.py` | ~400 | Execute CSE simulation |
+| `parsers/cse_zone_output.py` | ~500 | Parse CSE output CSV |
+| `zone_simulation.py` | ~500 | Pipeline orchestrator |
+
+#### 6.5.11 Validation Results (December 29, 2024)
+
+**Test Project:** Ventura & 7th Multifamily (19 zones)
+
+| Metric | Result |
+|--------|--------|
+| Zones Parsed | 19 (9 DU + 10 CA) |
+| Meters Created | 31 |
+| Exports Added | 19 |
+| GAINs Updated | 243 |
+| CSE Execution | ~35 min (Wine/macOS) |
+| Output Rows | 210,360 |
+
+**Energy Validation:**
+| Comparison | kWh |
+|------------|-----|
+| Original CBECC Total | 930,236 |
+| Zone Meters Sum | 956,925 |
+| **Difference** | **+2.9%** ✓ |
+
+**Bugs Fixed During Validation:**
+1. Parser bug: Zones skipped after nested objects (added `continue` after nested parsing)
+2. Export injection: EXPORTCOL attachment (insert before RUN statement)
+
+#### 6.5.12 Next Steps for Integration
+- [x] Integrate with TOU rate calculations using hourly_elec_kwh ✅ **COMPLETE (Jan 1, 2025)**
+- [x] Connect to VNBT allocation for per-zone PV credits ✅ **COMPLETE (Jan 1, 2025)**
+- [x] Add to CLI as `zone-analyze` command ✅ **COMPLETE (Jan 1, 2025)**
+- [x] GUI integration for zone-level LCCA dashboard ✅ **COMPLETE (Jan 1, 2025)**
+
+##### TOU Integration with Zone Hourly Data (VALIDATED)
+
+The complete data flow from zone meters to TOU cost calculations is now functional:
+
+```
+CSE Zone Output → ZoneEnergySummary.hourly_elec_kwh → ZoneCostAllocator._calculate_tou_costs() → TouCostBreakdown
+```
+
+**Key Integration Points:**
+1. `zone_simulation.py:346-353` - Populates `hourly_elec_kwh` from `meter_data.total_kwh`
+2. `zone_allocation.py:145-146` - Checks for hourly data and calls `_calculate_tou_costs()`
+3. `zone_allocation.py:168-212` - Converts hourly data to `HourlyUsage` and calculates TOU breakdown
+4. `tariffs.py:225-368` - `calculate_tou_costs()` returns full `TouCostBreakdown`
+
+**Usage Example:**
+```python
+from eco_tools.lcca.zone_simulation import run_zone_simulation
+from eco_tools.lcca.zone_allocation import calculate_zone_lcca
+from eco_tools.lcca.tariffs import create_pge_e_tou_c
+
+# Run zone simulation
+result = run_zone_simulation(cbecc_run_dir)
+
+# Create TOU tariff
+tariff = create_pge_e_tou_c()
+
+# Calculate zone-level LCCA with TOU rates
+summary = calculate_zone_lcca(
+    zone_summaries=result.proposed_zones,  # Contains hourly_elec_kwh
+    tariff=tariff,
+)
+
+# Each zone now has TOU breakdown
+for zone_result in summary.zone_results:
+    print(f"{zone_result.zone_name}:")
+    print(f"  Summer On-Peak: ${zone_result.summer_on_peak_cost:,.2f}")
+    print(f"  Winter Off-Peak: ${zone_result.winter_off_peak_cost:,.2f}")
+```
+
 ---
 
 ## 8. Future Phases - Roadmap
@@ -1366,28 +1548,98 @@ gui/pages/
 
 ---
 
-### Phase 10: API & Advanced Features (Future)
+### Phase 10: EV Calculator Enhancements (Planned - 2-3 weeks)
+
+**Objective:** Improve accuracy and realism of EV charging load calculations
+
+**Reference:** Review discussion from January 2026 code review
+
+#### 10.1 Document Utilization Assumptions
+- [ ] Add docstring documenting basis for MF assigned parking utilization (2.5 hrs/day)
+  - Current: 7.2 kW × 2.5 hrs = 18 kWh/day per port
+  - Typical EV: 25-35 kWh per 100 miles, avg driver ~30 miles/day = ~10 kWh/day
+  - Document that current value assumes some non-daily charging
+- [ ] Add references to DOE/NREL EV charging utilization studies
+- [ ] Consider making utilization configurable per project type
+
+#### 10.2 CALGreen Receptacle vs Charger Distinction
+- [ ] Add `charger_installation_rate` parameter for CALGreen mode
+  - Receptacles may not have chargers installed initially
+  - Default: 1.0 (all receptacles have chargers) for conservative estimate
+  - Allow: 0.3-0.5 for realistic "receptacle-ready" scenarios
+- [ ] Update `calculate_calgreen_2025_requirements()` to return:
+  - `dwelling_receptacles` - Required EV-ready outlets (1 per unit)
+  - `dwelling_chargers` - Estimated actual chargers (receptacles × installation_rate)
+  - `common_chargers` - Required common area chargers (25% of common spaces)
+- [ ] Update annual energy calculation to use `dwelling_chargers` not `dwelling_receptacles`
+
+#### 10.3 Weekday/Weekend Utilization Differentiation
+- [ ] Add `weekday_hours` and `weekend_hours` parameters
+- [ ] Create location-specific weekday/weekend profiles:
+  ```python
+  UTILIZATION_PROFILES = {
+      "workplace": {"weekday": 5.0, "weekend": 0.5},
+      "mf_assigned": {"weekday": 2.0, "weekend": 3.5},
+      "mf_shared": {"weekday": 1.2, "weekend": 2.0},
+      "retail": {"weekday": 1.5, "weekend": 3.0},
+  }
+  ```
+- [ ] Update `calculate_annual()` to weight by 260 weekdays + 105 weekend days
+- [ ] Adjust load shape profiles to match weekday/weekend patterns
+
+#### 10.4 Differentiated Peak Demand by Port Type
+- [ ] Separate peak demand calculation for dwelling vs common chargers
+  - Dwelling receptacles: Lower simultaneity (overnight charging, staggered)
+  - Common chargers: Higher simultaneity (daytime use, visible availability)
+- [ ] Add parameters:
+  ```python
+  dwelling_simultaneity: float = 0.25  # Lower - overnight staggered
+  common_simultaneity: float = 0.60    # Higher - daytime demand
+  ```
+- [ ] Update peak calculation:
+  ```python
+  peak_kw = (
+      dwelling_ports * kw_per_port * dwelling_simultaneity +
+      common_ports * kw_per_port * common_simultaneity
+  )
+  ```
+
+#### 10.5 Tests & Documentation
+- [ ] Update `tests/lcca/test_ev_calculator.py` with new parameter tests
+- [ ] Add integration test with realistic MF building scenario
+- [ ] Document methodology in docstrings with references
+
+**Deliverables:**
+| File | Changes |
+|------|---------|
+| `site_loads/calculators/miscellaneous.py` | EVChargerCalculator enhancements |
+| `tests/lcca/test_ev_calculator.py` | New test cases |
+| `docs/site_loads/ev_methodology.md` | Methodology documentation (optional) |
+
+---
+
+### Phase 11: API & Advanced Features (Future)
 
 **Objective:** Production-ready features for enterprise use
 
-#### 10.1 REST API Layer (Optional)
+#### 11.1 REST API Layer (Optional)
 - [ ] FastAPI wrapper for LCCA functions
 - [ ] Authentication/authorization
 - [ ] Rate limiting
 - [ ] API documentation (OpenAPI)
 
-#### 10.2 Database Persistence
+#### 11.2 Database Persistence
 - [ ] SQLite/PostgreSQL storage for portfolios
 - [ ] Historical trend storage
 - [ ] User preferences
 
-#### 10.3 Advanced Analytics
+#### 11.3 Advanced Analytics
 - [ ] Monte Carlo risk analysis
 - [ ] Machine learning EUI prediction
 - [ ] Automated ECM recommendations
 - [ ] What-if scenario builder
 
-#### 10.4 External Integrations
+#### 11.4 External Integrations
 - [ ] EnergyScoreCards (Bright Power) export
 - [ ] EC3 embodied carbon integration
 - [ ] REopt distributed energy optimization
@@ -1500,10 +1752,18 @@ eco_tools/lcca/
 ├── meter_aggregation.py     # NEW: Meter category aggregation
 ├── benchmarks.py            # NEW: Zone benchmarking
 │
+├── # PHASE 6.5: CSE INPUT TRANSFORMATION PLATFORM (COMPLETE)
+├── zone_meter_mapper.py     # Zone classification & hierarchical meters
+├── cse_transformer.py       # Transform CSE input with zone meters
+├── cse_runner.py            # Execute CSE simulation engine
+├── zone_simulation.py       # Pipeline orchestrator
+│
 ├── parsers/
 │   ├── __init__.py
 │   ├── hourly_results.py    # Existing
-│   └── cse_hourly.py        # Existing
+│   ├── cse_hourly.py        # Existing
+│   ├── cse_zone_input.py    # NEW: CSE input file parser
+│   └── cse_zone_output.py   # NEW: CSE output CSV parser
 │
 ├── cuac/
 │   ├── __init__.py
@@ -1515,6 +1775,13 @@ eco_tools/lcca/
     ├── __init__.py
     ├── models.py            # Enhanced with energy fields
     └── parser.py            # Enhanced for energy extraction
+
+LCCA_Plans/
+├── LCCA_ROADMAP_v2.md       # This roadmap document
+├── reference/
+│   ├── existing_lcca_code.md
+│   ├── cse_guide.md         # NEW: CSE reference guide
+│   └── cse_lcca_architecture.md  # NEW: CSE-LCCA architecture
 
 tests/
 ├── test_costdb_v06.py       # NEW: CostDB v0.06 validation tests
@@ -1651,7 +1918,7 @@ def get_region_from_climate_zone(cz: str) -> str:
 
 ---
 
-**Document Version:** 2.0
-**Last Updated:** December 22, 2024
+**Document Version:** 2.3
+**Last Updated:** January 1, 2025
 **Author:** ECO Tools Development Team
-**Status:** Active Roadmap
+**Status:** Production Ready - v7 Release Complete
